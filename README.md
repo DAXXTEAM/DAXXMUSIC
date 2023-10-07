@@ -5,7 +5,11 @@
 
 [![GIF](https://github.com/DAXXTEAM/DAXXMUSIC/blob/main/DAXXTEAM.gif)](https://github.com/DAXXTEAM)
    [![𝐌𝐑.𝐃𝐀𝐗𝐗](https://github-stats-alpha.vercel.app/api?username=DAXXTEAM "MRDAXX")](https://github-stats-alpha.vercel.app/api?username=DAXXTEAM "MRDAXX")
-                  
+
+
+<p align="center">
+  <img src="">
+</p>
 
 
 
