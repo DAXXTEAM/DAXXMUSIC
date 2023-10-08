@@ -21,7 +21,7 @@ async def init():
         and not config.STRING4
         and not config.STRING5
     ):
-        LOGGER(__name__).error("Assistant client variables not defined, exiting...")
+        LOGGER(__name__).error("𝐒𝐭𝐫𝐢𝐧𝐠 𝐒𝐞𝐬𝐬𝐢𝐨𝐧 𝐍𝐨𝐭 𝐅𝐢𝐥𝐥𝐞𝐝, 𝐏𝐥𝐞𝐚𝐬𝐞 𝐅𝐢𝐥𝐥 𝐀 𝐏𝐲𝐫𝐨𝐠𝐫𝐚𝐦 𝐒𝐞𝐬𝐬𝐢𝐨𝐧")
         exit()
     await sudo()
     try:
@@ -36,7 +36,7 @@ async def init():
     await app.start()
     for all_module in ALL_MODULES:
         importlib.import_module("DAXXMUSIC.plugins" + all_module)
-    LOGGER("DAXXMUSIC.plugins").info("Successfully Imported Modules...")
+    LOGGER("DAXXMUSIC.plugins").info("𝐀𝐥𝐥 𝐅𝐞𝐚𝐭𝐮𝐫𝐞𝐬 𝐋𝐨𝐚𝐝𝐞𝐝 𝐁𝐚𝐛𝐲🥳...")
     await userbot.start()
     await DAXX.start()
     try:
@@ -50,7 +50,7 @@ async def init():
         pass
     await DAXX.decorators()
     LOGGER("DAXXMUSIC").info(
-        "\x41\x6e\x6f\x6e\x58\x20\x4d\x75\x73\x69\x63\x20\x42\x6f\x74\x20\x53\x74\x61\x72\x74\x65\x64\x20\x53\x75\x63\x63\x65\x73\x73\x66\x75\x6c\x6c\x79\x2e\n\n\x44\x6f\x6e'\x74\x20\x66\x6f\x72\x67\x65\x74\x20\x74\x6f\x20\x76\x69\x73\x69\x74\x20\x40\x46\x61\x6c\x6c\x65\x6e\x41\x73\x73\x6f\x63\x69\x61\x74\x69\x6f\x6e"
+        "╔═════ஜ۩۞۩ஜ════╗\n  ♨️𝗠𝗔𝗗𝗘 𝗕𝗬 𝐃𝐀𝐗𝐗♨️\n╚═════ஜ۩۞۩ஜ════╝"
     )
     await idle()
     await app.stop()
