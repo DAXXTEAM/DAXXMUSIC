@@ -8,7 +8,7 @@ import config
 from DAXXMUSIC import LOGGER, app, userbot
 from DAXXMUSIC.core.call import DAXX
 from DAXXMUSIC.misc import sudo
-from DAXXMYSIC.plugins import ALL_MODULES
+from DAXXMUSIC.plugins import ALL_MODULES
 from DAXXMUSIC.utils.database import get_banned_users, get_gbanned
 from config import BANNED_USERS
 
