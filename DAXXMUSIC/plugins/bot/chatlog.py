@@ -3,7 +3,7 @@ from pyrogram import Client
 from pyrogram.types import Message
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-from config import LOG_GROUP_ID
+from logger import LOG_GROUP_ID
 from DAXXMUSIC import app  
 
 photo = [
