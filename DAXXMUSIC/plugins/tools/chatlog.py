@@ -1,7 +1,6 @@
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from config import LOGGER_ID as LOG_GROUP_ID
-from .. import app
 from DAXXMUSIC import app
 
 async def new_message(chat_id: int, message: str):
