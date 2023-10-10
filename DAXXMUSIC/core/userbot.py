@@ -57,7 +57,7 @@ class Userbot(Client):
                 pass
             assistants.append(1)
             try:
-                await self.one.send_message(config.LOGGER_ID, "💛𝐔-𝐍:- @{self.one.username})
+                await self.one.send_message(config.LOGGER_ID, "💛𝐔-𝐍:- @{self.one.username}")
                                          
             except:
                 LOGGER(__name__).error(
