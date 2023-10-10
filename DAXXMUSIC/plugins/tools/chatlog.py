@@ -50,8 +50,8 @@ async def on_left_chat_member(_, message: Message):
 
 #welcome
 
-@app.on_message(filters.new_chat_members, group=3)
-async def join_watcher(_, message):    
+@app.on_chat_member_updated(filters.new_chat_members, group=4)
+async def _greet(_, message):    
     chat = message.chat
     
     for members in message.new_chat_members:
