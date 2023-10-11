@@ -1,3 +1,8 @@
+from pyrogram import Client, filters
+from pyrogram.types import Message
+
+from DAXXMUSIC import app
+
 @app.on_message(filters.command('id'))
 async def getid(client, message):
     chat = message.chat
