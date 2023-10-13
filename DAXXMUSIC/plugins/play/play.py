@@ -37,7 +37,10 @@ from config import BANNED_USERS, lyrical
             "cplayforce",
             "cvplayforce",
             "p",
-            "v"
+            "v",,
+            "cp",
+            "pf",
+            "vpf",
 
             
         ]
