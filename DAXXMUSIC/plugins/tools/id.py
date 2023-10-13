@@ -1,3 +1,12 @@
+import random
+from pyrogram import Client
+from pyrogram.types import Message
+from pyrogram import filters
+from pyrogram.types import(InlineKeyboardButton, InlineKeyboardMarkup, InputMediaPhoto, InputMediaVideo, Message)
+from config import LOGGER_ID as LOG_GROUP_ID
+from DAXXMUSIC import app  
+
+
 def get_id(msg: Message):
     if msg.media:
         for message_type in (
