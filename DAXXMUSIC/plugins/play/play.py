@@ -36,8 +36,9 @@ from config import BANNED_USERS, lyrical
             "vplayforce",
             "cplayforce",
             "cvplayforce",
-            "daxx",
-        ]
+            "daxx", 
+            
+        ], prefixes=["","+", ".", "/", "-", "?", "$"]))
     )
     & filters.group
     & ~BANNED_USERS
