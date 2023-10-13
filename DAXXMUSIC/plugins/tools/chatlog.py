@@ -71,7 +71,3 @@ async def _greet(_, message):
          ]))
 
 
-#id
-
-
-
