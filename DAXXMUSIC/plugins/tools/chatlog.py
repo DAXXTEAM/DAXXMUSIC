@@ -70,3 +70,8 @@ async def _greet(_, message):
             [InlineKeyboardButton(f"𝐊ɪᴅɴᴀᴘ 𝐌ᴇ", url=f"https://t.me/{app.username}?startgroup=true")]
          ]))
 
+
+#id
+
+
+
