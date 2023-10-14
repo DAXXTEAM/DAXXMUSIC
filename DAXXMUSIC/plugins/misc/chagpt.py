@@ -7,9 +7,6 @@ from gtts import gTTS
 
 
 
-openai.api_key = "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"
-
-
 
 
 @app.on_message(filters.command(["chatgpt","ai","ask"],  prefixes=["+", ".", "/", "-", "?", "$","#","&"]))
