@@ -9,7 +9,6 @@ load_dotenv()
 # Get this value from my.telegram.org/apps
 API_ID = int(getenv("API_ID"))
 API_HASH = getenv("API_HASH")
-GPT_KEY = getenv("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")
 # Get your token from @BotFather on Telegram.
 BOT_TOKEN = getenv("BOT_TOKEN")
 
