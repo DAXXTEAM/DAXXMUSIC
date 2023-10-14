@@ -101,6 +101,7 @@ clear
 pprint "\nEnter Your Values Below\n\n\n"
 pprint "API ID: "; color_reset; read api_id
 pprint "\nAPI HASH: "; color_reset; read api_hash
+pprint "\nGPT KEY: "; color_reset; read gpt_key
 pprint "\nBOT TOKEN: "; color_reset; read bot_token
 pprint "\nOWNER ID:"; color_reset; read ownid
 pprint "\nMONGO DB URI: "; color_reset; read mongo_db
@@ -115,6 +116,7 @@ fi
 
 echo """API_ID = $api_id
 API_HASH = $api_hash
+GPT_KEY = $gpt_key
 BOT_TOKEN = $bot_token
 MONGO_DB_URI = $mongo_db
 LOGGER_ID = $logger
