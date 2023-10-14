@@ -1,5 +1,6 @@
 import os, time
 import openai
+from config import GPT_KEY
 from pyrogram import filters
 from DAXXMUSIC import DAXX
 from pyrogram.enums import ChatAction, ParseMode
@@ -7,7 +8,7 @@ from gtts import gTTS
 
 
 
-openai.api_key = "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"
+openai.api_key = GPT_KEY
 
 
 
