@@ -32,7 +32,7 @@ from config import BANNED_USERS, lyrical
             "vplay",
             "cplay",
             "cvplay",
-            "daxx",
+            "playforce",
             "vplayforce",
             "cplayforce",
             "cvplayforce",
