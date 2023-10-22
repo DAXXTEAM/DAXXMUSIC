@@ -1,31 +1,23 @@
 from pyrogram import filters
 from pyrogram.types import Message
 
-from config import BANNED_USERS
-from strings import get_command
 from DAXXMUSIC import app
 from DAXXMUSIC.core.call import DAXX
-from DAXXMUSIC.utils.database import is_muted, mute_on
+from DAXXMUSIC.utils.database import set_loop
 from DAXXMUSIC.utils.decorators import AdminRightsCheck
-
-# Commands
-MUTE_COMMAND = get_command("off")
+from DAXXMUSIC.utils.inline import close_markup
+from config import BANNED_USERS
 
 
 @app.on_message(
-    filters.command(MUTE_COMMAND)
-    & filters.group
-    & ~filters.edited
-    & ~BANNED_USERS
+    filters.command(["mute"]) & filters.group & ~BANNED_USERS
 )
 @AdminRightsCheck
-async def mute_admin(cli, message: Message, _, chat_id):
-    if not len(message.command) == 1 or message.reply_to_message:
-        return await message.reply_text(_["general_2"])
-    if await is_muted(chat_id):
-        return await message.reply_text(_["admin_5"])
-    await mute_on(chat_id)
-    await DAXXMUSIC.mute_stream(chat_id)
+async def mute_music(cli, message: Message, _, chat_id):
+    if not len(message.command) == 1:
+        return
+    await DAXX.mute_stream(chat_id)
+    await set_loop(chat_id, 0)
     await message.reply_text(
-        _["admin_6"].format(message.from_user.mention)
+        _["admin_5"].format(message.from_user.mention), reply_markup=close_markup(_)
     )
