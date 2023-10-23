@@ -41,7 +41,7 @@ async def pinterest(_, message):
 
      try:
         
-        await Zuli.send_media_group(
+        await DAXX.send_media_group(
                 chat_id=chat_id, 
                 media=media_group,
                 reply_to_message_id=message.id)
@@ -56,7 +56,7 @@ async def pinterest(_, message):
 
 
 
-@app.on_message(filters.command(["chichi"]))
+@app.on_message(filters.command(["op"]))
 async def pinterest(_, message):
     try:
         query = message.text.split(None, 1)[1]
@@ -81,7 +81,7 @@ async def pinterest(_, message):
 
     for media_group in media_groups:
          try:
-              await Zuli.send_media_group(message.chat.id, media=media_group)
+              await DAXX.send_media_group(message.chat.id, media=media_group)
               return await msg.delete()
          except Exception as e:
               await msg.delete()
