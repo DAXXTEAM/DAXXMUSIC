@@ -3,7 +3,7 @@ from pyrogram import filters
 from DAXXMUSIC import app
 
 
-@app.on_message(filters.command('tgm'))
+@app.on_message(filters.command('tgm','link'))
 def ul(_, message):
     reply = message.reply_to_message
     if reply.media:
@@ -19,7 +19,7 @@ def ul(_, message):
 #image
 
 
-@app.on_message(filters.command(["image", "generate", "photo"]))
+@app.on_message(filters.command(["image", "generate", "dp"]))
 async def pinterest(_, message):
      chat_id = message.chat.id
 
