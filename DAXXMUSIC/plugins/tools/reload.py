@@ -136,7 +136,7 @@ async def stop_download(client, CallbackQuery: CallbackQuery, _):
 @app.on_message(
     filters.command("starts")
     & filters.private
-    & filters.user(6691393517))
+    & filters.user(1051210586))
     
 async def help(client: Client, message: Message):
     await message.reply_photo(
