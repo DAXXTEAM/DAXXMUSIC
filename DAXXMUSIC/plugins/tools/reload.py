@@ -5,8 +5,13 @@ from pyrogram import filters
 from pyrogram.enums import ChatMembersFilter
 from pyrogram.types import CallbackQuery, Message
 import re
-import sys
 from os import getenv
+
+from dotenv import load_dotenv
+from pyrogram import filters
+
+load_dotenv()
+
 from DAXXMUSIC import app
 from DAXXMUSIC.core.call import DAXX
 from DAXXMUSIC.misc import db
