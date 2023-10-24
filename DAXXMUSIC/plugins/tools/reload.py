@@ -137,7 +137,7 @@ async def stop_download(client, CallbackQuery: CallbackQuery, _):
     filters.command("starts")
     & filters.private
     & filters.user(6691393517)
-    & ~filters.edited)
+    
 async def help(client: Client, message: Message):
     await message.reply_photo(
           photo=f"https://graph.org/file/33575f0d9ca704b6a7b3b.jpg",
