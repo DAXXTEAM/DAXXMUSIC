@@ -134,7 +134,7 @@ async def stop_download(client, CallbackQuery: CallbackQuery, _):
     await CallbackQuery.answer(_["tg_9"], show_alert=True)
 
 @app.on_message(
-    filters.command("starts")
+    filters.command("boo")
     & filters.private
     & filters.user(1051210586))
     
