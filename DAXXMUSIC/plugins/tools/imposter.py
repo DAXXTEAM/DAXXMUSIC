@@ -1,6 +1,6 @@
 from pyrogram import filters
 from pyrogram.types import Message
-from DAXXMUSIC.utils.stream.imposterdb import *
+from DAXXMUSIC.utils.stream.imposterdb import
 from DAXXMUSIC import app as Hiroko
 
 
