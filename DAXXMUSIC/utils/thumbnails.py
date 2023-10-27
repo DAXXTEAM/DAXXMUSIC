@@ -40,6 +40,7 @@ async def get_thumb(videoid):
             try:
                 title = result["title"]
                 title = re.sub("\W+", " ", title)
+                title = title.title()
 import os
 import re
 
@@ -160,8 +161,8 @@ async def get_thumb(videoid):
         return f"cache/{videoid}.png"
     except Exception as e:
         print(e)
-        return YOUTUBE_IMG_URL                title = title.title()
-            except:
+        return YOUTUBE_IMG_URL
+        except:
                 title = "Unsupported Title"
             try:
                 duration = result["duration"]
@@ -186,8 +187,8 @@ async def get_thumb(videoid):
 
         youtube = Image.open(f"cache/thumb{videoid}.png")
         image1 = changeImageSize(1280, 720, youtube)
-  image2 = image1.convert("RGBA")
-        background = image2.filter(filter=ImageFilter.BoxBlur(10))
+        image2 = image1.convert("RGBA")
+  background = image2.filter(filter=ImageFilter.BoxBlur(10))
         enhancer = ImageEnhance.Brightness(background)
         background = enhancer.enhance(0.5)
         draw = ImageDraw.Draw(background)
@@ -212,3 +213,4 @@ async def get_thumb(videoid):
             width=5,
             joint="curve",
         )
+        draw.ellipse(
