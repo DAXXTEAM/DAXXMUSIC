@@ -35,9 +35,8 @@ from config import BANNED_USERS, lyrical
             "playforce",
             "vplayforce",
             "cplayforce",
-            "cvplayforce",
-        ]
-    )
+            "cvplayforce", prefixes=["/", "!", "%", ",", "", ".", "@", "#"])
+            
     & filters.group
     & ~BANNED_USERS
 )
