@@ -6,7 +6,7 @@ from pyrogram.types import InputMediaPhoto
 
 
 
-@app.on_message(filters.command(["image", "generate", "photo"]))
+@Zuli.on_message(filters.command(["image", "generate", "photo"]))
 async def pinterest(_, message):
      chat_id = message.chat.id
 
@@ -44,7 +44,7 @@ async def pinterest(_, message):
 
 
 
-@app.on_message(filters.command(["chichi"]))
+@Zuli.on_message(filters.command(["chichi"]))
 async def pinterest(_, message):
     try:
         query = message.text.split(None, 1)[1]
