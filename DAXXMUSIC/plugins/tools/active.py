@@ -12,7 +12,7 @@ from DAXXMUSIC.utils.database import (
 )
 
 
-@app.on_message(filters.command(["activevc", "activevoice"]) & SUDOERS)
+@app.on_message(filters.command(["activevc", "activevoice"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]) & SUDOERS)
 async def activevc(_, message: Message):
     mystic = await message.reply_text("» ɢᴇᴛᴛɪɴɢ ᴀᴄᴛɪᴠᴇ ᴠᴏɪᴄᴇ ᴄʜᴀᴛs ʟɪsᴛ...")
     served_chats = await get_active_chats()
