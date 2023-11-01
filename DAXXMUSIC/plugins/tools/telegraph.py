@@ -3,7 +3,7 @@ from pyrogram import filters
 from DAXXMUSIC import app
 
 
-@app.on_message(filters.command('tgm', prefixes=["/", "!", "%", ",", "", ".", "@", "#"])
+@app.on_message(filters.command("tgm", prefixes=["/", "!", "%", ",", "", ".", "@", "#"])
 def ul(_, message):
     reply = message.reply_to_message
     if reply.media:
