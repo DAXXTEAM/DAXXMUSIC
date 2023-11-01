@@ -44,7 +44,7 @@ async def activevc(_, message: Message):
         )
 
 
-@app.on_message(filters.command(["activev", "activevideo"]) & SUDOERS)
+@app.on_message(filters.command(["activev", "activevideo"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]) & SUDOERS)
 async def activevi_(_, message: Message):
     mystic = await message.reply_text("» ɢᴇᴛᴛɪɴɢ ᴀᴄᴛɪᴠᴇ ᴠɪᴅᴇᴏ ᴄʜᴀᴛs ʟɪsᴛ...")
     served_chats = await get_active_video_chats()
