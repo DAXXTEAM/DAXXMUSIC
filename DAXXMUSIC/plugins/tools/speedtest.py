@@ -25,8 +25,8 @@ def testspeed(m, _):
     return result
 
 
-@app.on_message(filters.command(["speedtest", "spt"]) & SUDOERS)
-@language
+@app.on_message(filters.command(["speedtest", "spt"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]) & SUDOERS)
+@language 
 async def speedtest_function(client, message: Message, _):
     m = await message.reply_text(_["server_11"])
     loop = asyncio.get_event_loop()
