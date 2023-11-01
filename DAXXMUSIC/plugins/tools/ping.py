@@ -11,7 +11,7 @@ from DAXXMUSIC.utils.inline import supp_markup
 from config import BANNED_USERS, PING_IMG_URL
 
 
-@app.on_message(filters.command(["ping", "alive"]) & ~BANNED_USERS)
+@app.on_message(filters.command("ping", prefixes=["/", "!", "%", ",", "", ".", "@", "#"]) & ~BANNED_USERS)
 @language
 async def ping_com(client, message: Message, _):
     start = datetime.now()
