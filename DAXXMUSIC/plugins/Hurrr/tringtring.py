@@ -5,7 +5,7 @@ from pyrogram import filters
 from pyrogram.types import InputMediaPhoto
 
 @app.on_message(filters.command(["image"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
-async def pinterest(client, message):
+async def pinterest(_, message):
      chat_id = message.chat.id
 
      try:
@@ -27,10 +27,10 @@ async def pinterest(client, message):
 
      try:
         
-        await client.send_media_group(
+        await app.send_media_group(
                 chat_id=chat_id, 
                 media=media_group,
-                reply_to_message_id=message.message_id)
+                reply_to_message_id=message.id)
         return await msg.delete()
 
      except Exception as e:
