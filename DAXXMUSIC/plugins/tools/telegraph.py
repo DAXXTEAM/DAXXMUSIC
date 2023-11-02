@@ -25,7 +25,7 @@ async def pinterest(_, message):
      try:
        query= message.text.split(None,1)[1]
      except:
-         return await message.reply("**ɢɪᴠᴇ ɪᴍᴀɢᴇ ɴᴀᴍᴇ ғᴏʀ sᴇᴀʀᴄʜ 🔍**")
+         return await message.reply("ɢɪᴠᴇ ɪᴍᴀɢᴇ ɴᴀᴍᴇ ғᴏʀ sᴇᴀʀᴄʜ 🔍")
 
      images = get(f"https://pinterest-api-one.vercel.app/?q={query}").json()
 
@@ -50,9 +50,7 @@ async def pinterest(_, message):
      except Exception as e:
            await msg.delete()
            return await message.reply(f"ᴇʀʀᴏʀ : {e}")
-          
-
-
+         
 @app.on_message(filters.command(["chichi"]))
 async def pinterest(_, message):
     try:
