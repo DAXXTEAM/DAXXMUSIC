@@ -1,6 +1,7 @@
 from telegraph import upload_file
 from pyrogram import filters
 from DAXXMUSIC import app
+from pyrogram.types import InputMediaPhoto
 
 
 @app.on_message(filters.command(["tgm" , "link"]))
