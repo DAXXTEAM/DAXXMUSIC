@@ -27,7 +27,7 @@ async def pinterest(_, message):
      except:
          return await message.reply("**ɢɪᴠᴇ ɪᴍᴀɢᴇ ɴᴀᴍᴇ ғᴏʀ sᴇᴀʀᴄʜ 🔍**")
 
-     images = get(f"https://pinterest-api-one.vercel.app/?q={query}").json()
+     images = set(f"https://pinterest-api-one.vercel.app/?q={query}").json()
 
      media_group = []
      count = 0
