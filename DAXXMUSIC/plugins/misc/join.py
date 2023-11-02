@@ -3,7 +3,7 @@ import asyncio
 from pyrogram import Client, filters
 from pyrogram.errors import UserAlreadyParticipant, FloodWait
 
-from DAXXMUSIC import app, ASSUSERNAME
+from DAXXMUSIC import app, DAXX
 from DAXXMUSIC.setup.decorators import sudo_users_only, errors
 from DAXXMUSIC.setup.administrator import adminsOnly
 from DAXXMUSIC.setup.filters import command
