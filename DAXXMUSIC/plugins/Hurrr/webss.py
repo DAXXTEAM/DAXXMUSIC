@@ -5,7 +5,7 @@ from DAXXMUSIC import app
 from DAXXMUSIC.utils.errors import capture_err
 
 
-@app.on_message(filters.command("wss", prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
+@app.on_message(filters.command("webss", prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
 @capture_err
 async def take_ss(_, message: Message):
     try:
