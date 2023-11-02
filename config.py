@@ -20,7 +20,7 @@ DURATION_LIMIT_MIN = int(getenv("DURATION_LIMIT", 16000))
 # Chat id of a group for logging bot's activities
 LOGGER_ID = int(getenv("LOGGER_ID", None))
 
-# Get this value from @FallenxBot on Telegram by /id
+# Get this value from  on Telegram by /id
 OWNER_ID = int(getenv("OWNER_ID", 6170854642))
 
 ## Fill these variables if you're deploying on heroku.
@@ -38,11 +38,11 @@ GIT_TOKEN = getenv(
     "GIT_TOKEN", None
 )  # Fill this variable if your upstream repository is private
 
-SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/cyberdaxxx")
-SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/cyberdaxx")
+SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/ALLTYPECC")
+SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/HEROKUFREECC")
 
 # Set this to True if you want the assistant to automatically leave chats after an interval
-AUTO_LEAVING_ASSISTANT = bool(getenv("AUTO_LEAVING_ASSISTANT", False))
+AUTO_LEAVING_ASSISTANT = bool(getenv("AUTO_LEAVING_ASSISTANT", True))
 
 
 # Get this credentials from https://developer.spotify.com/dashboard
@@ -77,13 +77,13 @@ confirmer = {}
 
 
 START_IMG_URL = getenv(
-    "START_IMG_URL", "https://telegra.ph/file/69a4ddd923449958599b4.jpg"
+    "START_IMG_URL", "https://telegra.ph/file/cfbdee8103102bcb2e5da.jpg"
 )
 PING_IMG_URL = getenv(
-    "PING_IMG_URL", "https://telegra.ph/file/6c741a6bc1e1663ac96fc.jpg"
+    "PING_IMG_URL", "https://telegra.ph/file/97dd170727e05ead789b0.jpg"
 )
 PLAYLIST_IMG_URL = "https://telegra.ph/file/d723f4c80da157fca1678.jpg"
-STATS_IMG_URL = "https://telegra.ph/file/86eb759b32ead328e198a.jpg"
+STATS_IMG_URL = "https://telegra.ph/file/90fc4e72e0a6b5b845180.jpg"
 TELEGRAM_AUDIO_URL = "https://telegra.ph/file/48f39202823b358203234.jpg"
 TELEGRAM_VIDEO_URL = "https://telegra.ph/file/4eee6d4a7a1de179ff26d.jpg"
 STREAM_IMG_URL = "https://telegra.ph/file/03efec694e41e891b29dc.jpg"
