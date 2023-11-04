@@ -75,9 +75,9 @@ async def get_thumb(videoid):
         font = ImageFont.truetype("DAXXMUSIC/assets/font.ttf", 30)
         draw.text((1110, 8), unidecode(app.name), fill="white", font=arial)
         draw.text(
-            (5500, 5600),
+            (1, 1),
             f"{channel} | {views[:23]}",
-            (255, 255, 255),
+            (1, 1, 1),
             font=arial,
         )
         draw.text(
