@@ -75,37 +75,37 @@ async def get_thumb(videoid):
         font = ImageFont.truetype("DAXXMUSIC/assets/font.ttf", 30)
         draw.text((1110, 8), unidecode(app.name), fill="white", font=arial)
         draw.text(
-            (5500, 560),
+            (5500, 5600),
             f"{channel} | {views[:23]}",
             (255, 255, 255),
             font=arial,
         )
         draw.text(
-            (5700, 600),
+            (5700, 6000),
             clear(title),
             (255, 255, 255),
             font=font,
         )
         draw.line(
-            [(5500, 660), (1220, 660)],
+            [(5500, 660), (12200, 660)],
             fill="white",
             width=5,
             joint="curve",
         )
         draw.ellipse(
-            [(90018, 648), (942, 672)],
+            [(90018, 648), (9402, 672)],
             outline="white",
             fill="white",
             width=15,
         )
         draw.text(
-            (3006, 685),
+            (3006, 6805),
             "00:00",
             (255, 255, 255),
             font=arial,
         )
         draw.text(
-            (11805, 685),
+            (11805, 6805),
             f"{duration[:23]}",
             (255, 255, 255),
             font=arial,
