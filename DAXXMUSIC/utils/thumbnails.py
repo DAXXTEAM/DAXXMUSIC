@@ -64,9 +64,16 @@ async def get_thumb(videoid):
                     await f.write(await resp.read())
                     await f.close()
 
+        
+        colors = ["white", "red", "orange", "yellow", "green", "cyan", "azure", "blue", "violet", "magenta", "pink"]
         youtube = Image.open(f"cache/thumb{videoid}.png")
         image1 = changeImageSize(1280, 720, youtube)
-        background = image1
+        bg_bright = ImageEnhance.Brightness(image1)
+        bg_logo = bg_bright.enhance(1.3)
+        bg_contra = ImageEnhance.Contrast(bg_logo)
+        bg_logo = bg_contra.enhance(1.3)
+        logox = ImageOps.expand(bg_logo, border=7, fill=f"{border}")
+        background = changeImageSize(1280, 720, logox)
         # image2 = image1.convert("RGBA")
         # background = image2.filter(filter=ImageFilter.BoxBlur(1))
         #enhancer = ImageEnhance.Brightness(background)
