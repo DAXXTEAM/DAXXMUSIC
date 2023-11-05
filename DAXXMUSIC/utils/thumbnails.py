@@ -8,7 +8,7 @@ from unidecode import unidecode
 from youtubesearchpython.__future__ import VideosSearch
 
 from DAXXMUSIC import app
-from config import YOUTUBE_IMG_URL
+# from config import YOUTUBE_IMG_URL
 
 
 def changeImageSize(maxWidth, maxHeight, image):
@@ -66,14 +66,16 @@ async def get_thumb(videoid):
 
         youtube = Image.open(f"cache/thumb{videoid}.png")
         image1 = changeImageSize(1280, 720, youtube)
-        image2 = image1.convert("RGBA")
-        background = image2.filter(filter=ImageFilter.BoxBlur(1))
-        enhancer = ImageEnhance.Brightness(background)
-        background = enhancer.enhance(0.9)
-        draw = ImageDraw.Draw(background)
-        arial = ImageFont.truetype("DAXXMUSIC/assets/font2.ttf", 30)
-        font = ImageFont.truetype("DAXXMUSIC/assets/font.ttf", 30)
-        draw.text((1110, 8), unidecode(app.name), fill="white", font=arial)
+        background = image1
+        # image2 = image1.convert("RGBA")
+        # background = image2.filter(filter=ImageFilter.BoxBlur(1))
+        #enhancer = ImageEnhance.Brightness(background)
+        #background = enhancer.enhance(0.9)
+        #draw = ImageDraw.Draw(background)
+        #arial = ImageFont.truetype("DAXXMUSIC/assets/font2.ttf", 30)
+        #font = ImageFont.truetype("DAXXMUSIC/assets/font.ttf", 30)
+        # draw.text((1110, 8), unidecode(app.name), fill="white", font=arial)
+        """
         draw.text(
             (1, 1),
             f"{channel} | {views[:23]}",
@@ -110,6 +112,7 @@ async def get_thumb(videoid):
             (1, 1, 1),
             font=arial,
         )
+        """
         try:
             os.remove(f"cache/thumb{videoid}.png")
         except:
