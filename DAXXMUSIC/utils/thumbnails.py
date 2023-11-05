@@ -1,10 +1,13 @@
 import os
 import re
+import random
 
 import aiofiles
 import aiohttp
-from PIL import (Image, ImageDraw, ImageEnhance,
-                ImageFilter, ImageFont, ImageOps)
+
+from PIL import Image, ImageDraw, ImageEnhance
+from PIL import ImageFilter, ImageFont, ImageOps
+
 from unidecode import unidecode
 from youtubesearchpython.__future__ import VideosSearch
 
@@ -67,6 +70,7 @@ async def get_thumb(videoid):
 
         
         colors = ["white", "red", "orange", "yellow", "green", "cyan", "azure", "blue", "violet", "magenta", "pink"]
+        border = random.choice(colors)
         youtube = Image.open(f"cache/thumb{videoid}.png")
         image1 = changeImageSize(1280, 720, youtube)
         bg_bright = ImageEnhance.Brightness(image1)
