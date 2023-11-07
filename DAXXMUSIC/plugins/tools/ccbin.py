@@ -3,7 +3,7 @@ from pyrogram import *
 from pyrogram.types import *
 
 
-@app.on_message(filters.command(["bin", "ccbin", "bininfo"]))
+@app.on_message(filters.command(["bin", "ccbin", "bininfo"], [".", "!", "/"]))
 async def check_ccbin(client, message):
     if len(message.command) < 2:
         return await message.reply_text(
@@ -13,25 +13,25 @@ async def check_ccbin(client, message):
         await message.delete()
     except:
         pass
-    aux = await message.reply_text("**Checking ...**")
+    aux = await message.reply_text("<b>Checking ...</b>")
     bin = message.text.split(None, 1)[1]
     if len(bin) < 6:
-        return await aux.edit("**❌ Wrong Bin❗...**")
+        return await aux.edit("<b>❌ Wrong Bin❗...</b>")
     try:
         resp = await api.bininfo(bin)
         await aux.edit(f"""
-**💠 Bin Full Details:**
+<b>💠 Bin Full Details:</b>
 
-**🏦 Bank:** `{resp.bank}`
-**💳 Bin:** `{resp.bin}`
-**🏡 Country:** `{resp.country}`
-**🇮🇳 Flag:** `{resp.flag}`
-**🧿 ISO:** `{resp.iso}`
-**⏳ Level:** `{resp.level}`
-**🔴 Prepaid:** `{resp.prepaid}`
-**🆔 Type:** `{resp.type}`
-**ℹ️ Vendor:** `{resp.vendor}`"""
+<b>🏦 Bank:</b> <tt>{resp.bank}</tt>
+<b>💳 Bin:</b> <tt>{resp.bin}</tt>
+<b>🏡 Country:</b> <tt>{resp.country}</tt>
+<b>🇮🇳 Flag:</b> <tt>{resp.flag}</tt>
+<b>🧿 ISO:</b> <tt>{resp.iso}</tt>
+<b>⏳ Level:</b> <tt>{resp.level}</tt>
+<b>🔴 Prepaid:</b> <tt>{resp.prepaid}</tt>
+<b>🆔 Type:</b> <tt>{resp.type}</tt>
+<b>ℹ️ Vendor:</b> <tt>{resp.vendor}</tt>"""
         )
     except Exception as e:
-        return await aux.edit(f"**Error:** `{e}`")
+        return await aux.edit(f"<b>Error:</b> <tt>{e}</tt>")
       
