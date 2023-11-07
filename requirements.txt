@@ -25,3 +25,4 @@ yt-dlp
 youtube-search
 youtube-search-python
 gtts
+git+https://github.com/AsmSafone/SafoneAPI
