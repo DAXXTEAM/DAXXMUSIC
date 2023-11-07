@@ -76,7 +76,7 @@ async def get_thumb(videoid):
         bg_bright = ImageEnhance.Brightness(image1)
         bg_logo = bg_bright.enhance(1.1)
         bg_contra = ImageEnhance.Contrast(bg_logo)
-        bg_logo = bg_contra.enhance(1.3)
+        bg_logo = bg_contra.enhance(1.1)
         logox = ImageOps.expand(bg_logo, border=7, fill=f"{border}")
         background = changeImageSize(1280, 720, logox)
         # image2 = image1.convert("RGBA")
