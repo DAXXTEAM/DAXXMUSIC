@@ -6,7 +6,7 @@ headers = {
     'apikey': "xQ67Pt1toQt2RskCPFUF82J2lCYrj8c2",
 }
 
-@DAXX.on_message(filters.command("binn", prefixes="/") & filters.private)
+@app.on_message(filters.command("bin", prefixes="/") & filters.private)
 async def bin_lookup(client, message):
     try:
         bin = message.text.split(" ")[1]
