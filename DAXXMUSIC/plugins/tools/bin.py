@@ -1,6 +1,6 @@
 from pyrogram import Client, filters
 import requests
-from DAXXMUSIC import DAXX
+from DAXXMUSIC import app
 
 headers = {
     'apikey': "xQ67Pt1toQt2RskCPFUF82J2lCYrj8c2",
