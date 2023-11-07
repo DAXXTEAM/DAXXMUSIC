@@ -32,6 +32,17 @@ async def check_ccbin(client, message):
 <b>🆔 Type:</b> <tt>{resp.type}</tt>
 <b>ℹ️ Vendor:</b> <tt>{resp.vendor}</tt>"""
         )
-    except Exception as e:
-        return await aux.edit(f"<b>Error:</b> <tt>{e}</tt>")
-      
+    except:
+        return await aux.edit(f"""
+<b>💠 Bin Full Details:</b>
+
+<b>🏦 Bank:</b> <tt>Unknown</tt>
+<b>💳 Bin:</b> <tt>Wrong ...</tt>
+<b>🏡 Country:</b> <tt>Unknown</tt>
+<b>🇮🇳 Flag:</b> <tt>Unknown</tt>
+<b>🧿 ISO:</b> <tt>Unknown</tt>
+<b>⏳ Level:</b> <tt>Unknown</tt>
+<b>🔴 Prepaid:</b> <tt>Unknown</tt>
+<b>🆔 Type:</b> <tt>Unknown</tt>
+<b>ℹ️ Vendor:</b> <tt>Unknown</tt>"""
+        )
