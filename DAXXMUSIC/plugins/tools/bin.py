@@ -1,11 +1,16 @@
-from pyrogram import Client, filters import requests from bs4 import BeautifulSoup 
+/eval from pyrogram import Client, filters
+import requests
+from DAXXMUSIC import DAXX
 
+headers = {
+    'apikey': "xQ67Pt1toQt2RskCPFUF82J2lCYrj8c2",
+}
 
-@app.on_message(filters.command("bin", prefixes="/") & filters.private)
+@DAXX.on_message(filters.command("binn", prefixes="/") & filters.private)
 async def bin_lookup(client, message):
     try:
         bin = message.text.split(" ")[1]
-        response = requests.get(f"https://lookup.binlist.net/{bin}")
+        response = requests.get(f"https://api.apilayer.com/bincheck/{bin}", headers=headers)
         if response.status_code == 200:
             data = response.json()
             bank = data.get("bank", {}).get("name", "N/A")
