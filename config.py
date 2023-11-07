@@ -3,12 +3,8 @@ from os import getenv
 
 from dotenv import load_dotenv
 from pyrogram import filters
-from SafoneAPI import SafoneAPI
-
 
 load_dotenv()
-
-api = SafoneAPI()
 
 # Get this value from my.telegram.org/apps
 API_ID = int(getenv("API_ID"))
