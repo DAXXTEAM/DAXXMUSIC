@@ -34,4 +34,4 @@ async def check_ccbin(client, message):
         )
     except:
         return await aux.edit(f"""
-🚫 BIN not recognized. Please enter a valid BIN.)
+🚫 BIN not recognized. Please enter a valid BIN.""")
