@@ -8,8 +8,8 @@ from DAXXMUSIC.utils.errors import capture_err
 @capture_err
 async def paste_func(_, message):
     if not message.reply_to_message:
-        return await message.reply_text("Reply To A Message With /paste")
-    m = await message.reply_text("Pasting...")
+        return await message.reply_text("𝚁𝙴𝙿𝙻𝚈 𝚃𝙾 𝙰  𝙼𝙴𝚂𝚂𝙰𝙶𝙴  𝚆𝙸𝚃𝙷 /paste")
+    m = await message.reply_text("𝐏𝙰𝚂𝚃𝙸𝙽𝙶...........")
     if message.reply_to_message.text:
         content = str(message.reply_to_message.text)
     elif message.reply_to_message.document:
