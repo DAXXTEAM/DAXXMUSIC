@@ -2,7 +2,7 @@ from DAXXMUSIC import app
 from pyrogram import filters
 
 
-@app.on_message(filters.command("me"))
+@app.on_message(filters.command("id"))
 def ids(_, message):
     reply = message.reply_to_message
     if reply:
