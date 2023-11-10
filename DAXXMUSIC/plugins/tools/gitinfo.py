@@ -1,4 +1,4 @@
-/eval import aiohttp
+import aiohttp
 from pyrogram import filters
 from DAXXMUSIC import app
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
