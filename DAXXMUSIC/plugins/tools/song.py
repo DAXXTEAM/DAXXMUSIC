@@ -7,7 +7,7 @@ from pyrogram.types import Message
 from youtubesearchpython import VideosSearch
 
 
-@app.on_message(filters.command("song"))
+@app.on_message(filters.command(["song"], ["/", "!", "."]))
 async def song(client: app, message: Message):
     aux = await message.reply_text("**🔄 𝐏𝐫𝐨𝐜𝐞𝐬𝐬𝐢𝐧𝐠 ...**")
     if len(message.command) < 2:
