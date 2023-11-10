@@ -36,7 +36,7 @@ async def github(_, message):
                 
 ᴜsᴇʀɴᴀᴍᴇ: {username}
 ʙɪᴏ: {bio}
-ʟɪɴᴋ: [Here]({url})
+ʟɪɴᴋ: [Here]{url}
 ᴄᴏᴍᴩᴀɴʏ: {company}
 ᴄʀᴇᴀᴛᴇᴅ ᴏɴ: {created_at}
 ʀᴇᴩᴏsɪᴛᴏʀɪᴇs: {repositories}
