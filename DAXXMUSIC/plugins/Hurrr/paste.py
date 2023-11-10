@@ -1,4 +1,4 @@
-/eval from pyrogram import filters
+from pyrogram import filters
 from pyrogram.types import Message
 
 from DAXXMUSIC import app
