@@ -1,6 +1,6 @@
 from lexica import Client
 from pyrogram import filters
-from Zuli import Zuli
+from DAXXMUSIC import DAXX
 
 
 
@@ -10,8 +10,8 @@ def main(prompt: str) -> str:
     response = client.palm(prompt)
     return response["content"].strip()
 
-@Zuli.on_message(filters.regex(r"Y|y|b|B"))
-async def deepchat(zuli: Zuli, message):
+@app.on_message(filters.regex(r"Y|y|b|B"))
+async def deepchat(app: App, message):
     if message.reply_to_message:
         query = message.text.split(' ', 1)[1]
         x = main(query)
