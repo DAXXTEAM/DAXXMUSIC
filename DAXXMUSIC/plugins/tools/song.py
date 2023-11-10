@@ -3,6 +3,7 @@ import asyncio
 import yt_dlp
 
 from ... import app
+from pyrogram import filters
 from pyrogram.types import Message
 from youtubesearchpython import VideosSearch
 
