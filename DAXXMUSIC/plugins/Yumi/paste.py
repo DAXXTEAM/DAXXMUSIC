@@ -1,3 +1,4 @@
+import aiohttp
 from pyrogram import filters
 from pyrogram.types import Message
 
