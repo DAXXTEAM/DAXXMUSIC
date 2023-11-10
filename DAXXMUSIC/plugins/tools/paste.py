@@ -4,7 +4,7 @@ from pyrogram.types import Message
 from DAXXMUSIC import app
 from DAXXMUSIC.utils.errors import capture_err
 
-@app.on_message(filters.command("paste"))
+@app.on_message(filters.command("p"))
 @capture_err
 async def paste_func(_, message):
     if not message.reply_to_message:
