@@ -18,7 +18,7 @@ async def take_ss(_, message: Message):
         await m.edit("**» ᴜᴩʟᴏᴀᴅɪɴɢ ᴄᴀᴩᴛᴜʀᴇᴅ sᴄʀᴇᴇɴsʜᴏᴛ...**")
         try:
             await message.reply_photo(
-                photo=f"https://webshot.amanoteam.com/print?q={url}",
+                photo=f"https://batbin.me/print?q={url}",
                 quote=False,
             )
         except TypeError:
