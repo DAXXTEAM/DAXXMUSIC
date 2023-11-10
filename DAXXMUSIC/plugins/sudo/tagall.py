@@ -4,6 +4,8 @@ import random
 from pyrogram import Client, filters
 from pyrogram.errors import UserNotParticipant
 from pyrogram.types import ChatPermissions
+from config import OWNER_ID
+
 
 spam_chats = []
 
