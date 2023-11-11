@@ -3,6 +3,8 @@ from pyrogram.types import Message
 
 from DAXXMUSIC import app
 from DAXXMUSIC.utils.errors import capture_err
+from DAXXMUSIC.utils.pastebin import DAXXBin as paste
+
 
 @app.on_message(filters.command("paste"))
 @capture_err
