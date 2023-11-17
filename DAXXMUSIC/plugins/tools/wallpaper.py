@@ -6,7 +6,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 
 from DAXXMUSIC import DAXX
 
-@app.on_message(filters.command("wall"))
+@DAXX.on_message(filters.command("wall"))
 async def wall(_, message: Message):
     " ғɪxᴇᴅ ᴡᴀʟʟ ʙʏ ᴍᴜᴋᴇsʜ"
     try:
