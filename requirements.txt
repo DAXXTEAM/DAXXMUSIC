@@ -6,14 +6,15 @@ dnspython
 ffmpeg-python
 gitpython
 hachoir
-heroku3motor
+heroku3
+motor==3.0.0
 pillow==9.5.0
 psutil
 py-tgcalls==0.9.7
 pykeyboard
 pyrogram==2.0.106
 python-dotenv
-ppyyam
+pyyaml==5.3.1
 requests
 speedtest-cli
 spotipy
