@@ -3,6 +3,12 @@ from pyrogram.types import *
 from DAXXMUSIC import app
 from gpytranslate import Translator
 
+#.......
+
+trans = Translator()
+
+#......
+
 @app.on_message(filters.command("tr"))
 async def translate(_, message) -> None:
     reply_msg = message.reply_to_message
