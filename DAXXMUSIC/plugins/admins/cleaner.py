@@ -5,8 +5,8 @@ from pyrogram.types import Message
 
 
 
-downloads_directory = os.path.join("Yumikoo", "Helper", "downloader", "downloads")
-raw_directory = os.path.join("Yumikoo", "Helper", "downloader", "raw_files")
+downloads_directory = os.path.join("DAXXMUSIC", "Helper", "downloader", "downloads")
+raw_directory = os.path.join("DAXXMUSIC", "Helper", "downloader", "raw_files")
 
 
 @app.on_message(filters.command(["rmd", "clear"], prefixes=["/", "!"]))
