@@ -2,7 +2,6 @@ import aiohttp
 from io import BytesIO
 from DAXXMUSIC import app
 from pyrogram import filters
-from config import COMMAND_HANDLER
 
 
 
@@ -16,7 +15,7 @@ async def make_carbon(code):
 
 
 
-@app.on_message(filters.command("carbon")
+@app.on_message(filters.command("carbon"))
 async def _carbon(client, message):
     replied = message.reply_to_message
     if not replied:
