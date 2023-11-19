@@ -2,7 +2,8 @@ from pyrogram import filters
 from pyrogram.types import *
 from DAXXMUSIC import app
 from gpytranslate import Translator
- @app.on_message(filters.command(["trans", "tr"]))
+
+ @app.on_message(filters.command("ping", prefixes=["/", "!", "%", ",", "", ".", "@", "#"]) & ~BANNED_USERS)
 async def translate(_, message) -> None:
     reply_msg = message.reply_to_message
     if not reply_msg:
