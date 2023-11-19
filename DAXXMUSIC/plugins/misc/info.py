@@ -182,4 +182,9 @@ async def userinfo(_, message):
         except Exception as e:
             await message.reply_text(str(e))
 
+####
+
+@app.on_message(filters.video_chat_started)
+async def brah(_, msg):
+       await msg.reply("ᴠᴏɪᴄᴇ ᴄʜᴀᴛ sᴛᴀʀᴛᴇᴅ")
 
