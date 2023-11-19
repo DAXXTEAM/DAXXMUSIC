@@ -1,7 +1,5 @@
-import asyncio, os, time, aiohttp
 from pyrogram import Client, filters
 from pyrogram.types import Message
-from blackpink import blackpink as bp
 from DAXXMUSIC import app
 # vc on
 @app.on_message(filters.video_chat_started)
@@ -28,12 +26,4 @@ async def brah3(app :app, message:Message):
            except:
              pass
 
-#####
-
-
-@app.on_message(filters.command("blackpink"))
-async def blackpink(_, message):
-    text = message.text[len("/blackpink ") :]
-    bp(f"{text}").save(f"blackpink_{message.from_user.id}.png")
-    await message.reply_photo(f"blackpink_{message.from_user.id}.png", reply_markup=button)
-    os.remove(f"blackpink_{message.from_user.id}.png")
+##
