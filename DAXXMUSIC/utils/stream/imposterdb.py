@@ -1,9 +1,9 @@
 from typing import Dict, List, Union
-from config import MONGO_URL
+from config import MONGO_DB_URI
 from motor.motor_asyncio import AsyncIOMotorClient as MongoCli
 
 
-mongo = MongoCli(MONGO_URL).Rankings
+mongo = MongoCli(MONGO_DB_URI).Rankings
 
 impdb = mongo.imposter
 
