@@ -34,7 +34,7 @@ async def pin(_, message):
                 await message.reply_text(str(e))
 
 
-@app.on_message(filters.command("pinned", COMMAND_HANDLER))
+@app.on_message(filters.command("pinned"))
 async def pinned(_, message):
     chat = await app.get_chat(message.chat.id)
     if not chat.pinned_message:
@@ -74,7 +74,7 @@ async def unpin(_, message):
 
 # --------------------------------------------------------------------------------- #
 
-@app.on_message(filters.command("removephoto", COMMAND_HANDLER) & admin_filter)
+@app.on_message(filters.command("removephoto") & admin_filter))
 async def deletechatphoto(_, message):
       
       chat_id = message.chat.id
@@ -93,7 +93,7 @@ async def deletechatphoto(_, message):
 
 # --------------------------------------------------------------------------------- #
 
-@app.on_message(filters.command("setphoto", COMMAND_HANDLER) & admin_filter)
+@app.on_message(filters.command("setphoto")& admin_filter))
 async def setchatphoto(_, message):
       reply = message.reply_to_message
       chat_id = message.chat.id
@@ -119,7 +119,7 @@ async def setchatphoto(_, message):
 
 # --------------------------------------------------------------------------------- #
 
-@app.on_message(filters.command("settitle", COMMAND_HANDLER)& admin_filter)
+@app.on_message(filters.command("settitle")& admin_filter))
 async def setgrouptitle(_, message):
     reply = message.reply_to_message
     chat_id = message.chat.id
@@ -155,7 +155,7 @@ async def setgrouptitle(_, message):
 
 
 
-@app.on_message(filters.command("setdiscription", COMMAND_HANDLER) & admin_filter)
+@app.on_message(filters.command("setdiscription") & admin_filter))
 async def setg_discription(_, message):
     reply = message.reply_to_message
     chat_id = message.chat.id
@@ -187,7 +187,7 @@ async def setg_discription(_, message):
 
 # --------------------------------------------------------------------------------- #
 
-@app.on_message(filters.command("lg", COMMAND_HANDLER)& filters.user(OWNER_ID))
+@app.on_message(filters.command("lg")& filters.user(OWNER_ID))
 async def bot_leave(_, message):
     chat_id = message.chat.id
     text = "**sᴜᴄᴄᴇssғᴜʟʟʏ ʜɪʀᴏᴋᴏ ʀᴏʙᴏᴛ ʟᴇғᴛ ᴛʜᴇ ɢʀᴏᴜᴘ !!.**"
