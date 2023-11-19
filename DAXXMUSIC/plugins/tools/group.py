@@ -1,5 +1,6 @@
 from pyrogram import Client, filters
 from pyrogram.types import Message
+from blackpink import blackpink as bp
 from DAXXMUSIC import app
 # vc on
 @app.on_message(filters.video_chat_started)
