@@ -6,10 +6,7 @@ from asyncio import sleep
 from DAXXMUSIC import app
 
 ####
-button = InlineKeyboardMarkup([[
-            InlineKeyboardButton("⌯ ᴄʟᴏsᴇ ⌯", callback_data="close_data")
-                              ]])
-#####
+
 
 get_font = lambda font_size, font_path: ImageFont.truetype(font_path, font_size)
 resize_text = (
