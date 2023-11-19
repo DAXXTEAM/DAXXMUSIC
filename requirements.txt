@@ -27,6 +27,5 @@ youtube-search-python
 gtts
 git+https://github.com/AsmSafone/SafoneAPI
 lexica-api
-base64
 httpx
 gpytranslate
