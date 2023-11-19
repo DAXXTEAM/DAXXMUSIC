@@ -3,7 +3,7 @@ from pyrogram.types import *
 from DAXXMUSIC import app
 from gpytranslate import Translator
 
- @app.on_message(filters.command("tr", prefixes=["/", "!", "%", ",", "", ".", "@", "#"]) & ~BANNED_USERS)
+@app.on_message(filters.command("tr", prefixes=["/", "!", "%", ",", "", ".", "@", "#"]) & ~BANNED_USERS)
 async def translate(_, message) -> None:
     reply_msg = message.reply_to_message
     if not reply_msg:
@@ -30,5 +30,3 @@ async def translate(_, message) -> None:
         f"{translation.text}"
     )
     await message.reply_text(reply)
-    
-# --------------------------------------------------------#
