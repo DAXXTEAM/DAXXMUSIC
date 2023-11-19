@@ -3,6 +3,7 @@ aiohttp
 asyncio
 beautifulsoup4
 blackpink
+deepai
 dnspython
 ffmpeg-python
 gitpython
