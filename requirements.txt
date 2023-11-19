@@ -30,3 +30,4 @@ git+https://github.com/AsmSafone/SafoneAPI
 lexica-api
 httpx
 gpytranslate
+openai
