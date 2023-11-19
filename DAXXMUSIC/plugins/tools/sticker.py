@@ -43,7 +43,7 @@ async def upscale_image(client, message):
 
 ###### sticker id =
 @app.on_message(filters.command(["stickerid","stid"]))
-async def sticker_id(Yumikoo: Yumikoo, msg):
+async def sticker_id(app: app, msg):
     if not msg.reply_to_message:
         await msg.reply_text("Reply to a sticker")        
     elif not msg.reply_to_message.sticker:
