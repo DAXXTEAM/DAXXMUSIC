@@ -1,6 +1,7 @@
 import requests
 import random
 from DAXXMUSIC import app, userbot
+from config import OWNER_ID
 from pyrogram import * 
 from pyrogram.types import *
 from DAXXMUSIC.utils.daxx_ban import admin_filter
@@ -65,7 +66,7 @@ async def restriction_app(app :app, message):
         for banned in data:
             print(f"present {banned}")
             if banned in ban:
-                if user_id in SUDO_USERS:
+                if user_id in OWNER_ID:
                     await message.reply(random.choice(strict_txt))          
                 else:
                     await app.ban_chat_member(chat_id, user_id)
@@ -80,7 +81,7 @@ async def restriction_app(app :app, message):
         for kicked in data:
             print(f"present {kicked}")
             if kicked in kick:
-                if user_id in SUDO_USERS:
+                if user_id in OWNER_ID:
                     await message.reply(random.choice(strict_txt))
                 
                 else:
@@ -91,7 +92,7 @@ async def restriction_app(app :app, message):
         for muted in data:
             print(f"present {muted}") 
             if muted in mute:
-                if user_id in SUDO_USERS:
+                if user_id in OWNER_ID:
                     await message.reply(random.choice(strict_txt))
                 
                 else:
