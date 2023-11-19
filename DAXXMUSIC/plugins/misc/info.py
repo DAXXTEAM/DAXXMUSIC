@@ -183,11 +183,3 @@ async def userinfo(_, message):
             await message.reply_text(str(e))
 
 ####
-@app.on_message(filters.command("blackpink"))
-async def blackpink(_, message):
-    text = message.text[len("/blackpink ") :]
-    bp(f"{text}").save(f"blackpink_{message.from_user.id}.png")
-    await message.reply_photo(f"blackpink_{message.from_user.id}.png", reply_markup=button)
-    os.remove(f"blackpink_{message.from_user.id}.png")
-
-
