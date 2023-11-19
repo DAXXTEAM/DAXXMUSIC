@@ -39,3 +39,19 @@ async def upscale_image(client, message):
     except Exception as e:
         print(f"**ғᴀɪʟᴇᴅ ᴛᴏ ᴜᴘsᴄᴀʟᴇ ᴛʜᴇ ɪᴍᴀɢᴇ**: {e}")
         await message.reply_text("**ғᴀɪʟᴇᴅ ᴛᴏ ᴜᴘsᴄᴀʟᴇ ᴛʜᴇ ɪᴍᴀɢᴇ. ᴘʟᴇᴀsᴇ ᴛʀʏ ᴀɢᴀɪɴ ʟᴀᴛᴇʀ**.")
+
+
+###### sticker id =
+@app.on_message(filters.command(["stickerid","stid"]))
+async def sticker_id(Yumikoo: Yumikoo, msg):
+    if not msg.reply_to_message:
+        await msg.reply_text("Reply to a sticker")        
+    elif not msg.reply_to_message.sticker:
+        await msg.reply_text("Reply to a sticker")        
+    st_in = msg.reply_to_message.sticker
+    await msg.reply_text(f"""
+⊹ <u>**sᴛɪᴄᴋᴇʀ ɪɴғᴏ**</u> ⊹
+**⊚ sᴛɪᴄᴋᴇʀ ɪᴅ **: `{st_in.file_id}`\n
+**⊚ sᴛɪᴄᴋᴇʀ ᴜɴɪǫᴜᴇ ɪᴅ **: `{st_in.file_unique_id}`
+""")
+    
