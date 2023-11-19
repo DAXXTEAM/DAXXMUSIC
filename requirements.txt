@@ -2,6 +2,7 @@ aiofiles
 aiohttp
 asyncio
 beautifulsoup4
+blackpink
 dnspython
 ffmpeg-python
 gitpython
