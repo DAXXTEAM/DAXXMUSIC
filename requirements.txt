@@ -1,6 +1,6 @@
 aiofiles
 aiohttp
-asyncio
+asyncio==3.4.3
 beautifulsoup4
 blackpink
 deepai
