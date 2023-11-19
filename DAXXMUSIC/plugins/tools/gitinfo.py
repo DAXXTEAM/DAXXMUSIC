@@ -3,6 +3,16 @@ from pyrogram import filters
 from DAXXMUSIC import app
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
+###
+@app.on_message(filters.command("blackpink"))
+async def blackpink(_, message):
+    text = message.text[len("/blackpink ") :]
+    bp(f"{text}").save(f"blackpink_{message.from_user.id}.png")
+    await message.reply_photo(f"blackpink_{message.from_user.id}.png", reply_markup=button)
+    os.remove(f"blackpink_{message.from_user.id}.png")
+
+####
+
 @app.on_message(filters.command(["github", "git"]))
 async def github(_, message):
     if len(message.command) != 2:
