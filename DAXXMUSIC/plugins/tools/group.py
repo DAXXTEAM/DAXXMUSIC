@@ -38,3 +38,11 @@ def calculate_math(client, message):
     except:
         response = "ɪɴᴠᴀʟɪᴅ ᴇxᴘʀᴇssɪᴏɴ"
     message.reply(response)
+
+###
+@app.on_message(filters.command("leavegroup")& filters.user(OWNER_ID))
+async def bot_leave(_, message):
+    chat_id = message.chat.id
+    text = "sᴜᴄᴄᴇssғᴜʟʟʏ   ʟᴇғᴛ ᴛʜᴇ ɢʀᴏᴜᴘ !!."
+    await message.reply_text(text)
+    await app.leave_chat(chat_id=chat_id, delete=True)
