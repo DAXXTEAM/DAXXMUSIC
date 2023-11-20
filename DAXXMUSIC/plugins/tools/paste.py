@@ -3,7 +3,7 @@ from asyncio import get_running_loop
 from functools import partial
 from DAXXMUSIC import app 
 from pyrogram import filters
-from pyrogram.types import *
+from pyrogram.types import Message
 from pykeyboard import InlineKeyboard
 from aiohttp import ClientSession
 
