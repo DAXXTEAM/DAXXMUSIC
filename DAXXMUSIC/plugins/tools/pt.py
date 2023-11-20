@@ -5,8 +5,7 @@ from pyrogram import Client
 from DAXXMUSIC import app 
 
 
-@app.on_message(filters.command("pt"))
-
+@app.on_message(filters.command(["tm" , "lnk"]))
 async def paste(_, message):
     if message.reply_to_message:
         if message.reply_to_message.document:
