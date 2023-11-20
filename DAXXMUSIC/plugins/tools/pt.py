@@ -1,16 +1,15 @@
 import codecs
 import os
 import requests
-from pyrogram import filters
-from pyrogram import Client 
-from DAXXMUSIC import app 
+from pyrogram import Client, filters
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
+from DAXXMUSIC import app
 
-@app.on_message(filters.command(["tm" , "lnk"]))
 async def paste(_, message):
     if message.reply_to_message:
         if message.reply_to_message.document:
-            file = await app.get_file(message.reply_to_message.document.file_id)
+            file = await bot.get_file(message.reply_to_message.document.file_id)
             file.download("file.txt")
             text = codecs.open("file.txt", "r+", encoding="utf-8")
             paste_text = text.read()
@@ -45,10 +44,11 @@ async def paste(_, message):
         await message.reply_text(
             text,
             reply_markup=InlineKeyboardMarkup(buttons),
-            parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
         )
         os.remove("file.txt")
     except Exception as excp:
         await message.reply_text(f"Failed. Error: {excp}")
         return
+
+app.add_handler(paste, filters.command("pk") & filters.private)
