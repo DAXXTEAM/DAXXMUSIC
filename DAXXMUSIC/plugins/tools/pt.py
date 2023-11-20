@@ -1,83 +1,54 @@
-import logging
+import codecs
 import os
-from datetime import datetime
+import requests
+from pyrogram import Client 
+from DAXXMUSIC import app 
 
-from pyrogram import Client, filters
 
-logging.basicConfig(
-    format="[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s", level=logging.WARNING
-)
+@app.on_message(filters.command("pt"))
 
-from DAXXMUSIC import app
-
-async def progress(current, total):
-    logger.info(
-        "Downloaded {} of {}\nCompleted {}".format(
-            current, total, (current / total) * 100
-        )
-    )
-
-@app.on_message(filters.command("pt") | filters.private)
-async def paste(event):
-    if event.forward_from:
-        return
-    datetime.now()
-    if not os.path.isdir(bot.get_config("TMP_DOWNLOAD_DIRECTORY")):
-        os.makedirs(bot.get_config("TMP_DOWNLOAD_DIRECTORY"))
-    input_str = event.text.split(" ", maxsplit=1)[1] if len(event.text.split(" ", maxsplit=1)) > 1 else None
-    if input_str:
-        message = input_str
-    elif event.reply_to_message:
-        previous_message = event.reply_to_message
-        if previous_message.media:
-            downloaded_file_name = await bot.download_media(
-                previous_message,
-                bot.get_config("TMP_DOWNLOAD_DIRECTORY"),
-                progress_callback=progress,
-            )
-            m_list = None
-            with open(downloaded_file_name, "rb") as fd:
-                m_list = fd.readlines()
-            message = ""
-            for m in m_list:
-                message += m.decode("UTF-8")
-            os.remove(downloaded_file_name)
+async def paste(_, message):
+    if message.reply_to_message:
+        if message.reply_to_message.document:
+            file = await app.get_file(message.reply_to_message.document.file_id)
+            file.download("file.txt")
+            text = codecs.open("file.txt", "r+", encoding="utf-8")
+            paste_text = text.read()
         else:
-            message = previous_message.text
+            paste_text = message.reply_to_message.text
     else:
-        await event.edit("Give Some Text Or File To Paste")
+        await message.reply_text("What am I supposed to do with this?")
         return
-    py_file = ""
-    name = "ok"
-    if previous_message.media:
-        name = await app.download_media(
-            previous_message,
-            bot.get_config("TMP_DOWNLOAD_DIRECTORY"),
-            progress_callback=progress,
-        )
-    downloaded_file_name = name
-    if downloaded_file_name.endswith(".py"):
-        py_file += ".py"
-        data = message
-        key = (
-            requests.post("https://nekobin.com/api/documents", json={"content": data})
+
+    try:
+        link = (
+            requests.post(
+                "https://nekobin.com/api/documents",
+                json={"content": paste_text},
+            )
             .json()
             .get("result")
             .get("key")
         )
-        url = f"https://nekobin.com/{key}{py_file}"
-        raw = f"https://nekobin.com/raw/{key}{py_file}"
-        reply_text = f"Pasted Text [neko]({url})\n Raw ? [View Raw]({raw})"
-        await event.edit(reply_text)
-    else:
-        data = message
-        key = (
-            requests.post("https://nekobin.com/api/documents", json={"content": data})
-            .json()
-            .get("result")
-            .get("key")
+        text = "Pasted to Nekobin!!!"
+        buttons = [
+            [
+                InlineKeyboardButton(
+                    text="View Link", url=f"https://nekobin.com/{link}"
+                ),
+                InlineKeyboardButton(
+                    text="View Raw",
+                    url=f"https://nekobin.com/raw/{link}",
+                ),
+            ]
+        ]
+        await message.reply_text(
+            text,
+            reply_markup=InlineKeyboardMarkup(buttons),
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
         )
-        url = f"https://nekobin.com/{key}"
-        raw = f"https://nekobin.com/raw/{key}"
-        reply_text = f"Pasted Text [neko]({url})\n Raw ? [View Raw]({raw})"
-        await event.edit(reply_text)
+        os.remove("file.txt")
+    except Exception as excp:
+        await message.reply_text(f"Failed. Error: {excp}")
+        return
