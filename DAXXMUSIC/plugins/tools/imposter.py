@@ -1,3 +1,5 @@
+import random
+from pyrogram import Client
 from pyrogram import filters
 from pyrogram.types import Message
 from DAXXMUSIC.utils import imposterdb
