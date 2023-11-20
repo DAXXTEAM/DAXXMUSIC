@@ -1,13 +1,14 @@
 import asyncio
+from pyrogram import Client, filters
 from pyrogram import enums
-from pyrogram.enums import ChatType
-from pyrogram import filters, Client
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from DAXXMUSIC import app
-from pyrogram.types import ChatPermissions, ChatPrivileges
 from config import OWNER_ID
-from DAXXMUSIC.misc import SUDOERS
 from DAXXMUSIC.utils.daxx_ban import admin_filter
- 
+
+button = InlineKeyboardMarkup(
+    [[InlineKeyboardButton("Click Here", url="t.me/fuck")]]
+)
 
 @app.on_message(filters.command("ban") & admin_filter)
 async def ban(_, message):
@@ -15,8 +16,10 @@ async def ban(_, message):
     chat_id = message.chat.id     
     user_id = message.from_user.id
     msg = await message.reply_text("ᴘʀᴏᴄᴇssɪɴɢ...")
+    
     if message.chat.type == enums.ChatType.PRIVATE:
         await msg.edit("ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ ᴡᴏʀᴋs ᴏɴ ɢʀᴏᴜᴘ!")
+    
     elif reply:
         try:
             user = reply.from_user
@@ -27,8 +30,10 @@ async def ban(_, message):
                 
             else:
                 await msg.edit_text("ʏᴏᴜ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ ᴇɴᴏᴜɢʜ ᴘᴇʀᴍɪssɪᴏɴ ᴛᴏ ʙᴀɴ ᴜsᴇʀs.")
+        
         except AttributeError:
             await msg.edit_text("ʏᴏᴜ ᴄᴀɴ ᴏɴʟʏ ʙᴀɴ ᴜsᴇʀ ɪɴ ɢʀᴏᴜᴘ ᴜsᴇʀs.")
+    
     elif len(message.command) > 1:
         try:
             user = await app.get_user(message.command[1])
@@ -38,9 +43,12 @@ async def ban(_, message):
                 await msg.edit_text(f"<code>❕</code><b>ʙᴀɴ ᴇᴠᴇɴᴛ</b>\n <b>•  ʙᴀɴɴᴇᴅ ʙʏ:</b> {message.from_user.mention}\n <b>•  ᴜsᴇʀ:</b> [{user.first_name}](tg://user?id={user.id})", reply_markup=button)      
             else:
                 await msg.edit_text("ʏᴏᴜ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ ᴇɴᴏᴜɢʜ ᴘᴇʀᴍɪssɪᴏɴ ᴛᴏ ʙᴀɴ ᴜsᴇʀs.")
+        
         except AttributeError:
             await msg.edit_text("ʏᴏᴜ ᴄᴀɴ ᴏɴʟʏ ʙᴀɴ ᴜsᴇʀ ɪɴ ɢʀᴏᴜᴘ ᴜsᴇʀs.")
+        
         except Exception as e:
             await msg.edit_text(f"ᴇʀʀᴏʀ: {e}")
+    
     else:
         await msg.edit_text("ʏᴏᴜ ɴᴇᴇᴅ ᴛᴏ ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴍᴇssᴀɢs ᴏʀ ɢɪᴠᴇ ᴀ ᴜsᴇʀ ɪᴅ ᴏʀ ᴜsᴇʀɴᴀᴍᴇ ᴛᴏ ʙᴀɴ.")
