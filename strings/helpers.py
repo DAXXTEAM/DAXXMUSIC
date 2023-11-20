@@ -233,3 +233,14 @@ Admins only:
 __
 𝐒ᴘᴇᴄɪᴀʟ 𝐂ᴏᴍᴍᴀɴᴅs 𝐒ᴜᴘᴘᴏʀᴛ 𝐀ʟʟ 𝐄xᴀᴍᴘʟᴇ  - 𝚈𝚞𝚖𝚒 𝚋𝚊𝚗 𝚈𝚞𝚖𝚒 𝚖𝚞𝚝𝚎 𝚈𝚞𝚖𝚒 𝚙𝚛𝚘𝚖𝚘𝚝𝚎 ..... 𝚎𝚝𝚌
 """
+HELP_24 = """
+<b><u>Sᴇᴀʀᴄʜ :</b></u>
+Available commands:
+• /google <query> : Search the google for the given query.
+• /anime <query>  : Search myanimelist for the given query.
+• /stack <query>  : Search stackoverflow for the given query.
+• /image (/imgs) <query> : Get the images regarding to your query
+
+Example:
+/google pyrogram: return top 5 reuslts.
+"""
