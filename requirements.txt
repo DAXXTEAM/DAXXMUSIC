@@ -1,5 +1,5 @@
 aiofiles
-aiohttp
+aiohttp==3.8.4
 asyncio==3.4.3
 beautifulsoup4
 blackpink
