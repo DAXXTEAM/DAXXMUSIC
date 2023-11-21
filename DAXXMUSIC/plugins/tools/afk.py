@@ -4,7 +4,7 @@ from pyrogram.types import Message
 
 from DAXXMUSIC import app
 
-from DAXXMUSIC.utils.afk_db import add_afk, is_afk, remove_afk
+from DAXXMUSIC.plugins.afk_db import add_afk, is_afk, remove_afk
 def get_readable_time(seconds: int) -> str:
     count = 0
     readable_time = ""
