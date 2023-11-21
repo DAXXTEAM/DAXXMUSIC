@@ -1,16 +1,14 @@
-import random
-from pyrogram import Client
 from pyrogram import filters
 from pyrogram.types import Message
-from DAXXMUSIC.utils import imposterdb
+from DAXXMUSIC.plugins.Hurr.pretenderdb import impo_off, impo_on, check_pretender, add_userdata, get_userdata, usr_data
 from DAXXMUSIC import app
 
 
 
 
-@app.on_message(filters.group & ~filters.bot & ~filters.via_bot, group=1)
+@app.on_message(filters.group & ~filters.bot & ~filters.via_bot, group=69)
 async def chk_usr(_, message: Message):
-    if message.sender_chat or not await check_imposter(message.chat.id):
+    if message.sender_chat or not await check_pretender(message.chat.id):
         return
     if not await usr_data(message.from_user.id):
         return await add_userdata(
@@ -27,7 +25,7 @@ async def chk_usr(_, message: Message):
         or lastname_before != message.from_user.last_name
     ):
         msg += f"""
-**🔓 ɪᴍᴘᴏsᴛᴇʀ ᴅᴇᴛᴇᴄᴛᴇᴅ 🔓**
+**🔓 ᴘʀᴇᴛᴇɴᴅᴇʀ ᴅᴇᴛᴇᴄᴛᴇᴅ 🔓**
 ➖➖➖➖➖➖➖➖➖➖➖➖
 **🍊 ɴᴀᴍᴇ** : {message.from_user.mention}
 **🍅 ᴜsᴇʀ ɪᴅ** : {message.from_user.id}
@@ -88,30 +86,26 @@ async def chk_usr(_, message: Message):
             message.from_user.last_name,
         )
     if msg != "":
-        await message.reply_photo("https://telegra.ph/file/9ef592145fd4ea189d092.jpg", caption=msg)
+        await message.reply_photo("https://telegra.ph/file/7a60c7e7a38804c12be51.jpg", caption=msg)
 
 
-@app.on_message(filters.group & filters.command("imposter") & ~filters.bot & ~filters.via_bot)
+@app.on_message(filters.group & filters.command("pretender") & ~filters.bot & ~filters.via_bot)
 async def set_mataa(_, message: Message):
     if len(message.command) == 1:
-        return await message.reply("**ᴅᴇᴛᴇᴄᴛ ɪᴍᴘᴏsᴛᴇʀ ᴜsᴇʀs ᴜsᴀɢᴇ : ɪᴍᴘᴏsᴛᴇʀ ᴏɴ|ᴏғғ**")
-    if message.command[1] == "on":
+        return await message.reply("**ᴅᴇᴛᴇᴄᴛ ᴘʀᴇᴛᴇɴᴅᴇʀ ᴜsᴇʀs ᴜsᴀɢᴇ : ᴘʀᴇᴛᴇɴᴅᴇʀ ᴏɴ|ᴏғғ**")
+    if message.command[1] == "enable":
         cekset = await impo_on(message.chat.id)
         if cekset:
-            await message.reply("**ɪᴍᴘᴏsᴛᴇʀ ᴍᴏᴅᴇ ɪs ᴀʟʀᴇᴀᴅʏ ᴇɴᴀʙʟᴇᴅ.**")
+            await message.reply("**ᴘʀᴇᴛᴇɴᴅᴇʀ ᴍᴏᴅᴇ ɪs ᴀʟʀᴇᴀᴅʏ ᴇɴᴀʙʟᴇᴅ.**")
         else:
             await impo_on(message.chat.id)
-            await message.reply(f"**sᴜᴄᴄᴇssғᴜʟʟʏ ᴇɴᴀʙʟᴇᴅ ɪᴍᴘᴏsᴛᴇʀ ᴍᴏᴅᴇ ғᴏʀ** {message.chat.title}")
-    elif message.command[1] == "off":
+            await message.reply(f"**sᴜᴄᴄᴇssғᴜʟʟʏ ᴇɴᴀʙʟᴇᴅ ᴘʀᴇᴛᴇɴᴅᴇʀ ᴍᴏᴅᴇ ғᴏʀ** {message.chat.title}")
+    elif message.command[1] == "disable":
         cekset = await impo_off(message.chat.id)
         if not cekset:
-            await message.reply("**ɪᴍᴘᴏsᴛᴇʀ ᴍᴏᴅᴇ ɪs ᴀʟʀᴇᴀᴅʏ ᴅɪsᴀʙʟᴇᴅ.**")
+            await message.reply("**ᴘʀᴇᴛᴇɴᴅᴇʀ ᴍᴏᴅᴇ ɪs ᴀʟʀᴇᴀᴅʏ ᴅɪsᴀʙʟᴇᴅ.**")
         else:
             await impo_off(message.chat.id)
-            await message.reply(f"**sᴜᴄᴄᴇssғᴜʟʟʏ ᴅɪsᴀʙʟᴇᴅ ɪᴍᴘᴏsᴛᴇʀ ᴍᴏᴅᴇ ғᴏʀ** {message.chat.title}")
+            await message.reply(f"**sᴜᴄᴄᴇssғᴜʟʟʏ ᴅɪsᴀʙʟᴇᴅ ᴘʀᴇᴛᴇɴᴅᴇʀ ᴍᴏᴅᴇ ғᴏʀ** {message.chat.title}")
     else:
-        await message.reply("**ᴅᴇᴛᴇᴄᴛ ɪᴍᴘᴏsᴛᴇʀ ᴜsᴇʀs ᴜsᴀɢᴇ : ɪᴍᴘᴏsᴛᴇʀ ᴏɴ|ᴏғғ**")
-
-
-
-
+        await message.reply("**ᴅᴇᴛᴇᴄᴛ ᴘʀᴇᴛᴇɴᴅᴇʀ ᴜsᴇʀs ᴜsᴀɢᴇ : ᴘʀᴇᴛᴇɴᴅᴇʀ ᴏɴ|ᴏғғ**")
