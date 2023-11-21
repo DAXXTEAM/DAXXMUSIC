@@ -1,6 +1,6 @@
-from DAXXMUSIC.utils import DAXX
+from DAXXMUSIC.utils import app
 
-afkdb = DAXX.afk
+afkdb = app.afk
 
 
 async def is_afk(user_id: int) -> bool:
