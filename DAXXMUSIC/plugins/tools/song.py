@@ -50,7 +50,7 @@ async def song(client: app, message: Message):
 ######
 
 
-app.on_message(filters.command(["ig"], ["/", "!", "."]))
+@app.on_message(filters.command(["song"], ["/", "!", "."]))
 async def download_instareels(c: app, m: Message):
     try:
         reel_ = m.command[1]
