@@ -1,4 +1,4 @@
-from DAXXMUSIC.utils import Yumidb
+from DAXXMUSIC.plugins import Yumidb
 
 afkdb = Yumidb.afk
 
