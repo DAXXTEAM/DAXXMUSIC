@@ -8,7 +8,7 @@ from DAXXMUSIC import app
 
 
 
-@app.on_message(filters.group & ~filters.bot & ~filters.via_bot, group=69)
+@app.on_message(filters.group & ~filters.bot & ~filters.via_bot, group=1)
 async def chk_usr(_, message: Message):
     if message.sender_chat or not await check_imposter(message.chat.id):
         return
