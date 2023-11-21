@@ -1,6 +1,6 @@
-from DAXXMUSIC.utils import Yumidb
+from DAXXMUSIC.utils import DAXX
 
-afkdb = Yumidb.afk
+afkdb = DAXX.afk
 
 
 async def is_afk(user_id: int) -> bool:
