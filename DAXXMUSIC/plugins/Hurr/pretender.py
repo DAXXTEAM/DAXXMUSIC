@@ -1,6 +1,6 @@
 from pyrogram import filters
 from pyrogram.types import Message
-from DAXXMUSIC.utils.database.pretenderdb import *
+from DAXXMUSIC.utils.database import pretenderdb
 from DAXXMUSIC import app
 
 
