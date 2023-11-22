@@ -36,7 +36,7 @@ class temp:
 
 # ... (FUCK you )
 
-def circle(pfp, size=(450, 450)):
+def circle(pfp, size=(500, 500)):
     pfp = pfp.resize(size, Image.ANTIALIAS).convert("RGBA")
     bigsize = (pfp.size[0] * 3, pfp.size[1] * 3)
     mask = Image.new("L", bigsize, 0)
@@ -51,7 +51,7 @@ def welcomepic(pic, user, chat, id, uname):
     background = Image.open("DAXXMUSIC/assets/bg1.jpg")
     pfp = Image.open(pic).convert("RGBA")
     pfp = circle(pfp)
-    pfp = pfp.resize((500, 500))
+    pfp = pfp.resize((450, 450))
     draw = ImageDraw.Draw(background)
     font = ImageFont.truetype('DAXXMUSIC/assets/font.ttf', size=40)
     welcome_font = ImageFont.truetype('DAXXMUSIC/assets/font.ttf', size=60)
