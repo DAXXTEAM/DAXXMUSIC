@@ -1,7 +1,7 @@
 import re, os, socket, aiofiles, aiohttp, asyncio
 from asyncio import get_running_loop
 from functools import partial
-from DAXXMUSIC import app
+from DAXXMUSIC import app 
 from pyrogram import filters
 from pyrogram.types import *
 from pykeyboard import InlineKeyboard
@@ -79,6 +79,3 @@ async def paste_func(_, message):
         except Exception:
             pass
     return await m.edit(link)
-
-
-
