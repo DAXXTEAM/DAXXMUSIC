@@ -9,17 +9,18 @@ LOGGER = getLogger(__name__)
 
 class WelDatabase:
     def __init__(self):
-        self.data = set()
+        self.data = {}
 
     async def find_one(self, chat_id):
         return chat_id in self.data
 
     async def add_wlcm(self, chat_id):
-        self.data.add(chat_id)
+        self.data[chat_id] = {}  # You can store additional information related to the chat
+        # For example, self.data[chat_id]['some_key'] = 'some_value'
 
     async def rm_wlcm(self, chat_id):
         if chat_id in self.data:
-            self.data.remove(chat_id)
+            del self.data[chat_id]
 
 wlcm = WelDatabase()
 
@@ -77,7 +78,7 @@ async def auto_state(_, message):
         enums.ChatMemberStatus.ADMINISTRATOR,
         enums.ChatMemberStatus.OWNER,
     ):
-        A = await wlcm.find_one({"chat_id": chat_id})
+        A = await wlcm.find_one(chat_id)
         state = message.text.split(None, 1)[1].strip().lower()
         if state == "enable":
             if A:
