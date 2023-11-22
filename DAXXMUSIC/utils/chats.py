@@ -1,6 +1,6 @@
 from typing import Dict, Union, List
 from DAXXMUSIC import db
-
+from DAXXMUSIC import app
 chatsdb = db.chats
 
 async def get_served_chats() -> list:
