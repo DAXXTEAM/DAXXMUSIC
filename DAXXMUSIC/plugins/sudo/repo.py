@@ -4,7 +4,6 @@ from pyrogram import filters
 
 import config
 from DAXXMUSIC import app
-from DAXXMUSIC.misc import SUDOERS
  
 from DAXXMUSIC.utils.formatters import convert_bytes
 
@@ -12,7 +11,7 @@ from DAXXMUSIC.utils.formatters import convert_bytes
 
 
 
-@app.on_message(filters.command(["repo"]) & SUDOERS)
+@app.on_message(filters.command("repo")
 async def varsFunc(client, message):
     mystic = await message.reply_text(
         "Please wait.."
