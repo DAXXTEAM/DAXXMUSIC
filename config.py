@@ -13,7 +13,7 @@ API_HASH = getenv("API_HASH")
 BOT_TOKEN = getenv("BOT_TOKEN")
 
 #get Your Assistant User name
-ASSUSERNAME = getenv("ASSUSERNAME")
+ASSUSERNAME = getenv("ASSUSERNAME" , "MissYumikoo")
 
 # Get your mongo url from cloud.mongodb.com
 MONGO_DB_URI = getenv("MONGO_DB_URI", None)
