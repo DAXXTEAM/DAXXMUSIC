@@ -3,7 +3,7 @@ from pyrogram import filters
 from DAXXMUSIC import app
 from pyrogram.enums import ChatAction, ParseMode
 
-api_key ="c8e3d7fc-1f7e-455b-8019-5c1b7f21047a"
+api_key ="908fa7e9-220b-4357-ac2f-7eb499005b5f"
 
 
 
@@ -31,3 +31,24 @@ async def deepchat(app: app, message):
             await message.reply_text(f"{answer_text}")
     except Exception as e:
         await message.reply_text(f"**ᴇʀʀᴏʀ**: {e}")
+
+
+#####
+
+@app.on_message(filters.command(["bing"],  prefixes=["+", ".", "/", "-", "?", "$","#","&"]))
+async def bing_ai(app :app, message):
+    
+    try:
+        if len(message.command) < 2:
+            await message.reply_text(
+            "ʜᴇʟʟᴏ sɪʀ\nᴇxᴀᴍᴘʟᴇ:-.bing How to set girlfriend ?")
+        else:
+            query = message.text.split(' ', 1)[1]
+            response = await g4f.ChatCompletion.create_async(
+            model=g4f.models.default,
+            messages=[{"role": "user", "content": query}],  
+            provider=g4f.Provider.Bing
+            )
+            await message.reply_text(f"{response}")     
+    except Exception as e:
+        await message.reply_text(f"ᴇʀʀᴏʀ: {e} ")
