@@ -34,8 +34,6 @@ class temp:
 
 # ... (rest of your code remains unchanged)
 
-# ... (FUCK you )
-
 def circle(pfp, size=(500, 500)):
     pfp = pfp.resize(size, Image.ANTIALIAS).convert("RGBA")
     bigsize = (pfp.size[0] * 3, pfp.size[1] * 3)
@@ -64,45 +62,12 @@ def welcomepic(pic, user, chat, id, uname):
     background.save(f"downloads/welcome#{id}.png")
     return f"downloads/welcome#{id}.png"
 
-# FUCK you 
-
-
-@app.on_message(filters.command("swelcome") & ~filters.private)
-async def auto_state(_, message):
-    usage = "**Usage:**\n/swelcome [ENABLE|DISABLE]"
-    if len(message.command) == 1:
-        return await message.reply_text(usage)
-    chat_id = message.chat.id
-    user = await app.get_chat_member(message.chat.id, message.from_user.id)
-    if user.status in (
-        enums.ChatMemberStatus.ADMINISTRATOR,
-        enums.ChatMemberStatus.OWNER,
-    ):
-        A = await wlcm.find_one(chat_id)
-        state = message.text.split(None, 1)[1].strip().lower()
-        if state == "enable":
-            if A:
-                return await message.reply_text("Special Welcome Already Enabled")
-            elif not A:
-                await wlcm.add_wlcm(chat_id)
-                await message.reply_text(f"Enabled Special Welcome in {message.chat.title}")
-        elif state == "disable":
-            if not A:
-                return await message.reply_text("Special Welcome Already Disabled")
-            elif A:
-                await wlcm.rm_wlcm(chat_id)
-                await message.reply_text(f"Disabled Special Welcome in {message.chat.title}")
-        else:
-            await message.reply_text(usage)
-    else:
-        await message.reply("Only Admins Can Use This Command")
-
 # ... (rest of your code remains unchanged)
 
 @app.on_chat_member_updated(filters.group, group=-3)
 async def greet_group(_, member: ChatMemberUpdated):
     chat_id = member.chat.id
-    A = await wlcm.find_one(chat_id)  # Corrected this line
+    A = await wlcm.find_one(chat_id)
     if not A:
         return
     if (
@@ -145,25 +110,4 @@ Usᴇʀɴᴀᴍᴇ ✧ @{user.username}
     try:
         os.remove(f"downloads/welcome#{user.id}.png")
         os.remove(f"downloads/pp{user.id}.png")
-    except Exception as e:
-        pass
-
-# ... (resfuxbk 
-
-@app.on_message(filters.new_chat_members & filters.group, group=-1)
-async def bot_wel(_, message):
-    for u in message.new_chat_members:
-        if u.id == app.me.id:
-            await app.send_message(LOG_CHANNEL_ID, f"""
-**NEW GROUP
-➖➖➖➖➖➖➖➖➖➖➖➖
-NAME: {message.chat.title}
-ID: {message.chat.id}
-USERNAME: @{message.chat.username}
-➖➖➖➖➖➖➖➖➖➖➖➖**
-""")
-
-__mod__ = "WELCOME"
-__help__ = """
-**» /swelcome** - Turn On The Special Welcome For Groups
-"""
+    except Exception as
