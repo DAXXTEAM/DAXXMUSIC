@@ -4,7 +4,7 @@ from traceback import format_exc
 from pyrogram import filters
 from pyrogram.types import Message
 
-from DAXXMUSIC import app
+from DAXXMUSIC import app ,arq
 from DAXXMUSIC.misc import SUDOERS
 from DAXXMUSIC.utils.errors import capture_err
 
