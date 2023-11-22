@@ -12,7 +12,7 @@ IMG = ["https://telegra.ph/file/1cefd3211a5acdcd332415.jpg", "https://telegra.ph
 MESSAGE = "Heya! I'm a music bot hoster/Cloner\n\nI can Host Your Bot On My Server within seconds\n\nTry /clone Token from @botfather"
 
 @app.on_message(filters.private & filters.command("copy"))
-async def hello(client, message: Message):
+async def copy(client, message: Message):
     buttons = [
            [
                 InlineKeyboardButton("✘ ᴜᴘᴅᴀᴛᴇꜱ ᴄʜᴀɴɴᴇʟ", url="t.me/"),
