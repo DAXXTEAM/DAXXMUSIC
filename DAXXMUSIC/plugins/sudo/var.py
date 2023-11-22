@@ -28,9 +28,6 @@ async def varsFunc(client, message):
 <u>Custom Repo Vars:</u>
 UPSTREAM_REPO : {up_r}
 UPSTREAM_BRANCH : {up_b}
-GITHUB_REPO : {git}
-GIT_TOKEN : {token}
-
 
     """
     await asyncio.sleep(1)
