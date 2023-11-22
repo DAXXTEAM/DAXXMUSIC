@@ -1,5 +1,4 @@
 import os
-from unidecode import unidecode
 from PIL import ImageDraw, Image, ImageFont, ImageChops
 from pyrogram import *
 from pyrogram.types import *
@@ -22,7 +21,6 @@ class WelDatabase:
         if chat_id in self.data:
             self.data.remove(chat_id)
 
-
 wlcm = WelDatabase()
 
 class temp:
@@ -35,11 +33,7 @@ class temp:
 
 # ... (rest of your code remains unchanged)
 
-
-
 # ... (FUCK you )
-
-
 
 def circle(pfp, size=(450, 450)):
     pfp = pfp.resize(size, Image.ANTIALIAS).convert("RGBA")
@@ -60,14 +54,17 @@ def welcomepic(pic, user, chat, id, uname):
     draw = ImageDraw.Draw(background)
     font = ImageFont.truetype('DAXXMUSIC/resources/SwanseaBold-D0ox.ttf', size=40)
     welcome_font = ImageFont.truetype('DAXXMUSIC/resources/SwanseaBold-D0ox.ttf', size=60)
-    draw.text((30, 300), f'NAME: {unidecode(user)}', fill=(255, 255, 255), font=font)
+    draw.text((30, 300), f'NAME: {user}', fill=(255, 255, 255), font=font)
     draw.text((30, 370), f'ID: {id}', fill=(255, 255, 255), font=font)
-    draw.text((30, 40), f"Welcome to {unidecode(chat)}", fill=(225, 225, 225), font=welcome_font)
+    draw.text((30, 40), f"Welcome to {chat}", fill=(225, 225, 225), font=welcome_font)
     draw.text((30, 430), f"USERNAME : {uname}", fill=(255, 255, 255), font=font)
     pfp_position = (770, 140)
     background.paste(pfp, pfp_position, pfp)
     background.save(f"downloads/welcome#{id}.png")
     return f"downloads/welcome#{id}.png"
+
+# FUCK you 
+
 
 @app.on_message(filters.command("swelcome") & ~filters.private)
 async def auto_state(_, message):
