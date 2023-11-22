@@ -10,17 +10,17 @@ LOGGER = getLogger(__name__)
 
 class WelDatabase:
     def __init__(self):
-        self.data = {}
+        self.data = set()
 
-    async def find_one(self, query):
-        return self.data.get(query, None)
+    async def find_one(self, chat_id):
+        return chat_id in self.data
 
     async def add_wlcm(self, chat_id):
-        self.data[chat_id] = True
+        self.data.add(chat_id)
 
     async def rm_wlcm(self, chat_id):
         if chat_id in self.data:
-            del self.data[chat_id]
+            self.data.remove(chat_id)
 
 wlcm = WelDatabase()
 
@@ -31,6 +31,10 @@ class temp:
     MELCOW = {}
     U_NAME = None
     B_NAME = None
+
+# ... (FUCK you )
+
+
 
 def circle(pfp, size=(450, 450)):
     pfp = pfp.resize(size, Image.ANTIALIAS).convert("RGBA")
