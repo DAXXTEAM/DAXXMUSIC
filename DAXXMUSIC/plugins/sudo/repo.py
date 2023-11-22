@@ -12,7 +12,7 @@ from DAXXMUSIC.utils.formatters import convert_bytes
 
 
 
-@app.on_message(filters.command(["var"]) & SUDOERS)
+@app.on_message(filters.command(["repo"]) & SUDOERS)
 async def varsFunc(client, message):
     mystic = await message.reply_text(
         "Please wait.. Getting your config"
