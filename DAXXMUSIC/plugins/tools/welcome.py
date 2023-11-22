@@ -131,4 +131,3 @@ USERNAME: @{message.chat.username}
 __mod__ = "WELCOME"
 __help__ = """
 **» /swelcome** - Turn On The Special Welcome For Groups
-"""
