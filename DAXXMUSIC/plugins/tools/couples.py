@@ -8,8 +8,8 @@ from pyrogram.types import *
 from pyrogram.enums import *
 
 #BOT FILE NAME
-from DAXXMUSIC import app as app
-from DAXXMUSIC.utils.couples_db import _get_image, get_couple, save_couple
+from DAXXMUSIC import pbot as app
+from DAXXMUSIC.modules.mongo.couples_db import _get_image, get_couple, save_couple
 
 def dt():
     now = datetime.now()
@@ -62,19 +62,19 @@ async def ctest(_, message):
          try:
             p1 = await app.download_media(photo1.big_file_id, file_name="pfp.png")
          except Exception:
-            p1 = "DAXXMUSIC/resources/Couples.png"
+            p1 = "DAXXMUSIC/resources/profilepic.png"
          try:
             p2 = await app.download_media(photo2.big_file_id, file_name="pfp1.png")
          except Exception:
-            p2 = "DAXXMUSIC/resources/Couples.png"
+            p2 = "DAXXMUSIC/resources/profilepic.png"
             
          img1 = Image.open(f"{p1}")
          img2 = Image.open(f"{p2}")
 
-         img = Image.open("DAXXMUSIC/resources/Couples.png")
+         img = Image.open("DAXXMUSIC/resources/deepcp.png")
 
-         img1 = img1.resize((400,400))
-         img2 = img2.resize((400,400))
+         img1 = img1.resize((360,360))
+         img2 = img2.resize((360,360))
 
          mask = Image.new('L', img1.size, 0)
          draw = ImageDraw.Draw(mask) 
@@ -90,8 +90,8 @@ async def ctest(_, message):
 
          draw = ImageDraw.Draw(img)
 
-         img.paste(img1, (434, 217), img1)
-         img.paste(img2, (994, 217), img2)
+         img.paste(img1, (147, 225), img1)
+         img.paste(img2, (765, 222), img2)
 
          img.save(f'test_{cid}.png')
     
