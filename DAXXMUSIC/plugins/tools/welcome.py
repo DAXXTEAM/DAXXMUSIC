@@ -131,11 +131,11 @@ async def greet_group(_, member: ChatMemberUpdated):
             member.chat.id,
             photo=welcomeimg,
             caption=f"""
-**𝗪𝗘𝗟𝗖𝗢𝗠𝗘 𝗧𝗢 {member.chat.title}
+**Wᴇʟᴄᴏᴍᴇ Tᴏ {member.chat.title}
 ➖➖➖➖➖➖➖➖➖➖➖➖
-𝗡𝗔𝗠𝗘: {user.mention}
-𝗨𝗦𝗘𝗥𝗜𝗗: {user.id}
-𝗨𝗦𝗘𝗥𝗡𝗔𝗠𝗘: @{user.username}
+Nᴀᴍᴇ: {user.mention}
+Iᴅ: {user.id}
+Usᴇʀɴᴀᴍᴇ: @{user.username}
 ➖➖➖➖➖➖➖➖➖➖➖➖**
 """,
             reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(f"⦿ ᴀᴅᴅ ᴍᴇ ⦿", url=f"https://t.me/YumikooBot?startgroup=true")]])
