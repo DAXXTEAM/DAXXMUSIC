@@ -113,7 +113,7 @@ async def ctest(_, message):
     
          
        elif is_selected:
-         msg = await message.reply_text("Getting Todays Couples Image...")
+         msg = await message.reply_text("𝐆ᴇᴛᴛɪɴɢ 𝐓ᴏᴅᴀʏs 𝐂ᴏᴜᴘʟᴇs 𝐈ᴍᴀɢᴇ...")
          b = await _get_image(cid)
          c1_id = int(is_selected["c1_id"])
          c2_id = int(is_selected["c2_id"])
