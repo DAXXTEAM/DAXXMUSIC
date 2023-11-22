@@ -9,7 +9,7 @@ from pyrogram.enums import *
 
 #BOT FILE NAME
 from DAXXMUSIC import app as app
-from DAXXMUSIC.modules.mongo.couples_db import _get_image, get_couple, save_couple
+from DAXXMUSIC.utils.couples_db import _get_image, get_couple, save_couple
 
 def dt():
     now = datetime.now()
