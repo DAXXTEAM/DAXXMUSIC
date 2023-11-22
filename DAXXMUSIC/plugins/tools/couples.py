@@ -96,11 +96,11 @@ async def ctest(_, message):
          img.save(f'test_{cid}.png')
     
          TXT = f"""
-**TODAY'S SELECTED COUPLES 🎉 :
+**𝐓ᴏᴅᴀʏ's 𝐒ᴇʟᴇᴄᴛᴇᴅ 𝐂ᴏᴜᴘʟᴇs 🎉 :
 ➖➖➖➖➖➖➖➖➖➖➖➖
 {N1} + {N2} = ❣️
 ➖➖➖➖➖➖➖➖➖➖➖➖
-NEXT COUPLES WILL BE SELECTED ON {tomorrow} !!**
+𝐍ᴇxᴛ 𝐂ᴏᴜᴘʟᴇs 𝐖ɪʟʟ 𝐁ᴇ 𝐒ᴇʟᴇᴄᴛᴇᴅ 𝐎ɴ {tomorrow} !!**
 """
     
          await message.reply_photo(f"test_{cid}.png", caption=TXT)
@@ -121,11 +121,11 @@ NEXT COUPLES WILL BE SELECTED ON {tomorrow} !!**
          c2_name = (await app.get_users(c2_id)).first_name
          
          TXT = f"""
-**TODAY'S SELECTED COUPLES 🎉 :
+**𝐓ᴏᴅᴀʏ's 𝐒ᴇʟᴇᴄᴛᴇᴅ 𝐂ᴏᴜᴘʟᴇs 🎉 :
 ➖➖➖➖➖➖➖➖➖➖➖➖
 [{c1_name}](tg://openmessage?user_id={c1_id}) + [{c2_name}](tg://openmessage?user_id={c2_id}) = ❣️
 ➖➖➖➖➖➖➖➖➖➖➖➖
-NEXT COUPLES WILL BE SELECTED ON {tomorrow} !!**
+𝐍ᴇxᴛ 𝐂ᴏᴜᴘʟᴇs 𝐖ɪʟʟ 𝐁ᴇ 𝐒ᴇʟᴇᴄᴛᴇᴅ 𝐎ɴ {tomorrow} !!**
 """
          await message.reply_photo(b, caption=TXT)
          await msg.delete()
