@@ -17,7 +17,6 @@ async def varsFunc(client, message):
     mystic = await message.reply_text(
         "Please wait.. Getting your config"
     )
-    v_limit = await get_video_limit()
     bot_name = config.MUSIC_BOT_NAME
     up_r = f"[Repo]({config.UPSTREAM_REPO})"
     up_b = config.UPSTREAM_BRANCH
