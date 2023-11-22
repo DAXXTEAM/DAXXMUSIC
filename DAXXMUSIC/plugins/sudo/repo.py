@@ -19,7 +19,7 @@ async def varsFunc(client, message):
     )
     up_r = f"[Repo]({config.UPSTREAM_REPO})"
     up_b = config.UPSTREAM_BRANCH
-    bt_t = config.GIT_TOKEN
+    bt_t = config.GIT_TOKE
 
  ##############
  
