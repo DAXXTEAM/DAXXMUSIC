@@ -1,15 +1,10 @@
 import asyncio
 from pyrogram import filters
-from DAXXMUSIC import app
-from pyrogram import Client
-import config
-from DAXXMUSIC import LOGGER
-from DAXXMUSIC.core.userbot import Userbot
+from DAXXMUSIC import LOGGER, app, userbot
 from DAXXMUSIC.misc import SUDOERS
-
+###
 BOT_LIST = ["YumikooBot", "DAXXTEAMBOT"]
-
-
+####
 
 @app.on_message(filters.command(["botschk"]) & SUDOERS)
 async def bots_chk(app, message):
