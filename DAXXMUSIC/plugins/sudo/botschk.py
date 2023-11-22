@@ -1,6 +1,7 @@
 import asyncio
 from pyrogram import filters
 from DAXXMUSIC import app
+from DAXXMUSIC import LOGGER
 from DAXXMUSIC.core.userbot import Userbot
 from DAXXMUSIC.misc import SUDOERS
 
