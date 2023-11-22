@@ -2,6 +2,7 @@ import requests, config
 from pyrogram import filters
 from DAXXMUSIC import app
 import g4f, random
+from g4f.Provider import Bing
 from pyrogram.enums import ChatAction, ParseMode
 
 api_key ="908fa7e9-220b-4357-ac2f-7eb499005b5f"
