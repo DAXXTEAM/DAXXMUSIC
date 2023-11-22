@@ -1,7 +1,7 @@
 import requests, config
 from pyrogram import filters
 from DAXXMUSIC import app
-import g4f, random
+import g4f
 from g4f.Provider import Bing
 from pyrogram.enums import ChatAction, ParseMode
 
