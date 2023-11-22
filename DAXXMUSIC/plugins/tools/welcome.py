@@ -57,7 +57,7 @@ def welcomepic(pic, user, chat, id, uname):
     welcome_font = ImageFont.truetype('DAXXMUSIC/assets/font.ttf', size=60)
     draw.text((30, 300), f'NAME: {user}', fill=(255, 255, 255), font=font)
     draw.text((30, 370), f'ID: {id}', fill=(255, 255, 255), font=font)
-    draw.text((30, 40), f"Welcome", fill=(225, 225, 225), font=welcome_font)
+    draw.text((30, 40), f"Daxx Cc Club", fill=(225, 225, 225), font=welcome_font)
     draw.text((30, 430), f"USERNAME : {uname}", fill=(255, 255, 255), font=font)
     pfp_position = (671, 134)
     background.paste(pfp, pfp_position, pfp)
@@ -133,9 +133,9 @@ async def greet_group(_, member: ChatMemberUpdated):
             caption=f"""
 **Wᴇʟᴄᴏᴍᴇ Tᴏ {member.chat.title}
 ➖➖➖➖➖➖➖➖➖➖➖➖
-Nᴀᴍᴇ: {user.mention}
-Iᴅ: {user.id}
-Usᴇʀɴᴀᴍᴇ: @{user.username}
+Nᴀᴍᴇ ✧ {user.mention}
+Iᴅ ✧ {user.id}
+Usᴇʀɴᴀᴍᴇ ✧ @{user.username}
 ➖➖➖➖➖➖➖➖➖➖➖➖**
 """,
             reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(f"⦿ ᴀᴅᴅ ᴍᴇ ⦿", url=f"https://t.me/YumikooBot?startgroup=true")]])
