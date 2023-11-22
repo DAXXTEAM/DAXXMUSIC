@@ -4,8 +4,7 @@ from traceback import format_exc
 from pyrogram import filters
 from pyrogram.types import Message
 
-from DAXXMUSIC import app
-from DAXXMUSIC import arq
+from DAXXMUSIC import app, arq  # Corrected import statement
 from DAXXMUSIC.misc import SUDOERS
 from DAXXMUSIC.utils.errors import capture_err
 
@@ -13,9 +12,9 @@ MODULE = "Quotly"
 HELP = """
 /q - To quote a message.
 /q [INTEGER] - To quote more than 1 messages.
-/q r - to quote a message with it's reply
+/q r - to quote a message with its reply
 
-Use .q to quote using userbot
+Use .q to quote using the userbot
 """
 
 
@@ -54,17 +53,12 @@ async def quotly_func(client, message: Message):
     m = await message.reply_text("Quoting Messages")
     if len(message.command) < 2:
         messages = [message.reply_to_message]
-
     elif len(message.command) == 2:
         arg = isArgInt(message)
         if arg[0]:
             if arg[1] < 2 or arg[1] > 10:
                 return await m.edit("Argument must be between 2-10.")
-
             count = arg[1]
-
-            # Fetching 5 extra messages so tha twe can ignore media
-            # messages and still end up with correct offset
             messages = [
                 i
                 for i in await client.get_messages(
@@ -91,12 +85,11 @@ async def quotly_func(client, message: Message):
             messages = [reply_message]
     else:
         return await m.edit(
-            "Incorrect argument, check quotly module in help section."
+            "Incorrect argument, check quotly module in the help section."
         )
     try:
         if not message:
             return await m.edit("Something went wrong.")
-
         sticker = await quotify(messages)
         if not sticker[0]:
             await message.reply_text(sticker[1])
@@ -107,10 +100,10 @@ async def quotly_func(client, message: Message):
         sticker.close()
     except Exception as e:
         await m.edit(
-            "Something went wrong while quoting messages,"
-            + " This error usually happens when there's a "
-            + " message containing something other than text,"
-            + " or one of the messages in-between are deleted."
+            "Something went wrong while quoting messages, "
+            + "This error usually happens when there's a "
+            + "message containing something other than text, "
+            + "or one of the messages in-between are deleted."
         )
         e = format_exc()
         print(e)
