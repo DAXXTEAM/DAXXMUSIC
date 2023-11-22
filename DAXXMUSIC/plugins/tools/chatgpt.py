@@ -1,7 +1,5 @@
 import os, time
 import openai
-import g4f
-from g4f.Provider import Bing
 from pyrogram import filters
 from DAXXMUSIC import app
 from pyrogram.enums import ChatAction, ParseMode
@@ -65,21 +63,3 @@ async def chat(app :app, message):
 
 
 ##### Bing
-
-@app.on_message(filters.command(["bing"],  prefixes=["+", ".", "/", "-", "?", "$","#","&"]))
-async def bing_ai(app :app, message):
-    
-    try:
-        if len(message.command) < 2:
-            await message.reply_text(
-            "ʜᴇʟʟᴏ sɪʀ\nᴇxᴀᴍᴘʟᴇ:-.bing How to set girlfriend ?")
-        else:
-            query = message.text.split(' ', 1)[1]
-            response = await g4f.ChatCompletion.create_async(
-            model=g4f.models.default,
-            messages=[{"role": "user", "content": query}],  
-            provider=g4f.Provider.Bing
-            )
-            await message.reply_text(f"{response}")     
-    except Exception as e:
-        await message.reply_text(f"ᴇʀʀᴏʀ: {e} ")
