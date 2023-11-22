@@ -19,7 +19,9 @@ async def varsFunc(client, message):
     )
     up_r = f"[Repo]({config.UPSTREAM_REPO})"
     up_b = config.UPSTREAM_BRANCH
-    bt_t = config.GIT_TOKE
+    sp_c = config.SUPPORT_CHANNEL
+    sp_g = config.SUPPORT_CHAT
+    ow_i = f"[OWNER](https://t.me/daxxsir3)"
 
  ##############
  
@@ -29,7 +31,9 @@ async def varsFunc(client, message):
 <u>Custom Repo Vars:</u>
 UPSTREAM_REPO : {up_r}
 UPSTREAM_BRANCH : {up_b}
-BOT TOKEN : {bt_t}
+SUPPORT_CHANNEL : {sp_c}
+SUPPORT_CHAT : {sp_g}
+OWNER : {ow_i}
 
     """
     await asyncio.sleep(1)
