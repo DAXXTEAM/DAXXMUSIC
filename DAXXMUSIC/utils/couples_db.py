@@ -1,4 +1,4 @@
-from DAXXMUSIC.utils import coupledb
+from DAXXMUSIC.utils import db
 
 coupledb = db.couple
 
