@@ -19,16 +19,7 @@ async def varsFunc(client, message):
     )
     up_r = f"[Repo]({config.UPSTREAM_REPO})"
     up_b = config.UPSTREAM_BRANCH
-    auto_leave = config.AUTO_LEAVE_ASSISTANT_TIME
-    yt_sleep = config.YOUTUBE_DOWNLOAD_EDIT_SLEEP
-    tg_sleep = config.TELEGRAM_DOWNLOAD_EDIT_SLEEP
-    playlist_limit = config.SERVER_PLAYLIST_LIMIT
-    fetch_playlist = config.PLAYLIST_FETCH_LIMIT
-    song = config.SONG_DOWNLOAD_DURATION
-    play_duration = config.DURATION_LIMIT_MIN
-    cm = config.CLEANMODE_DELETE_MINS
-    auto_sug = config.AUTO_SUGGESTION_TIME
-    if config.AUTO_LEAVING_ASSISTANT == str(True):
+    
         ass = "Yes"
     else:
         ass = "No"
