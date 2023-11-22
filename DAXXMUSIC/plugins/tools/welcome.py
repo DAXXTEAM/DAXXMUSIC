@@ -48,7 +48,7 @@ def circle(pfp, size=(450, 450)):
     return pfp
 
 def welcomepic(pic, user, chat, id, uname):
-    background = Image.open("DAXXMUSIC/assets/bg_bolte.jpg")
+    background = Image.open("DAXXMUSIC/assets/bg.jpg")
     pfp = Image.open(pic).convert("RGBA")
     pfp = circle(pfp)
     pfp = pfp.resize((450, 450))
