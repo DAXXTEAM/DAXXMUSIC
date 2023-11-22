@@ -1,7 +1,8 @@
 from typing import Dict, Union, List
-from DAXXMUSIC import db
+from DAXXMUSIC import x
 from DAXXMUSIC import app
-chatsdb = db.chats
+
+x = chatsdb.find
 
 async def get_served_chats() -> list:
     chats = chatsdb.find({"chat_id": {'$lt': 0}})
