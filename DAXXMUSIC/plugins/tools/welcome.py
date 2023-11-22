@@ -34,7 +34,7 @@ class temp:
 
 # ... (rest of your code remains unchanged)
 
-# ... (FUCK you )
+# ... (FUCK you randi ke bacvhhe )
 
 def circle(pfp, size=(500, 500)):
     pfp = pfp.resize(size, Image.ANTIALIAS).convert("RGBA")
@@ -64,10 +64,10 @@ def welcomepic(pic, user, chat, id, uname):
     background.save(f"downloads/welcome#{id}.png")
     return f"downloads/welcome#{id}.png"
 
-# FUCK you 
+# FUCK you bhosadiwale 
 
 
-@app.on_message(filters.command("s") & ~filters.private)
+@app.on_message(filters.command("wel") & ~filters.private)
 async def auto_state(_, message):
     usage = "**Usage:**\n/swelcome [ENABLE|DISABLE]"
     if len(message.command) == 1:
@@ -80,7 +80,7 @@ async def auto_state(_, message):
     ):
         A = await wlcm.find_one(chat_id)
         state = message.text.split(None, 1)[1].strip().lower()
-        if state == "welcome":
+        if state == "on":
             if A:
                 return await message.reply_text("Special Welcome Already Enabled")
             elif not A:
@@ -97,7 +97,7 @@ async def auto_state(_, message):
     else:
         await message.reply("Only Admins Can Use This Command")
 
-# ... (rest of your code remains unchanged)
+# ... (copy paster teri maa ki chut  )
 
 @app.on_chat_member_updated(filters.group, group=-3)
 async def greet_group(_, member: ChatMemberUpdated):
