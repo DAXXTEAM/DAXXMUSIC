@@ -7,4 +7,3 @@ from .inline import *
 from .pastebin import *
 from .sys import *
 from .imposterdb import *
-from .couples_db import *
