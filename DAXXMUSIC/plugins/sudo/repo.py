@@ -4,7 +4,7 @@ from pyrogram import filters
 
 import config
 from DAXXMUSIC import app
- 
+from DAXXMUSIC.misc import SUDOERS
 from DAXXMUSIC.utils.formatters import convert_bytes
 
 
