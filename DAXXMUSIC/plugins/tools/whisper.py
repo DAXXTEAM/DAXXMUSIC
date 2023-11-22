@@ -50,7 +50,7 @@ async def whisper(app, iquery):
       results=[
        InlineQueryResultArticle(
           title=f"📪 Send whisper for {username}",
-          url="http://t.me/NovaXNetwork",
+          url="http://t.me/HEROKUFREECC",
           input_message_content=InputTextMessageContent(
             message_text=text,
             parse_mode=enums.ParseMode.MARKDOWN 
@@ -74,8 +74,8 @@ async def whisper(app, query):
             InlineQueryResultPhoto(
                 title="🔒 Type the whisper + username",
                 photo_url='https://t.me/iam_daxx',
-                description=f'@{app.me.username} Hello @KIRITO120',
-                reply_markup=InlineKeyboardMarkup ([[InlineKeyboardButton ("🔗", url='t.me/NovaXNetwork')]]),
+                description=f'@{app.me.username} Hello @IMA_DAXX',
+                reply_markup=InlineKeyboardMarkup ([[InlineKeyboardButton ("🔗", url='t.me/HEROKUFREECC')]]),
                 input_message_content=InputTextMessageContent(text)
             ),
         ],
