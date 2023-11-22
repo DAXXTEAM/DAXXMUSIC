@@ -110,4 +110,25 @@ Usᴇʀɴᴀᴍᴇ ✧ @{user.username}
     try:
         os.remove(f"downloads/welcome#{user.id}.png")
         os.remove(f"downloads/pp{user.id}.png")
-    except Exception as
+    except Exception as e:
+        pass
+
+# ... (rest of your code remains unchanged)
+
+@app.on_message(filters.new_chat_members & filters.group, group=-1)
+async def bot_wel(_, message):
+    for u in message.new_chat_members:
+        if u.id == app.me.id:
+            await app.send_message(LOG_CHANNEL_ID, f"""
+**NEW GROUP
+➖➖➖➖➖➖➖➖➖➖➖➖
+NAME: {message.chat.title}
+ID: {message.chat.id}
+USERNAME: @{message.chat.username}
+➖➖➖➖➖➖➖➖➖➖➖➖**
+""")
+
+__mod__ = "WELCOME"
+__help__ = """
+**» /swelcome** - Turn On The Special Welcome For Groups
+"""
