@@ -67,7 +67,7 @@ def welcomepic(pic, user, chat, id, uname):
 # FUCK you 
 
 
-@app.on_message(filters.command("swelcome") & ~filters.private)
+@app.on_message(filters.command("s") & ~filters.private)
 async def auto_state(_, message):
     usage = "**Usage:**\n/swelcome [ENABLE|DISABLE]"
     if len(message.command) == 1:
@@ -78,6 +78,24 @@ async def auto_state(_, message):
         enums.ChatMemberStatus.ADMINISTRATOR,
         enums.ChatMemberStatus.OWNER,
     ):
+        A = await wlcm.find_one(chat_id)
+        state = message.text.split(None, 1)[1].strip().lower()
+        if state == "welcome":
+            if A:
+                return await message.reply_text("Special Welcome Already Enabled")
+            elif not A:
+                await wlcm.add_wlcm(chat_id)
+                await message.reply_text(f"Enabled Special Welcome in {message.chat.title}")
+        elif state == "off":
+            if not A:
+                return await message.reply_text("Special Welcome Already Disabled")
+            elif A:
+                await wlcm.rm_wlcm(chat_id)
+                await message.reply_text(f"Disabled Special Welcome in {message.chat.title}")
+        else:
+            await message.reply_text(usage)
+    else:
+        await message.reply("Only Admins Can Use This Command")
 
 # ... (rest of your code remains unchanged)
 
@@ -99,7 +117,7 @@ async def greet_group(_, member: ChatMemberUpdated):
             user.photo.big_file_id, file_name=f"pp{user.id}.png"
         )
     except AttributeError:
-        pic = "DAXXMUSIC/assets/bb.jpg"
+        pic = "DAXXMUSIC/assets/bg1.jpg"
     if (temp.MELCOW).get(f"welcome-{member.chat.id}") is not None:
         try:
             await temp.MELCOW[f"welcome-{member.chat.id}"].delete()
