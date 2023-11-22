@@ -62,16 +62,16 @@ async def ctest(_, message):
          try:
             p1 = await app.download_media(photo1.big_file_id, file_name="pfp.png")
          except Exception:
-            p1 = "DAXXMUSIC/resources/profilepic.png"
+            p1 = "DAXXMUSIC/resources/cppic.png"
          try:
             p2 = await app.download_media(photo2.big_file_id, file_name="pfp1.png")
          except Exception:
-            p2 = "DAXXMUSIC/resources/profilepic.png"
+            p2 = "DAXXMUSIC/resources/cppic.png"
             
          img1 = Image.open(f"{p1}")
          img2 = Image.open(f"{p2}")
 
-         img = Image.open("DAXXMUSIC/resources/deepcp.png")
+         img = Image.open("DAXXMUSIC/resources/cppic.png")
 
          img1 = img1.resize((360,360))
          img2 = img2.resize((360,360))
