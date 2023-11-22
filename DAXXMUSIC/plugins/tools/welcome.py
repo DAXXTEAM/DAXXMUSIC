@@ -4,10 +4,25 @@ from PIL import ImageDraw, Image, ImageFont, ImageChops
 from pyrogram import *
 from pyrogram.types import *
 from logging import getLogger
-from config import LOGGER_ID as LOG_GROUP_ID
-from DAXXMUSIC.utils.wel_db import *
+from DAXXMUSIC import app
 
 LOGGER = getLogger(__name__)
+
+class WelDatabase:
+    def __init__(self):
+        self.data = {}
+
+    async def find_one(self, query):
+        return self.data.get(query, None)
+
+    async def add_wlcm(self, chat_id):
+        self.data[chat_id] = True
+
+    async def rm_wlcm(self, chat_id):
+        if chat_id in self.data:
+            del self.data[chat_id]
+
+wlcm = WelDatabase()
 
 class temp:
     ME = None
@@ -32,23 +47,18 @@ def welcomepic(pic, user, chat, id, uname):
     background = Image.open("DAXXMUSIC/resources/bg.jpg")
     pfp = Image.open(pic).convert("RGBA")
     pfp = circle(pfp)
-    pfp = pfp.resize(
-        (450, 450)
-    ) 
+    pfp = pfp.resize((450, 450))
     draw = ImageDraw.Draw(background)
     font = ImageFont.truetype('DAXXMUSIC/resources/SwanseaBold-D0ox.ttf', size=40)
     welcome_font = ImageFont.truetype('DAXXMUSIC/resources/SwanseaBold-D0ox.ttf', size=60)
     draw.text((30, 300), f'NAME: {unidecode(user)}', fill=(255, 255, 255), font=font)
     draw.text((30, 370), f'ID: {id}', fill=(255, 255, 255), font=font)
     draw.text((30, 40), f"Welcome to {unidecode(chat)}", fill=(225, 225, 225), font=welcome_font)
-    draw.text((30,430), f"USERNAME : {uname}", fill=(255,255,255),font=font)
-    pfp_position = (770, 140)  
-    background.paste(pfp, pfp_position, pfp)  
-    background.save(
-        f"downloads/welcome#{id}.png"
-    )
+    draw.text((30, 430), f"USERNAME : {uname}", fill=(255, 255, 255), font=font)
+    pfp_position = (770, 140)
+    background.paste(pfp, pfp_position, pfp)
+    background.save(f"downloads/welcome#{id}.png")
     return f"downloads/welcome#{id}.png"
-
 
 @app.on_message(filters.command("swelcome") & ~filters.private)
 async def auto_state(_, message):
@@ -61,32 +71,31 @@ async def auto_state(_, message):
         enums.ChatMemberStatus.ADMINISTRATOR,
         enums.ChatMemberStatus.OWNER,
     ):
-      A = await wlcm.find_one({"chat_id" : chat_id})
-      state = message.text.split(None, 1)[1].strip()
-      state = state.lower()
-      if state == "enable":
-        if A:
-           return await message.reply_text("Special Welcome Already Enabled")
-        elif not A:
-           await add_wlcm(chat_id)
-           await message.reply_text(f"Enabled Special Welcome in {message.chat.title}")
-      elif state == "disable":
-        if not A:
-           return await message.reply_text("Special Welcome Already Disabled")
-        elif A:
-           await rm_wlcm(chat_id)
-           await message.reply_text(f"Disabled Special Welcome in {message.chat.title}")
-      else:
-        await message.reply_text(usage)
+        A = await wlcm.find_one({"chat_id": chat_id})
+        state = message.text.split(None, 1)[1].strip().lower()
+        if state == "enable":
+            if A:
+                return await message.reply_text("Special Welcome Already Enabled")
+            elif not A:
+                await wlcm.add_wlcm(chat_id)
+                await message.reply_text(f"Enabled Special Welcome in {message.chat.title}")
+        elif state == "disable":
+            if not A:
+                return await message.reply_text("Special Welcome Already Disabled")
+            elif A:
+                await wlcm.rm_wlcm(chat_id)
+                await message.reply_text(f"Disabled Special Welcome in {message.chat.title}")
+        else:
+            await message.reply_text(usage)
     else:
         await message.reply("Only Admins Can Use This Command")
 
 @app.on_chat_member_updated(filters.group, group=-3)
 async def greet_group(_, member: ChatMemberUpdated):
     chat_id = member.chat.id
-    A = await wlcm.find_one({"chat_id" : chat_id})
+    A = await wlcm.find_one({"chat_id": chat_id})
     if not A:
-       return
+        return
     if (
         not member.new_chat_member
         or member.new_chat_member.status in {"banned", "left", "restricted"}
@@ -112,7 +121,7 @@ async def greet_group(_, member: ChatMemberUpdated):
         temp.MELCOW[f"welcome-{member.chat.id}"] = await app.send_photo(
             member.chat.id,
             photo=welcomeimg,
-            caption= f"""
+            caption=f"""
 **WELCOME TO {member.chat.title}
 ➖➖➖➖➖➖➖➖➖➖➖➖
 NAME: {user.mention}
@@ -120,9 +129,8 @@ ID: {user.id}
 USERNAME: @{user.username}
 ➖➖➖➖➖➖➖➖➖➖➖➖**
 """,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton (f"{user.first_name}", url=f"https://t.me/{user.username}")]])
-
-            )
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(f"{user.first_name}", url=f"https://t.me/{user.username}")]])
+        )
     except Exception as e:
         LOGGER.error(e)
     try:
@@ -130,7 +138,6 @@ USERNAME: @{user.username}
         os.remove(f"downloads/pp{user.id}.png")
     except Exception as e:
         pass
-
 
 @app.on_message(filters.new_chat_members & filters.group, group=-1)
 async def bot_wel(_, message):
@@ -144,7 +151,6 @@ ID: {message.chat.id}
 USERNAME: @{message.chat.username}
 ➖➖➖➖➖➖➖➖➖➖➖➖**
 """)
-            
 
 __mod__ = "WELCOME"
 __help__ = """
