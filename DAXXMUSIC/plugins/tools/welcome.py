@@ -34,6 +34,8 @@ class temp:
 
 # ... (rest of your code remains unchanged)
 
+# ... (FUCK you )
+
 def circle(pfp, size=(500, 500)):
     pfp = pfp.resize(size, Image.ANTIALIAS).convert("RGBA")
     bigsize = (pfp.size[0] * 3, pfp.size[1] * 3)
@@ -62,12 +64,27 @@ def welcomepic(pic, user, chat, id, uname):
     background.save(f"downloads/welcome#{id}.png")
     return f"downloads/welcome#{id}.png"
 
+# FUCK you 
+
+
+@app.on_message(filters.command("swelcome") & ~filters.private)
+async def auto_state(_, message):
+    usage = "**Usage:**\n/swelcome [ENABLE|DISABLE]"
+    if len(message.command) == 1:
+        return await message.reply_text(usage)
+    chat_id = message.chat.id
+    user = await app.get_chat_member(message.chat.id, message.from_user.id)
+    if user.status in (
+        enums.ChatMemberStatus.ADMINISTRATOR,
+        enums.ChatMemberStatus.OWNER,
+    ):
+
 # ... (rest of your code remains unchanged)
 
 @app.on_chat_member_updated(filters.group, group=-3)
 async def greet_group(_, member: ChatMemberUpdated):
     chat_id = member.chat.id
-    A = await wlcm.find_one(chat_id)
+    A = await wlcm.find_one(chat_id)  # Corrected this line
     if not A:
         return
     if (
@@ -113,7 +130,7 @@ Usᴇʀɴᴀᴍᴇ ✧ @{user.username}
     except Exception as e:
         pass
 
-# ... (rest of your code remains unchanged)
+# ... (resfuxbk 
 
 @app.on_message(filters.new_chat_members & filters.group, group=-1)
 async def bot_wel(_, message):
