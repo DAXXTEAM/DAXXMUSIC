@@ -1,5 +1,7 @@
 import os, time
 import openai
+import g4f
+from g4f.Provider import Bing
 from pyrogram import filters
 from DAXXMUSIC import app
 from pyrogram.enums import ChatAction, ParseMode
