@@ -22,6 +22,7 @@ class WelDatabase:
         if chat_id in self.data:
             self.data.remove(chat_id)
 
+
 wlcm = WelDatabase()
 
 class temp:
