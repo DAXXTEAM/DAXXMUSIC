@@ -34,3 +34,4 @@ lexica-api==1.4.4
 httpx
 gpytranslate
 openai==0.28.0
+pydub
