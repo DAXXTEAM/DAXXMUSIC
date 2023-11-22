@@ -4,7 +4,7 @@ from traceback import format_exc
 from pyrogram import filters
 from pyrogram.types import Message
 
-from DAXXMUSIC import app, arq  # Corrected import statement
+from DAXXMUSIC import app
 from DAXXMUSIC.misc import SUDOERS
 from DAXXMUSIC.utils.errors import capture_err
 
@@ -19,9 +19,13 @@ Use .q to quote using the userbot
 
 
 async def quotify(messages: list):
-    response = await arq.quotly(messages)
-    if not response.ok:
-        return [False, response.result]
+    # Modify the quotify function as needed if 'arq' is not used
+    # Update the function according to your requirements
+    # Example: response = await some_other_library.quote(messages)
+    # Make sure to handle the response accordingly
+    response = None  # Replace None with the actual response
+    if not response:
+        return [False, "Quoting failed."]  # Provide an error message
     sticker = response.result
     sticker = BytesIO(sticker)
     sticker.name = "sticker.webp"
