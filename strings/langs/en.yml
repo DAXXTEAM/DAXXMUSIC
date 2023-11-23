@@ -178,8 +178,8 @@ stream_1 : "➲ <b>Sᴛᴀʀᴛᴇᴅ Sᴛʀᴇᴀᴍɪɴɢ |</b>\n\n<b>‣ Tɪ�
 stream_2 : "➲ <b>Sᴛᴀʀᴛᴇᴅ Sᴛʀᴇᴀᴍɪɴɢ |</b>\n\n<b>‣ Sᴛʀᴇᴀᴍ ᴛʏᴘᴇ :</b> ʟɪᴠᴇ sᴛʀᴇᴀᴍ [ᴜʀʟ]\n<b>‣ Rᴇǫᴜᴇsᴛᴇᴅ ʙʏ :</b> {0}"
 
 
-CLOSE_BUTTON  : "ᴄʟᴏsᴇ"
-BACK_BUTTON : "ʙᴀᴄᴋ"
+CLOSE_BUTTON  : "🗑ᴄʟᴏsᴇ🗑"
+BACK_BUTTON : "🔙ʙᴀᴄᴋ🔙"
 
 S_B_1 : "Aᴅᴅ ᴍᴇ"
 S_B_2 : "🍂𝐒ᴜᴘᴘᴏʀᴛ🍂"
