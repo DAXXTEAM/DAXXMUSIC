@@ -1,15 +1,20 @@
 import asyncio
 from pyrogram import filters
-from DAXXMUSIC import LOGGER, app, userbot
+from DAXXMUSIC import app, userbot
 from DAXXMUSIC.misc import SUDOERS
-from config import BOT_USERNAME
+
+
+
+
 
 BOT_LIST = ["YumikooBot", "DAXXTEAMBOT"]
 
 
 
-@app.on_message(filters.command(["botschk"]) & SUDOERS)
-async def bots_chk(app, message):
+
+
+@app.on_message(filters.command("botschk") & filters.user(SUDOERS))
+async def bots_chk(celestia, message):
     msg = await message.reply_photo(photo="https://telegra.ph/file/48578068b7574bb25a529.jpg", caption="**ᴄʜᴇᴄᴋɪɴɢ ʙᴏᴛs sᴛᴀᴛs ᴀʟɪᴠᴇ ᴏʀ ᴅᴇᴀᴅ...**")
     response = "**ʙᴏᴛs sᴛᴀᴛᴜs ᴅᴇᴀᴅ ᴏʀ ᴀʟɪᴠᴇ ᴄʜᴇᴄᴋᴇʀ**\n\n"
     for bot_username in BOT_LIST:
@@ -24,11 +29,9 @@ async def bots_chk(app, message):
                     response += f"╭⎋ [{bot.first_name}](tg://user?id={bot.id})\n╰⊚ **sᴛᴀᴛᴜs: ᴏɴʟɪɴᴇ ✨**\n\n"
                 else:
                     response += f"╭⎋ [{bot.first_name}](tg://user?id={bot.id})\n╰⊚ **sᴛᴀᴛᴜs: ᴏғғʟɪɴᴇ ❄**\n\n"
-        except Exception as e:
-            response += f"╭⎋ {bot_username}\n╰⊚ **sᴛᴀᴛᴜs: ᴇʀʀᴏʀ {e} ❌**\n"
+        except Exception:
+            response += f"╭⎋ {bot_username}\n╰⊚ **sᴛᴀᴛᴜs: ᴇʀʀᴏʀ ❌**\n"
     
     await msg.edit_text(response)
-
-
 
 
