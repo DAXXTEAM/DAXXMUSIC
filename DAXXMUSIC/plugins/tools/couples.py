@@ -29,7 +29,7 @@ def dt_tom():
     return a
 
 tomorrow = str(dt_tom())
-today = str(dt()[0])
+today = str(dt()[24])
 
 @app.on_message(filters.command("couples"))
 async def ctest(_, message):
