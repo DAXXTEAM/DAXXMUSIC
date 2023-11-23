@@ -1,6 +1,7 @@
 import os
 import asyncio
 import yt_dlp
+import requests
 
 from ... import app
 from pyrogram import filters
