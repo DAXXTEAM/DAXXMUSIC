@@ -19,7 +19,6 @@ pyrogram==2.0.106
 python-dotenv
 pyyaml==5.3.1
 requests
-g4f
 speedtest-cli
 spotipy
 tgcrypto
@@ -34,4 +33,4 @@ lexica-api==1.4.4
 httpx
 gpytranslate
 openai==0.28.0
-pydub
+
