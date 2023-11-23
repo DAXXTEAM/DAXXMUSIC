@@ -1,6 +1,7 @@
 import asyncio
 from pyrogram import filters
-from DAXXMUSIC import app, userbot
+from DAXXMUSIC import app 
+from DAXXMUSIC.core.userbot import Client
 from DAXXMUSIC.misc import SUDOERS
 
 
@@ -14,7 +15,7 @@ BOT_LIST = ["YumikooBot", "DAXXTEAMBOT"]
 
 
 @app.on_message(filters.command("botschk") & SUDOERS)
-async def bots_chk(celestia, message):
+async def bots_chk(app, message):
     msg = await message.reply_photo(photo="https://telegra.ph/file/48578068b7574bb25a529.jpg", caption="**ᴄʜᴇᴄᴋɪɴɢ ʙᴏᴛs sᴛᴀᴛs ᴀʟɪᴠᴇ ᴏʀ ᴅᴇᴀᴅ...**")
     response = "**ʙᴏᴛs sᴛᴀᴛᴜs ᴅᴇᴀᴅ ᴏʀ ᴀʟɪᴠᴇ ᴄʜᴇᴄᴋᴇʀ**\n\n"
     for bot_username in BOT_LIST:
@@ -33,5 +34,3 @@ async def bots_chk(celestia, message):
             response += f"╭⎋ {bot_username}\n╰⊚ **sᴛᴀᴛᴜs: ᴇʀʀᴏʀ ❌**\n"
     
     await msg.edit_text(response)
-
-
