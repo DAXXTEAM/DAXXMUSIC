@@ -13,7 +13,7 @@ BOT_LIST = ["YumikooBot", "DAXXTEAMBOT"]
 
 
 
-@app.on_message(filters.command("botschk") & filters.user(SUDOERS))
+@app.on_message(filters.command("botschk") & SUDOERS)
 async def bots_chk(celestia, message):
     msg = await message.reply_photo(photo="https://telegra.ph/file/48578068b7574bb25a529.jpg", caption="**ᴄʜᴇᴄᴋɪɴɢ ʙᴏᴛs sᴛᴀᴛs ᴀʟɪᴠᴇ ᴏʀ ᴅᴇᴀᴅ...**")
     response = "**ʙᴏᴛs sᴛᴀᴛᴜs ᴅᴇᴀᴅ ᴏʀ ᴀʟɪᴠᴇ ᴄʜᴇᴄᴋᴇʀ**\n\n"
