@@ -1,7 +1,10 @@
-from Michiko import Michiko
+from DAXXMUSIC import app as app
 from config import BOT_USERNAME
 from pyrogram import filters
-from pyrogram.types import InlineQueryResultArticle, InputTextMessageContent,InlineKeyboardMarkup,InlineKeyboardButton
+from pyrogram.types import (
+    InlineQueryResultArticle, InputTextMessageContent,
+    InlineKeyboardMarkup, InlineKeyboardButton
+)
 
 whisper_db = {}
 
