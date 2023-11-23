@@ -1,13 +1,6 @@
-from typing import Dict, List, Union
-from config import MONGO_DB_URI
-from motor.motor_asyncio import AsyncIOMotorClient as MongoCli
+from DAXXMUSIC.utils.mongo import db
 
-
-mongo = MongoCli(MONGO_DB_URI).Rankings
-
-
-
-afkdb = mongo.afk
+afkdb = db.afk
 
 
 async def is_afk(user_id: int) -> bool:
