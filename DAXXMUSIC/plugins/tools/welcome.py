@@ -47,7 +47,7 @@ def circle(pfp, size=(500, 500)):
     pfp.putalpha(mask)
     return pfp
 
-def welcomepic(pic, user, chat, id, uname):
+def welcomepic(pic, user, chatname, id, uname):
     background = Image.open("DAXXMUSIC/assets/bg2.jpg")
     pfp = Image.open(pic).convert("RGBA")
     pfp = circle(pfp)
@@ -57,7 +57,7 @@ def welcomepic(pic, user, chat, id, uname):
     welcome_font = ImageFont.truetype('DAXXMUSIC/assets/font.ttf', size=60)
     draw.text((30, 300), f'NAME: {user}', fill=(255, 255, 255), font=font)
     draw.text((30, 370), f'ID: {id}', fill=(255, 255, 255), font=font)
-    draw.text((30, 40), f"{chat}", fill=(225, 225, 225), font=welcome_font)
+    draw.text((30, 40), f"{chatname}", fill=(225, 225, 225), font=welcome_font)
     draw.text((30, 430), f"USERNAME : {uname}", fill=(255, 255, 255), font=font)
     pfp_position = (671, 134)
     background.paste(pfp, pfp_position, pfp)
