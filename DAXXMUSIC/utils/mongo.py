@@ -10,6 +10,9 @@ db = mongo.DAXXMUSIC
 coupledb = db.couple
 
 
+afkdb = db.afk
+
+
 async def _get_lovers(cid: int):
     lovers = await coupledb.find_one({"chat_id": cid})
     if lovers:
