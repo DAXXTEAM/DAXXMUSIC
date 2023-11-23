@@ -9,11 +9,11 @@ from DAXXMUSIC import app
 from DAXXMUSIC.utils.inlinequery import answer
 from config import BANNED_USERS
 
-
 @app.on_inline_query(~BANNED_USERS)
 async def inline_query_handler(client, query):
     text = query.query.strip().lower()
     answers = []
+    
     if text.strip() == "":
         try:
             await client.answer_inline_query(query.id, results=answer, cache_time=10)
@@ -22,7 +22,8 @@ async def inline_query_handler(client, query):
     else:
         a = VideosSearch(text, limit=20)
         result = (await a.next()).get("result")
-        for x in range(15):
+
+        for x in range(min(15, len(result))):  # Use min() to avoid index out of range
             title = (result[x]["title"]).title()
             duration = result[x]["duration"]
             views = result[x]["viewCount"]["short"]
@@ -50,7 +51,6 @@ async def inline_query_handler(client, query):
 🎥 <b>ᴄʜᴀɴɴᴇʟ :</b> <a href={channellink}>{channel}</a>
 ⏰ <b>ᴘᴜʙʟɪsʜᴇᴅ ᴏɴ :</b> {published}
 
-
 <u><b>➻ ɪɴʟɪɴᴇ sᴇᴀʀᴄʜ ᴍᴏᴅᴇ ʙʏ {app.name}</b></u>"""
             answers.append(
                 InlineQueryResultPhoto(
@@ -62,6 +62,7 @@ async def inline_query_handler(client, query):
                     reply_markup=buttons,
                 )
             )
+
         try:
             return await client.answer_inline_query(query.id, results=answers)
         except:
