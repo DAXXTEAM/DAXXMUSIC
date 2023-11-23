@@ -19,7 +19,7 @@ async def varsFunc(client, message):
     up_r = f"[𝗥𝗘𝗣𝗢]({config.UPSTREAM_REPO})"
     up_b = f"[𝗠𝗔𝗦𝗧𝗘𝗥]({config.UPSTREAM_BRANCH})"
     sp_c = f"[𓆩𓆩〭〬𝗗𝗔𝗫𝗫𝗖𝗖 💳]({config.SUPPORT_CHANNEL})"
-    sp_g = f"[𓊈𒆜彡[𝐃𝚊𝚡𝚡 𝐂𝚌 𝐂𝚕𝚞𝚋]彡𒆜𓊉]config.SUPPORT_CHAT})"
+    sp_g = f"[𓊈𒆜彡[𝐃𝚊𝚡𝚡 𝐂𝚌 𝐂𝚕𝚞𝚋]彡𒆜𓊉]({config.SUPPORT_CHAT})"
     ow_i = f"[𒆜𝐌𝚁°᭄𝐃𝙰𝚇𝚇 ࿐™](https://t.me/iam_daxx)"
 
  ##############
