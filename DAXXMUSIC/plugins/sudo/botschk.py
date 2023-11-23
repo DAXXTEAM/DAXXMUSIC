@@ -2,6 +2,7 @@ import asyncio
 from pyrogram import filters
 from DAXXMUSIC import LOGGER, app, userbot
 from DAXXMUSIC.misc import SUDOERS
+from config import BOT_USERNAME
 
 BOT_LIST = ["YumikooBot", "DAXXTEAMBOT"]
 
