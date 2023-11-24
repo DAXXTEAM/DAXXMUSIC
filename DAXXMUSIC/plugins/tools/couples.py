@@ -73,7 +73,7 @@ async def ctest(_, message):
 
          img = Image.open("DAXXMUSIC/assets/cppic.png")
 
-         img1 = img1.resize((445,435))
+         img1 = img1.resize((437,437))
          img2 = img2.resize((437,437))
 
          mask = Image.new('L', img1.size, 0)
