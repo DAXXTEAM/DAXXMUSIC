@@ -73,8 +73,8 @@ async def ctest(_, message):
 
          img = Image.open("DAXXMUSIC/assets/cppic.png")
 
-         img1 = img1.resize((433,433))
-         img2 = img2.resize((433,433))
+         img1 = img1.resize((445,435))
+         img2 = img2.resize((437,437))
 
          mask = Image.new('L', img1.size, 0)
          draw = ImageDraw.Draw(mask) 
@@ -90,8 +90,8 @@ async def ctest(_, message):
 
          draw = ImageDraw.Draw(img)
 
-         img.paste(img1, (115, 160), img1)
-         img.paste(img2, (790, 160), img2)
+         img.paste(img1, (116, 160), img1)
+         img.paste(img2, (789, 160), img2)
 
          img.save(f'test_{cid}.png')
     
