@@ -3,9 +3,7 @@ import aiofiles
 import aiohttp
 from random import randint
 from pyrogram import filters
-from DAXXMUSIC import app as app
-
-
+from DAXXMUSIC import app as LYCIA
 
 async def fetch(url):
     async with aiohttp.ClientSession() as session:
@@ -27,8 +25,8 @@ async def ai_amelia(url):
     return ai_name
 
 
-@app.on_message(filters.command("voice"))
-async def app(_, message):
+@LYCIA.on_message(filters.command("voice"))
+async def Lycia(_, message):
     if len(message.command) < 2:
         await message.reply_text("Lycia AI Voice Chatbot")
         return
