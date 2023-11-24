@@ -22,7 +22,7 @@ async def upscale_image(client, message):
 
         async with httpx.AsyncClient() as http_client:
             response = await http_client.post(
-                "https://api.qewertyy.me/upscale",
+                "https://api.picsart.io/tools/1.0/upscale",
                 data={"image_data": b},
                 headers=headers,
                 timeout=30,  # Adjust the timeout as needed
