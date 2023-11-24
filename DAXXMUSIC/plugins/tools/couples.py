@@ -37,8 +37,8 @@ async def ctest(_, message):
     if message.chat.type == ChatType.PRIVATE:
         return await message.reply_text("This command only works in groups.")
     try:
-       is_selected = await get_couple(cid, today)
-       if not is_selected:
+     #  is_selected = await get_couple(cid, today)
+     #  if not is_selected:
          msg = await message.reply_text("Generating Couples Image...")
          #GET LIST OF USERS
          list_of_users = []
