@@ -28,7 +28,7 @@ async def ai_amelia(url):
 
 
 @app.on_message(filters.command("voice"))
-async def Lycia(_, message):
+async def app(_, message):
     if len(message.command) < 2:
         await message.reply_text("Lycia AI Voice Chatbot")
         return
