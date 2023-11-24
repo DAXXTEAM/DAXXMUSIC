@@ -112,22 +112,22 @@ async def ctest(_, message):
           # await save_couple(cid, today, couple, img)
     
          
-       elif is_selected:
-         msg = await message.reply_text("𝐆ᴇᴛᴛɪɴɢ 𝐓ᴏᴅᴀʏs 𝐂ᴏᴜᴘʟᴇs 𝐈ᴍᴀɢᴇ...")
-         b = await _get_image(cid)
-         c1_id = int(is_selected["c1_id"])
-         c2_id = int(is_selected["c2_id"])
-         c1_name = (await app.get_users(c1_id)).first_name
-         c2_name = (await app.get_users(c2_id)).first_name
+      # elif is_selected:
+      #   msg = await message.reply_text("𝐆ᴇᴛᴛɪɴɢ 𝐓ᴏᴅᴀʏs 𝐂ᴏᴜᴘʟᴇs 𝐈ᴍᴀɢᴇ...")
+      #   b = await _get_image(cid)
+       #  c1_id = int(is_selected["c1_id"])
+       #  c2_id = int(is_selected["c2_id"])
+       #  c1_name = (await app.get_users(c1_id)).first_name
+        # c2_name = (await app.get_users(c2_id)).first_name
          
-         TXT = f"""
-**𝐓ᴏᴅᴀʏ's 𝐒ᴇʟᴇᴄᴛᴇᴅ 𝐂ᴏᴜᴘʟᴇs 🎉 :
-➖➖➖➖➖➖➖➖➖➖➖➖
-[{c1_name}](tg://openmessage?user_id={c1_id}) + [{c2_name}](tg://openmessage?user_id={c2_id}) = ❣️
-➖➖➖➖➖➖➖➖➖➖➖➖
-𝐍ᴇxᴛ 𝐂ᴏᴜᴘʟᴇs 𝐖ɪʟʟ 𝐁ᴇ 𝐒ᴇʟᴇᴄᴛᴇᴅ 𝐎ɴ {tomorrow} !!**
-"""
-         await message.reply_photo(b, caption=TXT)
+      #   TXT = f"""
+#**𝐓ᴏᴅᴀʏ's 𝐒ᴇʟᴇᴄᴛᴇᴅ 𝐂ᴏᴜᴘʟᴇs 🎉 :
+#➖➖➖➖➖➖➖➖➖➖➖➖
+#[{c1_name}](tg://openmessage?user_id={c1_id}) + [{c2_name}](tg://openmessage?user_id={c2_id}) = ❣️
+#➖➖➖➖➖➖➖➖➖➖➖➖
+#𝐍ᴇxᴛ 𝐂ᴏᴜᴘʟᴇs 𝐖ɪʟʟ 𝐁ᴇ 𝐒ᴇʟᴇᴄᴛᴇᴅ 𝐎ɴ {tomorrow} !!**
+#"""
+ #        await message.reply_photo(b, caption=TXT)
         # await msg.delete()
     except Exception as e:
         print(str(e))
