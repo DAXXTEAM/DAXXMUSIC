@@ -190,7 +190,7 @@ async def setg_discription(_, message):
 @app.on_message(filters.command("lg")& filters.user(OWNER_ID))
 async def bot_leave(_, message):
     chat_id = message.chat.id
-    text = "**sᴜᴄᴄᴇssғᴜʟʟʏ ʜɪʀᴏᴋᴏ ʀᴏʙᴏᴛ ʟᴇғᴛ ᴛʜᴇ ɢʀᴏᴜᴘ !!.**"
+    text = "**sᴜᴄᴄᴇssғᴜʟʟʏ ʜɪʀᴏ !!.**"
     await message.reply_text(text)
     await app.leave_chat(chat_id=chat_id, delete=True)
 
