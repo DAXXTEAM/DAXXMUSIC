@@ -29,8 +29,7 @@ youtube-search
 youtube-search-python
 gtts
 git+https://github.com/AsmSafone/SafoneAPI
-lexica-api==1.4.4
+lexica-api
 httpx
 gpytranslate
 openai==0.28.0
-
