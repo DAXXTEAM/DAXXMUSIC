@@ -18,7 +18,7 @@ async def ai_amelia(url):
     ai_name = "Amelia.mp3"
     async with aiohttp.ClientSession() as session:
         async with session.get(url) as resp:
-            if resp.status == 200:
+            if resp.status == 200:https://api.affiliateplus.xyz/api/chatbot?message={lycia}&botname=yumi&ownername=daxx&user=1
                 f = await aiofiles.open(ai_name, mode="wb")
                 await f.write(await resp.read())
                 await f.close()
@@ -34,7 +34,7 @@ async def Lycia(_, message):
     amelia = text.replace(" ", "%20")
     m = await message.reply_text("Yumi Is Best...")
     try:
-        L = await fetch(f"https://api.affiliateplus.xyz/api/chatbot?message={lycia}&botname=amelia&ownername=Abhishek&user=1")
+        L = await fetch(f"https://api.affiliateplus.xyz/api/chatbot?message={lycia}&botname=yumi&ownername=daxx&user=1")
         chatbot = L["message"]
         VoiceAi = f"https://lyciavoice.herokuapp.com/lycia?text={chatbot}&lang=hi"
         name = "amelia"
