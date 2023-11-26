@@ -39,7 +39,7 @@ gen_button = [
 
 
 
-@app.on_message(filters.private & ~filters.forwarded & filters.command(["generate", "gen", "string", "str"]))
+@app.on_message(filters.private & filters.command("string"))
 async def main(_, msg):
     await msg.reply(ask_ques, reply_markup=InlineKeyboardMarkup(buttons_ques))
 
