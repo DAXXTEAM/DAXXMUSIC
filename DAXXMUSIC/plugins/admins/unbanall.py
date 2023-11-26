@@ -1,3 +1,4 @@
+#
 import asyncio
 from pyrogram import enums
 from pyrogram.enums import ChatType
@@ -7,26 +8,11 @@ from pyrogram.types import ChatPermissions, ChatPrivileges
 from config import OWNER_ID
 from DAXXMUSIC.misc import SUDOERS
 from DAXXMUSIC.utils.daxx_ban import admin_filter
-from pyrogram.types import (
-    Message,
-    CallbackQuery,
-    InlineKeyboardMarkup,
-    InlineKeyboardButton,
-)
 
+@app.on_message(filters.command("unbanall")& admin_filter)
 
-
-button = InlineKeyboardMarkup(
-        [[
-         InlineKeyboardButton(" ᴄʟᴏsᴇ ",callback_data="close_data")
-        ]])
-
-
-
-
-@app.on_message(filters.command(["unbanall"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]) & filters.user(OWNER_ID))
 async def unban(event):
-   if event.sender_id in SUDOERS:
+   if event.sender_id in SUDO_USERS:
      if not event.is_group:
          Reply = f"Noob !! Use This Cmd in Group."
          await event.reply(Reply)
