@@ -95,7 +95,6 @@ async def generate_session(bot: Client, msg: Message, telethon=False, old_pyro: 
         return
     if not is_bot:
         phone_code = phone_code_msg.text.replace(" ", "")
-######
       try:
             if telethon:
                 await client.sign_in(phone_number, phone_code, password=None)
