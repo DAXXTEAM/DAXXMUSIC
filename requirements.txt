@@ -8,6 +8,7 @@ dnspython
 ffmpeg-python
 gitpython
 hachoir
+Faker
 heroku3
 apscheduler
 motor==3.0.0
