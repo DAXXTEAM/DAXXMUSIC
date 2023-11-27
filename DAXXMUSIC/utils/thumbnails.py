@@ -1,17 +1,18 @@
 import os
 import re
-import textwrap
+import random
 
 import aiofiles
 import aiohttp
-import numpy as np
 
-from PIL import Image, ImageChops, ImageDraw, ImageEnhance, ImageFilter, ImageFont
+from PIL import Image, ImageDraw, ImageEnhance
+from PIL import ImageFilter, ImageFont, ImageOps
+
+from unidecode import unidecode
 from youtubesearchpython.__future__ import VideosSearch
 
-from config import YOUTUBE_IMG_URL
 from DAXXMUSIC import app
-
+from config import YOUTUBE_IMG_URL
 
 def changeImageSize(maxWidth, maxHeight, image):
     widthRatio = maxWidth / image.size[0]
