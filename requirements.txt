@@ -11,7 +11,7 @@ hachoir
 heroku3
 apscheduler
 motor==3.0.0
-pillow==9.5.0
+pillow==10.0.0
 psutil
 wget
 future==0.18.3
