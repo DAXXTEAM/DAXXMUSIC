@@ -33,24 +33,34 @@ fake = Faker()
 
 
 # Generate person info command handler
-@app.on_message(filters.command("data"))
-def generate_person(_, message):
+@app.on_message(filters.command("rnd"))
+def generate_info(client, message):
+    # Generate fake data
     name = fake.name()
-    email = fake.email()
     address = fake.address()
+    country = fake.country()
     phone_number = fake.phone_number()
-    job = fake.job()
-    ssn = fake.ssn()
+    email = fake.email()
+    city = fake.city()
+    state = fake.state()
 
-    response = (
-        f"𝗡𝗔𝗠𝗘: {name}\n"
-        f"𝗘𝗠𝗔𝗜𝗟: {email}\n"
-        f"𝗔𝗗𝗗𝗥𝗘𝗦𝗦: {address}\n"
-        f"𝗣𝗛𝗢𝗡𝗘: {phone_number}\n"
-        f"𝗝𝗢𝗕: {job}\n"
-        f"𝗦𝗦𝗡: {ssn}"
+    # Create a message with the fake data
+    info_message = (
+        f"**Full Name:** {name}\n"
+        
+        f"**Address:** {address}\n"
+        
+        f"**Country:** {country}\n"
+        
+        f"**Phone Number:** {phone_number}\n"
+        
+        f"**Email:** {email}\n"
+        
+        f"**City:** {city}\n"
+        
+        f"**State:** {state}"
+        
     )
-    
-    message.reply_text(response)
 
-# Run the bot
+    # Send the fake data to the user
+    message.reply_text(info_message)
