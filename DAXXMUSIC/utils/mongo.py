@@ -14,7 +14,7 @@ afkdb = db.afk
 
 nightmodedb = db.nightmode
 
-savedb = db.save
+notesdb = db.notes
 
 
 async def _get_lovers(cid: int):
