@@ -1,6 +1,6 @@
 from DAXXMUSIC.utils.mongo import db
 
-savedb = db.save
+notesdb = db.notes
 
 
 async def SaveNote(chat_id, note_name, content, text, data_type):
