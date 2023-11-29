@@ -17,6 +17,7 @@ pillow==10.0.0
 psutil
 wget
 pyfiglet
+qrcode
 future==0.18.3
 search_engine_parser
 py-tgcalls==0.9.7
