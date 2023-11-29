@@ -14,6 +14,8 @@ afkdb = db.afk
 
 nightmodedb = db.nightmode
 
+savedb = db.save
+
 
 async def _get_lovers(cid: int):
     lovers = await coupledb.find_one({"chat_id": cid})
