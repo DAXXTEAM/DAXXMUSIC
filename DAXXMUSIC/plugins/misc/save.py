@@ -1,8 +1,8 @@
 from DAXXMUSIC import app
 from config import BOT_USERNAME
 from pyrogram import filters
-from DAXXMUSIC.mongo.savedb import *
-from DAXXMUSIC.utils.save_func import GetNoteMessage, exceNoteMessageSender, privateNote_and_admin_checker
+from DAXXMUSIC.mongo.notesdb import *
+from DAXXMUSIC.utils.notes_func import GetNoteMessage, exceNoteMessageSender, privateNote_and_admin_checker
 from DAXXMUSIC.utils.yumidb import user_admin
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup , Message , CallbackQuery
 from pyrogram.enums import ChatMemberStatus
