@@ -64,3 +64,25 @@ def generate_info(client, message):
 
     # Send the fake data to the user
     message.reply_text(info_message)
+
+
+
+####
+
+# Command handler to generate random fake person info
+@app.on_message(filters.command("fake") & filters.private)
+def generate_fake_person(client, message):
+    fake_data = {
+        "name": fake.name(),
+        "address": fake.address(),
+        "email": fake.email(),
+        "city": fake.city(),
+        "state": fake.state(),
+        "country": fake.country(),
+        "zipcode": fake.zipcode(),
+        "phone_number": fake.phone_number(),
+    }
+
+    response = "\n".join([f"{key.title()}: {value}" for key, value in fake_data.items()])
+
+    message.reply_text(response)
