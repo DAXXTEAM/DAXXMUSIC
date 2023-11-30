@@ -1,5 +1,8 @@
 import base64
 import httpx
+import os
+from pyrogram import filters
+from config import BOT_USERNAME
 from DAXXMUSIC import app
 from pyrogram import filters
 import pyrogram
@@ -39,6 +42,26 @@ async def upscale_image(client, message):
     except Exception as e:
         print(f"**ғᴀɪʟᴇᴅ ᴛᴏ ᴜᴘsᴄᴀʟᴇ ᴛʜᴇ ɪᴍᴀɢᴇ**: {e}")
         await message.reply_text("**ғᴀɪʟᴇᴅ ᴛᴏ ᴜᴘsᴄᴀʟᴇ ᴛʜᴇ ɪᴍᴀɢᴇ. ᴘʟᴇᴀsᴇ ᴛʀʏ ᴀɢᴀɪɴ ʟᴀᴛᴇʀ**.")
+
+
+##########2222
+
+@app.on_message(filters.command("ups"))
+async def upscaleImages(_, message):
+    file = await getFile(message)
+    if file is None:
+        return await message.reply_text("Replay to an image?")
+    msg = await message.reply("Wait A Min.. Upscalling Your Image")
+    imageBytes = open(file,"rb").read()
+    os.remove(file)
+    upscaledImage = await UpscaleImages(imageBytes)
+    try:
+      await message.reply_document(open(upscaledImage,"rb"), caption=f"Upscaled By @{BOT_USERNAME}")
+      await msg.delete()
+      os.remove(upscaledImage)
+    except Exception as e:
+       await msg.edit(f"{e}")
+
 
 
 ######### sticker id
