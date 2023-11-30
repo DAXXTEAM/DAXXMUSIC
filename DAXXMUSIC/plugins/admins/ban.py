@@ -284,7 +284,7 @@ async def halfpromote(_, message):
  
  
  # The Command to promote a user to admin rights
- @app.on_message(filters.command("promote") & filters.group)
+ @app.on_message(filters.command("promote")& admin_filter)
  def promote(client, message):
      chat_id = message.chat.id
      from_user = message.from_user
@@ -312,7 +312,7 @@ async def halfpromote(_, message):
      message.reply_text(f"Promoted {user_to_promote.mention} to admin.")
  
  # The Command to demote a user from admin rights
- @app.on_message(filters.command("demote") & filters.group)
+ @app.on_message(filters.command("demote") & admin_filter)
  def demote(client, message):
      chat_id = message.chat.id
      from_user = message.from_user
