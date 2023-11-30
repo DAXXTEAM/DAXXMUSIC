@@ -28,6 +28,7 @@ pyrogram==2.0.106
 python-dotenv
 pyyaml==5.3.1
 requests
+emojis
 speedtest-cli
 spotipy
 tgcrypto
