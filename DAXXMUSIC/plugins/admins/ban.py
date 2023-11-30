@@ -310,32 +310,3 @@ async def halfpromote(_, message):
      )
      
      message.reply_text(f"Promoted {user_to_promote.mention} to admin.")
- 
- # The Command to demote a user from admin rights
- @app.on_message(filters.command("demote") & admin_filter)
- def demote(client, message):
-     chat_id = message.chat.id
-     from_user = message.from_user
- 
-     if message.reply_to_message:  # Reply to a message to demote that user
-         user_to_demote = message.reply_to_message.from_user
-     else:
-         message.reply_text("Reply to a user's message to demote them.")
-         return
-     
-     client.promote_chat_member(
-         chat_id,
-         user_to_demote.id,
-         can_change_info=False,
-         can_post_messages=False,
-         can_edit_messages=False,
-         can_delete_messages=False,
-         can_invite_users=False,
-         can_restrict_members=False,
-         can_pin_messages=False,
-         can_promote_members=False,
-         can_manage_voice_chats=False
-     )
-     
-     message.reply_text(f"Demoted {user_to_demote.mention} from admin.")
-
