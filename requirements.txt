@@ -26,7 +26,7 @@ pykeyboard
 pyshorteners
 pyrogram==2.0.106
 python-dotenv
-pyyaml==5.3.1
+pyyaml==5.4
 requests
 emojis
 speedtest-cli
