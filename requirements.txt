@@ -13,7 +13,7 @@ pycountry
 heroku3
 apscheduler
 motor==3.0.0
-pillow==0.9.7
+pillow==10.0.0
 psutil
 wget
 pyfiglet
@@ -21,7 +21,7 @@ qrcode
 pytz
 future==0.18.3
 search_engine_parser
-py-tgcalls==1.0.0
+py-tgcalls==0.9.7
 pykeyboard
 pyshorteners
 pyrogram==2.0.106
