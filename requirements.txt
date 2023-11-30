@@ -36,3 +36,4 @@ lexica-api
 httpx
 gpytranslate
 openai==0.28.0
+faker
