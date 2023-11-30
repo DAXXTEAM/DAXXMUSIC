@@ -6,7 +6,6 @@ from pyrogram.types import InlineKeyboardMarkup
 from DAXXMUSIC import app
 from DAXXMUSIC.mongo.notesdb import GetNote
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
-from DAXXMUSIC.mongo.msg_types import button_markdown_parser
 
 class NoteTypeMap(Enum):
     text = auto()
