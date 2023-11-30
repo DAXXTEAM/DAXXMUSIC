@@ -13,7 +13,7 @@ pycountry
 heroku3
 apscheduler
 motor==3.0.0
-pillow==10.0.0
+pillow==10.0.1
 psutil
 wget
 pyfiglet
