@@ -2,7 +2,7 @@ from DAXXMUSIC.utils.mongo import db
 
 #from DAXXMUSIC.mongo import *# back...............
 
-notesdb = db.notes["notes"]
+notesdb = db.notes["notesdb"]
 
 
 async def SaveNote(chat_id, note_name, content, text, data_type):
