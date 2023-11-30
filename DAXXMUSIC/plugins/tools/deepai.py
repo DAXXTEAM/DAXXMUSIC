@@ -3,7 +3,7 @@ from pyrogram import filters
 from DAXXMUSIC import app
 from pyrogram.enums import ChatAction, ParseMode
 
-api_key ="908fa7e9-220b-4357-ac2f-7eb499005b5f"
+api_key ="995e3267-53f1-496e-82e3-39754eab99dc"
 
 
 
