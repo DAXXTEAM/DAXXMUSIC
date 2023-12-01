@@ -35,7 +35,7 @@ tgcrypto
 telegraph
 unidecode
 yt-dlp
-youtube-search==2.1.2
+youtube-search
 youtube-search-python
 gtts
 git+https://github.com/AsmSafone/SafoneAPI
