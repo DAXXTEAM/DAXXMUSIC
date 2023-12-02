@@ -57,7 +57,7 @@ def group_info_command(client, message):
         response_text = (
             f"Gʀᴏᴜᴘ Nᴀᴍᴇ: {group_name}\n\n"
             f"Gʀᴏᴜᴘ ID: {group_id}\n\n\"
-            f"Tᴏᴛᴀʟ Mᴇᴍʙᴇʀs: {total_members}\n\n\"
+            f"Tᴏᴛᴀʟ Mᴇᴍʙᴇʀs: {total_members}\n\n"
             f"Dᴇsᴄʀɪᴘᴛɪᴏɴ: {group_description}\n\n"
             f"Usᴇʀɴᴀᴍᴇ: @{group_username}"
         )
