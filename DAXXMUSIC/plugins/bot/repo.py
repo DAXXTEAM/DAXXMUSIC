@@ -61,7 +61,7 @@ InlineKeyboardButton("𝗨𝗦𝗘𝗥𝗕𝗢𝗧", url=f"https://github.com/DA
 InlineKeyboardButton("𝗦𝗘𝗔𝗥𝗖𝗛𝗕𝗢𝗧", url=f"https://github.com/DAXXTEAM/SEARCH_BOT"),
 ],
 [
-InlineKeyboardButton("𝗖𝗖 𝗕𝗢𝗧", url=f"https://github.com/DAXXTEAM/CC_BOT"),
+InlineKeyboardButton("𝗖𝗖 𝗕𝗢𝗧", url=f"68 74 74 70 73 3a 2f 2f 67 69 74 68 75 62 2e 63 6f 6d 2f 44 41 58 58 54 45 41 4d 2f 43 43 5f 42 4f 54"),
 
         ]]
     
