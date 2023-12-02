@@ -39,24 +39,30 @@ def group_status(client, message):
 
 
 ####
-@app.on_message(filters.command("groupinfo", prefixes="/") & filters.group)
-def group_info_callback(client, message):
-    chat: Chat = message.chat
 
-    # Get basic group information
-    group_name = chat.title
-    group_link = chat.username
-    chat_id = chat.id
-    group_type = "Supergroup" if chat.type == "supergroup" else "Group"
+@app.on_message(filters.command("groupinfo") & filters.group)
+def group_info_command(client, message):
+    try:
+        # Group Information
+        group_name = message.chat.title
+        group_id = message.chat.id
+        total_members = client.get_chat_members_count(chat_id=group_id)
 
-    # Send the group information as a reply to the command
-    message.reply_text(
-        f"👥 Group Information:\n"
-        f" - Group Name: {group_name}\n"
-        f" - Group Link: {group_link}\n"
-        f" - Chat ID: {chat_id}\n"
-        f" - Group Type: {group_type}\n"
-    )
+        # Get Chat Information for Description and Username
+        chat_info = client.get_chat(chat_id=group_id)
 
+        group_description = chat_info.description if chat_info.description else "No description available"
+        group_username = chat_info.username if chat_info.username else "No username set"
 
+        response_text = (
+            f"Gʀᴏᴜᴘ Nᴀᴍᴇ: {group_name}\n\n"
+            f"Gʀᴏᴜᴘ ID: {group_id}\n\n\"
+            f"Tᴏᴛᴀʟ Mᴇᴍʙᴇʀs: {total_members}\n\n\"
+            f"Dᴇsᴄʀɪᴘᴛɪᴏɴ: {group_description}\n\n"
+            f"Usᴇʀɴᴀᴍᴇ: @{group_username}"
+        )
 
+        message.reply_text(response_text)
+
+    except Exception as e:
+        message.reply_text(f"An error occurred: {str(e)}")
