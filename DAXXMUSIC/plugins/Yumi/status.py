@@ -37,14 +37,26 @@ def group_status(client, message):
 
 
 
-####
-@app.on_message(filters.command('groupinfo') & filters.group)
-def group_info(client, message):
-    chat_id = message.chat.id
-    chat_info = app.get_chat(chat_id)
-    title = chat_info.title
-    description = chat_info.description
-    member_count = chat_info.members_count
 
-    info_text = f"Group Title: {title}\nDescription: {description}\nMembers Count: {member_count}"
-    message.reply_text(info_text)
+####
+@app.on_message(filters.command("groupinfo", prefixes="/") & filters.group)
+def group_info_callback(client, message):
+    chat: Chat = message.chat
+
+    # Get basic group information
+    group_name = chat.title
+    group_link = chat.username
+    chat_id = chat.id
+    group_type = "Supergroup" if chat.type == "supergroup" else "Group"
+
+    # Send the group information as a reply to the command
+    message.reply_text(
+        f"👥 Group Information:\n"
+        f" - Group Name: {group_name}\n"
+        f" - Group Link: {group_link}\n"
+        f" - Chat ID: {chat_id}\n"
+        f" - Group Type: {group_type}\n"
+    )
+
+
+
