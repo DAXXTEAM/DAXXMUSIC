@@ -32,9 +32,9 @@ def country_command_handler(client: Client, message: Message):
         else:
             response_text = "Error fetching country information from the API."
     except requests.exceptions.HTTPError as http_err:
-        response_text = f"HTTP error occurred: {http_err}"
+        response_text = f"HTTP error occurred Enter correct Country code"
     except Exception as err:
-        response_text = f"An error occurred: {err}"
+        response_text = f" Error @iam_daxc"
 
     # Send the response to the Telegram chat
     message.reply_text(response_text)
