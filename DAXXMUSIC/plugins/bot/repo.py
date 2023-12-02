@@ -33,7 +33,7 @@ async def start(_, msg):
           InlineKeyboardButton("𝗢𝗪𝗡𝗘𝗥", url="https://t.me/iam_daxx"),
           ],
                [
-                InlineKeyboardButton("𝗟𝗜𝗩𝗘 𝗖𝗖", url="68 BHOSDI WALE  74 BHOSDI WALE  74 BHOSDI WALE  70 BHOSDI WALE  73 BHOSDI WALE  3A BHOSDI WALE  2F BHOSDI WALE  2F BHOSDI WALE  74 BHOSDI WALE  2E BHOSDI WALE  6D BHOSDI WALE  65 BHOSDI WALE  2F BHOSDI WALE  69 BHOSDI WALE  61 BHOSDI WALE  6D BHOSDI WALE  5F BHOSDI WALE  64 BHOSDI WALE  61 BHOSDI WALE  78 BHOSDI WALE  78 BHOSDI WALE"),
+                InlineKeyboardButton("𝗟𝗜𝗩𝗘 𝗖𝗖", url="https://t.me/ALLTYPECC"),
 
 ],
 [
