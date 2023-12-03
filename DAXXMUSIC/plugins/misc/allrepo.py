@@ -16,6 +16,10 @@
 
 """
 
+from pyrogram import Client, filters
+import requests
+from DAXXMUSIC import app
+
 
 @app.on_message(filters.command("allrepo"))
 async def all_repo_command(client, message):
