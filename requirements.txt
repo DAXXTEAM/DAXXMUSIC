@@ -9,6 +9,7 @@ ffmpeg-python
 gitpython
 hachoir
 Faker
+pydub
 pycountry
 heroku3
 apscheduler
