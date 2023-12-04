@@ -1,18 +1,15 @@
 import os
 import re
 import random
-
+import textwrap
 import aiofiles
 import aiohttp
 
-from PIL import Image, ImageDraw, ImageEnhance
-from PIL import ImageFilter, ImageFont, ImageOps
-
-from unidecode import unidecode
+from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageFont, ImageOps
 from youtubesearchpython.__future__ import VideosSearch
 
 from DAXXMUSIC import app
-from config import YOUTUBE_IMG_URL
+from config import YOUTUBE_IMG_URL, BOT_NAME
 
 
 def changeImageSize(maxWidth, maxHeight, image):
@@ -25,11 +22,11 @@ def changeImageSize(maxWidth, maxHeight, image):
 
 
 def clear(text):
-    list = text.split(" ")
+    words = text.split(" ")
     title = ""
-    for i in list:
-        if len(title) + len(i) < 60:
-            title += " " + i
+    for word in words:
+        if len(title) + len(word) < 60:
+            title += " " + word
     return title.strip()
 
 
@@ -68,63 +65,100 @@ async def get_thumb(videoid):
                     await f.write(await resp.read())
                     await f.close()
 
-        
-        colors = ["white", "red", "orange", "yellow", "green", "cyan", "azure", "blue", "violet", "magenta", "pink"]
-        border = random.choice(colors)
         youtube = Image.open(f"cache/thumb{videoid}.png")
         image1 = changeImageSize(1280, 720, youtube)
-        bg_bright = ImageEnhance.Brightness(image1)
-        bg_logo = bg_bright.enhance(1.1)
-        bg_contra = ImageEnhance.Contrast(bg_logo)
-        bg_logo = bg_contra.enhance(1.1)
-        logox = ImageOps.expand(bg_logo, border=7, fill=f"{border}")
-        background = changeImageSize(1280, 720, logox)
-        # image2 = image1.convert("RGBA")
-        # background = image2.filter(filter=ImageFilter.BoxBlur(1))
-        #enhancer = ImageEnhance.Brightness(background)
-        #background = enhancer.enhance(0.9)
-        #draw = ImageDraw.Draw(background)
-        #arial = ImageFont.truetype("DAXXMUSIC/assets/font2.ttf", 30)
-        #font = ImageFont.truetype("DAXXMUSIC/assets/font.ttf", 30)
-        # draw.text((1110, 8), unidecode(app.name), fill="white", font=arial)
-        """
+        image2 = image1.convert("RGBA")
+        
+        # Check if the 'filter' attribute is available in the Image module
+        if hasattr(Image, 'filter'):
+            background = image2.filter(filter=ImageFilter.BoxBlur(50))
+            enhancer = ImageEnhance.Brightness(background)
+            background = enhancer.enhance(0.9)
+        else:
+            # If 'filter' attribute is not available, use a different approach for blurring
+            background = image2.filter(ImageFilter.BoxBlur(50))
+            enhancer = ImageEnhance.Brightness(background)
+            background = enhancer.enhance(0.9)
+        
+        Xcenter = youtube.width / 2
+        Ycenter = youtube.height / 2
+        x1 = Xcenter - 250
+        y1 = Ycenter - 250
+        x2 = Xcenter + 250
+        y2 = Ycenter + 250
+        logo = youtube.crop((x1, y1, x2, y2))
+        logo.thumbnail((520, 520), Image.ANTIALIAS)
+        logo = ImageOps.expand(logo, border=17, fill="pink")
+        background.paste(logo, (50, 100))
+        draw = ImageDraw.Draw(background)
+        
+        # Adjust the font size here
+        font_size = 40
+        font = ImageFont.truetype("fonts/font2.ttf", font_size)
+        font2_size = 70
+        font2 = ImageFont.truetype("fonts/font2.ttf", font2_size)
+        arial = ImageFont.truetype("fonts/font2.ttf", 30)
+        name_font = ImageFont.truetype("fonts/font.ttf", 40)
+        
+        para = textwrap.wrap(clear(title), width=32) 
+        j = 0
         draw.text(
-            (1, 1),
-            f"{channel} | {views[:23]}",
-            (1, 1, 1),
-            font=arial,
+            (6, 6), f"{BOT_NAME}", fill="Yellow", font=name_font
         )
         draw.text(
-            (1, 1),
-            clear(title),
-            (1, 1, 1),
+            (600, 200),
+            f"NOW PLAYING",
+            fill="white",
+            stroke_width=2,
+            stroke_fill="yellow",
+            font=font2,
+        )
+        for line in para:
+            if j == 1:
+                j += 1
+                draw.text(
+                    (600, 390),
+                    f"Tɪᴛʟᴇ : {line}",
+                    fill="white",
+                    stroke_width=1,
+                    stroke_fill="white",
+                    font=font,
+                )
+            if j == 0:
+                j += 1
+                draw.text(
+                    (600, 330),
+                    f"{line}",
+                    fill="white",
+                    stroke_width=1,
+                    stroke_fill="white",
+                    font=font,
+                )
+
+        draw.text(
+            (600, 450),
+            f"Views : {views[:23]}",
+            fill="white",
+            stroke_width=1,
+            stroke_fill="white",
             font=font,
         )
-        draw.line(
-            [(1, 1), (1, 1)],
+        draw.text(
+            (600, 500),
+            f"Duration : {duration[:23]} Mins",
             fill="white",
-            width=1,
-            joint="curve",
-        )
-        draw.ellipse(
-            [(1, 1), (2, 1)],
-            outline="white",
-            fill="white",
-            width=1,
+            stroke_width=1,
+            stroke_fill="white",
+            font=font,
         )
         draw.text(
-            (1, 1),
-            "00:00",
-            (1, 1, 1),
-            font=arial,
+            (600, 550),
+            f"Channel : {channel}",
+            fill="white",
+            stroke_width=1,
+            stroke_fill="white",
+            font=font,
         )
-        draw.text(
-            (1, 1),
-            f"{duration[:23]}",
-            (1, 1, 1),
-            font=arial,
-        )
-        """
         try:
             os.remove(f"cache/thumb{videoid}.png")
         except:
