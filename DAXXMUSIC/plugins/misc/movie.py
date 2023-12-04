@@ -44,7 +44,7 @@ def get_movie_info(movie_name):
         title = details_data.get("title", "N/A")
         release_date = details_data.get("release_date", "N/A")
         overview = details_data.get("overview", "N/A")
-        providers = details_data.gen("providers", "N/A")
+        providers = details_data.get("providers", "N/A")
         vote_average = details_data.get("vote_average", "N/A")
         
         # Extract actor names
