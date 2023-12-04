@@ -64,6 +64,7 @@ def get_movie_info(movie_name):
             f"Vote Average: {vote_average}\n\n"
             f"Actor Names: {actors}\n\n"
             f"Total Collection: {revenue}\n\n"
+            f"Available Platforms: {providers}\n"
         )
         return info
     else:
