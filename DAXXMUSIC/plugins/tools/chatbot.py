@@ -1,19 +1,24 @@
 from pyrogram import Client, filters
 from pyrogram.types import *
-from DAXXMUSIC import app as bot
 from pymongo import MongoClient
 import requests
 import random
+from DAXXMUSIC import app as bot
+from config import BOT_TOKEN
 import os
 import re
 import asyncio
 import time
 from datetime import datetime
-from config import BOT_USERNAME
-from config import OWNER_ID as ADMINS
+#from database.users_chats_db import db
 
+API_ID = "25450075"
+API_HASH = "278e22b00d6dd565c837405eda49e6f2" 
 MONGO_URL = "mongodb+srv://kuldiprathod2003:kuldiprathod2003@cluster0.wxqpikp.mongodb.net/?retryWrites=true&w=majority"
 DATABASE_NAME = os.environ.get("DATABASE_NAME","VickDb") 
+BOT_USERNAME = os.environ.get("BOT_USERNAME","YumikooBot")
+BOT_NAME = os.environ.get("BOT_NAME","Yumikoo")
+ADMINS = os.environ.get("ADMINS","6691393517")
 
 async def is_admins(chat_id: int):
     return [
@@ -292,3 +297,4 @@ async def vickprivatesticker(client: Client, message: Message):
                await message.reply_text(f"{hey}")
            if not Yo == "text":
                await message.reply_sticker(f"{hey}")
+
