@@ -10,15 +10,22 @@ import re
 import asyncio
 import time
 from datetime import datetime
-#from database.users_chats_db import db
 
 API_ID = "25450075"
 API_HASH = "278e22b00d6dd565c837405eda49e6f2" 
+BOT_TOKEN = "{BOT_TOKEN}"
 MONGO_URL = "mongodb+srv://kuldiprathod2003:kuldiprathod2003@cluster0.wxqpikp.mongodb.net/?retryWrites=true&w=majority"
 DATABASE_NAME = os.environ.get("DATABASE_NAME","VickDb") 
 BOT_USERNAME = os.environ.get("BOT_USERNAME","YumikooBot")
 BOT_NAME = os.environ.get("BOT_NAME","Yumikoo")
 ADMINS = os.environ.get("ADMINS","6691393517")
+
+bot = Client(
+    "VickBot" ,
+    api_id = API_ID,
+    api_hash = API_HASH ,
+    bot_token = BOT_TOKEN
+)
 
 async def is_admins(chat_id: int):
     return [
