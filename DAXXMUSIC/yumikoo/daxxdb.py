@@ -29,7 +29,7 @@ from functools import wraps
 from pyrogram.errors.exceptions.forbidden_403 import ChatWriteForbidden
 
 from DAXXMUSIC import app
-config import LOG_GROUP_ID
+from config import LOGGER_ID as LOG_GROUP_ID
 
 def split_limits(text):
     if len(text) < 2048:
