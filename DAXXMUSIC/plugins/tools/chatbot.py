@@ -20,13 +20,6 @@ BOT_USERNAME = os.environ.get("BOT_USERNAME","YumikooBot")
 BOT_NAME = os.environ.get("BOT_NAME","Yumikoo")
 ADMINS = os.environ.get("ADMINS","6691393517")
 
-bot = Client(
-    "VickBot" ,
-    api_id = API_ID,
-    api_hash = API_HASH ,
-    bot_token = BOT_TOKEN
-)
-
 async def is_admins(chat_id: int):
     return [
         member.user.id
