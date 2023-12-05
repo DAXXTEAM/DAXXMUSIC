@@ -10,10 +10,10 @@ import asyncio
 import time
 from datetime import datetime
 from config import BOT_USERNAME
+from config import OWNER_ID as ADMINS
 
 MONGO_URL = "mongodb+srv://kuldiprathod2003:kuldiprathod2003@cluster0.wxqpikp.mongodb.net/?retryWrites=true&w=majority"
 DATABASE_NAME = os.environ.get("DATABASE_NAME","VickDb") 
-
 
 async def is_admins(chat_id: int):
     return [
