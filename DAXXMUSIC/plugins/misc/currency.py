@@ -2,6 +2,7 @@ import pyrogram
 import time
 import random
 from pyrogram import filters
+from DAXXMUSIC import app
 from pyrogram.enums import ChatType
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 
