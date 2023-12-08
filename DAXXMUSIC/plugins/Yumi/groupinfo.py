@@ -27,10 +27,7 @@ async def get_group_status(_, message: Message):
         f"➲ TOTAL MEMBERS : {total_members}\n"
         f"➲ DESCRIPTION : {group_description or 'N/A'}\n"
         f"➲ USERNAME : @{group_username}\n"
-        f"➲ PREMIUM USERS : {premium_acc}🎁\n"
-        f"➲ BANNED : {banned}🚫\n"
-        f"➲ DELETED ACCOUNTS : {deleted_acc}🧟\n"
-        f"➲ BOTS : {bot}💡\n"
+       
         f"➖➖➖➖➖➖➖"
     )
     
