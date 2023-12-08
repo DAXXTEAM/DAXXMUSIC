@@ -1,4 +1,4 @@
-/eval import pyrogram
+import pyrogram
 import time
 import random
 from pyrogram import filters
