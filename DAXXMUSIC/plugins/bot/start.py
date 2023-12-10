@@ -9,6 +9,8 @@ import config
 from DAXXMUSIC import app
 from DAXXMUSIC.misc import _boot_
 from DAXXMUSIC.plugins.sudo.sudoers import sudoers_list
+from DAXXMUSIC.utils.database import get_served_chats, get_served_users, get_sudoers
+from DAXXMUSIC.utils import bot_sys_stats
 from DAXXMUSIC.utils.database import (
     add_served_chat,
     add_served_user,
@@ -103,9 +105,12 @@ async def start_pm(client, message: Message, _):
                 )
     else:
         out = private_panel(_)
+        served_chats = len(await get_served_chats())
+        served_users = len(await get_served_users())
+        UP, CPU, RAM, DISK = await bot_sys_stats()
         await message.reply_photo(
             random.choice(YUMI_PICS),
-            caption=_["start_2"].format(message.from_user.mention, app.mention),
+            caption=_["start_2"].format(message.from_user.mention, app.mention, UP, DISK, CPU, RAM,served_users,served_chats),
             reply_markup=InlineKeyboardMarkup(out),
         )
         if await is_on_off(2):
@@ -158,7 +163,7 @@ async def welcome(client, message: Message):
                 await message.reply_photo(
                     random.choice(YUMI_PICS),
                     caption=_["start_3"].format(
-                        message.from_user.first_name,
+                        message.from_user.mention,
                         app.mention,
                         message.chat.title,
                         app.mention,
