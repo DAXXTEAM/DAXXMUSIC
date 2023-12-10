@@ -163,7 +163,7 @@ async def welcome(client, message: Message):
                 await message.reply_photo(
                     random.choice(YUMI_PICS),
                     caption=_["start_3"].format(
-                        message.from_user.mention,
+                        message.from_user.first_name,
                         app.mention,
                         message.chat.title,
                         app.mention,
