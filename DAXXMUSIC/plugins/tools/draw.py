@@ -8,7 +8,7 @@ from DAXXMUSIC import app
 
 
 api = ApiClient()
-Models = api.getModels()['models']['image']
+#Models = api.getModels()['models']['image']
 
 Database = {}
 
