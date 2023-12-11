@@ -1,5 +1,5 @@
 from pyrogram import Client, filters
-from pornhub_api import PornhubApi
+from pornhub_api
 from pornhub_api.backends.aiohttp import AioHttpBackend
 from DAXXMUSIC import app
 
