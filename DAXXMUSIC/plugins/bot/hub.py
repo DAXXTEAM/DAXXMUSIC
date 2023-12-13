@@ -6,9 +6,8 @@ from DAXXMUSIC import app
 # Initialize the Pornhub API
 pornhub_api = PornhubApi(backend=AioHttpBackend())
 
-
 # Command to search and send an adult video based on the title
-@app.on_message(filters.command("give"))
+@app.on_message(filters.command("porn"))
 async def give_video(_, message):
     try:
         # Extract the title from the command
@@ -19,9 +18,10 @@ async def give_video(_, message):
             return
 
         # Search for a video on Pornhub API based on the title
-        video = await pornhub_api.search_videos(title, ordering="newest", page=1, per_page=1).next()
+        src = await pornhub_api.search.search(title)
 
-        if video:
+        if src.videos:
+            video = src.videos[0]
             # Send the video details to the user
             await message.reply_text(f"Title: {video.title}\nURL: {video.url}")
         else:
