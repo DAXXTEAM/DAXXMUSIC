@@ -9,7 +9,7 @@ from pyrogram import Client, filters
 
 
 
-API_URL: str = "https://sasta-api.vercel.app/google_reverse"
+API_URL: str = "https://sasta-api.vercel.app/googleLensSearch"
 
 
 
