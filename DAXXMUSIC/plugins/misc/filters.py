@@ -1,6 +1,7 @@
 import re
 from DAXXMUSIC import app
 from config import BOT_USERNAME
+from DAXXMUSIC.utils.daxx_ban import admin_filter
 from DAXXMUSIC.mongo.filtersdb import *
 from DAXXMUSIC.utils.filters_func import GetFIlterMessage, get_text_reason, SendFilterMessage
 from DAXXMUSIC.utils.yumidb import user_admin
@@ -8,7 +9,7 @@ from pyrogram import filters
 from pyrogram.enums import ChatMemberStatus
 from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
 
-@app.on_message(filters.command("filter") & filters.group)
+@app.on_message(filters.command("filter") & admin_filter)
 async def _filter(client, message):
     
     chat_id = message.chat.id 
@@ -91,7 +92,7 @@ async def _filters(client, message):
     )
 
 
-@app.on_message(filters.command('stopall') & filters.group)
+@app.on_message(filters.command('stopall') & admin_filter)
 async def stopall(client, message):
     chat_id = message.chat.id
     chat_title = message.chat.title 
@@ -129,7 +130,7 @@ async def stopall_callback(client, callback_query: CallbackQuery):
 
 
 
-@app.on_message(filters.command('stop') & filters.group)
+@app.on_message(filters.command('stop') & admin_filter)
 @user_admin
 async def stop(client, message):
     chat_id = message.chat.id
