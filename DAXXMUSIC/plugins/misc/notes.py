@@ -1,6 +1,7 @@
 from DAXXMUSIC import app
 from config import BOT_USERNAME
 from pyrogram import filters
+from DAXXMUSIC.utils.daxx_ban import admin_filter
 from DAXXMUSIC.mongo.notesdb import *
 from DAXXMUSIC.utils.notes_func import GetNoteMessage, exceNoteMessageSender, privateNote_and_admin_checker
 from DAXXMUSIC.utils.yumidb import user_admin
@@ -8,7 +9,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup , Message 
 from pyrogram.enums import ChatMemberStatus
 
 
-@app.on_message(filters.command("save") & filters.group)
+@app.on_message(filters.command("save") & admin_filter)
 @user_admin
 async def _save(client, message):
     chat_id = message.chat.id
@@ -28,7 +29,7 @@ async def _save(client, message):
 
 
 
-@app.on_message(filters.command("get") & filters.group)
+@app.on_message(filters.command("get") & admin_filter)
 async def _getnote(client, message):
     chat_id = message.chat.id
     if not len(message.command) >= 2:
@@ -90,7 +91,7 @@ async def PrivateNote(client, message):
                 quote=True
             )
             
-@app.on_message(filters.command("clear") & filters.group)
+@app.on_message(filters.command("clear") & admin_filter)
 @user_admin
 async def Clear_Note(client, message):
     chat_id = message.chat.id 
@@ -119,7 +120,7 @@ async def Clear_Note(client, message):
         )
 
 
-@app.on_message(filters.command("clearall") & filters.group)
+@app.on_message(filters.command("clearall") & admin_filter)
 async def ClearAll_Note(client, message):
     owner_id = message.from_user.id
     chat_id = message.chat.id 
