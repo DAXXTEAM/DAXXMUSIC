@@ -94,10 +94,10 @@ async def get_thumb(videoid):
         
         # Adjust the font size here
         font_size = 40
-        font = ImageFont.truetype("DAXXMUSIC/assets/NewFont/Bikids.TTF", font_size)
+        font = ImageFont.truetype("DAXXMUSIC/assets/NewFont/BNEG98.ttf", font_size)
         font2_size = 70
-        font2 = ImageFont.truetype("DAXXMUSIC/assets/NewFont/Bikids.TTF", font2_size)
-        arial = ImageFont.truetype("DAXXMUSIC/assets/NewFont/Bikids.TTF", 30)
+        font2 = ImageFont.truetype("DAXXMUSIC/assets/NewFont/BNEG98.ttf", font2_size)
+        arial = ImageFont.truetype("DAXXMUSIC/assets/NewFont/BNEG98.ttf", 30)
         name_font = ImageFont.truetype("DAXXMUSIC/assets/font.ttf", 40)
         
         para = textwrap.wrap(clear(title), width=32) 
