@@ -6,7 +6,7 @@ from DAXXMUSIC import app
 def chunk_string(text, chunk_size):
     return [text[i:i + chunk_size] for i in range(0, len(text), chunk_size)]
 
-@app.on_message(filters.command("giverepo"))
+@app.on_message(filters.command("allrepo"))
 async def all_repo_command(client, message):
     try:
         # Check if there is a GitHub username after the /giverepo command
@@ -23,7 +23,7 @@ async def all_repo_command(client, message):
             for chunk in chunked_repo_info:
                 await message.reply_text(chunk)
         else:
-            await message.reply_text("Please enter a GitHub username after the /giverepo command.")
+            await message.reply_text("Please enter a GitHub username after the /allrepo command.")
     except Exception as e:
         await message.reply_text(f"An error occurred: {str(e)}")
 #######
