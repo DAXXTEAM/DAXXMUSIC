@@ -51,7 +51,7 @@ def welcomepic(pic, user, chatname, id, uname):
     background = Image.open("DAXXMUSIC/assets/wel2.png")
     pfp = Image.open(pic).convert("RGBA")
     pfp = circle(pfp)
-    pfp = pfp.resize((795, 795))
+    pfp = pfp.resize((800, 800))
     draw = ImageDraw.Draw(background)
     font = ImageFont.truetype('DAXXMUSIC/assets/font.ttf', size=40)
     welcome_font = ImageFont.truetype('DAXXMUSIC/assets/font.ttf', size=60)
