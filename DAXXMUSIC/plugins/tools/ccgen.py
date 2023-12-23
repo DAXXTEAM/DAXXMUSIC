@@ -25,7 +25,7 @@ async def gen_cc(client, message):
 `{cards[0]}`\n`{cards[1]}`\n`{cards[2]}`
 `{cards[3]}`\n`{cards[4]}`\n`{cards[5]}`
 `{cards[6]}`\n`{cards[7]}`\n`{cards[8]}`
-`{cards[9]}`\n
+`{cards[9]}`
 **💳 Bin:** `{resp.results[0].bin}`
 **⏳ Time Took:** `{resp.took}`\n\n @Yumikoobot"""
         )
