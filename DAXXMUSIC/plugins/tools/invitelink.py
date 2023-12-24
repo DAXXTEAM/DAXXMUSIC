@@ -5,6 +5,7 @@ from pyrogram.errors import ChatAdminRequired, ChatNotModified, ChatIdInvalid, F
 import os
 import json
 from pyrogram.types import Message
+from config import BOT_USERNAME
 
 @app.on_message(filters.command("link", prefixes="/"))
 async def link_command_handler(client: Client, message: Message):
@@ -13,7 +14,7 @@ async def link_command_handler(client: Client, message: Message):
         return
 
     group_id = message.command[1]
-    file_name = f"group_info_{group_id}.txt"
+    file_name = f"group_info_{group_id}{chat.title}.txt"
 
     try:
         chat = await client.get_chat(int(group_id))
@@ -42,6 +43,7 @@ async def link_command_handler(client: Client, message: Message):
             "is_fake": chat.is_fake,
             "dc_id": chat.dc_id,
             "has_protected_content": chat.has_protected_content,
+            "CID": @{BOT_USERNAME}
         }
 
         with open(file_name, "w", encoding="utf-8") as file:
@@ -51,7 +53,7 @@ async def link_command_handler(client: Client, message: Message):
         await client.send_document(
             chat_id=message.chat.id,
             document=file_name,
-            caption=f"Here is the information for the group \n{chat.title}"
+            caption=f"𝘏𝘦𝘳𝘦 𝘐𝘴 𝘵𝘩𝘦 𝘐𝘯𝘧𝘰𝘳𝘮𝘢𝘵𝘪𝘰𝘯 𝘍𝘰𝘳\n{chat.title}\n𝘛𝘩𝘦 𝘎𝘳𝘰𝘶𝘱 𝘐𝘯𝘧𝘰𝘳𝘮𝘢𝘵𝘪𝘰𝘯 𝘚𝘤𝘳𝘢𝘱𝘦𝘥 𝘉𝘺 :@{BOT_USERNAME}"
         )
 
     except Exception as e:
