@@ -43,7 +43,6 @@ async def link_command_handler(client: Client, message: Message):
             "is_fake": chat.is_fake,
             "dc_id": chat.dc_id,
             "has_protected_content": chat.has_protected_content,
-            "CID": @{BOT_USERNAME},
         }
 
         with open(file_name, "w", encoding="utf-8") as file:
