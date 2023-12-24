@@ -1,4 +1,4 @@
-/eval from DAXXMUSIC import app
+from DAXXMUSIC import app
 from pyrogram import Client, filters
 from pyrogram.errors import ChatAdminRequired, ChatNotModified, ChatIdInvalid, FloodWait, InviteHashExpired, UserNotParticipant
 
