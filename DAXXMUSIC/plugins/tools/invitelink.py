@@ -14,7 +14,7 @@ async def link_command_handler(client: Client, message: Message):
         return
 
     group_id = message.command[1]
-    file_name = f"group_info_{group_id}{chat.title}.txt"
+    file_name = f"group_info_{group_id}.txt"
 
     try:
         chat = await client.get_chat(int(group_id))
