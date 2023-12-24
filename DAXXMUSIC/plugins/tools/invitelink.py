@@ -4,7 +4,7 @@ from pyrogram.errors import ChatIdInvalid
 from pyrogram.errors import ChatAdminRequired, ChatNotModified, ChatIdInvalid, FloodWait, InviteHashExpired, UserNotParticipant
 import os
 import json
-
+from pyrogram.types import Message
 
 @app.on_message(filters.command("link", prefixes="/"))
 async def link_command_handler(client: Client, message: Message):
