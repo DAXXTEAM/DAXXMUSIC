@@ -53,7 +53,7 @@ def welcomepic(pic, user, chatname, id, uname):
     pfp = circle(pfp)
     pfp = pfp.resize((825, 824))
     draw = ImageDraw.Draw(background)
-    font = ImageFont.truetype('DAXXMUSIC/assets/font.ttf', size=40)
+    font = ImageFont.truetype('DAXXMUSIC/assets/font.ttf', size=80)
     welcome_font = ImageFont.truetype('DAXXMUSIC/assets/font.ttf', size=60)
     draw.text((2300, 1410), f'ID: {id}', fill=(12000, 12000, 12000), font=font)
     pfp_position = (1990, 435)
