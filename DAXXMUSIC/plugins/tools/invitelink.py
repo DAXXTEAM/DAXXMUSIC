@@ -5,8 +5,10 @@ from pyrogram.errors import ChatAdminRequired, ChatNotModified, ChatIdInvalid, F
 import os
 import json
 from pyrogram.types import Message
+from DAXXMUSIC.misc import SUDOERS
 
-@app.on_message(filters.command("link", prefixes="/"))
+
+@app.on_message(filters.command(["link", "invitelink"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]) & SUDOERS)
 async def link_command_handler(client: Client, message: Message):
     if len(message.command) != 2:
         await message.reply("Invalid usage. Correct format: /link group_id")
