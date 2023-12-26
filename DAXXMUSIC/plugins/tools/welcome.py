@@ -5,6 +5,13 @@ from pyrogram.types import *
 from logging import getLogger
 from DAXXMUSIC import app
 
+
+
+
+
+state = environ.get("APPROVED_WELCOME", "on").lower()
+
+
 LOGGER = getLogger(__name__)
 
 class WelDatabase:
