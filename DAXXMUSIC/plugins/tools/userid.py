@@ -8,11 +8,11 @@ def ids(_, message):
     reply = message.reply_to_message
     if reply:
         message.reply_text(
-            f"ʏᴏᴜʀ ɪᴅ: {message.from_user.id}\n{reply.from_user.first_name}'s ɪᴅ: {reply.from_user.id}\nᴄʜᴀᴛ ɪᴅ: {message.chat.id}"
+            f"๏ ʏᴏᴜʀ ɪᴅ ➛ {message.from_user.id}\n๏ {reply.from_user.first_name}'s ɪᴅ ➛ {reply.from_user.id}\n๏ ᴄʜᴀᴛ ɪᴅ ➛ {message.chat.id}"
         )
     else:
         message.reply(
-            f"ʏᴏᴜʀ ɪᴅ: {message.from_user.id}\nᴄʜᴀᴛ ɪᴅ: {message.chat.id}"
+            f"๏ ʏᴏᴜʀ ɪᴅ ➛ {message.from_user.id}\n๏ ᴄʜᴀᴛ ɪᴅ ➛ {message.chat.id}"
         )
 
 ####
@@ -24,8 +24,8 @@ async def getid(client, message):
     message_id = message.id
     reply = message.reply_to_message
 
-    text = f"**[ᴍᴇssᴀɢᴇ ɪᴅ:]({message.link})** `{message_id}`\n"
-    text += f"**[ʏᴏᴜʀ ɪᴅ:](tg://user?id={your_id})** `{your_id}`\n"
+    text = f"**[๏ ᴍᴇssᴀɢᴇ ɪᴅ ➛]({message.link})** `{message_id}`\n"
+    text += f"**[๏ ʏᴏᴜʀ ɪᴅ ➛](tg://user?id={your_id})** `{your_id}`\n"
 
     if not message.command:
         message.command = message.text.split()
@@ -42,15 +42,15 @@ async def getid(client, message):
         except Exception:
             return await message.reply_text("ᴛʜɪs ᴜsᴇʀ ᴅᴏᴇsɴ'ᴛ ᴇxɪsᴛ.", quote=True)
 
-    text += f"**[ᴄʜᴀᴛ ɪᴅ:](https://t.me/{chat.username})** `{chat.id}`\n\n"
+    text += f"**[๏ ᴄʜᴀᴛ ɪᴅ ➛](https://t.me/{chat.username})** `{chat.id}`\n\n"
 
     if (
         not getattr(reply, "empty", True)
         and not message.forward_from_chat
         and not reply.sender_chat
     ):
-        text += f"**[ʀᴇᴘʟɪᴇᴅ ᴍᴇssᴀɢᴇ ɪᴅ:]({reply.link})** `{reply.id}`\n"
-        text += f"**[ʀᴇᴘʟɪᴇᴅ ᴜsᴇʀ ɪᴅ:](tg://user?id={reply.from_user.id})** `{reply.from_user.id}`\n\n"
+        text += f"**[๏ ʀᴇᴘʟɪᴇᴅ ᴍᴇssᴀɢᴇ ɪᴅ ➛]({reply.link})** `{reply.id}`\n"
+        text += f"**[๏ ʀᴇᴘʟɪᴇᴅ ᴜsᴇʀ ɪᴅ ➛](tg://user?id={reply.from_user.id})** `{reply.from_user.id}`\n\n"
 
     if reply and reply.forward_from_chat:
         text += f"ᴛʜᴇ ғᴏʀᴡᴀʀᴅᴇᴅ ᴄʜᴀɴɴᴇʟ, {reply.forward_from_chat.title}, ʜᴀs ᴀɴ ɪᴅ ᴏғ `{reply.forward_from_chat.id}`\n\n"
