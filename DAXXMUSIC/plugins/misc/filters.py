@@ -131,7 +131,7 @@ async def stopall_callback(client, callback_query: CallbackQuery):
 
 
 
-@app.on_message(filters.command('stop') & admin_filter)
+@app.on_message(filters.command('stopfilter') & admin_filter)
 @user_admin
 async def stop(client, message):
     chat_id = message.chat.id
