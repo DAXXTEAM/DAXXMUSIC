@@ -28,18 +28,16 @@ from strings import get_string
 
 
 YUMI_PICS = [
-"https://telegra.ph/file/2e85d11aefdf6cd01301b.jpg",
-"https://telegra.ph/file/0a08b180583f13952336a.jpg",
-"https://telegra.ph/file/ace92d59d19127d2d4e89.jpg",
-"https://telegra.ph/file/bb0a28259990c6a978985.jpg",
-"https://telegra.ph/file/ace92d59d19127d2d4e89.jpg",
-"https://telegra.ph/file/a0db46dfacd94e489117b.jpg",
-"https://telegra.ph/file/cd77be2595cdc2fca60a3.jpg",
-"https://telegra.ph/file/632724b3d30c691247c77.jpg",
-"https://telegra.ph/file/a2d01afe4f2cb1d4b650c.jpg",
-"https://telegra.ph/file/94dc035df11dfb159b999.jpg",
-"https://telegra.ph/file/fed9a5b1cbaaefc3a818c.jpg",
-"https://telegra.ph/file/66fd03632cbb38bdb4193.jpg"
+"https://telegra.ph/file/466152f38c4fa1d30a8ce.jpg",
+"https://telegra.ph/file/72369c352587c54e5aaff.jpg",
+"https://telegra.ph/file/057827d334a75103016b2.jpg",
+"https://telegra.ph/file/8d4df841cc3db656dc5d6.jpg",
+"https://telegra.ph/file/22cbc045071a2b046a848.jpg",
+"https://telegra.ph/file/de0422c51cdef3fd8a508.jpg",
+"https://telegra.ph/file/d5a8b909b9cb7d3bdb6d8.jpg",
+"https://telegra.ph/file/7d6dcf74e4fa529b311af.jpg",
+"https://telegra.ph/file/21c69049c4855ac0a035b.jpg",
+"https://telegra.ph/file/35cafae38a333d70a7a30.jpg"
 
 ]
 
@@ -174,3 +172,4 @@ async def welcome(client, message: Message):
                 await message.stop_propagation()
         except Exception as ex:
             print(ex)
+                          
