@@ -10,6 +10,7 @@ from pyrogram.enums import ChatMemberStatus
 from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
 
 @app.on_message(filters.command("filter") & admin_filter)
+@user_admin
 async def _filter(client, message):
     
     chat_id = message.chat.id 
