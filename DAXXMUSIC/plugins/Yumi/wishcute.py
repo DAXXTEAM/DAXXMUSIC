@@ -42,16 +42,16 @@ async def cute(_, message):
         user_id = message.reply_to_message.from_user.id
         user_name = message.reply_to_message.from_user.first_name
 
-    mention = f"[{user_name}](tg://user?id={str(user_id)})"
+    mention = f"{user_name} (tg://user?id=%7Bstr(user_id)})"
     mm = random.randint(1, 100)
     CUTE = f"🍑 {mention} {mm}% ᴄᴜᴛᴇ ʙᴀʙʏ🥀"
 
-    await app.send_message(
+    await app.send_document(
         chat_id=message.chat.id,
-        text=CUTE,
+        document=CUTIE,
+        caption=CUTE,
         reply_markup=InlineKeyboardMarkup(BUTTON),
         reply_to_message_id=message.reply_to_message.message_id if message.reply_to_message else None,
-        file=CUTIE
     )
 
 help_text = """
