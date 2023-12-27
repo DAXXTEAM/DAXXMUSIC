@@ -50,6 +50,7 @@ def generate_fake_user_by_country(client, message):
         street = user_info['location']['street']['name']
         zip_code = user_info['location']['postcode']
         # Reply with the generated fake user information for the specified country
-        message.reply_text(f"𝗡𝗔𝗠𝗘➪ {first_name} {last_name}\n\n𝗘𝗠𝗔𝗜𝗟➪ {email}\n\n𝗖𝗢𝗨𝗡𝗧𝗥𝗬➪ {country}\n\n𝗦𝗧𝗔𝗧𝗘➪ {state}\n\n𝗖𝗜𝗧𝗬: {city}\n\n𝗔𝗗𝗗𝗥𝗘𝗦𝗦:➪{street}\n\n𝗭𝗜𝗣 𝗖𝗢𝗗𝗘➪ {zip_code}")
+        message.reply_text(f"๏ ɴᴀᴍᴇ ➠ {first_name} {last_name}\n\n๏ ᴇᴍᴀɪʟ ➠ {email}\n\n๏ ᴄᴏᴜɴᴛʀʏ ➠ {country}\n\n๏ sᴛᴀᴛᴇ ➠ {state}\n\n๏ ᴄɪᴛʏ ➠ {city}\n\n๏ ᴀᴅᴅʀᴇss ➠ {street}\n\n๏ ᴢɪᴘ ᴄᴏᴅᴇ ➠ {zip_code}\n\n๏ ᴍᴀᴅᴇ ʙʏ ➠ ʀᴏʏ-ᴇᴅɪᴛx ")
     else:
-        message.reply_text(f"Failed to generate fake user information for {country_name}.")
+        message.reply_text(f"ғᴀɪʟᴇᴅ ᴛᴏ ɢᴇɴᴇʀᴀᴛᴇ ғᴀᴋᴇ ᴜsᴇʀ ɪɴғᴏʀᴍᴀᴛɪᴏɴ ғᴏʀ {country_name}.")
+    
