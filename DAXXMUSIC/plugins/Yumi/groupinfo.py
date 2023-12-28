@@ -21,14 +21,13 @@ async def get_group_status(_, message: Message):
     premium_acc = banned = deleted_acc = bot = 0  # You should replace these variables with actual counts.
 
     response_text = (
-        f"➖➖➖➖➖➖➖\n"
-        f"➲ GROUP NAME : {group.title} ✅\n"
-        f"➲ GROUP ID : {group.id}\n"
-        f"➲ TOTAL MEMBERS : {total_members}\n"
-        f"➲ DESCRIPTION : {group_description or 'N/A'}\n"
-        f"➲ USERNAME : @{group_username}\n"
-       
-        f"➖➖➖➖➖➖➖"
+        f"•❅─────✧❅✦❅✧─────❅•\n\n"
+        f"๏ ɢʀᴏᴜᴘ ɴᴀᴍᴇ ➠ {group.title}\n"
+        f"๏ ɢʀᴏᴜᴘ ɪᴅ ➠ {group.id}\n"
+        f"๏ ᴛᴏᴛᴀʟ ᴍᴇᴍʙᴇʀs ➠ {total_members}\n"
+        f"๏ ᴜsᴇʀɴᴀᴍᴇ ➠ @{group_username}\n"
+        f"๏ ᴅᴇsᴄʀɪᴘᴛɪᴏɴ ➠ {group_description or 'N/A'}\n\n"
+        f"๏ ᴍᴀᴅᴇ ʙʏ ➠ ʀᴏʏ-ᴇᴅɪᴛx"
     )
     
     await message.reply(response_text)
@@ -42,12 +41,12 @@ async def get_group_status(_, message: Message):
 @app.on_message(filters.command("status") & filters.group)
 def group_status(client, message):
     chat = message.chat  # Chat where the command was sent
-    status_text = f"Group ID: {chat.id}\n" \
-                  f"Title: {chat.title}\n" \
-                  f"Type: {chat.type}\n"
+    status_text = f"๏ ɢʀᴏᴜᴘ ɪᴅ ➠ {chat.id}\n" \
+                  f"๏ ᴛɪᴛʟᴇ ➠ {chat.title}\n" \
+                  f"๏ ᴛʏᴘᴇ ➠ {chat.type}\n"
                   
     if chat.username:  # Not all groups have a username
-        status_text += f"Username: @{chat.username}"
+        status_text += f"๏ ᴜsᴇʀɴᴀᴍᴇ ➠ @{chat.username}"
     else:
         status_text += "Username: None"
 
