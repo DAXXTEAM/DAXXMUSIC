@@ -139,7 +139,7 @@ async def greet_group(_, member: ChatMemberUpdated):
 ๏ ᴜsᴇʀɴᴀᴍᴇ ➛ @{user.username}
 ๏ ᴍᴀᴅᴇ ʙʏ ➛ ʀᴏʏ-ᴇᴅɪᴛx**
 """,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(f"↻ ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ ↻", url=f"https://t.me/NykaaxbotBot?startgroup=true")]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(f"↻ ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ ↻", url=f"https://t.me/Nykaaxbot?startgroup=true")]])
         )
     except Exception as e:
         LOGGER.error(e)
