@@ -8,7 +8,7 @@ from pyrogram.types import ChatJoinRequest
 chat_id_env = environ.get("CHAT_ID")
 CHAT_ID = [int(app) for app in chat_id_env.split(",")] if chat_id_env else []
 
-TEXT = environ.get("APPROVED_WELCOME_TEXT", "Hello {mention}\nWelcome To {title}\n\n")
+TEXT = environ.get("APPROVED_WELCOME_TEXT", "Hᴇʟʟᴏ {mention}\n Iᴅ {id}\n Wᴇʟᴄᴏᴍᴇ Tᴏ {title}\n\n ")
 APPROVED = environ.get("APPROVED_WELCOME", "on").lower()
 
 # Define an event handler for chat join requests
