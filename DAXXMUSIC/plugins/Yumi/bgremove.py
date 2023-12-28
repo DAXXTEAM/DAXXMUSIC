@@ -17,7 +17,7 @@ def check_filename(filroid):
     return filroid
 
 async def RemoveBG(input_file_name):
-    headers = {"X-API-Key": "P6oDw1YNnMdkoMXxmWJinHQK"}
+    headers = {"X-API-Key": "87EbsfidHYtoyr1fjphR1Hvk"}
     files = {"image_file": open(input_file_name, "rb").read()}
     async with aiohttp.ClientSession() as ses:
         async with ses.post(
@@ -49,7 +49,7 @@ async def rmbg(bot, message):
           bruh = y["errors"][0]
           details = bruh.get("detail", "")
           return await rmbg.edit(f"ERROR ~ {bruh['title']},\n{details}")
-      await message.reply_photo(photo=y,caption="Here is your Image without Background")
+      await message.reply_photo(photo=y,caption="ʜᴇʀᴇ ɪs ʏᴏᴜʀ ɪᴍᴀɢᴇ ᴡɪᴛʜᴏᴜᴛ ʙᴀᴄᴋɢʀᴏᴜɴᴅ")
       await message.reply_document(document=y)
       await rmbg.delete()
       return os.remove(y)
