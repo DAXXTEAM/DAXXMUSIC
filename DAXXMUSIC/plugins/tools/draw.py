@@ -183,7 +183,7 @@ async def selectModel(_:app,query:t.CallbackQuery):
     modelName = [i['name'] for i in Models if i['id'] == modelId]
     for i in img_url:
         images.append(t.InputMediaPhoto(i))
-    images[-1] = t.InputMediaPhoto(img_url[-1],caption=f"Your Prompt:\n`{promptData['prompt']}`")
+    images[-1] = t.InputMediaPhoto(img_url[-1],caption=f"๏ ʏᴏᴜʀ ᴘʀᴏᴍᴘᴛ ➛ `{promptData['prompt']}`")
     await query.message.delete()
     try:
         del Database[auth_user]
