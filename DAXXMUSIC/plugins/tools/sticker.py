@@ -36,7 +36,7 @@ async def upscale_image(client, message):
         await client.send_document(
             message.chat.id,
             document="upscaled_image.png",
-            caption="**ʜᴇʀᴇ ɪs ᴛʜᴇ ᴜᴘsᴄᴀʟᴇᴅ ɪᴍᴀɢᴇ!**",
+            caption="**๏ ʜᴇʀᴇ ɪs ᴛʜᴇ ᴜᴘsᴄᴀʟᴇᴅ ɪᴍᴀɢᴇ!**",
         )
 
     except Exception as e:
@@ -57,7 +57,7 @@ async def _packkang(app :app,message):
     if message.reply_to_message.sticker.is_animated or  message.reply_to_message.sticker.is_video:
         return await txt.edit("ʀᴇᴘʟʏ ᴛᴏ ᴀ ɴᴏɴ-ᴀɴɪᴍᴀᴛᴇᴅ sᴛɪᴄᴋᴇʀ")
     if len(message.command) < 2:
-        pack_name =  f'{message.from_user.first_name}_sticker_pack_by_@Yumikoobot'
+        pack_name =  f'{message.from_user.first_name}_sticker_pack_by_@Nykaaxbot'
     else :
         pack_name = message.text.split(maxsplit=1)[1]
     short_name = message.reply_to_message.sticker.set_name
@@ -94,7 +94,7 @@ async def _packkang(app :app,message):
                 stickers=sticks,
             )
         )
-        await txt.edit(f"**ʜᴇʀᴇ ɪs ʏᴏᴜʀ ᴋᴀɴɢᴇᴅ ʟɪɴᴋ**!\n**ᴛᴏᴛᴀʟ sᴛɪᴄᴋᴇʀ **: {len(sticks)}",reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("ᴘᴀᴄᴋ ʟɪɴᴋ",url=f"http://t.me/addstickers/{short_name}")]]))
+        await txt.edit(f"**๏ ʜᴇʀᴇ ɪs ʏᴏᴜʀ ᴋᴀɴɢᴇᴅ ʟɪɴᴋ**!\n**๏ ᴛᴏᴛᴀʟ sᴛɪᴄᴋᴇʀ **: {len(sticks)}",reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("ᴘᴀᴄᴋ ʟɪɴᴋ",url=f"http://t.me/addstickers/{short_name}")]]))
     except Exception as e:
         await message.reply(str(e))
 
@@ -108,9 +108,10 @@ async def sticker_id(app: app, msg):
         await msg.reply_text("Reply to a sticker")        
     st_in = msg.reply_to_message.sticker
     await msg.reply_text(f"""
-⊹ <u>**sᴛɪᴄᴋᴇʀ ɪɴғᴏ**</u> ⊹
-**⊚ sᴛɪᴄᴋᴇʀ ɪᴅ **: `{st_in.file_id}`\n
-**⊚ sᴛɪᴄᴋᴇʀ ᴜɴɪǫᴜᴇ ɪᴅ **: `{st_in.file_unique_id}`
+❀ <u>**sᴛɪᴄᴋᴇʀ ɪɴғᴏ**</u> ❀
+
+**๏ sᴛɪᴄᴋᴇʀ ɪᴅ **➛ `{st_in.file_id}`\n
+**๏ sᴛɪᴄᴋᴇʀ ᴜɴɪǫᴜᴇ ɪᴅ **➛ `{st_in.file_unique_id}`
 """)
 
 
