@@ -26,10 +26,10 @@ async def gen_cc(client, message):
 `{cards[3]}`\n`{cards[4]}`\n`{cards[5]}`
 `{cards[6]}`\n`{cards[7]}`\n`{cards[8]}`
 `{cards[9]}`
-**💳 ʙɪɴ ➠** `{resp.results[0].bin}`
-**⏳ ᴛɪᴍᴇ ᴛᴏᴏᴋ ➠** `{resp.took}`\n\n @NYKAAXBOT"""
+**๏ 💳 ʙɪɴ ➛** `{resp.results[0].bin}`
+**๏ ⏳ ᴛɪᴍᴇ ᴛᴏᴏᴋ ➛** `{resp.took}`\n\n๏ ᴄᴄ ɢᴇɴ ʙʏ ➛ @NYKAAXBOT"""
         )
     except Exception as e:
-        return await aux.edit(f"**ᴇʀʀᴏʀ ➠** `{e}`")
+        return await aux.edit(f"**ᴇʀʀᴏʀ ➛** `{e}`")
 
 
