@@ -109,39 +109,39 @@ async def ch(message: types.Message):
 
         if 'true' in rx.text:
             return await message.reply(f'''
-✅<b>CC</b>➟ <code>{ccn}|{mm}|{yy}|{cvv}</code>
-<b>STATUS</b>➟ #CHARGED 25$
-<b>MSG</b>➟ {msg}
-<b>TOOK:</b> <code>{toc - tic:0.2f}</code>(s)
-<b>CHKBY</b>➟ <a href="tg://user?id={ID}">{FIRST}</a>
-<b>OWNER</b>: {await is_owner(ID)}
-<b>BOT</b>: @{BOT_USERNAME}''')
+๏ ✅<b>ᴄᴄ</b>➛ <code>{ccn}|{mm}|{yy}|{cvv}</code>
+๏ <b>sᴛᴀᴛᴜs</b>➛ #ᴄʜᴀʀɢᴇᴅ 25$
+๏ <b>ᴍsɢ</b>➛ {msg}
+๏ <b>ᴛᴏᴏᴋ</b>➛ <code>{toc - tic:0.2f}</code>(s)
+๏ <b>ᴄʜᴋ ʙʏ</b>➛ <a href="tg://user?id={ID}">{FIRST}</a>
+๏ <b>ᴏᴡɴᴇʀ</b>➛ {await is_owner(ID)}
+๏ <b>ʙᴏᴛ</b>➛ @{BOT_USERNAME}''')
 
         if 'security code' in rx.text:
             return await message.reply(f'''
-✅<b>CC</b>➟ <code>{ccn}|{mm}|{yy}|{cvv}</code>
-<b>STATUS</b>➟ #CCN
-<b>MSG</b>➟ {msg}
-<b>TOOK:</b> <code>{toc - tic:0.2f}</code>(s)
-<b>CHKBY</b>➟ <a href="tg://user?id={ID}">{FIRST}</a>
-<b>OWNER</b>: {await is_owner(ID)}
-<b>BOT</b>: @{BOT_USERNAME}''')
+๏ ✅<b>ᴄᴄ</b>➛ <code>{ccn}|{mm}|{yy}|{cvv}</code>
+๏ <b>sᴛᴀᴛᴜs</b>➛ #ᴄᴄɴ
+๏ <b>ᴍsɢ</b>➛ {msg}
+๏ <b>ᴛᴏᴏᴋ</b>➛ <code>{toc - tic:0.2f}</code>(s)
+๏ <b>ᴄʜᴋ ʙʏ</b>➛ <a href="tg://user?id={ID}">{FIRST}</a>
+๏ <b>ᴏᴡɴᴇʀ</b>➛ {await is_owner(ID)}
+๏ <b>ʙᴏᴛ</b>➛ @{BOT_USERNAME}''')
 
         if 'false' in rx.text:
             return await message.reply(f'''
-❌<b>CC</b>➟ <code>{ccn}|{mm}|{yy}|{cvv}</code>
-<b>STATUS</b>➟ #Declined
-<b>MSG</b>➟ {msg}
-<b>TOOK:</b> <code>{toc - tic:0.2f}</code>(s)
-<b>CHKBY</b>➟ <a href="tg://user?id={ID}">{FIRST}</a>
-<b>OWNER</b>: {await is_owner(ID)}
-<b>BOT</b>: @{BOT_USERNAME}''')
+๏ ❌<b>ᴄᴄ</b>➛ <code>{ccn}|{mm}|{yy}|{cvv}</code>
+๏ <b>sᴛᴀᴛᴜs</b>➛ #ᴅᴇᴄʟɪɴᴇᴅ
+๏ <b>ᴍsɢ</b>➛ {msg}
+๏ <b>ᴛᴏᴏᴋ</b>➛ <code>{toc - tic:0.2f}</code>(s)
+๏ <b>ᴄʜᴋ ʙʏ</b>➛ <a href="tg://user?id={ID}">{FIRST}</a>
+๏ <b>ᴏᴡɴᴇʀ</b>➛ {await is_owner(ID)}
+๏ <b>ʙᴏᴛ</b>➛ @{BOT_USERNAME}''')
 
         await message.reply(f'''
-❌<b>CC</b>➟ <code>{ccn}|{mm}|{yy}|{cvv}</code>
-<b>STATUS</b>➟ DEAD
-<b>MSG</b>➟ {rx.text}
-<b>TOOK:</b> <code>{toc - tic:0.2f}</code>(s)
-<b>CHKBY</b>➟ <a href="tg://user?id={ID}">{FIRST}</a>
-<b>OWNER</b>: {await is_owner(ID)}
-<b>BOT</b>: @{BOT_USERNAME}''')
+๏ ❌<b>ᴄᴄ</b>➛ <code>{ccn}|{mm}|{yy}|{cvv}</code>
+๏ <b>sᴛᴀᴛᴜs</b>➛ ᴅᴇᴀᴅ
+๏ <b>ᴍsɢ</b>➛ {rx.text}
+๏ <b>ᴛᴏᴏᴋ</b>➛ <code>{toc - tic:0.2f}</code>(s)
+๏ <b>ᴄʜᴋ ʙʏ</b>➛ <a href="tg://user?id={ID}">{FIRST}</a>
+๏ <b>ᴏᴡɴᴇʀ</b>➛ {await is_owner(ID)}
+๏ <b>ʙᴏᴛ</b>➛ @{BOT_USERNAME}''')
