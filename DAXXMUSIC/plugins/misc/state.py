@@ -2,7 +2,7 @@ from pyrogram import Client, filters
 import pycountry
 from DAXXMUSIC import app 
 
-@app.on_message(filters.command("get_states"))
+@app.on_message(filters.command("get_states", "country"))
 def get_states(client, message):
     try:
         # Extract the country name from the message
