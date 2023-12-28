@@ -8,13 +8,13 @@ from pyrogram.types import InputMediaPhoto
 def ul(_, message):
     reply = message.reply_to_message
     if reply.media:
-        i = message.reply("𝐌𝙰𝙺𝙴 𝐀 𝐋𝙸𝙽𝙺...")
+        i = message.reply("๏ ᴍᴀᴋᴇ ᴀ ʟɪɴᴋ...")
         path = reply.download()
         fk = upload_file(path)
         for x in fk:
             url = "https://telegra.ph" + x
 
-        i.edit(f'Yᴏᴜʀ ʟɪɴᴋ sᴜᴄᴄᴇssғᴜʟ Gᴇɴ {url}')
+        i.edit(f'๏ ʏᴏᴜʀ ᴛᴇʟᴇɢʀᴀᴘʜ ᴜʀʟ ɪs ʀᴇᴀᴅʏ ʙᴀʙʏ ➛ {url}')
 
 ########____________________________________________________________######
 
@@ -22,10 +22,11 @@ def ul(_, message):
 def ul(_, message):
     reply = message.reply_to_message
     if reply.media:
-        i = message.reply("𝐌𝙰𝙺𝙴 𝐀 𝐋𝙸𝙽𝙺...")
+        i = message.reply("๏ ᴍᴀᴋᴇ ᴀ ʟɪɴᴋ...")
         path = reply.download()
         fk = upload_file(path)
         for x in fk:
             url = "https://graph.org" + x
 
-        i.edit(f'Yᴏᴜʀ ʟɪɴᴋ sᴜᴄᴄᴇssғᴜʟ Gᴇɴ {url}')
+        i.edit(f'๏ ʏᴏᴜʀ ɢʀᴀᴘʜ ᴜʀʟ ɪs ʀᴇᴀᴅʏ ʙᴀʙʏ ➛ {url}')
+        

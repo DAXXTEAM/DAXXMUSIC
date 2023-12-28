@@ -10,22 +10,22 @@ async def handwrite(_, message: Message):
         text = message.reply_to_message.text
     else:
         text =message.text.split(None, 1)[1]
-    m =await message.reply_text( "Please wait...,\n\nWriting your text...")
+    m =await message.reply_text( "๏ ᴘʟᴇᴀsᴇ ᴡᴀɪᴛ...,\n\n๏ ᴡʀɪᴛɪɴɢ ʏᴏᴜʀ ᴛᴇxᴛ...")
     write = requests.get(f"https://apis.xditya.me/write?text={text}").url
 
     caption = f"""
-sᴜᴄᴇssғᴜʟʟʏ ᴡʀɪᴛᴛᴇɴ ᴛᴇxᴛ 💘
-✨ ᴡʀɪᴛᴛᴇɴ ʙʏ : [𝐘ᴜᴍɪᴋᴏᴏ](https://t.me/{BOT_USERNAME})
-🥀 ʀᴇǫᴜᴇsᴛᴇᴅ ʙʏ : {message.from_user.mention}
+๏ sᴜᴄᴇssғᴜʟʟʏ ᴡʀɪᴛᴛᴇɴ ᴛᴇxᴛ 💘
+๏ ᴡʀɪᴛᴛᴇɴ ʙʏ ➛ [ɴʏᴋᴀᴀ](https://t.me/{BOT_USERNAME})
+๏ ʀᴇǫᴜᴇsᴛᴇᴅ ʙʏ ➛ {message.from_user.mention}
 """
     await m.delete()
     await message.reply_photo(photo=write,caption=caption)
 
-mod_name = "WʀɪᴛᴇTᴏᴏʟ"
+mod_name = "ᴡʀɪᴛᴇᴛᴏᴏʟ"
 
 help = """
 
  ᴡʀɪᴛᴇs ᴛʜᴇ ɢɪᴠᴇɴ ᴛᴇxᴛ ᴏɴ ᴡʜɪᴛᴇ ᴘᴀɢᴇ ᴡɪᴛʜ ᴀ ᴘᴇɴ 🖊
 
-❍ /write <ᴛᴇxᴛ> *:* ᴡʀɪᴛᴇs ᴛʜᴇ ɢɪᴠᴇɴ ᴛᴇxᴛ.
+❍ /write <ᴛᴇxᴛ> *➛* ᴡʀɪᴛᴇs ᴛʜᴇ ɢɪᴠᴇɴ ᴛᴇxᴛ.
  """

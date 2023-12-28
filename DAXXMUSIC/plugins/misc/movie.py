@@ -59,14 +59,16 @@ def get_movie_info(movie_name):
         
         # Format and return movie information
         info = (
-            f"Title: {title}\n\n"
-            f"Release Date: {release_date}\n\n"
-            f"Overview: {overview}\n\n"
-            f"Vote Average: {vote_average}\n\n"
-            f"Actor Names: {actors}\n\n"
-            f"Total Collection: {revenue}\n\n"
-            f"Available Platforms: {providers}\n"
+            f"๏ ᴛɪᴛʟᴇ ➠ {title}\n\n"
+            f"๏ ʀᴇʟᴇᴀsᴇ ᴅᴀᴛᴇ ➠ {release_date}\n\n"
+            f"๏ ᴏᴠᴇʀᴠɪᴇᴡ ➠ {overview}\n\n"
+            f"๏ ᴠᴏᴛᴇ ᴀᴠᴇʀᴀɢᴇ ➠ {vote_average}\n\n"
+            f"๏ ᴀᴄᴛᴏʀ ɴᴀᴍᴇs ➠ {actors}\n\n"
+            f"๏ ᴛᴏᴛᴀʟ ᴄᴏʟʟᴇᴄᴛɪᴏɴ ➠ {revenue}\n\n"
+            f"๏ ᴀᴠᴀɪʟᴀʙʟᴇ ᴘʟᴀᴛғᴏʀᴍs ➠ {providers}\n"
         )
         return info
     else:
-        return "Movie not found or API request failed."
+        return "ᴍᴏᴠɪᴇ ɴᴏᴛ ғᴏᴜɴᴅ ᴏʀ ᴀᴘɪ ʀᴇǫᴜᴇsᴛ ғᴀɪʟᴇᴅ."
+
+        
