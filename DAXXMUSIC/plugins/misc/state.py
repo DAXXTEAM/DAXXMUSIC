@@ -13,7 +13,7 @@ def get_states(client, message):
         states = pycountry.subdivisions.get(country_code=country.alpha_2)
         states_list = [state.name for state in states]
         # Format the states into a message
-        states_message = f"States of {country_name}:\n" + "\n".join(states_list)
+        states_message = f"๏ sᴛᴀᴛᴇs ᴏғ {country_name}\n" + "\n".join(states_list)
     except IndexError:
         # No country name was provided
         states_message = "Please provide a country name after the command, like this:\n/get_states Canada"
