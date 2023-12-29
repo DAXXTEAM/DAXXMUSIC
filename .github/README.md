@@ -25,12 +25,12 @@
     ─「 ᴅᴇᴩʟᴏʏ ᴏɴ ʜᴇʀᴏᴋᴜ 」─
 </h3>
 
-<p align="center"><a href="https://dashboard.heroku.com/new?template=https://github.com/tinaarobot/DAXXMUSIC"> <img src="https://img.shields.io/badge/Deploy%20On%20Heroku-00FF00?style=for-the-badge&logo=heroku" width="220" height="60"/></a></p>
+<p align="center"><a href="https://dashboard.heroku.com/new?template=https://github.com/tinaarobot/DAXXMUSIC"> <img src="https://img.shields.io/badge/Deploy%20On%20Heroku-00FFFF?style=for-the-badge&logo=heroku" width="220" height="60"/></a></p>
 
 
 <img src="https://readme-typing-svg.herokuapp.com?color=00000FF&width=420&lines=⚠️+𝗜𝗙+𝗔𝗡𝗬+𝗘𝗥𝗥𝗢𝗥+𝗧𝗛𝗘𝗡+𝗦𝗘𝗡𝗗+𝗘𝗥𝗥𝗢𝗥+𝗜𝗡+𝗥𝗢𝗬+𝗘𝗗𝗜𝗧𝗫+...">
 <p align="center">
-<a href="https://telegram.me/THE_Friendz"><img src="https://img.shields.io/badge/-๛DM TO RoY EdiTX%20☆-0000FF.svg?style=for-the-badge&logo=Telegram"></a>
+<a href="https://telegram.me/THE_Friendz"><img src="https://img.shields.io/badge/-๛DM TO RoY EdiTX%20☆-FF00FF.svg?style=for-the-badge&logo=Telegram"></a>
 </p>
 <h3 align="center">
     ─「 ᴅᴇᴩʟᴏʏ ᴏɴ ʟᴏᴄᴀʟ ʜᴏsᴛ/ ᴠᴘs 」─
