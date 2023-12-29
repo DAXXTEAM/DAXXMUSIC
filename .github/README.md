@@ -4,11 +4,11 @@
 
 
 <h2 align="center">
-    ─「 𝗡𝗬𝗞𝗔𝗔 𝗠𝗨𝗦𝗜𝗖 」─
+    ᥫᩣ ─「 𝗡𝗬𝗞𝗔𝗔 𝗠𝗨𝗦𝗜𝗖 」─ ᥫᩣ
 
-★ 𝙷𝙴𝚁𝙾𝙺𝚄 + 𝚅𝙿𝚂 ★
+ ⚘ ʜᴇʀᴏᴋᴜ + ᴠᴘs ⚘
 </h2>
-<img src="https://readme-typing-svg.herokuapp.com?color=FF0123&width=420&lines=♦𝗗𝗘𝗣𝗟𝗢𝗬+𝗢𝗡+𝗛𝗘𝗥𝗢𝗞𝗨♦;♨️+𝗡𝗢+𝗛𝗘𝗥𝗢𝗞𝗨+𝗕𝗔𝗡+𝗜𝗦𝗦𝗨𝗘+𝗔𝗟𝗦𝗢+𝗩𝗣𝗦+𝗗𝗘𝗣𝗟𝗢𝗬+📍+𝗣𝗥𝗘𝗦𝗘𝗡𝗧;🎭+𝗣𝗢𝗪𝗘𝗥𝗘𝗗+𝗕𝗬+𝗥𝗢𝗬+𝗘𝗗𝗜𝗧𝗫+🎭">
+<img src="https://readme-typing-svg.herokuapp.com?color=FF0987&width=420&lines=♦𝗗𝗘𝗣𝗟𝗢𝗬+𝗢𝗡+𝗛𝗘𝗥𝗢𝗞𝗨♦;♨️+𝗡𝗢+𝗛𝗘𝗥𝗢𝗞𝗨+𝗕𝗔𝗡+𝗜𝗦𝗦𝗨𝗘+𝗔𝗟𝗦𝗢+𝗩𝗣𝗦+𝗗𝗘𝗣𝗟𝗢𝗬+📍+𝗣𝗥𝗘𝗦𝗘𝗡𝗧;🎭+𝗣𝗢𝗪𝗘𝗥𝗘𝗗+𝗕𝗬+𝗥𝗢𝗬+𝗘𝗗𝗜𝗧𝗫+🎭">
 <p align="center">
   <img src="https://telegra.ph/file/982b01ba53c3d69b0d0ce.jpg">
 </p>
