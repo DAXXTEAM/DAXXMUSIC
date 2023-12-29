@@ -8,12 +8,12 @@
 
 ★ 𝙷𝙴𝚁𝙾𝙺𝚄 + 𝚅𝙿𝚂 ★
 </h2>
-<img src="https://readme-typing-svg.herokuapp.com?color=FF0000&width=420&lines=♦𝗗𝗘𝗣𝗟𝗢𝗬+𝗢𝗡+𝗛𝗘𝗥𝗢𝗞𝗨♦;♨️+𝗡𝗢+𝗛𝗘𝗥𝗢𝗞𝗨+𝗕𝗔𝗡+𝗜𝗦𝗦𝗨𝗘+𝗔𝗟𝗦𝗢+𝗩𝗣𝗦+𝗗𝗘𝗣𝗟𝗢𝗬+📍+𝗣𝗥𝗘𝗦𝗘𝗡𝗧;🎭+𝗣𝗢𝗪𝗘𝗥𝗘𝗗+𝗕𝗬+𝗥𝗢𝗬+𝗘𝗗𝗜𝗧𝗫+🎭">
+<img src="https://readme-typing-svg.herokuapp.com?color=FF0223&width=420&lines=♦𝗗𝗘𝗣𝗟𝗢𝗬+𝗢𝗡+𝗛𝗘𝗥𝗢𝗞𝗨♦;♨️+𝗡𝗢+𝗛𝗘𝗥𝗢𝗞𝗨+𝗕𝗔𝗡+𝗜𝗦𝗦𝗨𝗘+𝗔𝗟𝗦𝗢+𝗩𝗣𝗦+𝗗𝗘𝗣𝗟𝗢𝗬+📍+𝗣𝗥𝗘𝗦𝗘𝗡𝗧;🎭+𝗣𝗢𝗪𝗘𝗥𝗘𝗗+𝗕𝗬+𝗥𝗢𝗬+𝗘𝗗𝗜𝗧𝗫+🎭">
 <p align="center">
   <img src="https://telegra.ph/file/982b01ba53c3d69b0d0ce.jpg">
 </p>
 
-<img src="https://readme-typing-svg.herokuapp.com?color=FF0000&width=420&lines=⚠️𝗙𝗢𝗥𝗞+𝗧𝗛𝗜𝗦+𝗥𝗘𝗣𝗢+𝗙𝗥𝗜𝗦𝗧𝗟𝗬⚠️">
+<img src="https://readme-typing-svg.herokuapp.com?color=FF0786&width=420&lines=⚠️+𝗙𝗢𝗥𝗞+𝗧𝗛𝗜𝗦+𝗥𝗘𝗣𝗢+𝗙𝗥𝗜𝗦𝗧𝗟𝗬+⚠️">
 
 </h2>
 
@@ -28,15 +28,15 @@
 <p align="center"><a href="https://dashboard.heroku.com/new?template=https://github.com/tinaarobot/DAXXMUSIC"> <img src="https://img.shields.io/badge/Deploy%20On%20Heroku-white?style=for-the-badge&logo=heroku" width="220" height="60"/></a></p>
 
 
-<img src="https://readme-typing-svg.herokuapp.com?color=FF0000&width=420&lines=⚠️𝗜𝗙+𝗔𝗡𝗬+𝗘𝗥𝗥𝗢𝗥+𝗧𝗛𝗘𝗡+𝗦𝗘𝗡𝗗+𝗘𝗥𝗥𝗢𝗥+𝗜𝗡+𝗥𝗢𝗬+𝗘𝗗𝗜𝗧𝗫+...">
+<img src="https://readme-typing-svg.herokuapp.com?color=FF0000&width=420&lines=⚠️+𝗜𝗙+𝗔𝗡𝗬+𝗘𝗥𝗥𝗢𝗥+𝗧𝗛𝗘𝗡+𝗦𝗘𝗡𝗗+𝗘𝗥𝗥𝗢𝗥+𝗜𝗡+𝗥𝗢𝗬+𝗘𝗗𝗜𝗧𝗫+...">
 <p align="center">
-<a href="https://telegram.me/THE_VIP_BOY"><img src="https://img.shields.io/badge/-๛DM TO RoY EdiTX%20☆-blue.svg?style=for-the-badge&logo=Telegram"></a>
+<a href="https://telegram.me/THE_Friendz"><img src="https://img.shields.io/badge/-๛DM TO RoY EdiTX%20☆-blue.svg?style=for-the-badge&logo=Telegram"></a>
 </p>
 <h3 align="center">
     ─「 ᴅᴇᴩʟᴏʏ ᴏɴ ʟᴏᴄᴀʟ ʜᴏsᴛ/ ᴠᴘs 」─
 </h3>
 
-- Get your [Necessary Variables](https://github.com/THE-VIP-BOY-OP/VIP-MUSIC/blob/master/sample.env)
+- Get your [Necessary Variables](https://github.com/tinaarobot/DAXXMUSIC/blob/master/sample.env)
 - Upgrade and Update by :
 `sudo apt-get update && sudo apt-get upgrade -y`
 - Install Ffmpeg by :
@@ -69,10 +69,10 @@ Press `Ctrl+C` when you're done with editing env and `:wq` to save the env<br>
 </h3>
 
 <p align="center">
-<a href="https://telegram.me/TG_FRIENDSS"><img src="https://img.shields.io/badge/-Support%20Group-blue.svg?style=for-the-badge&logo=Telegram"></a>
+<a href="https://telegram.me/the_friendz"><img src="https://img.shields.io/badge/-Support%20Group-orange.svg?style=for-the-badge&logo=Telegram"></a>
 </p>
 
 <p align="center">
-<a href="https://telegram.me/VIP_CREATORS"><img src="https://img.shields.io/badge/-Support%20Channel-blue.svg?style=for-the-badge&logo=Telegram"></a>
+<a href="https://telegram.me/Roy_editx"><img src="https://img.shields.io/badge/-Support%20Channel-green.svg?style=for-the-badge&logo=Telegram"></a>
 </p>
 
