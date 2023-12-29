@@ -4,16 +4,16 @@
 
 
 <h2 align="center">
-    ─「 𝗩𝗜𝗣 𝗠𝗨𝗦𝗜𝗖 」─
+    ─「 𝗡𝗬𝗞𝗔𝗔 𝗠𝗨𝗦𝗜𝗖 」─
 
 ★ 𝙷𝙴𝚁𝙾𝙺𝚄 + 𝚅𝙿𝚂 ★
 </h2>
-<img src="https://readme-typing-svg.herokuapp.com?color=FF0000&width=420&lines=♦ᴅᴇᴘʟᴏʏ+ᴏɴ+ʜᴇʀᴏᴋᴜ♦;♨️+ɴᴏ+ʜᴇʀᴏᴋᴜ+ʙᴀɴ+ɪssᴜᴇ+ᴀʟsᴏ+ᴠᴘs+ᴅᴇᴘʟᴏʏ+📍+ᴘʀᴇsᴇɴᴛ;🎭+ᴘᴏᴡᴇʀᴅ+ʙʏ+ʀᴏʏ+-+ᴇᴅɪᴛx+🎭">
+<img src="https://readme-typing-svg.herokuapp.com?color=FF0000&width=420&lines=♦𝗗𝗘𝗣𝗟𝗢𝗬+𝗢𝗡+𝗛𝗘𝗥𝗢𝗞𝗨♦;♨️+𝗡𝗢+𝗛𝗘𝗥𝗢𝗞𝗨+𝗕𝗔𝗡+𝗜𝗦𝗦𝗨𝗘+𝗔𝗟𝗦𝗢+𝗩𝗣𝗦+𝗗𝗘𝗣𝗟𝗢𝗬+📍+𝗣𝗥𝗘𝗦𝗘𝗡𝗧;🎭+𝗣𝗢𝗪𝗘𝗥𝗘𝗗+𝗕𝗬+𝗥𝗢𝗬+𝗘𝗗𝗜𝗧𝗫+🎭">
 <p align="center">
   <img src="https://telegra.ph/file/982b01ba53c3d69b0d0ce.jpg">
 </p>
 
-<img src="https://readme-typing-svg.herokuapp.com?color=FF0000&width=420&lines=⚠️𝗙𝗢𝗥𝗞+𝗧𝗛𝗜𝗦+𝗥𝗘𝗣𝗢+𝗙𝗜𝗥𝗦𝗧𝗟𝗬⚠️">
+<img src="https://readme-typing-svg.herokuapp.com?color=FF0000&width=420&lines=⚠️𝗙𝗢𝗥𝗞+𝗧𝗛𝗜𝗦+𝗥𝗘𝗣𝗢+𝗙𝗥𝗜𝗦𝗧𝗟𝗬⚠️">
 
 **※ ᴛᴇxᴛ ʙᴏᴛ ➛ [‌⚘ ɴ ʏ ᴋ ᴀ ᴀ ☂ ᴍ ᴜ s ɪ ᴄ ₰](https://t.me/Nykaaxbot)**
 
@@ -26,7 +26,7 @@
 <p align="center"><a href="https://dashboard.heroku.com/new?template=https://github.com/tinaarobot/DAXXMUSIC"> <img src="https://img.shields.io/badge/Deploy%20On%20Heroku-white?style=for-the-badge&logo=heroku" width="220" height="60"/></a></p>
 
 
-<img src="https://readme-typing-svg.herokuapp.com?color=FF0000&width=420&lines=⚠️𝐈𝐟+𝐀𝐧𝐲+𝐄𝐫𝐫𝐨𝐫+𝐓𝐡𝐞𝐧+𝐒𝐞𝐧𝐝+𝐄𝐫𝐫𝐨𝐫+𝐈𝐧+𝐕𝐢𝐩+𝐃𝐦+...">
+<img src="https://readme-typing-svg.herokuapp.com?color=FF0000&width=420&lines=⚠️𝗜𝗙+𝗔𝗡𝗬+𝗘𝗥𝗥𝗢𝗥+𝗧𝗛𝗘𝗡+𝗦𝗘𝗡𝗗+𝗘𝗥𝗥𝗢𝗥+𝗜𝗡+𝗥𝗢𝗬+𝗘𝗗𝗜𝗧𝗫+...">
 <p align="center">
 <a href="https://telegram.me/THE_VIP_BOY"><img src="https://img.shields.io/badge/-๛DM TO RoY EdiTX%20☆-blue.svg?style=for-the-badge&logo=Telegram"></a>
 </p>
