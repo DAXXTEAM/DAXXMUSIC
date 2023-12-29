@@ -28,7 +28,7 @@
 <p align="center"><a href="https://dashboard.heroku.com/new?template=https://github.com/tinaarobot/DAXXMUSIC"> <img src="https://img.shields.io/badge/Deploy%20On%20Heroku-00FFFF?style=for-the-badge&logo=heroku" width="220" height="60"/></a></p>
 
 
-<img src="https://readme-typing-svg.herokuapp.com?color=00000FF&width=420&lines=💥+ɪғ+ᴀɴʏ+ᴇʀʀᴏʀ+ᴛʜᴇɴ+sᴇɴᴅ+ᴍᴇ+ᴇʀʀᴏʀ+ɪɴ+ʀᴏʏ+ᴇᴅɪᴛx+...">
+<img src="https://readme-typing-svg.herokuapp.com?color=white&width=420&lines=💥+ɪғ+ᴀɴʏ+ᴇʀʀᴏʀ+ᴛʜᴇɴ+sᴇɴᴅ+ᴍᴇ+ᴇʀʀᴏʀ+ɪɴ+ʀᴏʏ+ᴇᴅɪᴛx+...">
 <p align="center">
 <a href="https://telegram.me/THE_Friendz"><img src="https://img.shields.io/badge/-๛DM TO RoY EdiTX%20☆-FF00FF.svg?style=for-the-badge&logo=Telegram"></a>
 </p>
