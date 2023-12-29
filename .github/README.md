@@ -14,7 +14,9 @@
 </p>
 
 <img src="https://readme-typing-svg.herokuapp.com?color=FF0000&width=420&lines=⚠️𝗙𝗢𝗥𝗞+𝗧𝗛𝗜𝗦+𝗥𝗘𝗣𝗢+𝗙𝗥𝗜𝗦𝗧𝗟𝗬⚠️">
+
 </h2>
+
 **※ ᴛᴇxᴛ ʙᴏᴛ ➛ [‌⚘ ɴ ʏ ᴋ ᴀ ᴀ ☂ ᴍ ᴜ s ɪ ᴄ ₰](https://t.me/Nykaaxbot)**
 
 
