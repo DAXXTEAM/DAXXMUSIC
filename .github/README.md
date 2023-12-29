@@ -13,7 +13,7 @@
   <img src="https://telegra.ph/file/982b01ba53c3d69b0d0ce.jpg">
 </p>
 
-<img src="https://readme-typing-svg.herokuapp.com?color=FFFF00&width=420&lines=⚠️+𝗙𝗢𝗥𝗞+𝗧𝗛𝗜𝗦+𝗥𝗘𝗣𝗢+𝗙𝗥𝗜𝗦𝗧𝗟𝗬+⚠️">
+<img src="https://readme-typing-svg.herokuapp.com?color=00FF00&width=420&lines=⚠️+𝗙𝗢𝗥𝗞+𝗧𝗛𝗜𝗦+𝗥𝗘𝗣𝗢+𝗙𝗥𝗜𝗦𝗧𝗟𝗬+⚠️">
 
 </h2>
 
