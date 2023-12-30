@@ -34,14 +34,15 @@ async def memify(client, message):
         return
 
     if message.reply_to_message and message.reply_to_message.sticker:
-        file_id = message.reply_to_message.sticker.file_id
-        with BytesIO() as file:
-            file.name = 'mmfsticker.png'
-            new_file = client.get_file(file_id)
-            file_content = await new_file.read()
-            file.write(file_content)
-            file.seek(0)
-            img = Image.open(file)
+    file_id = message.reply_to_message.sticker.file_id
+    with BytesIO() as file:
+        file.name = 'mmfsticker.png'
+        async for chunk in client.get_file(file_id):
+            file.write(chunk)
+
+        file.seek(0)
+        img = Image.open(file)
+
 
     text = args[1]
     shadowcolor = "black"
