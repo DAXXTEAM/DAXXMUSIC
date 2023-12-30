@@ -20,25 +20,26 @@ TEMP_DOWNLOAD_DIRECTORY = []
 
 
 @app.on_message(filters.command("mmf"))
-def memify(client, message):
+async def memify(client, message):
     chat_id = message.chat.id
     args = message.text.split(" ", 1)
 
     if len(args) == 1:
         message.reply_text('Provide some text and reply to image/stickers EXAMPLE: /mmf text')
         return
-    xx = message.reply_text('Memifing your sticker...wait!')
+    xx = await message.reply_text('Memifing your sticker...wait!')
 
     if message.reply_to_message.sticker.is_animated:
-        xx.edit_text("sorry this function can't work with animated stickers")
+        await xx.edit_text("sorry this function can't work with animated stickers")
         return
 
     if message.reply_to_message and message.reply_to_message.sticker:
         file_id = message.reply_to_message.sticker.file_id
         with BytesIO() as file:
             file.name = 'mmfsticker.png'
-            new_file = client.get_file(file_id)
-            new_file.download(out=file)
+            new_file = await client.get_file(file_id)
+            file_content = await new_file.read()
+            file.write(file_content)
             file.seek(0)
             img = Image.open(file)
 
@@ -104,8 +105,8 @@ def memify(client, message):
     webp_file = os.path.join(image_name)
     meme = img.save(webp_file, "webp")
     output = open(image_name, "rb")
-    client.send_sticker(chat_id, InputFile(output), reply_to_message_id=message.message_id)
-    xx.delete()
+    await client.send_sticker(chat_id, InputFile(output), reply_to_message_id=message.message_id)
+    await xx.delete()
 
 @app.on_message(filters.command("tiny"))
 def tinysticker(client, message):
