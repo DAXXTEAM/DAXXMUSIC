@@ -1,23 +1,14 @@
 import os
 import textwrap
 from PIL import Image, ImageDraw, ImageFont
-from DAXXMUSIC import app
+from DAXXMUSIC import app as app
+from pyrogram import Client, filters, types
 from pyrogram.types import Message
-from uuid import uuid4
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-import base64
-import httpx
-import requests
-import pyrogram
-from aiohttp import ClientSession
-from pyrogram import Client, filters
 from pyrogram.raw.types import InputFile
 from io import BytesIO
-from pyrogram import Client
-
+from pyrogram.raw.functions.messages import GetStickerSet
 
 TEMP_DOWNLOAD_DIRECTORY = []
-
 
 @app.on_message(filters.command("mmf"))
 async def memify(client, message):
@@ -31,18 +22,17 @@ async def memify(client, message):
 
         xx = await message.reply_text('Memifing your sticker...wait!')
 
-        if not message.reply_to_message or not message.reply_to_message.sticker:
-            await xx.edit_text("Please reply to a sticker.")
-            return
+        sticker_set = await app.send(GetStickerSet(stickerset=message.reply_to_message.sticker.set_name))
 
-        if message.reply_to_message.sticker.is_animated:
+        if not sticker_set.is_animated:
             await xx.edit_text("Sorry, this function can't work with animated stickers.")
             return
 
         file_id = message.reply_to_message.sticker.file_id
+
         with BytesIO() as file:
             file.name = 'mmfsticker.png'
-            async for chunk in client.get_file(file_id):
+            async for chunk in app.get_file(file_id):
                 file.write(chunk)
 
             file.seek(0)
@@ -53,7 +43,7 @@ async def memify(client, message):
         fnt = "./DAXXMUSIC/assets/font2.ttf" if os.name == "nt" else "./DAXXMUSIC/assets/font.ttf"
         m_font = ImageFont.truetype(fnt, int((70 / 640) * i_width))
 
-        upper_text, lower_text = (text.split(";") + [""])[:2]  # Ensure upper_text and lower_text are defined
+        upper_text, lower_text = (text.split(";") + [""])[:2]   
 
         draw = ImageDraw.Draw(img)
         current_h, pad = 10, 5
@@ -73,9 +63,8 @@ async def memify(client, message):
         webp_file = os.path.join(image_name)
         img.save(webp_file, "webp")
         output = open(image_name, "rb")
-        await client.send_sticker(chat_id, InputFile(output), reply_to_message_id=message.message_id)
+        await app.send_sticker(chat_id, InputFile(output), reply_to_message_id=message.message_id)
         await xx.delete()
 
     except Exception as e:
         await message.reply_text(f'Error Report @Sanam_King, {e}')
-
