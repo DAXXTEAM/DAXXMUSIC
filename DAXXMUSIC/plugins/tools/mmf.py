@@ -1,173 +1,153 @@
-
 import os
 import textwrap
 from PIL import Image, ImageDraw, ImageFont
 from DAXXMUSIC import app
 from pyrogram.types import Message
 from uuid import uuid4
-from pyrogram.types import InlineKeyboardButton,InlineKeyboardMarkup
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 import base64
 import httpx
 import requests
-import pyrogram 
+import pyrogram
 from aiohttp import ClientSession
 from pyrogram import Client, filters
 from pyrogram.raw.types import InputFile
+from io import BytesIO
+from pyrogram import Client
+
+
+TEMP_DOWNLOAD_DIRECTORY = []
 
 
 @app.on_message(filters.command("mmf"))
-async def handler(client, message):
-    if message.forward_from:
+def memify(client, message):
+    chat_id = message.chat.id
+    args = message.text.split(" ", 1)
+
+    if len(args) == 1:
+        message.reply_text('Provide some text and reply to image/stickers EXAMPLE: /mmf text')
+        return
+    xx = message.reply_text('Memifing your sticker...wait!')
+
+    if message.reply_to_message.sticker.is_animated:
+        xx.edit_text("sorry this function can't work with animated stickers")
         return
 
-    if not message.reply_to_message:
-        await message.reply("Provide Some Text To Draw!")
-        return
+    if message.reply_to_message and message.reply_to_message.sticker:
+        file_id = message.reply_to_message.sticker.file_id
+        with BytesIO() as file:
+            file.name = 'mmfsticker.png'
+            new_file = client.get_file(file_id)
+            new_file.download(out=file)
+            file.seek(0)
+            img = Image.open(file)
 
-    reply_message = message.reply_to_message
-
-    if not reply_message.media:
-        await message.reply("Reply to an image/sticker.")
-        return
-
-    file = await app.download_media(reply_message)
-
-    msg = await message.reply("Memifying this image! ✊🏻")
-
-    text = str(message.text[5:]).strip()
-
-    if len(text) < 1:
-        return await msg.reply("You might want to try `/mmf text`")
-
-    meme = await draw_text(file, text)
-
-    await app.send_document(message.chat.id, document=InputFile(meme))
-
-    await msg.delete()
-
-    os.remove(meme)
-
-
-async def draw_text(image_path, text):
-    img = Image.open(image_path)
-
-    os.remove(image_path)
-
+    text = args[1]
+    shadowcolor = "black"
     i_width, i_height = img.size
-
     if os.name == "nt":
-        fnt = "font.ttf"
-    else:
         fnt = "./DAXXMUSIC/assets/font2.ttf"
+    else:
+        fnt = "./DAXXMUSIC/assets/font.ttf"
 
     m_font = ImageFont.truetype(fnt, int((70 / 640) * i_width))
-
     if ";" in text:
         upper_text, lower_text = text.split(";")
     else:
         upper_text = text
-        lower_text = ""
-
+        lower_text = ''
     draw = ImageDraw.Draw(img)
-
     current_h, pad = 10, 5
-
     if upper_text:
         for u_text in textwrap.wrap(upper_text, width=15):
             u_width, u_height = draw.textsize(u_text, font=m_font)
+            draw.text(xy=(((i_width - u_width) / 2) - 2, int((current_h / 640) * i_width)),
+                      text=u_text, font=m_font, fill=(0, 0, 0))
+            draw.text(xy=(((i_width - u_width) / 2) + 2, int((current_h / 640) * i_width)),
+                      text=u_text, font=m_font, fill=(0, 0, 0))
+            draw.text(xy=((i_width - u_width) / 2, int(((current_h / 640) * i_width)) - 2),
+                      text=u_text,
+                      font=m_font,
+                      fill=(0, 0, 0))
+            draw.text(xy=(((i_width - u_width) / 2),
+                          int(((current_h / 640) * i_width)) + 2),
+                      text=u_text,
+                      font=m_font,
+                      fill=(0, 0, 0))
 
-            draw.text(
-                xy=(((i_width - u_width) / 2) - 2, int((current_h / 640) * i_width)),
-                text=u_text,
-                font=m_font,
-                fill=(0, 0, 0),
-            ) 
-            draw.text(
-                xy=(((i_width - u_width) / 2) + 2, int((current_h / 640) * i_width)),
-                text=u_text,
-                font=m_font,
-                fill=(0, 0, 0),
-            )
-
-            draw.text(
-                xy=((i_width - u_width) / 2, int(((current_h / 640) * i_width)) - 2),
-                text=u_text,
-                font=m_font,
-                fill=(0, 0, 0),
-            )
-
-            draw.text(
-                xy=(((i_width - u_width) / 2), int(((current_h / 640) * i_width)) + 2),
-                text=u_text,
-                font=m_font,
-                fill=(0, 0, 0),
-            )
-
-            draw.text(
-                xy=((i_width - u_width) / 2, int((current_h / 640) * i_width)),
-                text=u_text,
-                font=m_font,
-                fill=(255, 255, 255),
-            )
+            draw.text(xy=((i_width - u_width) / 2, int((current_h / 640) * i_width)),
+                      text=u_text, font=m_font, fill=(255, 255, 255))
             current_h += u_height + pad
-
     if lower_text:
+        if len(lower_text) > 10:
+            current_h -= int((20 / 640) * i_width)  # move text up by 20 pixels
         for l_text in textwrap.wrap(lower_text, width=15):
             u_width, u_height = draw.textsize(l_text, font=m_font)
+            draw.text(
+                xy=(((i_width - u_width) / 2) - 2, i_height - u_height - int((20 / 640) * i_width)),
+                text=l_text, font=m_font, fill=(0, 0, 0))
+            draw.text(
+                xy=(((i_width - u_width) / 2) + 2, i_height - u_height - int((20 / 640) * i_width)),
+                text=l_text, font=m_font, fill=(0, 0, 0))
+            draw.text(
+                xy=((i_width - u_width) / 2, (i_height - u_height - int((20 / 640) * i_width)) - 2),
+                text=l_text, font=m_font, fill=(0, 0, 0))
+            draw.text(
+                xy=((i_width - u_width) / 2, (i_height - u_height - int((20 / 640) * i_width)) + 2),
+                text=l_text, font=m_font, fill=(0, 0, 0))
 
             draw.text(
-                xy=(
-                    ((i_width - u_width) / 2) - 2,
-                    i_height - u_height - int((20 / 640) * i_width),
-                ),
-                text=l_text,
-                font=m_font,
-                fill=(0, 0, 0),
-            )
-
-            draw.text(
-                xy=(
-                    ((i_width - u_width) / 2) + 2,
-                    i_height - u_height - int((20 / 640) * i_width),
-                ),
-                text=l_text,
-                font=m_font,
-                fill=(0, 0, 0),
-            )
-
-            draw.text(
-                xy=(
-                    (i_width - u_width) / 2,
-                    (i_height - u_height - int((20 / 640) * i_width)) - 2,
-                ),
-                text=l_text,
-                font=m_font,
-                fill=(0, 0, 0),
-            )
-            draw.text(
-                xy=(
-                    (i_width - u_width) / 2,
-                    (i_height - u_height - int((20 / 640) * i_width)) + 2,
-                ),
-                text=l_text,
-                font=m_font,
-                fill=(0, 0, 0),
-            )
-            draw.text(
-                xy=(
-                    (i_width - u_width) / 2,
-                    i_height - u_height - int((20 / 640) * i_width),
-                ),
-                text=l_text,
-                font=m_font,
-                fill=(255, 255, 255),
-            )
+                xy=((i_width - u_width) / 2, i_height - u_height - int((20 / 640) * i_width)),
+                text=l_text, font=m_font, fill=(255, 255, 255))
             current_h += u_height + pad
-
     image_name = "memify.webp"
-
     webp_file = os.path.join(image_name)
+    meme = img.save(webp_file, "webp")
+    output = open(image_name, "rb")
+    client.send_sticker(chat_id, InputFile(output), reply_to_message_id=message.message_id)
+    xx.delete()
 
-    img.save(webp_file, "webp")
+@app.on_message(filters.command("tiny"))
+def tinysticker(client, message):
+    chat_id = message.chat.id
+    im1 = Image.open("DAXXMUSIC/assets/thum.png")
 
-    return webp_file
+    if message.reply_to_message.sticker.is_animated:
+        xx.edit_text("sorry this function can't work with animated stickers")
+        return
+
+    if message.reply_to_message and message.reply_to_message.sticker:
+        file_id = message.reply_to_message.sticker.file_id
+        xx = message.reply_text('Creating your tiny sticker...wait!')
+
+        try:
+            with BytesIO() as file:
+                file.name = 'tinysticker.png'
+                new_file = client.get_file(file_id)
+                new_file.download(out=file)
+                file.seek(0)
+                im = Image.open(file)
+            z, d = im.size
+            if z == d:
+                xxx, yyy = 200, 200
+            else:
+                t = z + d
+                a = z / t
+                b = d / t
+                aa = (a * 100) - 50
+                bb = (b * 100) - 50
+                xxx = 200 + 5 * aa
+                yyy = 200 + 5 * bb
+            k = im.resize((int(xxx), int(yyy)))
+            k.save("k.png", format="PNG", optimize=True)
+            im2 = Image.open("k.png")
+            back_im = im1.copy()
+            back_im.paste(im2, (150, 0))
+            filename = "y.webp"
+            back_im.save(filename, "WEBP", quality=95)
+            output = open(filename, "rb")
+            client.send_sticker(chat_id, InputFile(output), reply_to_message_id=message.message_id)
+            xx.delete()
+
+        except Exception as e:
+            message.reply_text(f'Error Report @Sanam_King, {e}')
