@@ -37,7 +37,7 @@ async def memify(client, message):
         file_id = message.reply_to_message.sticker.file_id
         with BytesIO() as file:
             file.name = 'mmfsticker.png'
-            new_file = await client.get_file(file_id)
+            new_file = client.get_file(file_id)
             file_content = await new_file.read()
             file.write(file_content)
             file.seek(0)
