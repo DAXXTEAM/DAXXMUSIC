@@ -22,7 +22,8 @@ async def memify(client, message):
 
         xx = await message.reply_text('Memifing your sticker...wait!')
 
-        sticker_set = await app.send(GetStickerSet(stickerset=message.reply_to_message.sticker.set_name))
+        sticker_set = await client.send(GetStickerSet(stickerset=message.reply_to_message.sticker.set_name))
+
 
         if not sticker_set.is_animated:
             await xx.edit_text("Sorry, this function can't work with animated stickers.")
@@ -63,7 +64,8 @@ async def memify(client, message):
         webp_file = os.path.join(image_name)
         img.save(webp_file, "webp")
         output = open(image_name, "rb")
-        await app.send_sticker(chat_id, InputFile(output), reply_to_message_id=message.message_id)
+        await client.send_sticker(chat_id, InputFile(output), reply_to_message_id=message.message_id)
+
         await xx.delete()
 
     except Exception as e:
