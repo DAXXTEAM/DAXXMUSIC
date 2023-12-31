@@ -20,7 +20,7 @@
 **※ ᴛᴇxᴛ ʙᴏᴛ ➛ [‌⚘ ɴ ʏ ᴋ ᴀ ᴀ ☂ ᴍ ᴜ s ɪ ᴄ ₰](https://t.me/Nykaaxbot)**
 
 
-               <img src="https://readme-typing-svg.herokuapp.com?color=FF0000&width=420&lines=🧋+𝗛𝗔𝗣𝗣𝗬+𝗡𝗘𝗪+𝗬𝗘𝗔𝗥+❷⓿❷❹+🧋">
+ <img src="https://readme-typing-svg.herokuapp.com?color=FF0000&width=420&lines=🧋+𝗛𝗔𝗣𝗣𝗬+𝗡𝗘𝗪+𝗬𝗘𝗔𝗥+❷⓿❷❹+🧋">
 
 
 <h3 align="center">
