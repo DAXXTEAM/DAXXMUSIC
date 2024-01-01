@@ -14,7 +14,7 @@ async def mmf_handler(client, message):
         return
 
     file_info = message.reply_to_message.document or message.reply_to_message.photo
-    file_path = await client.download_media(file_info)
+    file_path = await client.download_media(file_info, file_name="temp")
 
     text = message.text.split("/mmf", maxsplit=1)[1].strip()
 
