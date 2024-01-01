@@ -14,7 +14,7 @@ async def mmf_handler(client, message):
         return
 
     file_info = message.reply_to_message.document or message.reply_to_message.photo
-    file_path = await client.download_media(file_info, file_name="temp")
+    file_path = await client.download_media(file_info)
 
     text = message.text.split("/mmf", maxsplit=1)[1].strip()
 
@@ -26,7 +26,7 @@ async def mmf_handler(client, message):
 
     meme_file = await draw_text(file_path, text)
 
-    await client.send_document(message.chat.id, document=InputFile.from_bytes(meme_file))
+    await client.send_document(message.chat.id, document=InputFile(meme_file))
 
     os.remove(file_path)
     os.remove(meme_file)
@@ -36,7 +36,7 @@ async def draw_text(image_path, text):
 
     i_width, i_height = img.size
 
-    font_path = "arial.ttf" if os.name == "nt" else "./DAXXMUSIC/assets/font.ttf"
+    font_path = "./DAXXMUSIC/assets/font2.ttf" if os.name == "nt" else "./DAXXMUSIC/assets/font.ttf"
     font_size = int((70 / 640) * i_width)
     font = ImageFont.truetype(font_path, font_size)
 
