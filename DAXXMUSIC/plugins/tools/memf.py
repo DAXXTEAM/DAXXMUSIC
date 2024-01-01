@@ -36,7 +36,7 @@ async def draw_text(image_path, text):
 
     i_width, i_height = img.size
 
-    font_path = "arial.ttf" if os.name == "nt" else "./FallenRobot/resources/default.ttf"
+    font_path = "arial.ttf" if os.name == "nt" else "./DAXXMUSIC/assets/font.ttf"
     font_size = int((70 / 640) * i_width)
     font = ImageFont.truetype(font_path, font_size)
 
