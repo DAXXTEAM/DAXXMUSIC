@@ -24,18 +24,21 @@ async def memify_handler(client: Client, message: Message):
 
     await message.reply("Memifying this image! ✊🏻")
 
-    memified_file = await create_memified_image(file_path, text)
+    try:
+        memified_file = await create_memified_image(file_path, text)
+        output_bytes_io = BytesIO(memified_file)
+        
+        await client.send_document(
+            chat_id=message.chat.id,
+            document=InputFile(output_bytes_io),
+            caption="Here is your memified image!",
+        )
 
-    output_bytes_io = BytesIO(memified_file)
-
-    await client.send_document(
-        chat_id=message.chat.id,
-        document=InputFile(output_bytes_io),
-        caption="Here is your memified image!",
-    )
-
-    os.remove(file_path)
-    os.remove(output_bytes_io)
+    except UnidentifiedImageError:
+        await message.reply("Cannot identify the image file. Make sure it is a valid image.")
+        
+    finally:
+        os.remove(file_path)
 
 async def create_memified_image(image_path, text):
     img = Image.open(image_path)
