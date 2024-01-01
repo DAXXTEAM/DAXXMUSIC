@@ -30,12 +30,12 @@ async def memify_handler(client: Client, message: Message):
 
     await client.send_document(
         chat_id=message.chat.id,
-        document=InputFile(output_bytes_io, filename="memified_image.webp"),
+        document=InputFile(output_bytes_io),
         caption="Here is your memified image!",
     )
 
     os.remove(file_path)
-    os.remove("memified_image.webp")
+    os.remove(output_bytes_io)
 
 async def create_memified_image(image_path, text):
     img = Image.open(image_path)
