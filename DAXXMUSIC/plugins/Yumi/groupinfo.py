@@ -27,7 +27,7 @@ async def get_group_status(_, message: Message):
         f"๏ ᴛᴏᴛᴀʟ ᴍᴇᴍʙᴇʀs ➠ {total_members}\n"
         f"๏ ᴜsᴇʀɴᴀᴍᴇ ➠ @{group_username}\n"
         f"๏ ᴅᴇsᴄʀɪᴘᴛɪᴏɴ ➠ {group_description or 'N/A'}\n\n"
-        f"๏ ᴍᴀᴅᴇ ʙʏ ➠ ʀᴏʏ-ᴇᴅɪᴛx"
+        f"๏ ᴍᴀᴅᴇ ʙʏ ➛ ●⏤͟͟͞͞𓆩×͜ 𝗔꯭፝֟𝗻꯭𓋜𝗸꯭𝗵𝗶꯭°🌸᪳𝆺꯭𝅥"
     )
     
     await message.reply(response_text)
