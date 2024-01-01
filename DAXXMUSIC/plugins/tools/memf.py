@@ -7,7 +7,7 @@ from pyrogram.raw.types import InputFile
 from DAXXMUSIC import app
 
 
-@app.on_message(filters.command("mmmf") & filters.reply)
+@app.on_message(filters.command("mmf") & filters.reply)
 async def mmf_handler(client, message):
     if not message.reply_to_message or not message.reply_to_message.media:
         await message.reply("Reply to an image/sticker.")
