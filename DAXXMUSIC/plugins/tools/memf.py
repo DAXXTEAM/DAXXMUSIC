@@ -3,7 +3,7 @@ import textwrap
 from io import BytesIO
 from PIL import Image, ImageDraw, ImageFont
 from pyrogram import Client, filters
-from pyrogram.types import InputFile
+from pyrogram.raw.types import InputFile
 from DAXXMUSIC import app
 
 
