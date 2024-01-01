@@ -3,13 +3,12 @@ import textwrap
 from PIL import Image, ImageDraw, ImageFont
 from pyrogram import Client, filters
 from pyrogram.types import Message
-from pyrogram.raw.types import InputFile
+from pyrogram.raw.base import InputFile
 from io import BytesIO
-from pyrogram.raw.functions.messages import GetStickerSet
 from DAXXMUSIC import app
 
 @app.on_message(filters.command("mmf") & filters.reply)
-async def memify_handler(client, message):
+async def memify_handler(client: Client, message: Message):
     if not message.reply_to_message or not message.reply_to_message.media:
         await message.reply("Reply to an image/sticker.")
         return
