@@ -29,7 +29,7 @@ def private_panel(_):
             InlineKeyboardButton(text=_["S_B_6"], url=config.SUPPORT_CHANNEL),
         ],
         [
-            InlineKeyboardButton(text=_[sᴜᴘᴘᴏʀᴛ], url=f"https://t.me/the_friendz"),
+            InlineKeyboardButton(text=_[sᴜᴘᴘᴏʀᴛ], url=f"https://t.me/IND_PAWAN"),
             InlineKeyboardButton(text=_[ʀᴇᴘᴏ], url=f"https://telegra.ph/file/e7196953649136d3f9b68.mp4"),
         ],
         [
