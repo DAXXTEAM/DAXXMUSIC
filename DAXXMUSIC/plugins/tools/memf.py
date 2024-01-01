@@ -26,7 +26,7 @@ async def mmf_handler(client, message):
 
     meme_file = await draw_text(file_path, text)
 
-    await client.send_document(message.chat.id, document=InputFile(meme_file))
+    await client.send_document(message.chat.id, document=InputFile.from_bytes(meme_file))
 
     os.remove(file_path)
     os.remove(meme_file)
