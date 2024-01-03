@@ -19,7 +19,7 @@ keyboard = InlineKeyboardMarkup([
         ]
 ])
 
-@Nexus.on_callback_query(filters.regex("^close_data"))
+@app.on_callback_query(filters.regex("^close_data"))
 async def close_callback(_, query):
     chat_id = query.message.chat.id
     await query.message.delete()
