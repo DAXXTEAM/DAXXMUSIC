@@ -88,48 +88,4 @@ async def get_random_video_info(client, message):
     else:
         await message.reply(f"No video link found for '{title}'.")
 
-#######
-
-
-async def get_video_info(title):
-    # Function to get video information
-    # Replace this with your actual video info retrieval logic
-    pass
-
-
-async def get_video_stream(video_link):
-    # Function to get video stream
-    # Replace this with your actual video stream retrieval logic
-    pass
-
-
-async def send_loading_animation(message):
-    # Function to send loading animation
-    animation = "□□□□□\n■□□□□\n■■□□□\n■■■□□\n■■■■□\n■■■■■"
-    await message.reply(animation)
-
-
-@app.on_message(filters.command("xnxx"))
-async def get_random_video_info(client, message):
-    if len(message.command) == 1:
-        await message.reply("Please provide a title to search.")
-        return
-
-    title = ' '.join(message.command[1:])
-    loading_message = await message.reply("Fetching video information...")
-    await send_loading_animation(loading_message)
-
-    video_info = await get_video_info(title)
-
-    if video_info:
-        video_link = video_info['link']
-        video = await get_video_stream(video_link)
-        keyboard = InlineKeyboardMarkup(
-            [[InlineKeyboardButton("Button", callback_data="button_data")]]
-        )
-        await loading_message.delete()
-        await message.reply_video(video, caption=f"{title}", reply_markup=keyboard)
-
-    else:
-        await loading_message.delete()
-        await message.reply(f"No video link found for '{title}'.")
+######
