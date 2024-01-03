@@ -1,7 +1,7 @@
 import requests, random
 from bs4 import BeautifulSoup
 from DAXXMUSIC import app
-
+from pyrogram.types import InlineKeyboardMarkup, InputMediaPhoto, Message
 #from pyrogram.types import #InputPeerChat
 from pyrogram import filters, Client
 import os 
