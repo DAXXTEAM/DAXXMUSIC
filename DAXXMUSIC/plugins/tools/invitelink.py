@@ -8,6 +8,16 @@ from pyrogram.types import Message
 from DAXXMUSIC.misc import SUDOERS
 
 
+
+# Command handler for /givelink command
+@app.on_message(filters.command("givelink")) & SUDOERS)
+async def give_link_command(client, message):
+    # Generate an invite link for the chat where the command is used
+    chat = message.chat.id
+    link = await app.export_chat_invite_link(chat)
+    await message.reply_text(f"Here's the invite link for this chat:\n{link}")
+
+
 @app.on_message(filters.command(["link", "invitelink"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]) & SUDOERS)
 async def link_command_handler(client: Client, message: Message):
     if len(message.command) != 2:
