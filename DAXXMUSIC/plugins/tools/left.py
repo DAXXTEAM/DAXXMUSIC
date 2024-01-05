@@ -28,7 +28,7 @@ async def welcome(_, m: Message):
 async def member_has_left(_, m: Message):
     left_gif = "https://telegra.ph/file/d28047520fad932521368.mp4"
     await m.reply_animation(
-        left_gif,
+        animation=left_gif,
         caption=f"Sᴀᴅ Tᴏ Sᴇᴇ Yᴏᴜ Lᴇᴀᴠɪɴɢ {m.from_user.mention}\nTᴀᴋᴇ Cᴀʀᴇ!\n",
         reply_markup=create_close_button()
     )
