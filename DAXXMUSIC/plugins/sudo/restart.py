@@ -3,15 +3,12 @@ import os
 import shutil
 import socket
 from datetime import datetime
-from pyrogram.types import CallbackQuery
+
 import urllib3
 from git import Repo
 from git.exc import GitCommandError, InvalidGitRepositoryError
 from pyrogram import filters
-import aiohttp
-from pyrogram.types import ReplyKeyboardMarkup, InlineKeyboardButton, InlineKeyboardMarkup
-from io import BytesIO
-from pyrogram import filters
+
 import config
 from DAXXMUSIC import app
 from DAXXMUSIC.misc import HAPP, SUDOERS, XCB
@@ -29,51 +26,14 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 async def is_heroku():
     return "heroku" in socket.getfqdn()
 
-async def make_carbon(code):
-    url = "https://carbonara.solopov.dev/api/cook"
-    async with aiohttp.ClientSession() as session:
-        async with session.post(url, json={"code": code}) as resp:
-            image = BytesIO(await resp.read())
-    image.name = "carbon.png"
-    return image
-
-# Modify the existing code...
-@app.on_callback_query(filters.regex(r"refresh_logs"))
-async def handle_refresh_logs(_, query: CallbackQuery):
-    try:
-        # Read the content of the log file
-        with open("log.txt", "r") as log_file:
-            logs_content = log_file.read()
-
-        # Create a new carbon image
-        carbon_image = await make_carbon(logs_content)
-
-        # Edit the original message with the new carbon image
-        await query.message.edit_photo(carbon_image, caption="**🥀ᴛʜɪs ɪs ɴᴇᴡ ʀᴇғʀᴇsʜᴇᴅ ʟᴏɢs✨**")
-
-    except Exception as e:
-        print(f"An error occurred: {e}")
 
 @app.on_message(filters.command(["getlog", "logs", "getlogs"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]) & SUDOERS)
 @language
 async def log_(client, message, _):
     try:
-        # Read the content of the log file
-        with open("log.txt", "r") as log_file:
-            logs_content = log_file.read()
-
-        # Create a carbon image
-        carbon_image = await make_carbon(logs_content)
-        
-        # Create an inline keyboard with a refresh button
-        refresh_button = InlineKeyboardButton("🥀ʀᴇғʀᴇsʜ✨", callback_data="refresh_logs")
-        keyboard = InlineKeyboardMarkup([[refresh_button]])
-
-        # Reply to the message with the carbon image and the inline keyboard
-        await message.reply_photo(carbon_image, caption="**🥀ᴛʜɪs ɪs ʏᴏᴜʀ ʟᴏɢs✨**", reply_markup=keyboard)
-
-    except Exception as e:
-        print(f"An error occurred: {e}")
+        await message.reply_document(document="log.txt")
+    except:
+        await message.reply_text(_["server_1"])
 
 
 @app.on_message(filters.command(["update", "gitpull"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]) & SUDOERS)
