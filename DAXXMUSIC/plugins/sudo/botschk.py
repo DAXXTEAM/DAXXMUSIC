@@ -10,7 +10,7 @@ from DAXXMUSIC.misc import SUDOERS
 
 
 
-BOT_LIST = ["YumikooBot", "DAXXTEAMBOT"]
+BOT_LIST = ["DAISY_12_BOT", "STRING_SESSIONS_BOT"]
 
 
 
