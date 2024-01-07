@@ -63,10 +63,10 @@ async def ping_com(client, message: Message, _):
         ],
         [
             InlineKeyboardButton(
-                text="✦ ɢʀᴏᴜᴘ ✦", url=f"https://t.me/HEROKUFREECC",
+                text="✦ ɢʀᴏᴜᴘ ✦", url=f"https://t.me/chat_dreamer_bots",
             ),
             InlineKeyboardButton(
-                text="✧ ᴍᴏʀᴇ ✧", url=f"https://t.me/ALLTYPECC",
+                text="✧ ᴍᴏʀᴇ ✧", url=f"https://t.me/dreamer_bots",
             )
         ],
         [
