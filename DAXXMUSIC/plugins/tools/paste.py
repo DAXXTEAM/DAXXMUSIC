@@ -10,7 +10,16 @@ import socket
 import aiofiles
 import aiohttp
 import asyncio
+from io import BytesIO
 
+async def make_carbon(code):
+    url = "https://carbonara.solopov.dev/api/cook"
+    async with aiohttp.ClientSession() as session:
+        async with session.post(url, json={"code": code}) as resp:
+            image = BytesIO(await resp.read())
+    image.name = "carbon.png"
+    return image
+    
 aiohttpsession = ClientSession()
 
 # Rest of your code remains unchanged...
@@ -65,15 +74,14 @@ async def paste_func(_, message):
         async with aiofiles.open(doc, mode="r") as f:
             content = await f.read()
         os.remove(doc)
-    link = await paste(content)
-    preview = f"{link}/preview.png"
-    button = InlineKeyboard(row_width=1)
-    button.add(InlineKeyboardButton(text="ᴘᴀsᴛᴇ ʟɪɴᴋ", url=link))
-
-    if await isPreviewUp(preview):
-        try:
-            await message.reply_photo(photo=preview, quote=False, reply_markup=button)
-            return await m.delete()
-        except Exception:
-            pass
-    return await m.edit(link)
+        carbon = await make_carbon(content)
+        await m.delete()
+        text = await message.reply("**ᴘᴀsᴛɪɴɢ ᴘʟs ᴡᴀɪᴛ 10 sᴇᴄ....**")
+        await asyncio.sleep(0.4)
+        await text.edit("**ᴘᴀsᴛɪɴɢ ᴘʟs ᴡᴀɪᴛ 10 sᴇᴄ.**")
+        await asyncio.sleep(0.4)
+        await text.edit("**ᴘᴀsᴛɪɴɢ ᴘʟs ᴡᴀɪᴛ 10 sᴇᴄ....**")
+        await message.reply_photo(carbon)
+        await text.delete()
+        carbon.close()
+    
