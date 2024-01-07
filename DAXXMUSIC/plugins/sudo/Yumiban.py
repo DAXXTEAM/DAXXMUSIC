@@ -52,7 +52,7 @@ channel = ["channel"]
 # ========================================= #
 
 
-@app.on_message(filters.command(["axi","axiko"], prefixes=["n", "N"]) & admin_filter)
+@app.on_message(filters.command(["exi","exiko"], prefixes=["n", "N"]) & admin_filter)
 async def restriction_app(app :app, message):
     reply = message.reply_to_message
     chat_id = message.chat.id
