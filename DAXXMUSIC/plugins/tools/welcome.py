@@ -137,7 +137,7 @@ async def greet_group(_, member: ChatMemberUpdated):
 ๏ ɴᴀᴍᴇ ➛ {user.mention}
 ๏ ɪᴅ ➛ {user.id}
 ๏ ᴜsᴇʀɴᴀᴍᴇ ➛ @{user.username}
-๏ ᴍᴀᴅᴇ ʙʏ ➛ [ʀᴏʏ-ᴇᴅɪᴛx](https://t.me/roy_editx)**
+๏ ᴍᴀᴅᴇ ʙʏ ➛ [ᴍʀ-ᴇᴅɪᴛx](https://t.me/mr_editx)**
 """,
             reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(f"↻ ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ ↻", url=f"https://t.me/Nykaaxbot?startgroup=true")]])
         )
