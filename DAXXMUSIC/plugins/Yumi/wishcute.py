@@ -52,6 +52,22 @@ async def cute(_, message):
         reply_markup=InlineKeyboardMarkup(BUTTON),
         reply_to_message_id=message.reply_to_message.message_id if message.reply_to_message else None,
     )
+
+@app.on_message(filters.command("horny"))
+async def horny(_, message):
+    user_id = message.sender.id
+    user_name = message.sender.first_name
+    mention = f"[{user_name}](tg://user?id={str(user_id)})"
+    mm = random.randint(1, 100)
+    HORNY = f"**🔥** {mention} **ɪꜱ** {mm}**% ʜᴏʀɴʏ!**"
+    
+    await app.send_document(
+        chat_id=message.chat.id,
+        document=HOT,
+        caption=HORNY,
+        reply_markup=InlineKeyboardMarkup(
+            [[InlineKeyboardButton("ꜱᴜᴘᴘᴏʀᴛ", url=f"https://t.me/{SUPPORT_CHAT}")]])
+    )
     
 help_text = """
 » ᴡʜᴀᴛ ɪꜱ ᴛʜɪꜱ (ᴡɪꜱʜ):
