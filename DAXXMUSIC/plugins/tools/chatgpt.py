@@ -1,65 +1,30 @@
-import os, time
-import openai
-from pyrogram import filters
-from DAXXMUSIC import app
+import requests
+import time
 from pyrogram.enums import ChatAction, ParseMode
-from gtts import gTTS
-
-
-
-openai.api_key = "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"
-
-
-
-
+from pyrogram import filters
 @app.on_message(filters.command(["chatgpt","ai","ask"],  prefixes=["+", ".", "/", "-", "?", "$","#","&"]))
-async def chat(app :app, message):
+async def chat(bot, message):
     
     try:
         start_time = time.time()
-        await app.send_chat_action(message.chat.id, ChatAction.TYPING)
+        await bot.send_chat_action(message.chat.id, ChatAction.TYPING)
         if len(message.command) < 2:
             await message.reply_text(
-            "**ʜᴇʟʟᴏ sɪʀ**\n**ᴇxᴀᴍᴘʟᴇ:-**`.ask How to set girlfriend ?`")
+            "Example:**\n\n`/chatgpt Where is TajMahal?`")
         else:
             a = message.text.split(' ', 1)[1]
-            MODEL = "gpt-3.5-turbo"
-            resp = openai.ChatCompletion.create(model=MODEL,messages=[{"role": "user", "content": a}],
-    temperature=0.2)
-            x=resp['choices'][0]["message"]["content"]
-            await message.reply_text(f"{x}")     
+            response = requests.get(f'https://mukesh-api.vercel.app/chatgpt/{a}') 
+            x=response.json()["results"]
+            end_time = time.time()
+            telegram_ping = str(round((end_time - start_time) * 1000, 3)) + " ᴍs"
+            await message.reply_text(f" {x}\n\n✨ᴛɪᴍᴇ ᴛᴀᴋᴇɴ  {telegram_ping} , parse_mode=ParseMode.MARKDOWN)     
     except Exception as e:
-        await message.reply_text(f"**ᴇʀʀᴏʀ**: {e} ")        
+        await message.reply_text(f"**ᴇʀʀᴏʀ: {e} ")
 
+__mod_name__ = "Cʜᴀᴛɢᴘᴛ"
+__help__ = """
+ Cʜᴀᴛɢᴘᴛ ᴄᴀɴ ᴀɴsᴡᴇʀ ʏᴏᴜʀ ǫᴜᴇsᴛɪᴏɴ  ᴀɴᴅ sʜᴏᴡs ʏᴏᴜ ᴛʜᴇ ʀᴇsᴜʟᴛ
 
-
-
-
-
-@app.on_message(filters.command(["assis"],  prefixes=["+", ".", "/", "-", "?", "$","#","&"]))
-async def chat(app :app, message):
-    
-    try:
-        start_time = time.time()
-        await app.send_chat_action(message.chat.id, ChatAction.TYPING)
-        if len(message.command) < 2:
-            await message.reply_text(
-            "**ʜᴇʟʟᴏ sɪʀ**\n**ᴇxᴀᴍᴘʟᴇ:-**`.assis How to set girlfriend ?`")
-        else:
-            a = message.text.split(' ', 1)[1]
-            MODEL = "gpt-3.5-turbo"
-            resp = openai.ChatCompletion.create(model=MODEL,messages=[{"role": "user", "content": a}],
-    temperature=0.2)
-            x=resp['choices'][0]["message"]["content"]
-            text = x    
-            tts = gTTS(text, lang='en')
-            tts.save('output.mp3')
-            await app.send_voice(chat_id=message.chat.id, voice='output.mp3')
-            os.remove('output.mp3')            
-            
-    except Exception as e:
-        await message.reply_text(f"**ᴇʀʀᴏʀ**: {e} ") 
-
-
-
-##### Bing
+ ❍ /chatgpt  *:* ʀᴇᴘʟʏ ᴛo ᴍᴇssᴀɢᴇ ᴏʀ ɢɪᴠᴇ sᴏᴍᴇ ᴛᴇxᴛ
+ 
+ """
