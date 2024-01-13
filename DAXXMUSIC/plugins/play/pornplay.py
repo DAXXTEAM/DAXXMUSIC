@@ -20,6 +20,16 @@ keyboard = InlineKeyboardMarkup([
         ]
 ])
 
+
+# Define your callback function
+@app.on_callback_query(filters.regex("play_data"))
+async def play_callback(_, query: CallbackQuery):
+    # You can add more logic here before initiating playback
+    await play(query.from_user.id)  # Assuming play function accepts user ID
+    await query.answer("Playback started!")
+        
+##########🖕
+
 @app.on_callback_query(filters.regex("^close_data"))
 async def close_callback(_, query):
     chat_id = query.message.chat.id
