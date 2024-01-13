@@ -6,6 +6,7 @@ import pytgcalls
 import os, yt_dlp 
 from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
 from pytgcalls.types import AudioVideoPiped
+from DAXXMUSIC.plugins.play import play
 
 
 #
@@ -15,7 +16,7 @@ from pytgcalls.types import AudioVideoPiped
 keyboard = InlineKeyboardMarkup([
         [
             InlineKeyboardButton("⊝ ᴄʟᴏsᴇ ⊝", callback_data="close_data"), 
-            InlineKeyboardButton("⊝ ᴠᴘʟᴀʏ⊝", callback_data="vplay_data"),
+            InlineKeyboardButton("⊝ ᴠᴘʟᴀʏ⊝", callback_data="play_data"),
         ]
 ])
 
