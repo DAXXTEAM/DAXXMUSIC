@@ -101,3 +101,31 @@ async def get_random_video_info(client, message):
         await message.reply(f"No video link found for '{title}'.")
 
 ######
+
+
+
+@app.on_message(filters.command("xnxx"))
+async def get_random_video_info(client, message):
+    if len(message.command) == 1:
+        await message.reply("Please provide a title to search.")
+        return
+
+    title = ' '.join(message.command[1:])
+    video_info = get_video_info(title)
+    
+    if video_info:
+        video_link = video_info['link']
+        video = await get_video_stream(video_link)
+        
+        # Additional information
+        views = get_views_from_api(video_link)  # Replace with actual API call or logic to get views
+        ratings = get_ratings_from_api(video_link)  # Replace with actual API call or logic to get ratings
+
+        await message.reply_video(
+            video,
+            caption=f"Add Title: {title}\nViews: {views}\nRatings: {ratings}",
+            reply_markup=keyboard
+        )
+    else:
+        await message.reply(f"No video link found for '{title}'.")
+            
