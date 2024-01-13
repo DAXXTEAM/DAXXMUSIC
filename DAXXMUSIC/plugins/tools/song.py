@@ -14,7 +14,7 @@ from youtubesearchpython import VideosSearch
 
 @app.on_message(filters.command(["song"], ["/", "!", "."]))
 async def song(client: Client, message):
-    aux = await message.reply_text("**🔄 𝐏𝐫𝐨𝐜𝐞𝐬𝐬𝐢𝐧𝐠 ...**")
+    aux = await message.reply_text("** ■□□□□□□□□□ 10%**")
     if len(message.command) < 2:
         return await aux.edit(
             "**🤖 𝐆𝐢𝐯𝐞 🙃 𝐌𝐮𝐬𝐢𝐜 💿 𝐍𝐚𝐦𝐞 😍\n💞 𝐓𝐨 🔊 𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝 🥀 𝐒𝐨𝐧𝐠❗**"
@@ -33,10 +33,10 @@ async def song(client: Client, message):
             "outtmpl": f"downloads/{song_title}.mp3",
             "postprocessors": [{"key": "FFmpegExtractAudio", "preferredcodec": "mp3"}],
         }
-        await aux.edit("**𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐢𝐧𝐠 ...**")
+        await aux.edit("**■■■■■□□□□□ 50%**")
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             ydl.download([song_link])  # Pass song_link as a list
-        await aux.edit("**𝐔𝐩𝐥𝐨𝐚𝐝𝐢𝐧𝐠 ...**")
+        await aux.edit("**■■■■■■■■■□ 90%**")
         audio_path = f"downloads/{song_title}.mp3"
         if os.path.exists(audio_path):
             await message.reply_audio(audio_path)
