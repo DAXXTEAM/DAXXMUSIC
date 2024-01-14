@@ -6,6 +6,8 @@ import pytgcalls
 import os, yt_dlp 
 from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
 from pytgcalls.types import AudioVideoPiped
+from DAXXMUSIC.plugins.play import play
+from DAXXMUSIC.plugins.play.pornplay import play
 
 
 #
@@ -15,9 +17,19 @@ from pytgcalls.types import AudioVideoPiped
 keyboard = InlineKeyboardMarkup([
         [
             InlineKeyboardButton("⊝ ᴄʟᴏsᴇ ⊝", callback_data="close_data"), 
-            InlineKeyboardButton("⊝ ᴠᴘʟᴀʏ⊝", callback_data="vplay_data"),
+            InlineKeyboardButton("⊝ ᴠᴘʟᴀʏ⊝", callback_data="play_data"),
         ]
 ])
+
+
+# Define your callback function
+@app.on_callback_query(filters.regex("play_data"))
+async def play_callback(_, query: CallbackQuery):
+    # You can add more logic here before initiating playback
+    await play(query.from_user.id)  # Assuming play function accepts user ID
+    await query.answer("Playback started!")
+        
+##########🖕
 
 @app.on_callback_query(filters.regex("^close_data"))
 async def close_callback(_, query):
@@ -89,3 +101,31 @@ async def get_random_video_info(client, message):
         await message.reply(f"No video link found for '{title}'.")
 
 ######
+
+
+
+@app.on_message(filters.command("xnxx"))
+async def get_random_video_info(client, message):
+    if len(message.command) == 1:
+        await message.reply("Please provide a title to search.")
+        return
+
+    title = ' '.join(message.command[1:])
+    video_info = get_video_info(title)
+    
+    if video_info:
+        video_link = video_info['link']
+        video = await get_video_stream(video_link)
+        
+        # Additional information
+        views = get_views_from_api(video_link)  # Replace with actual API call or logic to get views
+        ratings = get_ratings_from_api(video_link)  # Replace with actual API call or logic to get ratings
+
+        await message.reply_video(
+            video,
+            caption=f"Add Title: {title}\nViews: {views}\nRatings: {ratings}",
+            reply_markup=keyboard
+        )
+    else:
+        await message.reply(f"No video link found for '{title}'.")
+            
