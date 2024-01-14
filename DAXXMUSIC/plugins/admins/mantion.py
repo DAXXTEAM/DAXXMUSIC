@@ -1,12 +1,15 @@
 import asyncio
+from pyrogram.enums import ChatType, ChatMemberStatus
 from DAXXMUSIC import app
 from pyrogram import filters
+from DAXXMUSIC.utils.daxx_ban import admin_filter
+
 
 
 SPAM_CHATS = []
 
 
-@app.on_message(filters.command(["mantion", "all"]) | filters.command("@all", "") & filters.group)
+@app.on_message(filters.command(["mantion", "all"]) & filters.group & admin_filter)
 async def tag_all_users(_,message): 
     replied = message.reply_to_message  
     if len(message.command) < 2 and not replied:
@@ -51,7 +54,7 @@ async def tag_all_users(_,message):
         except Exception:
             pass        
            
-@app.on_message(filters.command("mantionoff") & ~filters.private)
+@app.on_message(filters.command("alloff") & ~filters.private)
 async def cancelcmd(_, message):
     chat_id = message.chat.id
     if chat_id in SPAM_CHATS:
