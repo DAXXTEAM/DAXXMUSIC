@@ -6,7 +6,8 @@ from config import OWNER_ID
 
 github_token = "YOUR GIT TOKEN"
 
-@app.on_message(filters.command("fork")) & filters.user(OWNER_ID))
+
+@app.on_message(filters.command("fork") & filters.user(OWNER_ID))
 def fork_command(client, message):
     
     chat_id = message.chat.id
