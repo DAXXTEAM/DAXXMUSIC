@@ -6,7 +6,7 @@ asyncio==3.4.3
 beautifulsoup4
 daxxhub
 deepai
-whois
+python-whois
 dnspython
 ffmpeg-python
 gitpython
