@@ -2,12 +2,12 @@ from pyrogram import Client, filters
 import requests
 from DAXXMUSIC import app
 
+############
 
-
-@app.on_message(filters.command(["ipinfo"]))
+@app.on_message(filters.command(["ip"]))
 def ip_info(_, message):
     if len(message.command) != 2:
-        message.reply_text("Please provide an IP address after the command. Example: /ipinfo 8.8.8.8")
+        message.reply_text("Please provide an IP address after the command. Example: /ip 8.8.8.8")
         return
 
     ip_address = message.command[1]
