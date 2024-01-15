@@ -2,7 +2,7 @@ from pyrogram import Client, filters
 import requests
 from DAXXMUSIC import app
 
-############
+############.....
 
 @app.on_message(filters.command(["ip"]))
 def ip_info(_, message):
