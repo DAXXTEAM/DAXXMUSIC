@@ -3,7 +3,8 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Update
 from pyrogram.types import ParseMode
 from pyrogram.handlers import CallbackQueryHandler, CommandHandler
 from typing import Optional
-from telegram import ParseMode
+from pyrogram import ParseMode
+from DAXXMUSIC import app 
 import json
 
 CRICKET_API_URL = "https://sugoi-api.vercel.app/cricket"
