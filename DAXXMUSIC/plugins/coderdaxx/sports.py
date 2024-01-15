@@ -1,34 +1,9 @@
 from pyrogram import Client, filters
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Update
-from pyrogram.types import ParseMode
-from pyrogram.handlers import CallbackQueryHandler, CommandHandler
-from typing import Optional
-from pyrogram import ParseMode
-from DAXXMUSIC import app 
-import json
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+from DAXXMUSIC import app
 
 CRICKET_API_URL = "https://sugoi-api.vercel.app/cricket"
 FOOTBALL_API_URL = "https://sugoi-api.vercel.app/football"
-
-class MatchManager:
-    def __init__(self, api_url):
-        self.api_url = api_url
-        self.matches = []
-        self.match_count = 0
-
-    async def fetch_matches(self):
-        response = await state.get(self.api_url)
-        self.matches = response.json()
-
-    def get_next_matches(self, count):
-        next_matches = self.matches[self.match_count : self.match_count + count]
-        self.match_count += count
-        return next_matches
-
-    def reset_matches(self):
-        self.matches = []
-        self.match_count = 0
-
 
 async def get_match_text(match, sport):
     match_text = f"{'🏏' if sport == 'cricket' else '⚽️'} **{match['title']}**\n\n"
@@ -37,7 +12,6 @@ async def get_match_text(match, sport):
     match_text += f"🏆 *Team 2:* {match['team2']}\n"
     match_text += f"🏟️ *Venue:* {match['venue']}"
     return match_text
-
 
 def create_inline_keyboard(sport):
     inline_keyboard = [
@@ -50,86 +24,38 @@ def create_inline_keyboard(sport):
     ]
     return InlineKeyboardMarkup(inline_keyboard)
 
+# 
 
-cricket_manager = MatchManager(CRICKET_API_URL)
-football_manager = MatchManager(FOOTBALL_API_URL)
-
-
-async def get_cricket_matches(update: Update, context):
+@app.on_message(filters.command("cricket"))
+async def get_cricket_match(_, message):
     try:
-        cricket_manager.reset_matches()
-        await cricket_manager.fetch_matches()
-
-        if not cricket_manager.matches:
-            await update.message.reply_text("No cricket matches found.")
-            return
-
-        next_matches = cricket_manager.get_next_matches(1)
-        match = next_matches[0]
-
-        match_text = await get_match_text(match, "cricket")
-        reply_markup = create_inline_keyboard("cricket")
-
-        await update.message.reply_text(
-            match_text, reply_markup=reply_markup, parse_mode=ParseMode.MARKDOWN
-        )
-
+        response = requests.get(CRICKET_API_URL)
+        match_data = response.json()
+        match_text = await get_match_text(match_data, "cricket")
+        keyboard = create_inline_keyboard("cricket")
+        await message.reply_text(match_text, reply_markup=keyboard, parse_mode="markdown")
     except Exception as e:
-        await update.message.reply_text(f"An error occurred: {str(e)}")
+        print("Error fetching cricket match:", str(e))
+        await message.reply_text("Error fetching cricket match details.")
 
-
-async def get_football_matches(update: Update, context):
+# Command to fetch football match details
+@app.on_message(filters.command("football"))
+async def get_football_match(_, message):
     try:
-        football_manager.reset_matches()
-        await football_manager.fetch_matches()
-
-        if not football_manager.matches:
-            await update.message.reply_text("No football matches found.")
-            return
-
-        next_matches = football_manager.get_next_matches(1)
-        match = next_matches[0]
-
-        match_text = await get_match_text(match, "football")
-        reply_markup = create_inline_keyboard("football")
-
-        await update.message.reply_text(
-            match_text, reply_markup=reply_markup, parse_mode=ParseMode.MARKDOWN
-        )
-
+        response = requests.get(FOOTBALL_API_URL)
+        match_data = response.json()
+        match_text = await get_match_text(match_data, "football")
+        keyboard = create_inline_keyboard("football")
+        await message.reply_text(match_text, reply_markup=keyboard, parse_mode="markdown")
     except Exception as e:
-        await update.message.reply_text(f"An error occurred: {str(e)}")
+        print("Error fetching football match:", str(e))
+        await message.reply_text("Error fetching football match details.")
 
+# Callback query handler for inline keyboards
+@app.on_callback_query()
+async def on_inline_button_clicked(_, callback_query):
+    sport = callback_query.data.split("_")[1]
+    # Handle the callback based on the sport (cricket or football)
+    await callback_query.answer(f"Fetching next {sport.capitalize()} match...")
 
-async def show_next_match(update: Update, context):
-    try:
-        query = update.callback_query
-        sport = query.data.split("_")[1]
-        manager = cricket_manager if sport == "cricket" else football_manager
-
-        if not manager.matches:
-            await query.answer(f"No more {sport} matches available.")
-            return
-
-        next_matches = manager.get_next_matches(3)
-
-        if not next_matches:
-            await query.answer(f"No more {sport} matches available.")
-            return
-
-        match_text = ""
-        for match in next_matches:
-            match_text += await get_match_text(match, sport) + "\n\n"
-
-        reply_markup = create_inline_keyboard(sport)
-
-        await query.message.edit_text(
-            match_text,
-            reply_markup=reply_markup,
-            parse_mode=ParseMode.MARKDOWN,
-            disable_web_page_preview=True,
-        )
-        await query.answer()
-
-    except Exception as e:
-        await query.message.reply_text(f"An error occurred: {str(e)}")
+#
