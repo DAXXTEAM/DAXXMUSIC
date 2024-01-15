@@ -37,6 +37,10 @@ def download_song(_, message):
         open(thumb_name, "wb").write(thumb.content)
         duration = results[0]["duration"]
 
+        # Add these lines to define views and channel_name
+        views = results[0]["views"]
+        channel_name = results[0]["channel"]
+
     except Exception as e:
         m.edit("**⚠️ ɴᴏ ʀᴇsᴜʟᴛs ᴡᴇʀᴇ ғᴏᴜɴᴅ. ᴍᴀᴋᴇ sᴜʀᴇ ʏᴏᴜ ᴛʏᴘᴇᴅ ᴛʜᴇ ᴄᴏʀʀᴇᴄᴛ sᴏɴɢ ɴᴀᴍᴇ**")
         print(str(e))
@@ -57,7 +61,7 @@ def download_song(_, message):
             audio_file,
             thumb=thumb_name,
             title=title,
-            caption=f"{title}\nRᴇǫᴜᴇsᴛᴇᴅ ʙʏ🐁 ➪{message.from_user.mention}\nVɪᴇᴡs👀➪ {views}\n👽Cʜᴀɴɴᴇʟ➪ {channel_name}",
+            caption=f"{title}\nRᴇǫᴜᴇsᴛᴇᴅ ʙʏ ➪{message.from_user.mention}\nVɪᴇᴡs➪ {views}\nCʜᴀɴɴᴇʟ➪ {channel_name}",
             duration=dur
         )
         m.delete()
@@ -70,6 +74,7 @@ def download_song(_, message):
         os.remove(thumb_name)
     except Exception as e:
         print(e)
+        
         
 
 # ------------------------------------------------------------------------------- #
