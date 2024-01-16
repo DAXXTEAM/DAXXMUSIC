@@ -1,8 +1,10 @@
-import os
+import future
 import asyncio
 import requests
 import wget
+import time
 import yt_dlp
+from urllib.parse import urlparse
 from youtube_search import YoutubeSearch
 from yt_dlp import YoutubeDL
 
@@ -11,6 +13,9 @@ from pyrogram import filters
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from youtubesearchpython import VideosSearch
+from youtubesearchpython import SearchVideos
+
+
 
 
 # ------------------------------------------------------------------------------- #
@@ -30,6 +35,10 @@ def download_song(_, message):
         thumb = requests.get(thumbnail, allow_redirects=True)
         open(thumb_name, "wb").write(thumb.content)
         duration = results[0]["duration"]
+
+        # Add these lines to define views and channel_name
+        views = results[0]["views"]
+        channel_name = results[0]["channel"]
 
     except Exception as e:
         m.edit("**⚠️ ɴᴏ ʀᴇsᴜʟᴛs ᴡᴇʀᴇ ғᴏᴜɴᴅ. ᴍᴀᴋᴇ sᴜʀᴇ ʏᴏᴜ ᴛʏᴘᴇᴅ ᴛʜᴇ ᴄᴏʀʀᴇᴄᴛ sᴏɴɢ ɴᴀᴍᴇ**")
@@ -51,7 +60,7 @@ def download_song(_, message):
             audio_file,
             thumb=thumb_name,
             title=title,
-            caption=f"{title}\nRᴇǫᴜᴇsᴛᴇᴅ ʙʏ🐁 ➪{message.from_user.mention}\nVɪᴇᴡs👀➪ {views}\n👽Cʜᴀɴɴᴇʟ➪ {channel_name}",
+            caption=f"{title}\nRᴇǫᴜᴇsᴛᴇᴅ ʙʏ ➪{message.from_user.mention}\nVɪᴇᴡs➪ {views}\nCʜᴀɴɴᴇʟ➪ {channel_name}",
             duration=dur
         )
         m.delete()
@@ -64,6 +73,7 @@ def download_song(_, message):
         os.remove(thumb_name)
     except Exception as e:
         print(e)
+        
         
 
 # ------------------------------------------------------------------------------- #
