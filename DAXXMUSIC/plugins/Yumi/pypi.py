@@ -1,7 +1,7 @@
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 import requests
-from DAXXMUSIC import app
+from DAXXMUSIC import bot
 
 
 def get_pypi_info(package_name):
