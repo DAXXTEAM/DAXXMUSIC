@@ -1,7 +1,7 @@
 import asyncio
 import config
 import random
-from ..logging import LOGGER
+from DAXXMUSIC.logging import LOGGER
 from config import *
 from pyrogram import filters
 from DAXXMUSIC import app 
