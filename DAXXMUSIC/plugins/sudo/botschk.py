@@ -1,3 +1,6 @@
+from DAXXMUSIC.misc import db
+from DAXXMUSIC.utils.database import get_assistant, get_authuser_names, get_cmode
+
 import asyncio
 import config
 import random
@@ -17,7 +20,7 @@ from DAXXMUSIC.misc import SUDOERS
 
 
 
-BOT_LIST = ["Nexiko", "GITHUBCONTROLROBOT"]
+BOT_LIST = ["NexikoBot", "GITHUBCONTROLROBOT"]
 
 
 
