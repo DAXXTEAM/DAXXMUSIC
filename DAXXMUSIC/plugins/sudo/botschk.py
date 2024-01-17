@@ -1,6 +1,7 @@
 import asyncio
 import config
 import random
+from config import *
 from pyrogram import filters
 from DAXXMUSIC import app 
 from DAXXMUSIC.core.userbot import Client
@@ -10,7 +11,7 @@ from DAXXMUSIC.misc import SUDOERS
 
 
 
-BOT_LIST = ["YumikooBot", "DAXXTEAMBOT"]
+BOT_LIST = ["Nexiko", "GITHUBCONTROLROBOT"]
 
 
 
