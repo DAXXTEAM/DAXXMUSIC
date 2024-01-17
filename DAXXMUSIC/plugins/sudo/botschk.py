@@ -9,6 +9,7 @@ from DAXXMUSIC.logging import LOGGER
 from config import *
 from pyrogram import filters
 from DAXXMUSIC import app 
+from DAXXMUSIC import app, userbot
 from DAXXMUSIC.core.userbot import Client
 from DAXXMUSIC.misc import SUDOERS
 
