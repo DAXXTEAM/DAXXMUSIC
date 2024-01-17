@@ -173,10 +173,10 @@ async def selectModel(_:app,query:t.CallbackQuery):
     await query.edit_message_text("**ᴘʟᴇᴀsᴇ ᴡᴀɪᴛ, ɢᴇɴᴇʀᴀᴛɪɴɢ ʏᴏᴜʀ ɪᴍᴀɢᴇ.**")
     promptData = Database.get(auth_user,None)
     if promptData is None:
-        return await query.edit_message_text("sᴏᴍᴇᴛʜɪɴɢ ᴡᴇɴᴛ ᴡʀᴏɴɢ @DevsOops !!.")
+        return await query.edit_message_text("sᴏᴍᴇᴛʜɪɴɢ ᴡᴇɴᴛ ᴡʀᴏɴɢ @iam_daxx !!.")
     img_url = await ImageGeneration(modelId,promptData['prompt'])
     if img_url is None or img_url == 2 or img_url ==1:
-        return await query.edit_message_text("sᴏᴍᴇᴛʜɪɴɢ ᴡᴇɴᴛ ᴡʀᴏɴɢ @DevsOops !!")
+        return await query.edit_message_text("sᴏᴍᴇᴛʜɪɴɢ ᴡᴇɴᴛ ᴡʀᴏɴɢ @iam_dacc !!")
     elif img_url == 69:
         return await query.edit_message_text("ɴsғᴡ ɴᴏᴛ ᴀʟʟᴏᴡᴇᴅ !")
     images = []
