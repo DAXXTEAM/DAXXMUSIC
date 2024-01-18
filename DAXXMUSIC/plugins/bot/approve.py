@@ -112,7 +112,7 @@ async def autoapprove(client: app, message: ChatJoinRequest):
             [
                 [
                     InlineKeyboardButton(
-                        "🌱ƨσʋяcɛ🌱", url=f"https://github.com/DAXXTEAM/DAXXMUSIC")
+                        " ๏ ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ ๏ ", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
                 ]
             ]
         ),
