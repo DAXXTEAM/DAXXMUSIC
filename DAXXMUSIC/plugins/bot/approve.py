@@ -1,6 +1,8 @@
 from DAXXMUSIC import app
 from os import environ
 import random
+from config import BOT_USERNAME
+import config
 from pyrogram import Client, filters
 from pyrogram.types import ChatJoinRequest, InlineKeyboardButton, InlineKeyboardMarkup
 from PIL import Image, ImageDraw, ImageFont
