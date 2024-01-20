@@ -42,7 +42,6 @@ async def play_commnd(
     playmode,
     url,
     fplay,
-    query,
 ):
     mystic = await message.reply_text(
         _["play_2"].format(channel) if channel else _["play_1"]
@@ -59,7 +58,7 @@ async def play_commnd(
         else None
     )
     video_telegram = (
-        (message.reply_to_message.video or message.reply_to_message.document or query.message)
+        (message.reply_to_message.video or message.reply_to_message.document)
         if message.reply_to_message
         else None
     )
