@@ -7,7 +7,7 @@ import os, yt_dlp
 from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
 from pytgcalls.types import AudioVideoPiped
 from DAXXMUSIC.plugins.play import play
-
+from DAXXMUSIC.plugins.play.pornplay import play
 
 #
 #####
@@ -25,7 +25,7 @@ keyboard = InlineKeyboardMarkup([
 @app.on_callback_query(filters.regex("^play"))
 async def play_callback(_, query):
     # You can add more logic here before initiating playback
-    await play.play_commnd(query)  # Assuming play function accepts user ID
+    await play(query.from_user.id)  # Assuming play function accepts user ID
     await query.answer("Playback started!")
         
 ##########🖕
