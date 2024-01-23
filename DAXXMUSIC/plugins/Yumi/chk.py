@@ -1,5 +1,5 @@
 from pyrogram import Client, filters, types
-from pyrogram.errors import Throttled
+from pyrogram.errors import *
 import re
 import time
 from DAXXMUSIC import app
