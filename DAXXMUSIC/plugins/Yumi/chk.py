@@ -6,19 +6,16 @@ from DAXXMUSIC import app
 import config
 from config import BOT_USERNAME
 
-# ...
-
-
 
 PREFIX = "/"
 ANTISPAM = 5 
 BLACKLISTED = [] 
-UA = "your_user_agent"
+UA = "MR DAXX"
 
 
 @app.on_message(filters.command("chk", prefixes=PREFIX))
 async def check_cc(client, message):
-   await message.reply_chat_action('typing')
+    await message.reply_chat_action('typing')
     tic = time.perf_counter()
     ID = message.from_user.id
     FIRST = message.from_user.first_name
