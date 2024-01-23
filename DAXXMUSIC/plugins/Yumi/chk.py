@@ -5,7 +5,6 @@ import time
 from DAXXMUSIC import app
 import config
 from config import BOT_USERNAME
-from pyrogram import ChatActions
 
 # ...
 
@@ -18,11 +17,8 @@ UA = "your_user_agent"
 
 
 @app.on_message(filters.command("chk", prefixes=PREFIX))
-#async def check_cc(client, message):
-   #await message.reply_chat_action('typing')
-#- new try code
-async def check_cc(message):
-    await message.reply_chat_action(ChatActions.TYPING)
+async def check_cc(client, message):
+   await message.reply_chat_action('typing')
     tic = time.perf_counter()
     ID = message.from_user.id
     FIRST = message.from_user.first_name
