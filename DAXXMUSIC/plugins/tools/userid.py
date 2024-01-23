@@ -5,7 +5,7 @@ from pyrogram.enums import ParseMode
 
 
 @app.on_message(filters.command("me", prefixes="/"))
-def my_command_handler(client: Client, message: Message):
+async def getinfo(client, message):
     user_id = message.from_user.id
     first_name = message.from_user.first_name
     username = message.from_user.username
