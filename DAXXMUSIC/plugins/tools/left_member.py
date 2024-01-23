@@ -1,4 +1,4 @@
-from VIPMUSIC import app
+from DAXXMUSIC import app
 from pyrogram import filters
 from pyrogram.errors import RPCError
 from pyrogram.types import ChatMemberUpdated, InlineKeyboardMarkup, InlineKeyboardButton
@@ -51,8 +51,8 @@ async def get_userinfo_img(
 
 # --------------------------------------------------------------------------------- #
 
-bg_path = "VIPMUSIC/assets/userinfo.png"
-font_path = "VIPMUSIC/assets/hiroko.ttf"
+bg_path = "DAXXMUSIC/assets/userinfo.png"
+font_path = "DAXXMUSIC/assets/hiroko.ttf"
 
 # --------------------------------------------------------------------------------- #
 
@@ -93,7 +93,7 @@ async def member_has_left(client: app, member: ChatMemberUpdated):
         button_text = "๏ ᴠɪᴇᴡ ᴍᴇᴍʙᴇʀ ๏"
 
         # Generate a deep link to open the user's profile
-        deep_link = f"tg://user?id={user.id}"
+        deep_link = f"https://t.me/{user.username}"
 
         # Send the message with the photo, caption, and button
         await client.send_photo(
