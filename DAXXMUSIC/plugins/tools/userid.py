@@ -3,17 +3,21 @@ from pyrogram import filters
 from pyrogram.enums import ParseMode
 
 
-@app.on_message(filters.command("me"))
-def ids(_, message):
-    reply = message.reply_to_message
-    if reply:
-        message.reply_text(
-            f"ʏᴏᴜʀ ɪᴅ: {message.from_user.id}\n{reply.from_user.first_name}'s ɪᴅ: {reply.from_user.id}\nᴄʜᴀᴛ ɪᴅ: {message.chat.id}"
-        )
-    else:
-        message.reply(
-            f"ʏᴏᴜʀ ɪᴅ: {message.from_user.id}\nᴄʜᴀᴛ ɪᴅ: {message.chat.id}"
-        )
+@app.on_message(filters.command("me", prefixes="/"))
+def my_command_handler(client: Client, message: Message):
+    user_id = message.from_user.id
+    first_name = message.from_user.first_name
+    username = message.from_user.username
+    user_link = f"https://t.me/{username}" if username else "Not available"
+
+    response = (
+        f"ID: `{user_id}`\n"
+        f"First Name: {first_name}\n"
+        f"Username: {username}\n"
+        f"User Link: [link]({user_link})"
+    )
+
+    message.reply_text(response)
 
 ####
 
