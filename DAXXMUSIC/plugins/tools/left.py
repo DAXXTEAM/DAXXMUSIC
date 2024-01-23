@@ -1,5 +1,5 @@
 from DAXXMUSIC import app
-from pyrogram import filters
+from pyrogram import Client, filters
 from pyrogram.errors import RPCError
 from pyrogram.types import ChatMemberUpdated, InlineKeyboardMarkup, InlineKeyboardButton
 from os import environ
