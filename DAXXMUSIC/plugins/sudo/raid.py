@@ -14,7 +14,7 @@ def spam_command(client, message):
     # Check if the message is a reply and has text
     if message.reply_to_message and message.reply_to_message.text:
         user_to_tag = message.reply_to_message.from_user.mention()
-        command_args = message.text.split(".spam", 1)[-1].strip()
+        command_args = message.text.split(".raid", 1)[-1].strip()
 
         # Check if the user provided a number of times to spam (e.g., .spam 5 Hello)
         try:
