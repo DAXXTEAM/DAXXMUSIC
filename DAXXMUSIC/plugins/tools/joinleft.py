@@ -90,10 +90,10 @@ async def member_has_left(client: app, member: ChatMemberUpdated):
         )
     
         caption = f"**#New_Member_Left**\n\n**๏** {user.mention} **ʜᴀs ʟᴇғᴛ ᴛʜɪs ɢʀᴏᴜᴘ**\n**๏ sᴇᴇ ʏᴏᴜ sᴏᴏɴ ᴀɢᴀɪɴ..!**"
-        button_text = "๏ ᴠɪᴇᴡ ᴍᴇᴍʙᴇʀ ๏"
+        button_text = "๏ ᴠɪᴇᴡ ᴜsᴇʀ ๏"
 
         # Generate a deep link to open the user's profile
-        deep_link = f"tg://user?id={user.id}"
+        deep_link = f"https://t.me/{user.mention}"
 
         # Send the message with the photo, caption, and button
         await client.send_photo(
