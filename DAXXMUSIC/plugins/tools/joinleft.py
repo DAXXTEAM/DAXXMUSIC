@@ -40,12 +40,10 @@ async def member_has_left(client: app, member: ChatMemberUpdated):
 """
 from DAXXMUSIC import app
 from pyrogram import filters
-from datetime import datetime
 from pyrogram.errors import RPCError, ChatAdminRequired
 from pyrogram.types import ChatMemberUpdated
 
 # -------------
-
 
 @app.on_chat_member_updated(filters.group, group=20)
 async def member_has_left(client: app, member: ChatMemberUpdated):
@@ -63,9 +61,7 @@ async def member_has_left(client: app, member: ChatMemberUpdated):
     )
     
     try:
-        formatted_datetime = current_datetime.strftime("%Y-%m-%d %H:%M:%S")
-        caption = f"Sᴀᴅ Tᴏ Sᴇᴇ Yᴏᴜ Lᴇᴀᴠɪɴɢ {user.mention}\nTᴀᴋᴇ Cᴀʀᴇ! \nCurrent Date and Time: {formatted_datetime}"
-        
+        caption = f"Sᴀᴅ Tᴏ Sᴇᴇ Yᴏᴜ Lᴇᴀᴠɪɴɢ {user.mention}\nTᴀᴋᴇ Cᴀʀᴇ!"
         left_gif = "https://telegra.ph/file/d28047520fad932521368.mp4"
         
         await client.send_animation(
@@ -76,3 +72,4 @@ async def member_has_left(client: app, member: ChatMemberUpdated):
     except RPCError as e:
         print(e)
         return
+        
