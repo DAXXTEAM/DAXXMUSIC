@@ -1,23 +1,13 @@
 from DAXXMUSIC import app
 from os import environ
-import random
 from config import BOT_USERNAME
 import config
 from pyrogram import Client, filters
 from pyrogram.types import ChatJoinRequest, InlineKeyboardButton, InlineKeyboardMarkup
 from PIL import Image, ImageDraw, ImageFont
-import asyncio, os, time, aiohttp
-from pathlib import Path
-from PIL import Image, ImageDraw, ImageFont
-from asyncio import sleep
-from pyrogram import filters, Client, enums
-from pyrogram.enums import ParseMode
 from typing import Union, Optional
 
-
-
 # --------------------------------------------------------------------------------- #
-
 
 get_font = lambda font_size, font_path: ImageFont.truetype(font_path, font_size)
 resize_text = (
@@ -27,7 +17,6 @@ resize_text = (
 )
 
 # --------------------------------------------------------------------------------- #
-
 
 async def get_userinfo_img(
     bg_path: str,
@@ -57,11 +46,9 @@ async def get_userinfo_img(
         fill=(255, 255, 255),
     )
 
-
     path = f"./userinfo_img_{user_id}.png"
     bg.save(path)
     return path
-   
 
 # --------------------------------------------------------------------------------- #
 
@@ -90,7 +77,11 @@ random_photo_links = [
 async def autoapprove(client: app, message: ChatJoinRequest):
     chat = message.chat  # Chat
     user = message.from_user  # User
-    photo = await app.download_media(user.photo.big_file_id)
+
+    # Check if user has a profile photo
+    photo = None
+    if user.photo:
+        photo = await app.download_media(user.photo.big_file_id)
 
     # Fix the indentation here
     welcome_photo = await get_userinfo_img(
@@ -102,7 +93,6 @@ async def autoapprove(client: app, message: ChatJoinRequest):
 
     print(f"{user.first_name} Joined 🤝")  # Logs
 
-  
     await client.approve_chat_join_request(chat_id=chat.id, user_id=user.id)
 
     if APPROVED == "on":
@@ -111,13 +101,12 @@ async def autoapprove(client: app, message: ChatJoinRequest):
             photo=welcome_photo,
             caption=TEXT.format(mention=user.mention, title=chat.title),
             reply_markup=InlineKeyboardMarkup(
-            [
                 [
-                    InlineKeyboardButton(
-                        " ๏ ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ ๏ ", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
+                    [
+                        InlineKeyboardButton(
+                            " ๏ ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ ๏ ", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
+                    ]
                 ]
-            ]
-        ),
-                    )
-
-        
+            ),
+    )
+    
