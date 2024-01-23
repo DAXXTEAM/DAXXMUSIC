@@ -3,23 +3,6 @@ from pyrogram import Client, filters
 
 from pyrogram.enums import ParseMode
 
-
-@app.on_message(filters.command("me", prefixes="/"))
-async def getinfo(client, message):
-    user_id = message.from_user.id
-    first_name = message.from_user.first_name
-    username = message.from_user.username
-    user_link = f"https://t.me/{username}" if username else "Not available"
-
-    response = (
-        f"ID: `{user_id}`\n"
-        f"First Name: {first_name}\n"
-        f"Username: {username}\n"
-        f"User Link: [link]({user_link})"
-    )
-
-    message.reply_text(response)
-
 ####
 
 @app.on_message(filters.command('id'))
