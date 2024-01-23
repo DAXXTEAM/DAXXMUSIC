@@ -40,6 +40,7 @@ async def member_has_left(client: app, member: ChatMemberUpdated):
 """
 from DAXXMUSIC import app
 from pyrogram import filters
+from datetime import datetime
 from pyrogram.errors import RPCError, ChatAdminRequired
 from pyrogram.types import ChatMemberUpdated
 
