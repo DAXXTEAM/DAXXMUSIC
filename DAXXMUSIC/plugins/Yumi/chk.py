@@ -15,7 +15,7 @@ UA = "your_user_agent"
 
 @app.on_message(filters.command("chk", prefixes=PREFIX))
 async def check_cc(client, message):
-    await message.answer_chat_action('typing')
+    await message.reply_chat_action('typing')
     tic = time.perf_counter()
     ID = message.from_user.id
     FIRST = message.from_user.first_name
