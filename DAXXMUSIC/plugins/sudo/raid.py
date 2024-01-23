@@ -6,7 +6,7 @@ from DAXXMUSIC import app
 from DAXXMUSIC.misc import SUDOERS
 
 # Define the spam command handler
-@app.on_message(filters.command("raid", prefixes=[(".")]) & SUDOERS)
+@app.on_message(filters.command("raid", prefixes="/") & SUDOERS)
 def spam_command(client, message):
     # Delete the user's command text
     message.delete()
