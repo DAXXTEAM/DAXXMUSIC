@@ -8,6 +8,9 @@ from DAXXMUSIC.misc import SUDOERS
 # Define the spam command handler
 @app.on_message(filters.command("raid", prefixes=[("/", ".")]) & SUDOERS)
 def spam_command(client, message):
+    # Delete the user's command text
+    message.delete()
+
     # Check if the message is a reply and has text
     if message.reply_to_message and message.reply_to_message.text:
         user_to_tag = message.reply_to_message.from_user.mention()
@@ -35,3 +38,4 @@ def spam_command(client, message):
             time.sleep(0.2)  # Add a delay between spam messages
     else:
         message.reply_text("Reply to a message and use the .spam command to spam.")
+        
