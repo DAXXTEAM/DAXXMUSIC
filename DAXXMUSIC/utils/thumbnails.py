@@ -103,7 +103,7 @@ async def get_thumb(videoid):
         para = textwrap.wrap(clear(title), width=32) 
         j = 0
         draw.text(
-            (6, 6), f"{BOT_NAME}", fill="Yellow", font=name_font
+            (6, 6), f"{BOT_NAME}", fill="Purple", font=name_font
         )
         draw.text(
             (600, 200),
@@ -119,7 +119,7 @@ async def get_thumb(videoid):
                 draw.text(
                     (600, 390),
                     f"Title : {line}",
-                    fill="white",
+                    fill="pink",
                     stroke_width=1,
                     stroke_fill="white",
                     font=font,
@@ -129,7 +129,7 @@ async def get_thumb(videoid):
                 draw.text(
                     (600, 330),
                     f"{line}",
-                    fill="white",
+                    fill="pink",
                     stroke_width=1,
                     stroke_fill="white",
                     font=font,
@@ -138,7 +138,7 @@ async def get_thumb(videoid):
         draw.text(
             (600, 450),
             f"Views : {views[:23]}",
-            fill="white",
+            fill="pink",
             stroke_width=1,
             stroke_fill="white",
             font=font,
@@ -146,7 +146,7 @@ async def get_thumb(videoid):
         draw.text(
             (600, 500),
             f"Duration : {duration[:23]} Mins",
-            fill="white",
+            fill="pink",
             stroke_width=1,
             stroke_fill="white",
             font=font,
@@ -154,7 +154,7 @@ async def get_thumb(videoid):
         draw.text(
             (600, 550),
             f"Channel : {channel}",
-            fill="white",
+            fill="pink",
             stroke_width=1,
             stroke_fill="white",
             font=font,
