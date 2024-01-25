@@ -57,7 +57,7 @@ async def _packkang(app :app,message):
     if message.reply_to_message.sticker.is_animated or  message.reply_to_message.sticker.is_video:
         return await txt.edit("ʀᴇᴘʟʏ ᴛᴏ ᴀ ɴᴏɴ-ᴀɴɪᴍᴀᴛᴇᴅ sᴛɪᴄᴋᴇʀ")
     if len(message.command) < 2:
-        pack_name =  f'{message.from_user.first_name}_sticker_pack_by_@Yumikoobot'
+        pack_name =  f'{message.from_user.first_name}_sticker_pack_by_@{BOT_USERNAME}'
     else :
         pack_name = message.text.split(maxsplit=1)[1]
     short_name = message.reply_to_message.sticker.set_name
