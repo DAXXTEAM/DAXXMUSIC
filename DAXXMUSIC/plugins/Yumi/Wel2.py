@@ -9,8 +9,7 @@ import pickledb
 from telegram import *
 from telegram.ext import Updater, MessageHandler, CommandHandler
 from telegram.ext import *
-from telegram.ext.dispatcher import run_async
-
+from telegram.ext.dispatcher import *
 from config import BOT_USERNAME, BOT_TOKEN
 
 help_text = (
