@@ -6,7 +6,7 @@ from html import escape
 
 import pickledb
 
-from telegram import ParseMode, TelegramError, Update
+from telegram import *
 from telegram.ext import Updater, MessageHandler, CommandHandler, Filters
 from telegram.ext.dispatcher import run_async
 
