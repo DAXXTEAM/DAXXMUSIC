@@ -48,4 +48,4 @@ httpx==0.25.2
 gpytranslate
 openai==0.28.0
 pickledb
-python-telegram-bot
+python-telegram-bot==20.7
