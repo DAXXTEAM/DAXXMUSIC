@@ -108,9 +108,9 @@ async def get_thumb(videoid):
         draw.text(
             (600, 200),
             f"NOW PLAYING",
-            fill="white",
+            fill="black",
             stroke_width=2,
-            stroke_fill="yellow",
+            stroke_fill="red",
             font=font2,
         )
         for line in para:
@@ -118,7 +118,7 @@ async def get_thumb(videoid):
                 j += 1
                 draw.text(
                     (600, 390),
-                    f"Tɪᴛʟᴇ : {line}",
+                    f"Title : {line}",
                     fill="white",
                     stroke_width=1,
                     stroke_fill="white",
