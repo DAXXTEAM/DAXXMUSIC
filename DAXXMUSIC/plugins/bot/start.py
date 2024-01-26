@@ -27,72 +27,28 @@ from strings import get_string
 
 
 
-# Random Start Images
-YUMI IMG = [
-    "https://te.legra.ph/file/5bf629d10afd4af953585.jpg",
-    "https://te.legra.ph/file/7a321b99fe99d9d8b5117.jpg",
-    "https://te.legra.ph/file/c482a7e55b459ffe07502.jpg",
-    "https://telegra.ph//file/0879fbdb307005c1fa8ab.jpg",
-    "https://telegra.ph//file/19e3a9d5c0985702497fb.jpg",
-    "https://telegra.ph//file/b5fa277081dddbddd0b12.jpg",
-    "https://telegra.ph//file/96e96245fe1afb82d0398.jpg",
-    "https://telegra.ph//file/fb140807129a3ccb60164.jpg",
-    "https://telegra.ph//file/09c9ea0e2660efae6f62a.jpg",
-    "https://telegra.ph//file/3b59b15e1914b4fa18b71.jpg",
-    "https://telegra.ph//file/efb26cc17eef6fe82d910.jpg",
-    "https://telegra.ph//file/ab4925a050e07b00f63c5.jpg",
-    "https://telegra.ph//file/d169a77fd52b46e421414.jpg",
-    "https://telegra.ph//file/dab9fc41f214f9cded1bb.jpg",
-    "https://telegra.ph//file/e05d6e4faff7497c5ae56.jpg",
-    "https://telegra.ph//file/1e54f0fff666dd53da66f.jpg",
-    "https://telegra.ph//file/18e98c60b253d4d926f5f.jpg",
-    "https://telegra.ph//file/b1f7d9702f8ea590b2e0c.jpg",
-    "https://telegra.ph//file/7bb62c8a0f399f6ee1f33.jpg",
-    "https://telegra.ph//file/dd00c759805082830b6b6.jpg",
-    "https://telegra.ph//file/3b996e3241cf93d102adc.jpg",
-    "https://telegra.ph//file/610cc4522c7d0f69e1eb8.jpg",
-    "https://telegra.ph//file/bc97b1e9bbe6d6db36984.jpg",
-    "https://telegra.ph//file/2ddf3521636d4b17df6dd.jpg",
-    "https://telegra.ph//file/72e4414f618111ea90a57.jpg",
-    "https://telegra.ph//file/a958417dcd966d341bfe2.jpg",
-    "https://telegra.ph//file/0afd9c2f70c6328a1e53a.jpg",
-    "https://telegra.ph//file/82ff887aad046c3bcc9a3.jpg",
-    "https://telegra.ph//file/8ba64d5506c23acb67ff4.jpg",
-    "https://telegra.ph//file/8ba64d5506c23acb67ff4.jpg",
-    "https://telegra.ph//file/a7cba6e78bb63e1b4aefb.jpg",
-    "https://telegra.ph//file/f8ba75bdbb9931cbc8229.jpg",
-    "https://telegra.ph//file/07bb5f805178ec24871d3.jpg",
-    "https://telegra.ph/file/ec0ed654f5f5cefc90f95.jpg",
-    "https://telegra.ph/file/f6aa2a3659462401cb600.jpg",
-    "https://telegra.ph/file/0c3d91bcf75524a844883.jpg",
-    "https://telegra.ph/file/6c5df27e71e074f1c7123.jpg",
-    "https://telegra.ph/file/ff2ddc282fe7868e3cf73.jpg",
-    "https://telegra.ph/file/6130ea9373d5f60898a52.jpg",
-    "https://telegra.ph/file/45e5da1eab8f5892981ca.jpg",
+YUMI_PICS = [
+"https://telegra.ph/file/7611ad355da9de11423e8.jpg",
+"https://telegra.ph/file/1166532656cd26238c94b.jpg",
+"https://telegra.ph/file/57c386813a1a26746479d.jpg",
+"https://telegra.ph/file/c41810d3f632921d00b43.jpg",
+"https://telegra.ph/file/b912059691f481b8b3439.jpg",
+"https://telegra.ph/file/5aad0a2c595547cfbd59a.jpg",
+"https://telegra.ph/file/a8402f4a91a42893a7928.jpg",
+"https://telegra.ph/file/717dcd9ac67965556bc9f.jpg",
+"https://telegra.ph/file/5e339c35608aedc2c6e86.jpg",
+"https://telegra.ph/file/cb16f4f1f141f88fd9dc3.jpg",
+"https://telegra.ph/file/aaadeab176227f51c0d55.jpg",
+"https://telegra.ph/file/993bfbb0f4c5302b1f65d.jpg",
+"https://telegra.ph/file/729e77a7871fe0075d695.jpg",
+"https://telegra.ph/file/460e59ccd14e203f69166.jpg",
+"https://telegra.ph/file/c706584f9c4d8ec4120c7.jpg",
+"https://telegra.ph/file/ded86839c47bdd843109b.jpg",
+"https://telegra.ph/file/4bbdd86219a0d996c6bbf.jpg",
+"https://telegra.ph/file/3d34c6a50a50d48e0090a.jpg",
+"https://telegra.ph/file/46f3c54fc68bb142e57b7.jpg",
+
 ]
-
-
-# Random Stickers
-STICKER = [
-    "CAACAgUAAx0CYlaJawABBy4vZaieO6T-Ayg3mD-JP-f0yxJngIkAAv0JAALVS_FWQY7kbQSaI-geBA",
-    "CAACAgUAAx0CYlaJawABBy4rZaid77Tf70SV_CfjmbMgdJyVD8sAApwLAALGXCFXmCx8ZC5nlfQeBA",
-    "CAACAgUAAx0CYlaJawABBy4jZaidvIXNPYnpAjNnKgzaHmh3cvoAAiwIAAIda2lVNdNI2QABHuVVHgQ",
-]
-
-
-EMOJIOS = [
-    "💣",
-    "💥",
-    "🪄",
-    "🧨",
-    "⚡",
-    "🤡",
-    "👻",
-    "🎃",
-    "🎩",
-    "🕊",
-]
-
 
 
 
@@ -114,7 +70,7 @@ async def start_pm(client, message: Message, _):
             if await is_on_off(2):
                 return await app.send_message(
                     chat_id=config.LOGGER_ID,
-                    text=f"{message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ ᴛᴏ ᴄʜᴇᴄᴋ <b>sᴜᴅᴏʟɪsᴛ</b>.\n\n<b>ᴜsᴇʀ ɪᴅ :</b> <code>{message.from_user.id}</code>\n<b>ᴜsᴇʀɴᴀᴍᴇ :</b> @{message.from_user.username}",
+                    text=f"✦ {message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ ᴛᴏ ᴄʜᴇᴄᴋ <b>sᴜᴅᴏʟɪsᴛ</b>.\n\n<b>✦ ᴜsᴇʀ ɪᴅ ➠</b> <code>{message.from_user.id}</code>\n<b>✦ ᴜsᴇʀɴᴀᴍᴇ ➠</b> @{message.from_user.username}",
                 )
             return
         if name[0:3] == "inf":
@@ -152,7 +108,7 @@ async def start_pm(client, message: Message, _):
             if await is_on_off(2):
                 return await app.send_message(
                     chat_id=config.LOGGER_ID,
-                    text=f"{message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ ᴛᴏ ᴄʜᴇᴄᴋ <b>ᴛʀᴀᴄᴋ ɪɴғᴏʀᴍᴀᴛɪᴏɴ</b>.\n\n<b>ᴜsᴇʀ ɪᴅ :</b> <code>{message.from_user.id}</code>\n<b>ᴜsᴇʀɴᴀᴍᴇ :</b> @{message.from_user.username}",
+                    text=f"✦ {message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ ᴛᴏ ᴄʜᴇᴄᴋ <b>ᴛʀᴀᴄᴋ ɪɴғᴏʀᴍᴀᴛɪᴏɴ</b>.\n\n✦ <b>ᴜsᴇʀ ɪᴅ ➠</b> <code>{message.from_user.id}</code>\n✦ <b>ᴜsᴇʀɴᴀᴍᴇ ➠</b> @{message.from_user.username}",
                 )
     else:
         out = private_panel(_)
@@ -167,7 +123,7 @@ async def start_pm(client, message: Message, _):
         if await is_on_off(2):
             return await app.send_message(
                 chat_id=config.LOGGER_ID,
-                text=f"{message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ.\n\n<b>ᴜsᴇʀ ɪᴅ :</b> <code>{message.from_user.id}</code>\n<b>ᴜsᴇʀɴᴀᴍᴇ :</b> @{message.from_user.username}",
+                text=f"✦ {message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ.\n\n✦ <b>ᴜsᴇʀ ɪᴅ ➠</b> <code>{message.from_user.id}</code>\n✦ <b>ᴜsᴇʀɴᴀᴍᴇ ➠</b> @{message.from_user.username}",
             )
 
 
@@ -225,3 +181,4 @@ async def welcome(client, message: Message):
                 await message.stop_propagation()
         except Exception as ex:
             print(ex)
+                               
