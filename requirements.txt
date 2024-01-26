@@ -4,8 +4,9 @@ pornhub-api==0.2.0
 aiohttp==3.9.1
 asyncio==3.4.3
 beautifulsoup4
-blackpink
+daxxhub
 deepai
+python-whois
 dnspython
 ffmpeg-python
 gitpython
@@ -37,7 +38,7 @@ spotipy
 tgcrypto
 telegraph
 unidecode
-yt-dlp==2023.11.16
+yt-dlp==2023.12.30
 youtube-search
 youtube-search-python
 gtts
@@ -46,3 +47,6 @@ lexica-api==1.4.7
 httpx==0.25.2
 gpytranslate
 openai==0.28.0
+img2pdf
+pickledb
+python-telegram-bot==20.7
