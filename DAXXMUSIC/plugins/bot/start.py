@@ -47,8 +47,39 @@ YUMI_PICS = [
 "https://telegra.ph/file/4bbdd86219a0d996c6bbf.jpg",
 "https://telegra.ph/file/3d34c6a50a50d48e0090a.jpg",
 "https://telegra.ph/file/46f3c54fc68bb142e57b7.jpg",
-
+"https://telegra.ph//file/f8ba75bdbb9931cbc8229.jpg",
+"https://telegra.ph//file/07bb5f805178ec24871d3.jpg",
+"https://telegra.ph/file/ec0ed654f5f5cefc90f95.jpg",
+"https://telegra.ph/file/f6aa2a3659462401cb600.jpg",
+"https://telegra.ph/file/0c3d91bcf75524a844883.jpg",
+"https://telegra.ph/file/6c5df27e71e074f1c7123.jpg"
+"https://telegra.ph/file/ff2ddc282fe7868e3cf73.jpg",
+"https://telegra.ph/file/6130ea9373d5f60898a52.jpg",
+"https://telegra.ph/file/45e5da1eab8f5892981ca.jpg",
 ]
+
+
+# Random Stickers
+STICKER = [
+    "CAACAgUAAx0CYlaJawABBy4vZaieO6T-Ayg3mD-JP-f0yxJngIkAAv0JAALVS_FWQY7kbQSaI-geBA",
+    "CAACAgUAAx0CYlaJawABBy4rZaid77Tf70SV_CfjmbMgdJyVD8sAApwLAALGXCFXmCx8ZC5nlfQeBA",
+    "CAACAgUAAx0CYlaJawABBy4jZaidvIXNPYnpAjNnKgzaHmh3cvoAAiwIAAIda2lVNdNI2QABHuVVHgQ",
+]
+
+
+EMOJIOS = [
+    "💣",
+    "💥",
+    "🪄",
+    "🧨",
+    "⚡",
+    "🤡",
+    "👻",
+    "🎃",
+    "🎩",
+    "🕊",
+]
+
 
 
 
