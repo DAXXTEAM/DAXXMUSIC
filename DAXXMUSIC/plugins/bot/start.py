@@ -28,7 +28,7 @@ from strings import get_string
 
 
 # Random Start Images
-IMG = [
+YUMI IMG = [
     "https://te.legra.ph/file/5bf629d10afd4af953585.jpg",
     "https://te.legra.ph/file/7a321b99fe99d9d8b5117.jpg",
     "https://te.legra.ph/file/c482a7e55b459ffe07502.jpg",
