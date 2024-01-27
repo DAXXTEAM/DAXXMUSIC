@@ -96,14 +96,13 @@ async def userinfo(_, message):
             )
             await Hiroko.send_photo(chat_id, photo=welcome_photo, caption=f"""
             **𝐔𝚂𝙴𝚁 𝐈𝙽𝙵𝙾𝚁𝙼𝙰𝙽𝚃𝙾𝙽**
-
-            𝐔𝚂𝙴𝚁 𝐈𝙳 ❥︎ `{id}`
-            𝐍𝙰𝙼𝙴❥︎ {name}
-            𝐔𝚂𝙴𝚁𝙽𝙰𝙼𝙴❥︎ @{username}
-            𝐌𝙴𝙽𝚃𝙸𝙾𝙽❥︎ {mention}
-            𝐔𝚂𝙴𝚁 𝐒𝚃𝙰𝚃𝚄𝚂❥︎\n`{status}`\n
-            𝐃𝙲 𝐈𝙳❥︎ {dc_id}
-            𝐁𝙸𝙾❥︎ {bio}
+ 𝐔𝚂𝙴𝚁 𝐈𝙳 ❥︎ `{id}`
+ 𝐍𝙰𝙼𝙴❥︎ {name}
+ 𝐔𝚂𝙴𝚁𝙽𝙰𝙼𝙴❥︎ @{username}
+ 𝐌𝙴𝙽𝚃𝙸𝙾𝙽❥︎ {mention}\n
+ 𝐔𝚂𝙴𝚁 𝐒𝚃𝙰𝚃𝚄𝚂❥︎\n`{status}`\n
+ 𝐃𝙲 𝐈𝙳❥︎ {dc_id}
+ 𝐁𝙸𝙾❥︎ {bio}\n\n
             """, reply_to_message_id=message.id)
         else:
             await Hiroko.send_message(chat_id, text=f"User {user_info.first_name} has no profile photo.")
