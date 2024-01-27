@@ -10,9 +10,6 @@ async def mmf(_, message: Message):
     chat_id = message.chat.id
     reply_message = message.reply_to_message
 
-    if not reply_message.photo or not reply_message.sticker:
-        return await message.reply("**Reply to a Image/Sticker.**")
-
     if len(message.text.split()) < 2:
         await message.reply_text("**Give me text after /mmf to memify.**")
         return
