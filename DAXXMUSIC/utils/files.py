@@ -4,10 +4,10 @@ import os
 from PIL import Image
 from pyrogram import Client, raw
 from pyrogram.file_id import FileId
-
+# ------------------
 STICKER_DIMENSIONS = (512, 512)
 
-
+# -------------------
 async def resize_file_to_sticker_size(file_path: str) -> str:
     im = Image.open(file_path)
     if (im.width, im.height) < STICKER_DIMENSIONS:
