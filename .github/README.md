@@ -2,10 +2,10 @@
 ──「 ᴛʜɪs ʙᴏᴛ ɪs ɴᴏᴛ ᴍɪɴᴇ 」──
 
 <h2 align="center">
-    ──「 𓆩᪵𝐋ᴏᴠᴇʀ ̶꯭𝅥ͦ𝆬🌸 ̶꯭𝅥ͦ𝆬𝐌ᴜsɪᴄ乛 」──
+    ──「 ʟᴏᴠᴇʀ༒︎ᴍᴜsɪᴄ 」──
 </h2>
 <p align="center">
-  <img src="https://te.legra.ph/file/3f8326000d4047c6ba978.jpg">
+  <img src="https://te.legra.ph/file/590f5404cdc7840b63a1c.jpg">
 </p>
 
 <h3 align="center">
