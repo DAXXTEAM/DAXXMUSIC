@@ -11,9 +11,11 @@ async def mmf(_, message: Message):
     reply_message = message.reply_to_message
 
     if not reply_message.media:
-        return await message.reply_text("**Reply to an image/sticker.**")
+        await message.reply_text("**Reply to an image/sticker.**")
+        return
     if len(message.command) < 2:
-        return await message.reply_text("**Give me text after /mmf to memify.**")
+        await message.reply_text("**Give me text after /mmf to memify.**")
+        return
 
     msg = await message.reply_text("**Memifying this image! ✊🏻**")
     text = message.text.split(None, 1)[1]
