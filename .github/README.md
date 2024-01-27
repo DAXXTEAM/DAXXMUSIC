@@ -2,7 +2,7 @@
 ──「 ᴛʜɪs ʙᴏᴛ ɪs ɴᴏᴛ ᴍɪɴᴇ 」──
 
 <h2 align="center">
-    ──「 ᴍᴜsɪᴄ🦋ʙᴏᴛ 」──
+    ──「 𓆩᪵𝐋ᴏᴠᴇʀ ̶꯭𝅥ͦ𝆬🌸 ̶꯭𝅥ͦ𝆬𝐌ᴜsɪᴄ乛 」──
 </h2>
 <p align="center">
   <img src="https://te.legra.ph/file/3f8326000d4047c6ba978.jpg">
