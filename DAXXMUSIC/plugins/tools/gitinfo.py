@@ -1,17 +1,18 @@
 import asyncio, os, time, aiohttp
 import aiohttp
 from pyrogram import filters
-from blackpink import blackpink as bp
+from daxxhub import daxxhub as papadaxx
 from DAXXMUSIC import app
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 ###
 @app.on_message(filters.command("blackpink"))
-async def blackpink(_, message):
-    text = message.text[len("/blackpink ") :]
-    bp(f"{text}").save(f"blackpink_{message.from_user.id}.png")
-    await message.reply_photo(f"blackpink_{message.from_user.id}.png")
-    os.remove(f"blackpink_{message.from_user.id}.png")
+async def daxxhub(_, message):
+    text = message.text[len("/daxxhub") :]
+    papadaxx(f"{text}").save(f"daxxhub_{message.from_user.id}.png")
+    await message.reply_photo(f"daxxhub_{message.from_user.id}.png")
+    os.remove(f"daxxhub_{message.from_user.id}.png")
+
 
 ####
 
@@ -27,7 +28,7 @@ async def github(_, message):
     async with aiohttp.ClientSession() as session:
         async with session.get(URL) as request:
             if request.status == 404:
-                return await message.reply_text("404")
+                return await message.reply_text("ʟᴏᴅᴇ ɢɪᴛʜᴜʙ ᴜsᴇʀɴᴀᴍᴇ ᴠᴀʟɪᴅ ᴡᴀʟᴀ ᴅᴀᴀʟ.")
 
             result = await request.json()
 
@@ -58,15 +59,16 @@ async def github(_, message):
 ๏ ғᴏʟʟᴏᴡᴇʀs ➠ {followers}
 ๏ ғᴏʟʟᴏᴡɪɴɢ ➠ {following}
 
-๏ ᴍᴀᴅᴇ ʙʏ ➛ [●⏤͟͟͞͞𓆩×͜ 𝗔꯭፝֟𝗻꯭𓋜𝗸꯭𝗵𝗶꯭°🌸᪳𝆺꯭𝅥](https://t.me/ANOKHI_TG)"""
+๏ ᴍᴀᴅᴇ ʙʏ ➠ [ᴍʀ-ᴇᴅɪᴛx](https://t.me/mr_editx)"""
 
             except Exception as e:
                 print(str(e))
                 pass
 
     # Create an inline keyboard with a close button
-    close_button = InlineKeyboardButton("Close", callback_data="close")
+    close_button = InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="close")
     inline_keyboard = InlineKeyboardMarkup([[close_button]])
 
     # Send the message with the inline keyboard
     await message.reply_photo(photo=avatar_url, caption=caption, reply_markup=inline_keyboard)
+            
