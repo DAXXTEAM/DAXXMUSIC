@@ -7,8 +7,9 @@ from pyrogram.types import (
     InlineKeyboardMarkup,
     Message,
 )
-
+from pyrogram.types import InputMediaVideo
 from DAXXMUSIC import app
+import random
 from DAXXMUSIC.utils.database import (
     add_nonadmin_chat,
     get_authuser,
@@ -388,3 +389,17 @@ async def vote_change(client, CallbackQuery, _):
         )
     except MessageNotModified:
         return
+
+
+@app.on_callback_query(filters.regex("gib_source"))
+async def gib_repo_callback(_, callback_query):
+    await callback_query.edit_message_media(
+        media=InputMediaVideo("https://te.legra.ph/file/b5cde2e89ef3b5eac5f75.mp4", has_spoiler=True),
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [close_button]
+            ]
+        ),
+    )
+
+close_button = InlineKeyboardButton("• ᴄʟᴏsᴇ •", callback_data="close")
