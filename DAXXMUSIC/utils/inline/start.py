@@ -30,8 +30,8 @@ def private_panel(_):
         ],
         [
             InlineKeyboardButton(text=_["S_B_6"], url=config.SUPPORT_CHAT),
-            InlineKeyboardButton(text=_["S_B_7"], url="https://graph.org/file/fd125a3550dc376f62797.mp4"),
-        ],
+            InlineKeyboardButton(text=_["S_B_7"], callback_data="gib_source"),
+        ]
         [
             InlineKeyboardButton(text=_["S_B_4"], callback_data="settings_back_helper"),
         ],
