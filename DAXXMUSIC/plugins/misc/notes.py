@@ -42,7 +42,7 @@ async def _getnote(client, message):
 
 @app.on_message(filters.regex(pattern=(r"^#[^\s]+")) & filters.group)
 async def regex_get_note(client, message):
-    chat_id = "-1001802990747"
+    chat_id = message.chat.id
     if message.from_user:
         note_name = message.text.split()[0].replace('#', '')
         if await isNoteExist(chat_id, note_name):
@@ -170,7 +170,7 @@ async def ClearAllCallback(client, callback_query: CallbackQuery):
 @app.on_message(filters.command(['notes', 'saved']) & filters.group)
 async def Notes(client, message):
     
-    chat_id = "-1001802990747"
+    chat_id = message.chat.id
     chat_title = message.chat.title
 
     Notes_list = await NoteList(chat_id)
