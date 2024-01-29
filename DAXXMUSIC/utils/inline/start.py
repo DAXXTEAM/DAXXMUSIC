@@ -29,7 +29,8 @@ def private_panel(_):
             InlineKeyboardButton(text=_["S_B_10"], url=config.SUPPORT_CHANNEL),
         ],
         [
-            InlineKeyboardButton(text=_["S_B_6"], url=config.SUPPORT_CHAT),
+            InlineKeyboardButton(text="support chat",
+url=f"https://t.me/funny"),
             InlineKeyboardButton(text="source", callback_data="gib_source"),
         ]
         [
