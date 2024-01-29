@@ -1,11 +1,25 @@
-import asyncio
+import asyncio, os, time, aiohttp
+from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
+from asyncio import sleep
+from DAXXMUSIC import app
 from pyrogram import filters, Client, enums
+from pyrogram.enums import ParseMode
 from pyrogram.types import *
 from typing import Union, Optional
-from DAXXMUSIC import app as Hiroko 
+import random
 
-# Function to get font and resize text
+random_photo = [
+    "https://telegra.ph/file/1949480f01355b4e87d26.jpg",
+    "https://telegra.ph/file/3ef2cc0ad2bc548bafb30.jpg",
+    "https://telegra.ph/file/a7d663cd2de689b811729.jpg",
+    "https://telegra.ph/file/6f19dc23847f5b005e922.jpg",
+    "https://telegra.ph/file/2973150dd62fd27a3a6ba.jpg",
+]
+
+# --------------------------------------------------------------------------------- #
+
+
 get_font = lambda font_size, font_path: ImageFont.truetype(font_path, font_size)
 resize_text = (
     lambda text_size, text: (text[:text_size] + "...").upper()
@@ -13,11 +27,13 @@ resize_text = (
     else text.upper()
 )
 
+# --------------------------------------------------------------------------------- #
+
 
 async def get_userinfo_img(
     bg_path: str,
     font_path: str,
-    user_id: Union[int, str],
+    user_id: Union[int, str],    
     profile_path: Optional[str] = None
 ):
     bg = Image.open(bg_path)
@@ -42,69 +58,157 @@ async def get_userinfo_img(
         fill=(255, 255, 255),
     )
 
+
     path = f"./userinfo_img_{user_id}.png"
     bg.save(path)
     return path
+   
 
-# Function to get user status
+# --------------------------------------------------------------------------------- #
+
+bg_path = "DAXXMUSIC/assets/userinfo.png"
+font_path = "DAXXMUSIC/assets/hiroko.ttf"
+
+# --------------------------------------------------------------------------------- #
+
+
+INFO_TEXT = """**
+❅─────✧❅✦❅✧─────❅
+            ✦ ᴜsᴇʀ ɪɴғᴏ ✦
+
+➻ ᴜsᴇʀ ɪᴅ ‣ **`{}`
+**➻ ғɪʀsᴛ ɴᴀᴍᴇ ‣ **{}
+**➻ ʟᴀsᴛ ɴᴀᴍᴇ ‣ **{}
+**➻ ᴜsᴇʀɴᴀᴍᴇ ‣ **`{}`
+**➻ ᴍᴇɴᴛɪᴏɴ ‣ **{}
+**➻ ʟᴀsᴛ sᴇᴇɴ ‣ **{}
+**➻ ᴅᴄ ɪᴅ ‣ **{}
+**➻ ʙɪᴏ ‣ **`{}`
+
+**❅─────✧❅✦❅✧─────❅**
+"""
+
+# --------------------------------------------------------------------------------- #
+
 async def userstatus(user_id):
-    try:
-        user = await Hiroko.get_users(user_id)
-        x = user.status
-        if x == enums.UserStatus.RECENTLY:
-            return "User was seen recently."
-        elif x == enums.UserStatus.LAST_WEEK:
-            return "User was seen last week."
-        elif x == enums.UserStatus.LONG_AGO:
-            return "User was seen long ago."
-        elif x == enums.UserStatus.OFFLINE:
-            return "User is offline."
-        elif x == enums.UserStatus.ONLINE:
-            return "User is online."
-    except:
-        return "**Something went wrong!**"
+   try:
+      user = await app.get_users(user_id)
+      x = user.status
+      if x == enums.UserStatus.RECENTLY:
+         return "Recently."
+      elif x == enums.UserStatus.LAST_WEEK:
+          return "Last week."
+      elif x == enums.UserStatus.LONG_AGO:
+          return "Long time ago."
+      elif x == enums.UserStatus.OFFLINE:
+          return "Offline."
+      elif x == enums.UserStatus.ONLINE:
+         return "Online."
+   except:
+        return "**sᴏᴍᴇᴛʜɪɴɢ ᴡʀᴏɴɢ ʜᴀᴘᴘᴇɴᴇᴅ !**"
+    
 
-# Command handler for /info and /userinfo
-@Hiroko.on_message(filters.command(["info", "userinfo"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
+# --------------------------------------------------------------------------------- #
+
+
+
+@app.on_message(filters.command(["info", "userinfo"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
 async def userinfo(_, message):
     chat_id = message.chat.id
     user_id = message.from_user.id
-
-    try:
-        if not message.reply_to_message and len(message.command) == 2:
+    
+    if not message.reply_to_message and len(message.command) == 2:
+        try:
             user_id = message.text.split(None, 1)[1]
-        elif message.reply_to_message:
-            user_id = message.reply_to_message.from_user.id
+            user_info = await app.get_chat(user_id)
+            user = await app.get_users(user_id)
+            status = await userstatus(user.id)
+            id = user_info.id
+            dc_id = user.dc_id
+            first_name = user_info.first_name 
+            last_name = user_info.last_name if user_info.last_name else "No last name"
+            username = user_info.username if user_info.username else "No Username"
+            mention = user.mention
+            bio = user_info.bio if user_info.bio else "No bio set"
+            
+            if user.photo:
+                # User has a profile photo
+                photo = await app.download_media(user.photo.big_file_id)
+                welcome_photo = await get_userinfo_img(
+                    bg_path=bg_path,
+                    font_path=font_path,
+                    user_id=user.id,
+                    profile_path=photo,
+                )
+            else:
+                # User doesn't have a profile photo, use random_photo directly
+                welcome_photo = random.choice(random_photo)
+                
+            await app.send_photo(chat_id, photo=welcome_photo, caption=INFO_TEXT.format(
+                id, first_name, last_name, username, mention, status, dc_id, bio), reply_to_message_id=message.id)
+        except Exception as e:
+            await message.reply_text(str(e))        
+      
+    elif not message.reply_to_message:
+        try:
+            user_info = await app.get_chat(user_id)
+            user = await app.get_users(user_id)
+            status = await userstatus(user.id)
+            id = user_info.id
+            dc_id = user.dc_id
+            first_name = user_info.first_name 
+            last_name = user_info.last_name if user_info.last_name else "No last name"
+            username = user_info.username if user_info.username else "No Username"
+            mention = user.mention
+            bio = user_info.bio if user_info.bio else "No bio set"
+            
+            if user.photo:
+                # User has a profile photo
+                photo = await app.download_media(user.photo.big_file_id)
+                welcome_photo = await get_userinfo_img(
+                    bg_path=bg_path,
+                    font_path=font_path,
+                    user_id=user.id,
+                    profile_path=photo,
+                )
+            else:
+                # User doesn't have a profile photo, use random_photo directly
+                welcome_photo = random.choice(random_photo)
+                
+            await app.send_photo(chat_id, photo=welcome_photo, caption=INFO_TEXT.format(
+                id, first_name, last_name, username, mention, status, dc_id, bio), reply_to_message_id=message.id)
+        except Exception as e:
+            await message.reply_text(str(e))
 
-        user_info = await Hiroko.get_chat(user_id)
-        user = await Hiroko.get_users(user_id)
-        status = await userstatus(user.id)
-        id = user_info.id
-        dc_id = user.dc_id
-        name = user_info.first_name
-        username = user_info.username
-        mention = user.mention
-        bio = user_info.bio
-
-        if user.photo and user.photo.big_file_id:
-            photo = await Hiroko.download_media(user.photo.big_file_id)
-            welcome_photo = await get_userinfo_img(
-                bg_path="DAXXMUSIC/assets/userinfo.png",
-                font_path="DAXXMUSIC/assets/hiroko.ttf",
-                user_id=user_id,
-                profile_path=photo,
-            )
-            await Hiroko.send_photo(chat_id, photo=welcome_photo, caption=f"""
-            **𝐔𝚂𝙴𝚁 𝐈𝙽𝙵𝙾𝚁𝙼𝙰𝙽𝚃𝙾𝙽**
- 𝐔𝚂𝙴𝚁 𝐈𝙳 ❥︎ `{id}`
- 𝐍𝙰𝙼𝙴❥︎ {name}
- 𝐔𝚂𝙴𝚁𝙽𝙰𝙼𝙴❥︎ @{username}
- 𝐌𝙴𝙽𝚃𝙸𝙾𝙽❥︎ {mention}\n
- 𝐔𝚂𝙴𝚁 𝐒𝚃𝙰𝚃𝚄𝚂❥︎\n`{status}`\n
- 𝐃𝙲 𝐈𝙳❥︎ {dc_id}
- 𝐁𝙸𝙾❥︎ {bio}\n\n
-            """, reply_to_message_id=message.id)
-        else:
-            await Hiroko.send_message(chat_id, text=f"User {user_info.first_name} has no profile photo.")
-    except Exception as e:
-        await message.reply_text(str(e))
+    elif message.reply_to_message:
+        user_id = message.reply_to_message.from_user.id
+        try:
+            user_info = await app.get_chat(user_id)
+            user = await app.get_users(user_id)
+            status = await userstatus(user.id)
+            id = user_info.id
+            dc_id = user.dc_id
+            first_name = user_info.first_name 
+            last_name = user_info.last_name if user_info.last_name else "No last name"
+            username = user_info.username if user_info.username else "No Username"
+            mention = user.mention
+            bio = user_info.bio if user_info.bio else "No bio set"
+            
+            if user.photo:
+                # User has a profile photo
+                photo = await app.download_media(user.photo.big_file_id)
+                welcome_photo = await get_userinfo_img(
+                    bg_path=bg_path,
+                    font_path=font_path,
+                    user_id=user.id,
+                    profile_path=photo,
+                )
+            else:
+                # User doesn't have a profile photo, use random_photo directly
+                welcome_photo = random.choice(random_photo)
+                
+            await app.send_photo(chat_id, photo=welcome_photo, caption=INFO_TEXT.format(
+                id, first_name, last_name, username, mention, status, dc_id, bio), reply_to_message_id=message.id)
+        except Exception as e:
+            await message.reply_text(str(e))
+                
