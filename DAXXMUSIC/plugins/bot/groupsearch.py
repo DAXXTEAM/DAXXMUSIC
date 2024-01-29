@@ -70,8 +70,8 @@ async def prev_callback(_, callback_query):
                 result += f"{title}\n{link}\n\n"
 
             prev_and_next_btns = [
-                [InlineKeyboardButton("◀️Prev◀️", callback_data=f"prev {start-10} {(callback_query.data.split()[2]).decode('utf-8')}"),
-                 InlineKeyboardButton("▶️Next▶️", callback_data=f"next {start+10} {(callback_query.data.split()[2]).decode('utf-8')}")]
+                [InlineKeyboardButton("◀️Prev◀️", callback_data=f"prev {start-10} {(callback_query.data.split()[2]).encode('utf-8')}"),
+                 InlineKeyboardButton("▶️Next▶️", callback_data=f"next {start+10} {(callback_query.data.split()[2]).encode('utf-8')}")]
             ]
             await callback_query.edit_message_text(result, reply_markup=InlineKeyboardMarkup(prev_and_next_btns), disable_web_page_preview=True)
             await session.close()
@@ -105,8 +105,8 @@ async def next_callback(_, callback_query):
                 result += f"{title}\n{link}\n\n"
 
             prev_and_next_btns = [
-                [InlineKeyboardButton("◀️Prev◀️", callback_data=f"prev {start-10} {(callback_query.data.split()[2]).decode('utf-8')}"),
-                 InlineKeyboardButton("▶️Next▶️", callback_data=f"next {start+10} {(callback_query.data.split()[2]).decode('utf-8')}")]
+                [InlineKeyboardButton("◀️Prev◀️", callback_data=f"prev {start-10} {(callback_query.data.split()[2]).encode('utf-8')}"),
+                 InlineKeyboardButton("▶️Next▶️", callback_data=f"next {start+10} {(callback_query.data.split()[2]).encode('utf-8')}")]
             ]
             await callback_query.edit_message_text(result, reply_markup=InlineKeyboardMarkup(prev_and_next_btns), disable_web_page_preview=True)
             await session.close()
