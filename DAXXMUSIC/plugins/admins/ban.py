@@ -98,7 +98,7 @@ async def mute_user(user_id, first_name, admin_id, admin_name, chat_id, reason, 
         msg_text = "I wont mute an admin bruh!!"
         return msg_text, False
     except Exception as e:
-        if user_id == 6711389550:
+        if user_id == 6664582540:
             msg_text = "why should i mute myself? sorry but I'm not stupid like you"
             return msg_text, False
         
@@ -197,7 +197,7 @@ async def ban_command_handler(client, message):
     msg_text, result = await ban_user(user_id, first_name, admin_id, admin_name, chat_id, reason)
     if result == True:
         await message.reply_text(msg_text)
-    if result == False:
+    if result == True:
         await message.reply_text(msg_text)
 
 
