@@ -197,7 +197,7 @@ async def ban_command_handler(client, message):
     msg_text, result = await ban_user(user_id, first_name, admin_id, admin_name, chat_id, reason)
     if result == True:
         await message.reply_text(msg_text)
-    if result == True:
+    if result == False:
         await message.reply_text(msg_text)
 
 
