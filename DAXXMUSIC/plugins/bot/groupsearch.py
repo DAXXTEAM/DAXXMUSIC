@@ -5,14 +5,17 @@ import re
 import os
 from DAXXMUSIC import app
 
-
 @app.on_message(filters.command("tg"))
 async def search_command(_, message):
+    if len(message.text.split()) < 2:
+        return await message.reply("Please provide a search query.")
+
     msg = await message.reply("Searching...")
     async with aiohttp.ClientSession() as session:
         start = 1
+        search_query = message.text.split()[1]
         async with session.get(
-            f"https://content-customsearch.googleapis.com/customsearch/v1?cx=ec8db9e1f9e41e65e&q={message.text.split()[1]}&key=AIzaSyAa8yy0GdcGPHdtD083HiGGx_S0vMPScDM&start={start}",
+            f"https://content-customsearch.googleapis.com/customsearch/v1?cx=ec8db9e1f9e41e65e&q={search_query}&key=AIzaSyAa8yy0GdcGPHdtD083HiGGx_S0vMPScDM&start={start}",
             headers={"x-referer": "https://explorer.apis.google.com"},
         ) as r:
             response = await r.json()
@@ -36,18 +39,18 @@ async def search_command(_, message):
                 result += f"{title}\n{link}\n\n"
 
             prev_and_next_btns = [
-                [InlineKeyboardButton("▶️Next▶️", callback_data=f"next {start+10} {message.text.split()[1]}")]
+                [InlineKeyboardButton("▶️Next▶️", callback_data=f"next {start+10} {search_query}")]
             ]
             await msg.edit(result, reply_markup=InlineKeyboardMarkup(prev_and_next_btns), disable_web_page_preview=True)
             await session.close()
 
-
 @app.on_callback_query(filters.regex(r"prev (.*) (.*)"))
 async def prev_callback(_, callback_query):
     start = int(callback_query.data.split()[1])
+    search_query = callback_query.data.split()[2]
     async with aiohttp.ClientSession() as session:
         async with session.get(
-            f"https://content-customsearch.googleapis.com/customsearch/v1?cx=ec8db9e1f9e41e65e&q={(callback_query.data.split()[2]).encode('utf-8')}&key=AIzaSyAa8yy0GdcGPHdtD083HiGGx_S0vMPScDM&start={start}",
+            f"https://content-customsearch.googleapis.com/customsearch/v1?cx=ec8db9e1f9e41e65e&q={search_query}&key=AIzaSyAa8yy0GdcGPHdtD083HiGGx_S0vMPScDM&start={start}",
             headers={"x-referer": "https://explorer.apis.google.com"},
         ) as r:
             response = await r.json()
@@ -70,19 +73,19 @@ async def prev_callback(_, callback_query):
                 result += f"{title}\n{link}\n\n"
 
             prev_and_next_btns = [
-                [InlineKeyboardButton("◀️Prev◀️", callback_data=f"prev {start-10} {(callback_query.data.split()[2]).encode('utf-8')}"),
-                 InlineKeyboardButton("▶️Next▶️", callback_data=f"next {start+10} {(callback_query.data.split()[2]).encode('utf-8')}")]
+                [InlineKeyboardButton("◀️Prev◀️", callback_data=f"prev {start-10} {search_query}"),
+                 InlineKeyboardButton("▶️Next▶️", callback_data=f"next {start+10} {search_query}")]
             ]
             await callback_query.edit_message_text(result, reply_markup=InlineKeyboardMarkup(prev_and_next_btns), disable_web_page_preview=True)
             await session.close()
 
-
 @app.on_callback_query(filters.regex(r"next (.*) (.*)"))
 async def next_callback(_, callback_query):
     start = int(callback_query.data.split()[1])
+    search_query = callback_query.data.split()[2]
     async with aiohttp.ClientSession() as session:
         async with session.get(
-            f"https://content-customsearch.googleapis.com/customsearch/v1?cx=ec8db9e1f9e41e65e&q={(callback_query.data.split()[2]).encode('utf-8')}&key=AIzaSyAa8yy0GdcGPHdtD083HiGGx_S0vMPScDM&start={start}",
+            f"https://content-customsearch.googleapis.com/customsearch/v1?cx=ec8db9e1f9e41e65e&q={search_query}&key=AIzaSyAa8yy0GdcGPHdtD083HiGGx_S0vMPScDM&start={start}",
             headers={"x-referer": "https://explorer.apis.google.com"},
         ) as r:
             response = await r.json()
@@ -105,8 +108,9 @@ async def next_callback(_, callback_query):
                 result += f"{title}\n{link}\n\n"
 
             prev_and_next_btns = [
-                [InlineKeyboardButton("◀️Prev◀️", callback_data=f"prev {start-10} {(callback_query.data.split()[2]).encode('utf-8')}"),
-                 InlineKeyboardButton("▶️Next▶️", callback_data=f"next {start+10} {(callback_query.data.split()[2]).encode('utf-8')}")]
+                [InlineKeyboardButton("◀️Prev◀️", callback_data=f"prev {start-10} {search_query}"),
+                 InlineKeyboardButton("▶️Next▶️", callback_data=f"next {start+10} {search_query}")]
             ]
             await callback_query.edit_message_text(result, reply_markup=InlineKeyboardMarkup(prev_and_next_btns), disable_web_page_preview=True)
             await session.close()
+                    
