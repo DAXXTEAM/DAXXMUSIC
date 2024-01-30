@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 from DAXXMUSIC import app
 import pytgcalls
 import os, yt_dlp 
-from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
+from pyrogram.types import CallbackQuery, InlineKeyboardMarkup, InputMediaPhoto, Message
 from pytgcalls.types import AudioVideoPiped
 from DAXXMUSIC.plugins.play import play
 from DAXXMUSIC.plugins.play.pornplay import play
