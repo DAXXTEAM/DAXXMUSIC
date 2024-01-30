@@ -93,7 +93,7 @@ async def play_commnd(
         if message.reply_to_message
         else None
     )
-    elif audio_telegram:
+    if audio_telegram:
         if audio_telegram.file_size > 104857600:
             return await mystic.edit_text(_["play_5"])
         duration_min = seconds_to_min(audio_telegram.duration)
