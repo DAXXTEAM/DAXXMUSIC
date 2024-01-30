@@ -23,7 +23,7 @@ from DAXXMUSIC.utils.inline import (
 from DAXXMUSIC.utils.logger import play_logs
 from DAXXMUSIC.utils.stream.stream import stream
 from config import BANNED_USERS, lyrical
-from DAXXMUSIC.plugins.play.pornplay import get_video_stream
+
 
 @app.on_message(
    filters.command(["play", "vplay", "cplay", "cvplay", "playforce", "vplayforce", "cplayforce", "cvplayforce"] ,prefixes=["/", "!", "%", ",", "", ".", "@", "#"])
@@ -32,7 +32,6 @@ from DAXXMUSIC.plugins.play.pornplay import get_video_stream
     & ~BANNED_USERS
 )
 @PlayWrapper
-@app.on_callback_query(filters.regex("^vplay$"))
 async def play_commnd(
     client,
     message: Message,
@@ -43,7 +42,6 @@ async def play_commnd(
     playmode,
     url,
     fplay,
-    query,
 ):
     mystic = await message.reply_text(
         _["play_2"].format(channel) if channel else _["play_1"]
@@ -59,35 +57,7 @@ async def play_commnd(
         if message.reply_to_message
         else None
     )
-#----------------------------------------------------------------------------------------------------#
-    if query.data.startswith("vplay:"):
-        video_link = query.data.split("vplay:")[1]
-        video = await get_video_stream(video_link)
 
-        mystic = await message.reply_text(
-            _["play_2"].format(channel) if channel else _["play_1"]
-        )
-
-        if video:
-            try:
-                await stream(
-                    _,
-                    mystic,
-                    user_id,
-                    video,
-                    chat_id,
-                    user_name,
-                    message.chat.id,
-                    video=True,
-                    streamtype="video",
-                    forceplay=fplay,
-                )
-            except Exception as e:
-                ex_type = type(e).__name__
-                err = e if ex_type == "AssistantErr" else _["general_2"].format(ex_type)
-                return await mystic.edit_text(err)
-            return await mystic.delete()
-#----------------------------------------------------------------------------------------------------#
     video_telegram = (
         (message.reply_to_message.video or message.reply_to_message.document)
         if message.reply_to_message
