@@ -30,4 +30,5 @@ async def toggle_echo(client, message):
 async def echo(client, message):
     chat_id = message.chat.id
     if chat_id in echo_status and echo_status[chat_id]:
-    await message.reply(chat_id, message.text)
+        await message.reply(message.text)
+
