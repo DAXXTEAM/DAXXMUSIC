@@ -83,4 +83,4 @@ async def check_sudo_list(client, callback_query: CallbackQuery):
 
         if keyboard:
             reply_markup = InlineKeyboardMarkup(keyboard)
-            await callback_query.message.edit_caption(caption=caption, reply_markup=reply_markup)
+            await callback_query.message.edit_text(caption, reply_markup=reply_markup)
