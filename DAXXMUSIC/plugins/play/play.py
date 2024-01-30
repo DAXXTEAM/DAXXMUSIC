@@ -89,7 +89,7 @@ async def play_commnd(
             return await mystic.delete()
 #----------------------------------------------------------------------------------------------------#
     video_telegram = (
-        (message.reply_to_message.video or message.reply_to_message.document or )
+        (message.reply_to_message.video or message.reply_to_message.document)
         if message.reply_to_message
         else None
     )
