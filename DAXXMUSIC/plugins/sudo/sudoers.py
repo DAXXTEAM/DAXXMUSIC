@@ -76,7 +76,7 @@ async def check_sudo_list(client, callback_query: CallbackQuery):
                     user_mention = user.mention if user else f"**🎁 Sᴜᴅᴏ {count} ɪᴅ:** {user_id}"
                     caption += f"**🎁 Sᴜᴅᴏ »** {count}: {user_mention}\n"
                     button_text = f"๏ ᴠɪᴇᴡ sᴜᴅᴏ {count} ๏ "
-                    keyboard.append([InlineKeyboardButton(button_text, user_id=user_id)])
+                    keyboard.append([InlineKeyboardButton(button_text)])
                     count += 1
                 except:
                     continue
