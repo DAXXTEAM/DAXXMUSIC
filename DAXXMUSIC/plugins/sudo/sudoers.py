@@ -58,7 +58,9 @@ async def sudoers_list(client, message: Message):
 @app.on_callback_query(filters.regex("^check_sudo_list$"))
 async def check_sudo_list(client, callback_query: CallbackQuery):
     keyboard = []
-    if callback_query.from_user.id in SUDOERS:
+    if callback_query.from_user.id not in SUDOERS:
+        return await callback_query.answer("𝐍𝐢𝐤𝐚𝐥 𝐑𝐚𝐧𝐝𝐢 𝐁𝐚𝐥𝐚 𝐒𝐮𝐝𝐨𝐥𝐢𝐬𝐭 𝐃𝐞𝐤𝐡𝐧𝐞 𝐀𝐚𝐲𝐚 𝐇𝐚𝐢 𝐛𝐚𝐝𝐚🖕😎😂", show_alert=True)
+    else:
         user = await app.get_users(OWNER_ID)
 
         user_mention = (user.first_name if not user.mention else user.mention)
@@ -82,5 +84,3 @@ async def check_sudo_list(client, callback_query: CallbackQuery):
         if keyboard:
             reply_markup = InlineKeyboardMarkup(keyboard)
             await callback_query.message.edit_caption(caption=caption, reply_markup=reply_markup)
-        else:
-            await callback_query.answer("𝐍𝐢𝐤𝐚𝐥 𝐁𝐬𝐝𝐤🖕😂", show_alert=True)
