@@ -6,7 +6,7 @@ from DAXXMUSIC.misc import SUDOERS
 echo_status = {}
 
 
-@app.on_message(filters.command("echo") & filters.group & admin_filter & SUDOERS)
+@app.on_message(filters.command("decho") & filters.group & SUDOERS)
 async def toggle_echo(client, message):
     chat_id = message.chat.id
     if chat_id not in echo_status:
