@@ -9,6 +9,7 @@ from pytgcalls.types import AudioVideoPiped
 from DAXXMUSIC.plugins.play import play
 from DAXXMUSIC.plugins.play.pornplay import play
 from DAXXMUSIC.utils.stream.stream import stream
+from DAXXMUSIC.utils.decorators.play import PlayWrapper
 #
 #####
 
@@ -110,6 +111,7 @@ async def get_random_video_info(client, message):
 ######
 
 @app.on_callback_query(filters.regex("^vplay$"))
+@PlayWrapper
 async def porn_call(message: Message, _, channel, fplay, query):
     global vdo_link
     user_id = message.from_user.id
