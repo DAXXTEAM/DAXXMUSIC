@@ -29,7 +29,7 @@ def private_panel(_):
             InlineKeyboardButton(text=_["S_B_10"], url=config.SUPPORT_CHANNEL),
         ],
         [
-            InlineKeyboardButton(text="sᴜᴘᴘᴏʀᴛ", url=f"https://t.me/funny"),
+            InlineKeyboardButton(text="sᴜᴘᴘᴏʀᴛ", url=f"https://t.me/IND_PAWAN"),
             InlineKeyboardButton(text="ʀᴇᴘᴏ", callback_data="gib_source"),
         ],  # Added comma here
         [
