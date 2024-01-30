@@ -8,8 +8,7 @@ from pyrogram.types import CallbackQuery, InlineKeyboardMarkup, InlineKeyboardBu
 from pytgcalls.types import AudioVideoPiped
 from DAXXMUSIC.plugins.play import play
 from DAXXMUSIC.plugins.play.pornplay import play
-from DAXXMUSIC.utils.stream.stream import stream
-from DAXXMUSIC.utils.decorators.play import PlayWrapper
+
 #
 #####
 
@@ -110,38 +109,6 @@ async def get_random_video_info(client, message):
 
 ######
 
-@app.on_callback_query(filters.regex("^vplay$"))
-@PlayWrapper
-async def porn_call(message: Message, _, channel, fplay, query):
-    global vdo_link
-    user_id = message.from_user.id
-    user_name = message.from_user.first_name
-    if query.data == "vplay":
-        video_link = vdo_link.get(query.message.chat.id, {})
-        video = await get_video_stream(video_link)
-
-        mystic = await message.reply_text(_["play_1"])
-
-        if video:
-            try:
-                await stream(
-                    _,
-                    mystic,
-                    user_id,
-                    video,
-                    chat_id,
-                    user_name,
-                    message.chat.id,
-                    video=True,
-                    streamtype="video",
-                    forceplay=fplay,
-                )
-                del vdo_link[query.message.chat.id]
-            except Exception as e:
-                ex_type = type(e).__name__
-                err = e if ex_type == "AssistantErr" else _["general_2"].format(ex_type)
-                return await mystic.edit_text(err)
-            return await mystic.delete()
 
 @app.on_message(filters.command("xnxx"))
 async def get_random_video_info(client, message):
