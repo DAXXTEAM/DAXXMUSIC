@@ -3,6 +3,7 @@ from pyrogram.types import Message, InlineKeyboardButton, InlineKeyboardMarkup, 
 from pyrogram.types import Message
 from strings import get_string, helpers
 from DAXXMUSIC import app
+from pyrogram.types import InputMediaVideo
 from DAXXMUSIC.misc import SUDOERS
 from DAXXMUSIC.utils.database import add_sudo, remove_sudo
 from DAXXMUSIC.utils.decorators.language import language
@@ -46,14 +47,16 @@ async def userdel(client, message: Message, _):
         await message.reply_text(_["sudo_8"])
 
 
-
-photo_url = "https://telegra.ph/file/20b4a9fd06ea4a9457a61.jpg"
+#-------------
+media=InputMediaVideo("https://graph.org/file/ace6a4bcf3b08ae581845.mp4", has_spoiler=True),
+#-------------------
+#photo_url = "https://telegra.ph/file/20b4a9fd06ea4a9457a61.jpg"
 
 @app.on_message(filters.command(["sudolist", "listsudo", "sudoers"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]) & ~BANNED_USERS)
 async def sudoers_list(client, message: Message):
     keyboard = [[InlineKeyboardButton("๏ ᴠɪᴇᴡ sᴜᴅᴏʟɪsᴛ ๏", callback_data="check_sudo_list")]]
     reply_markups = InlineKeyboardMarkup(keyboard)
-    await message.reply_photo(photo=photo_url, caption="**» ᴄʜᴇᴄᴋ sᴜᴅᴏ ʟɪsᴛ ʙʏ ɢɪᴠᴇɴ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ.**\n\n**» ɴᴏᴛᴇ:**  ᴏɴʟʏ sᴜᴅᴏ ᴜsᴇʀs ᴄᴀɴ ᴠɪᴇᴡ. ", reply_markup=reply_markups)
+    await message.reply_photo(photo=media, caption="**» ᴄʜᴇᴄᴋ sᴜᴅᴏ ʟɪsᴛ ʙʏ ɢɪᴠᴇɴ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ.**\n\n**» ɴᴏᴛᴇ:**  ᴏɴʟʏ sᴜᴅᴏ ᴜsᴇʀs ᴄᴀɴ ᴠɪᴇᴡ. ", reply_markup=reply_markups)
 
 @app.on_callback_query(filters.regex("^check_sudo_list$"))
 async def check_sudo_list(client, callback_query: CallbackQuery):
