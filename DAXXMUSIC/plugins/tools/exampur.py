@@ -4,7 +4,7 @@ import requests
 from pyrogram import filters
 from pyromod import listen
 from pyrogram import Client, filters
-from pyrogram.types import Message
+from pyrogram.types import *
 import cloudscraper
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import unpad
@@ -13,7 +13,7 @@ from DAXXMUSIC import app
 
 
 @app.on_message(filters.command(["exampur"]))
-async def account_login(_, message: Message):
+async def account_login(_, message):
     global cancel
     cancel = False
     rwa_url = "https://auth.exampurcache.xyz/auth/login"
