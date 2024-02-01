@@ -3,6 +3,8 @@ import os
 import requests
 from pyrogram import filters
 from pyromod import listen
+from pyrogram import *
+from pyrogram.types import *
 import cloudscraper
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import unpad
