@@ -13,7 +13,7 @@ from DAXXMUSIC import app
 
 
 @app.on_message(filters.command(["exampur"]))
-async def account_login(_, Message):
+async def account_login(_, message: Message):
     global cancel
     cancel = False
     rwa_url = "https://auth.exampurcache.xyz/auth/login"
