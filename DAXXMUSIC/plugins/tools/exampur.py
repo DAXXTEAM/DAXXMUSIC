@@ -13,7 +13,7 @@ from DAXXMUSIC import app
 
 
 @app.on_message(filters.command(["exampur"]))
-async def account_login(_, m: message):
+async def account_login(_, message):
     global cancel
     cancel = False
     rwa_url = "https://auth.exampurcache.xyz/auth/login"
@@ -27,7 +27,7 @@ async def account_login(_, m: message):
            "host": "auth.exampurcache.xyz" 
           }
     info={"phone_ext": "91", "phone": "", "email": "", "password": ""}
-    input1 = await app.ask(m.chat.id, text="Send **ID & Password** in this manner otherwise bot will not respond.\n\nSend like this:-  **ID*Password**")
+    input1 = await app.ask(message.chat.id, text="Send **ID & Password** in this manner otherwise bot will not respond.\n\nSend like this:-  **ID*Password**")
     raw_text = input1.text
     info["email"] = raw_text.split("*")[0]
     info["password"] = raw_text.split("*")[1]
@@ -42,7 +42,7 @@ async def account_login(_, m: message):
             "Accept-Encoding": "gzip",
             "host": "auth.exampurcache.xyz"
             }
-    lol = await m.reply_text("**login Successful**")
+    lol = await message.reply_text("**login Successful**")
 
     res1 = requests.get("https://auth.exampurcache.xyz/mycourses", headers=hdr1)
     b_data = res1.json()['data']
@@ -56,7 +56,7 @@ async def account_login(_, m: message):
             cool = ""
         cool += aa
     await lol.edit_text(f'{"**You have these batches :-**"}\n\n{FFF}\n\n{cool}')
-    input2 = await app.ask(m.chat.id, text="**Now send the Batch ID to Download**")
+    input2 = await app.ask(message.chat.id, text="**Now send the Batch ID to Download**")
     raw_text2 = input2.text
 
     scraper = cloudscraper.create_scraper()
@@ -72,9 +72,9 @@ async def account_login(_, m: message):
           vj = ""
        vj += idid
     raw=vj
-    await m.reply_text(raw)
+    await message.reply_text(raw)
 
-    input4 = await app.ask(m.chat.id, text=f"Now send the **Topic IDs** to Download\n\nSend like this **1&2&3&4** so on\nor copy paste or edit **below ids** according to you :\n\n**Enter this to download full batch :-**\n```{raw}```")
+    input4 = await app.ask(message.chat.id, text=f"Now send the **Topic IDs** to Download\n\nSend like this **1&2&3&4** so on\nor copy paste or edit **below ids** according to you :\n\n**Enter this to download full batch :-**\n```{raw}```")
     raw_text4 = input4.text
     try:
         xv = raw_text4.split('&')
@@ -106,7 +106,7 @@ async def account_login(_, m: message):
                mm = "Exampur"
                with open(f'{mm}.txt', 'a') as f:
                    f.write(f"{cc}")
-               await m.reply_document(f"{mm}.txt")
+               await message.reply_document(f"{mm}.txt")
     except Exception as e:
-        await m.reply_text(str(e))
-    await m.reply_text("Done")
+        await message.reply_text(str(e))
+    await message.reply_text("Done")
