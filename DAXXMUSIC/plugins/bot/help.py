@@ -14,23 +14,6 @@ from strings import get_string, helpers
 
 @app.on_message(filters.command(["help"]) & filters.private & ~BANNED_USERS)
 @app.on_callback_query(filters.regex("settings_back_helper") & ~BANNED_USERS)
-
-    
-          
-            
-    
-
-          
-          Expand Down
-          
-            
-    
-
-          
-          Expand Up
-    
-    @@ -88,21 +87,29 @@ async def helper_cb(client, CallbackQuery, _):
-  
 async def helper_private(
     client: app, update: Union[types.Message, types.CallbackQuery]
 ):
