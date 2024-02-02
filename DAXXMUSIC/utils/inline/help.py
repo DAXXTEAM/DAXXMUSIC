@@ -9,8 +9,16 @@ def help_pannel(_, START: Union[bool, int] = None):
     first = [InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data=f"close")]
     second = [
         InlineKeyboardButton(
+            text=_["BACK_PAGE"],
+            callback_data=f"mbot_cb",
+        ),
+        InlineKeyboardButton(
             text=_["BACK_BUTTON"],
-            callback_data=f"close",
+            callback_data=f"settingsback_helper",
+        ),
+        InlineKeyboardButton(
+            text=_["NEXT_PAGE"],
+            callback_data=f"mbot_cb",
         ),
     ]
     mark = second if START else first
@@ -84,52 +92,7 @@ def help_pannel(_, START: Union[bool, int] = None):
                 InlineKeyboardButton(
                     text=_["H_B_15"],
                     callback_data="help_callback hb15",
-    
                 ),
-            ],
-            [
-
-               InlineKeyboardButton(
-                    text=_["H_B_16"],
-                    callback_data="help_callback hb16",
-               ),
-               InlineKeyboardButton(
-                    text=_["H_B_17"],
-                    callback_data="help_callback hb17",
-               ),
-               InlineKeyboardButton(
-                    text=_["H_B_18"],
-                    callback_data="help_callback hb18",
-               ),
-            ],
-            [
-               InlineKeyboardButton(
-                    text=_["H_B_19"],
-                    callback_data="help_callback hb19",
-               ),
-                InlineKeyboardButton(
-                    text=_["H_B_20"],
-                    callback_data="help_callback hb20",
-                ),
-                InlineKeyboardButton(
-                    text=_["H_B_21"],
-                    callback_data="help_callback hb21",
-                ),
-            ],
-            [
-                InlineKeyboardButton(
-                    text=_["H_B_22"],
-                    callback_data="help_callback hb22",
-                ),
-                InlineKeyboardButton(
-                    text=_["H_B_23"],
-                    callback_data="help_callback hb23",
-                ),
-                InlineKeyboardButton(
-                    text=_["H_B_24"],
-                    callback_data="help_callback hb24",
-                ),
-               
             ],
             mark,
         ]
