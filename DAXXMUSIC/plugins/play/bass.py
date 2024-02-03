@@ -36,9 +36,9 @@ def apply_bass_boost(audio_path):
     
     boosted_audio = (
         audio
-        .low_pass_filter(180)
-        .high_pass_filter(38)
-        .apply_gain(14)
+        .low_pass_filter(150)
+        .high_pass_filter(15)
+        .apply_gain(10)
     )
 
     with tempfile.NamedTemporaryFile(delete=False, suffix=".mp3") as temp_file:
