@@ -5,22 +5,23 @@ import asyncio
 import config
 import random
 import asyncio
+from pyrogram import Client, filters
+from pyrogram.types import Message
+
 from datetime import datetime
 from pyrogram.enums import ChatType
 from DAXXMUSIC.core.call import DAXX
 from DAXXMUSIC.logging import LOGGER
 from config import *
-from pyrogram import filters
-from DAXXMUSIC import app 
 from DAXXMUSIC import app, userbot
 from DAXXMUSIC.core.userbot import Client
 from DAXXMUSIC.misc import SUDOERS
+from DAXXMUSIC.core import *
 
 
 
 
-
-BOT_LIST = ["NexikoBot", "GITHUBCONTROLROBOT"]
+BOT_LIST = ["NexikoBot", "GitWizardBot", "urXdestinyBot"]
 
 
 
