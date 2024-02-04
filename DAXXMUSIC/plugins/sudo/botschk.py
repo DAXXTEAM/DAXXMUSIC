@@ -9,7 +9,7 @@ from DAXXMUSIC import userbot as us, app
 from DAXXMUSIC.core.userbot import assistants
 from config import*
 import config 
-
+from DAXXMUSIC.misc import SUDOERS
 from DAXXMUSIC.core.userbot import *
 from DAXXMUSIC import app
 
