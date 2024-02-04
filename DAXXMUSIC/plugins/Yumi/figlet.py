@@ -18,7 +18,7 @@ async def echo(bot, message):
     try:
         text = message.text.split(' ',1)[1]
     except IndexError:
-        return await message.reply_text("Example:\n\n`/figlet DAXX PAPA `")
+        return await message.reply_text("Example:\n\n`/figlet PIYUSH PAPA `")
     kul_text, keyboard = figle(text)
     await message.reply_text(f"ʜᴇʀᴇ ɪs ʏᴏᴜʀ ғɪɢʟᴇᴛ :\n<pre>{kul_text}</pre>", quote=True, reply_markup=keyboard)
 
