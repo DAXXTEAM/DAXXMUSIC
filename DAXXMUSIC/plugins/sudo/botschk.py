@@ -21,7 +21,7 @@ from DAXXMUSIC.core import *
 
 
 
-BOT_LIST = ["NexikoBot", "GitWizardBot", "urXdestinyBot"]
+BOT_LIST = ["DAISY_12_BOT", "GIT_WIZ_BOT"]
 
 
 
