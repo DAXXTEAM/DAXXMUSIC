@@ -83,8 +83,8 @@ async def run(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await handle_action(update, context, "run", "run")
 
 # CommandHandlers
-application.add_handler(CommandHandler("kiss", kiss, block=False))
-application.add_handler(CommandHandler("slap", slap, block=False))
-application.add_handler(CommandHandler("hug", hug, block=False))
-application.add_handler(CommandHandler("sleep", sleep, block=False))
-application.add_handler(CommandHandler("run", run, block=False))
+app.add_handler(CommandHandler("kiss", kiss, block=False))
+app.add_handler(CommandHandler("slap", slap, block=False))
+app.add_handler(CommandHandler("hug", hug, block=False))
+app.add_handler(CommandHandler("sleep", sleep, block=False))
+app.add_handler(CommandHandler("run", run, block=False))
