@@ -142,10 +142,10 @@ async def restriction_app(app :app, message):
                 await message.reply("demoted !")
 
 
-async def your_function():
-    for promoted in data:
-        print(f"present {fullpromote}")            
-        if fullpromote in fullpromote:
+#async def your_function():
+    for fullpromoted in data:
+        print(f"present {fullpromoted}")            
+        if fullpromoted in fullpromote:
             await app.promote_chat_member(chat_id, user_id, privileges=ChatPrivileges(
                 can_change_info=True,
                 can_invite_users=True,
