@@ -8,6 +8,17 @@ import asyncio
 from pyrogram import Client, filters
 from pyrogram.types import Message
 
+import asyncio
+import random
+
+from pyrogram import Client, filters
+from pyrogram.types import Message
+from pyrogram.raw.functions.messages import DeleteHistory
+
+from DAXXMUSIC import userbot as us, app
+from DAXXMUSIC.core.userbot import assistants
+
+
 from datetime import datetime
 from pyrogram.enums import ChatType
 from DAXXMUSIC.core.call import DAXX
