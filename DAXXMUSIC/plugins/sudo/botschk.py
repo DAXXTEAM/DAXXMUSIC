@@ -1,24 +1,17 @@
-from DAXXMUSIC.misc import db
-from DAXXMUSIC.utils.database import get_assistant, get_authuser_names, get_cmode
-
 import asyncio
-import config
 import random
-import asyncio
+
 from pyrogram import Client, filters
 from pyrogram.types import Message
+from pyrogram.raw.functions.messages import DeleteHistory
 
-from datetime import datetime
-from pyrogram.enums import ChatType
-from DAXXMUSIC.core.call import DAXX
-from DAXXMUSIC.logging import LOGGER
-from config import *
-from DAXXMUSIC import app, userbot
-from DAXXMUSIC.core.userbot import Client
+from DAXXMUSIC import userbot as us, app
+from DAXXMUSIC.core.userbot import assistants
+from config import*
+import config 
 from DAXXMUSIC.misc import SUDOERS
-from DAXXMUSIC.core import *
-
-
+from DAXXMUSIC.core.userbot import *
+from DAXXMUSIC import app
 
 
 BOT_LIST = ["DAISY_12_BOT", "GIT_WIZ_BOT"]
