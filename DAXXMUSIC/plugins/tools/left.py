@@ -5,6 +5,7 @@ from pyrogram.types import ChatMemberUpdated, InlineKeyboardMarkup, InlineKeyboa
 from os import environ
 from typing import Union, Optional
 from PIL import Image, ImageDraw, ImageFont
+import asyncio
 
 # --------------------------------------------------------------------------------- #
 
@@ -98,7 +99,7 @@ async def member_has_left(client: app, member: ChatMemberUpdated):
             deep_link = f"tg://openmessage?user_id={user.id}"
 
             # Send the message with the photo, caption, and button
-            await client.send_photo(
+            message = await client.send_photo(
                 chat_id=member.chat.id,
                 photo=welcome_photo,
                 caption=caption,
@@ -106,6 +107,15 @@ async def member_has_left(client: app, member: ChatMemberUpdated):
                     [InlineKeyboardButton(button_text, url=deep_link)]
                 ])
             )
+
+            # Schedule a task to delete the message after 3 seconds
+            async def delete_message():
+                await asyncio.sleep(3)
+                await message.delete()
+
+            # Run the task
+            asyncio.create_task(delete_message())
+            
         except RPCError as e:
             print(e)
             return
