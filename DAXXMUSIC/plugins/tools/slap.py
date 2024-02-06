@@ -22,7 +22,7 @@ def handle_action(client, message: Message, action: str, action_name: str):
     response = requests.get(action_info[action]['api'])
     if response.status_code == 200:
         gif_link = response.json()["url"]
-        app.send_animation(message.chat.id, animation=gif_link, caption=msg, parse_mode="markdown")
+        client.send_animation(message.chat.id, animation=gif_link, caption=msg, parse_mode="markdown")
 
 @app.on_message(filters.command("kiss"))
 def kiss_command(client, message):
