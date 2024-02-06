@@ -4,15 +4,11 @@ from pyrogram.types import Message
 
 # -----------------------------------------------------
 
-#@app.on_edited_message(filters.group & ~filters.me)
-#async def delete_edited_messages(client, edited_message):
-    #await edited_message.delete()
-
-
 @app.on_edited_message(filters.group & ~filters.me)
-async def delete_edited_message(client, message: Message):
-    await delete_messages.delete(message.chat.id, message.message_id)
-    
+async def delete_edited_messages(client, edited_message):
+    await edited_message.delete()
+
+
     
 @app.on_message(filters.animation | filters.audio | filters.document | filters.photo | filters.sticker | filters.video)
 async def keep_reaction_message(client, message: Message):
