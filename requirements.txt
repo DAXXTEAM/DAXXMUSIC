@@ -18,6 +18,7 @@ pycountry
 heroku3
 apscheduler
 motor==3.3.2
+numpy
 pillow
 psutil
 wget
