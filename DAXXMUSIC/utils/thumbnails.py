@@ -86,7 +86,7 @@ async def get_thumb(videoid, user_id):
         x = f.resize((140, 140))
 
         youtube = Image.open(f"cache/thumb{videoid}.png")
-        bg = Image.open(f"DAXXMUSIC/assets/am.png")
+        bg = Image.open(f"DAXXMUSIC/assets/assets/am.png")
         image1 = changeImageSize(1280, 720, youtube)
         image2 = image1.convert("RGBA")
         background = image2.filter(filter=ImageFilter.BoxBlur(30))
@@ -121,10 +121,10 @@ async def get_thumb(videoid, user_id):
         background.paste(image3, (0, 0), mask=image3)
 
         draw = ImageDraw.Draw(background)
-        font = ImageFont.truetype("DAXXMUSIC/assets/font2.ttf", 45)
-        ImageFont.truetype("DAXXMUSIC/assets/font2.ttf", 70)
-        arial = ImageFont.truetype("DAXXMUSIC/assets/font2.ttf", 30)
-        ImageFont.truetype("DAXXMUSIC/assets/font.ttf", 30)
+        font = ImageFont.truetype("DAXXMUSIC/assets/assets/font2.ttf", 45)
+        ImageFont.truetype("DAXXMUSIC/assets/assets/font2.ttf", 70)
+        arial = ImageFont.truetype("DAXXMUSIC/assets/assets/font2.ttf", 30)
+        ImageFont.truetype("DAXXMUSIC/assets/assets/font.ttf", 30)
         para = textwrap.wrap(title, width=29)
         j = 0
         for line in para:
