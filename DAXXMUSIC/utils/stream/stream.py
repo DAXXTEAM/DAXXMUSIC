@@ -1,7 +1,9 @@
 import os
 from random import randint
 from typing import Union
+
 from pyrogram.types import InlineKeyboardMarkup
+
 import config
 from DAXXMUSIC import Carbon, YouTube, app
 from DAXXMUSIC.core.call import DAXX
@@ -12,7 +14,6 @@ from DAXXMUSIC.utils.inline import aq_markup, close_markup, stream_markup
 from DAXXMUSIC.utils.pastebin import DAXXBin
 from DAXXMUSIC.utils.stream.queue import put_queue, put_queue_index
 from DAXXMUSIC.utils.thumbnails import get_thumb
-
 
 
 async def stream(
@@ -78,7 +79,7 @@ async def stream(
                     )
                 except:
                     raise AssistantErr(_["play_14"])
-                await AyushSolo.join_call(
+                await DAXX.join_call(
                     chat_id,
                     original_chat_id,
                     file_path,
@@ -97,7 +98,7 @@ async def stream(
                     "video" if video else "audio",
                     forceplay=forceplay,
                 )
-                img = await get_thumb(vidid, user_id)
+                img = await get_thumb(vidid)
                 button = stream_markup(_, chat_id)
                 run = await app.send_photo(
                     original_chat_id,
@@ -164,7 +165,7 @@ async def stream(
         else:
             if not forceplay:
                 db[chat_id] = []
-            await AyushSolo.join_call(
+            await DAXX.join_call(
                 chat_id,
                 original_chat_id,
                 file_path,
@@ -183,7 +184,7 @@ async def stream(
                 "video" if video else "audio",
                 forceplay=forceplay,
             )
-            img = await get_thumb(vidid, user_id)
+            img = await get_thumb(vidid)
             button = stream_markup(_, chat_id)
             run = await app.send_photo(
                 original_chat_id,
@@ -351,7 +352,7 @@ async def stream(
                 "video" if video else "audio",
                 forceplay=forceplay,
             )
-            img = await get_thumb(vidid, user_id)
+            img = await get_thumb(vidid)
             button = stream_markup(_, chat_id)
             run = await app.send_photo(
                 original_chat_id,
@@ -390,7 +391,7 @@ async def stream(
         else:
             if not forceplay:
                 db[chat_id] = []
-            await AyushSolo.join_call(
+            await DAXX.join_call(
                 chat_id,
                 original_chat_id,
                 link,
