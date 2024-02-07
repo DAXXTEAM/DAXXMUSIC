@@ -1,17 +1,21 @@
 import re
 from pyrogram import filters
 import random
-import random
 from DAXXMUSIC import app
 
 
 @app.on_message(filters.command(["gn","n","oodnight","ood Night","ood night"], prefixes=["/","g","G"]))
 def goodnight_command_handler(_, message):
+    sender = message.from_user.mention
     send_sticker = random.choice([True, False])
     if send_sticker:
-        app.send_sticker(message.chat.id, get_random_sticker())
+        sticker_id = get_random_sticker()
+        app.send_sticker(message.chat.id, sticker_id)
+        message.reply_text(f"Goodnight, {sender}! Sleep tight. 🌙")
     else:
-        app.send_message(message.chat.id, get_random_emoji())
+        emoji = get_random_emoji()
+        app.send_message(message.chat.id, emoji)
+        message.reply_text(f"**Goodnight, {sender}! Sleep tight. {emoji}**")
 
 
 def get_random_sticker():
