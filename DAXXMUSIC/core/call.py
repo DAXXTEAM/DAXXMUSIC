@@ -51,7 +51,7 @@ async def _clear_(chat_id):
 class Call(PyTgCalls):
     def __init__(self):
         self.userbot1 = Client(
-            name="DAXXAss1",
+            name="DAXXMUSIC1",
             api_id=config.API_ID,
             api_hash=config.API_HASH,
             session_string=str(config.STRING1),
@@ -61,7 +61,7 @@ class Call(PyTgCalls):
             cache_duration=100,
         )
         self.userbot2 = Client(
-            name="DAXXAss2",
+            name="DAXXMUSICc2",
             api_id=config.API_ID,
             api_hash=config.API_HASH,
             session_string=str(config.STRING2),
@@ -71,7 +71,7 @@ class Call(PyTgCalls):
             cache_duration=100,
         )
         self.userbot3 = Client(
-            name="DAXXXAss3",
+            name="DAXXMUSIC3",
             api_id=config.API_ID,
             api_hash=config.API_HASH,
             session_string=str(config.STRING3),
@@ -81,7 +81,7 @@ class Call(PyTgCalls):
             cache_duration=100,
         )
         self.userbot4 = Client(
-            name="DAXXXAss4",
+            name="DAXXMUSIC4",
             api_id=config.API_ID,
             api_hash=config.API_HASH,
             session_string=str(config.STRING4),
@@ -91,13 +91,33 @@ class Call(PyTgCalls):
             cache_duration=100,
         )
         self.userbot5 = Client(
-            name="DAXXAss5",
+            name="DAXXMUSIC5",
             api_id=config.API_ID,
             api_hash=config.API_HASH,
             session_string=str(config.STRING5),
         )
         self.five = PyTgCalls(
             self.userbot5,
+            cache_duration=100,
+        )
+        self.userbot6 = Client(
+            name="DAXXMUSIC6",
+            api_id=config.API_ID,
+            api_hash=config.API_HASH,
+            session_string=str(config.STRING6),
+        )
+        self.six = PyTgCalls(
+            self.userbot6,
+            cache_duration=100,
+        )
+        self.userbot7 = Client(
+            name="DAXXMUSIC7",
+            api_id=config.API_ID,
+            api_hash=config.API_HASH,
+            session_string=str(config.STRING7),
+        )
+        self.seven = PyTgCalls(
+            self.userbot7,
             cache_duration=100,
         )
 
@@ -141,6 +161,16 @@ class Call(PyTgCalls):
         try:
             if config.STRING5:
                 await self.five.leave_group_call(chat_id)
+        except:
+            pass
+        try:
+            if config.STRING6:
+                await self.six.leave_group_call(chat_id)
+        except:
+            pass
+        try:
+            if config.STRING7:
+                await self.seven.leave_group_call(chat_id)
         except:
             pass
         try:
@@ -355,6 +385,7 @@ class Call(PyTgCalls):
             _ = get_string(language)
             title = (check[0]["title"]).title()
             user = check[0]["by"]
+            user_id = check[0]["user_id"]
             original_chat_id = check[0]["chat_id"]
             streamtype = check[0]["streamtype"]
             videoid = check[0]["vidid"]
@@ -391,7 +422,7 @@ class Call(PyTgCalls):
                         original_chat_id,
                         text=_["call_6"],
                     )
-                img = await get_thumb(videoid)
+                img = await get_thumb(videoid, user_id)
                 button = stream_markup(_, chat_id)
                 run = await app.send_photo(
                     chat_id=original_chat_id,
@@ -437,7 +468,7 @@ class Call(PyTgCalls):
                         original_chat_id,
                         text=_["call_6"],
                     )
-                img = await get_thumb(videoid)
+                img = await get_thumb(videoid, user_id)
                 button = stream_markup(_, chat_id)
                 await mystic.delete()
                 run = await app.send_photo(
@@ -525,7 +556,7 @@ class Call(PyTgCalls):
                     db[chat_id][0]["mystic"] = run
                     db[chat_id][0]["markup"] = "tg"
                 else:
-                    img = await get_thumb(videoid)
+                    img = await get_thumb(videoid, user_id)
                     button = stream_markup(_, chat_id)
                     run = await app.send_photo(
                         chat_id=original_chat_id,
@@ -553,6 +584,10 @@ class Call(PyTgCalls):
             pings.append(await self.four.ping)
         if config.STRING5:
             pings.append(await self.five.ping)
+        if config.STRING6:
+            pings.append(await self.six.ping)
+        if config.STRING7:
+            pings.append(await self.seven.ping)
         return str(round(sum(pings) / len(pings), 3))
 
     async def start(self):
@@ -567,6 +602,10 @@ class Call(PyTgCalls):
             await self.four.start()
         if config.STRING5:
             await self.five.start()
+        if config.STRING6:
+            await self.six.start()
+        if config.STRING7:
+            await self.seven.start()
 
     async def decorators(self):
         @self.one.on_kicked()
@@ -574,16 +613,22 @@ class Call(PyTgCalls):
         @self.three.on_kicked()
         @self.four.on_kicked()
         @self.five.on_kicked()
+        @self.six.on_kicked()
+        @self.seven.on_kicked()
         @self.one.on_closed_voice_chat()
         @self.two.on_closed_voice_chat()
         @self.three.on_closed_voice_chat()
         @self.four.on_closed_voice_chat()
         @self.five.on_closed_voice_chat()
+        @self.six.on_closed_voice_chat()
+        @self.seven.on_closed_voice_chat()
         @self.one.on_left()
         @self.two.on_left()
         @self.three.on_left()
         @self.four.on_left()
         @self.five.on_left()
+        @self.six.on_left()
+        @self.seven.on_left()
         async def stream_services_handler(_, chat_id: int):
             await self.stop_stream(chat_id)
 
@@ -592,6 +637,8 @@ class Call(PyTgCalls):
         @self.three.on_stream_end()
         @self.four.on_stream_end()
         @self.five.on_stream_end()
+        @self.six.on_stream_end()
+        @self.seven.on_stream_end()
         async def stream_end_handler1(client, update: Update):
             if not isinstance(update, StreamAudioEnded):
                 return
