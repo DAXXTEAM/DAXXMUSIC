@@ -2,8 +2,8 @@ aiofiles
 bard
 SpeechRecognition
 pornhub-api==0.2.0
-aiohttp==3.9.1
-asyncio==3.4.3
+aiohttp 
+asyncio 
 beautifulsoup4
 daxxhub
 deepai
@@ -17,7 +17,7 @@ pydub
 pycountry
 heroku3
 apscheduler
-motor==3.3.2
+motor 
 numpy
 pillow
 psutil
