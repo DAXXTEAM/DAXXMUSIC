@@ -19,7 +19,7 @@ heroku3
 apscheduler
 motor 
 numpy
-pillow
+pillow==9.5.0
 psutil
 wget
 pyfiglet
