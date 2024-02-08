@@ -21,13 +21,6 @@ playtypedb = mongodb.playtypedb
 skipdb = mongodb.skipmode
 sudoersdb = mongodb.sudoers
 usersdb = mongodb.tgusersdb
-privatedb = mongodb.privatechats
-suggdb = mongodb.suggestion
-cleandb = mongodb.cleanmode
-playlistdb = mongodb.playlist
-queriesdb = mongodb.queries
-userdb = mongodb.userstats
-videodb = mongodb.vipvideocalls
 
 # Shifting to memory [mongo sucks often]
 active = []
@@ -44,172 +37,6 @@ pause = {}
 playmode = {}
 playtype = {}
 skipmode = {}
-privatechats = {}
-cleanmode = []
-suggestion = {}
-mute = {}
-audio = {}
-video = {}
-
-# Total Queries on bot
-
-
-async def get_queries() -> int:
-    chat_id = 98324
-    mode = await queriesdb.find_one({"chat_id": chat_id})
-    if not mode:
-        return 0
-    return mode["mode"]
-
-
-async def set_queries(mode: int):
-    chat_id = 98324
-    queries = await queriesdb.find_one({"chat_id": chat_id})
-    if queries:
-        mode = queries["mode"] + mode
-    return await queriesdb.update_one(
-        {"chat_id": chat_id}, {"$set": {"mode": mode}}, upsert=True
-    )
-
-# Top Chats DB
-
-
-async def get_top_chats() -> dict:
-    results = {}
-    async for chat in chattopdb.find({"chat_id": {"$lt": 0}}):
-        chat_id = chat["chat_id"]
-        total = 0
-        for i in chat["vidid"]:
-            counts_ = chat["vidid"][i]["spot"]
-            if counts_ > 0:
-                total += counts_
-                results[chat_id] = total
-    return results
-
-
-async def get_global_tops() -> dict:
-    results = {}
-    async for chat in chattopdb.find({"chat_id": {"$lt": 0}}):
-        for i in chat["vidid"]:
-            counts_ = chat["vidid"][i]["spot"]
-            title_ = chat["vidid"][i]["title"]
-            if counts_ > 0:
-                if i not in results:
-                    results[i] = {}
-                    results[i]["spot"] = counts_
-                    results[i]["title"] = title_
-                else:
-                    spot = results[i]["spot"]
-                    count_ = spot + counts_
-                    results[i]["spot"] = count_
-    return results
-
-
-async def get_particulars(chat_id: int) -> Dict[str, int]:
-    ids = await chattopdb.find_one({"chat_id": chat_id})
-    if not ids:
-        return {}
-    return ids["vidid"]
-
-
-async def get_particular_top(
-    chat_id: int, name: str
-) -> Union[bool, dict]:
-    ids = await get_particulars(chat_id)
-    if name in ids:
-        return ids[name]
-
-
-async def update_particular_top(chat_id: int, name: str, vidid: dict):
-    ids = await get_particulars(chat_id)
-    ids[name] = vidid
-    await chattopdb.update_one(
-        {"chat_id": chat_id}, {"$set": {"vidid": ids}}, upsert=True
-)
-    
-# Top User DB
-
-
-async def get_userss(chat_id: int) -> Dict[str, int]:
-    ids = await userdb.find_one({"chat_id": chat_id})
-    if not ids:
-        return {}
-    return ids["vidid"]
-
-
-async def get_user_top(chat_id: int, name: str) -> Union[bool, dict]:
-    ids = await get_userss(chat_id)
-    if name in ids:
-        return ids[name]
-
-
-async def update_user_top(chat_id: int, name: str, vidid: dict):
-    ids = await get_userss(chat_id)
-    ids[name] = vidid
-    await userdb.update_one(
-        {"chat_id": chat_id}, {"$set": {"vidid": ids}}, upsert=True
-    )
-
-
-async def get_topp_users() -> dict:
-    results = {}
-    async for chat in userdb.find({"chat_id": {"$gt": 0}}):
-        user_id = chat["chat_id"]
-        total = 0
-        for i in chat["vidid"]:
-            counts_ = chat["vidid"][i]["spot"]
-            if counts_ > 0:
-                total += counts_
-        results[user_id] = total
-    return results
-    
-# Playlist
-
-
-async def _get_playlists(chat_id: int) -> Dict[str, int]:
-    _notes = await playlistdb.find_one({"chat_id": chat_id})
-    if not _notes:
-        return {}
-    return _notes["notes"]
-
-
-async def get_playlist_names(chat_id: int) -> List[str]:
-    _notes = []
-    for note in await _get_playlists(chat_id):
-        _notes.append(note)
-    return _notes
-
-
-async def get_playlist(chat_id: int, name: str) -> Union[bool, dict]:
-    name = name
-    _notes = await _get_playlists(chat_id)
-    if name in _notes:
-        return _notes[name]
-    else:
-        return False
-
-
-async def save_playlist(chat_id: int, name: str, note: dict):
-    name = name
-    _notes = await _get_playlists(chat_id)
-    _notes[name] = note
-    await playlistdb.update_one(
-        {"chat_id": chat_id}, {"$set": {"notes": _notes}}, upsert=True
-    )
-
-
-async def delete_playlist(chat_id: int, name: str) -> bool:
-    notesd = await _get_playlists(chat_id)
-    name = name
-    if name in notesd:
-        del notesd[name]
-        await playlistdb.update_one(
-            {"chat_id": chat_id},
-            {"$set": {"notes": notesd}},
-            upsert=True,
-        )
-        return True
-    return False
 
 
 async def get_assistant_number(chat_id: int) -> str:
@@ -240,7 +67,7 @@ async def set_assistant_new(chat_id, number):
 
 
 async def set_assistant(chat_id):
-    from VIPMUSIC.core.userbot import assistants
+    from DAXXMUSIC.core.userbot import assistants
 
     ran_assistant = random.choice(assistants)
     assistantdict[chat_id] = ran_assistant
@@ -254,7 +81,7 @@ async def set_assistant(chat_id):
 
 
 async def get_assistant(chat_id: int) -> str:
-    from VIPMUSIC.core.userbot import assistants
+    from DAXXMUSIC.core.userbot import assistants
 
     assistant = assistantdict.get(chat_id)
     if not assistant:
@@ -281,7 +108,7 @@ async def get_assistant(chat_id: int) -> str:
 
 
 async def set_calls_assistant(chat_id):
-    from VIPMUSIC.core.userbot import assistants
+    from DAXXMUSIC.core.userbot import assistants
 
     ran_assistant = random.choice(assistants)
     assistantdict[chat_id] = ran_assistant
@@ -294,7 +121,7 @@ async def set_calls_assistant(chat_id):
 
 
 async def group_assistant(self, chat_id: int) -> int:
-    from VIPMUSIC.core.userbot import assistants
+    from DAXXMUSIC.core.userbot import assistants
 
     assistant = assistantdict.get(chat_id)
     if not assistant:
@@ -484,21 +311,6 @@ async def music_on(chat_id: int):
 
 async def music_off(chat_id: int):
     pause[chat_id] = False
-
-# Muted
-async def is_muted(chat_id: int) -> bool:
-    mode = mute.get(chat_id)
-    if not mode:
-        return False
-    return mode
-
-
-async def mute_on(chat_id: int):
-    mute[chat_id] = True
-
-
-async def mute_off(chat_id: int):
-    mute[chat_id] = False
 
 
 async def get_active_chats() -> list:
@@ -832,142 +644,3 @@ async def remove_banned_user(user_id: int):
     if not is_gbanned:
         return
     return await blockeddb.delete_one({"user_id": user_id})
-
-# Private Served Chats
-
-
-async def get_private_served_chats() -> list:
-    chats_list = []
-    async for chat in privatedb.find({"chat_id": {"$lt": 0}}):
-        chats_list.append(chat)
-    return chats_list
-
-
-async def is_served_private_chat(chat_id: int) -> bool:
-    chat = await privatedb.find_one({"chat_id": chat_id})
-    if not chat:
-        return False
-    return True
-
-
-async def add_private_chat(chat_id: int):
-    is_served = await is_served_private_chat(chat_id)
-    if is_served:
-        return
-    return await privatedb.insert_one({"chat_id": chat_id})
-
-
-async def remove_private_chat(chat_id: int):
-    is_served = await is_served_private_chat(chat_id)
-    if not is_served:
-        return
-    return await privatedb.delete_one({"chat_id": chat_id})
-
-# SUGGESTION
-
-
-async def is_suggestion(chat_id: int) -> bool:
-    mode = suggestion.get(chat_id)
-    if not mode:
-        user = await suggdb.find_one({"chat_id": chat_id})
-        if not user:
-            suggestion[chat_id] = True
-            return True
-        suggestion[chat_id] = False
-        return False
-    return mode
-
-
-async def suggestion_on(chat_id: int):
-    suggestion[chat_id] = True
-    user = await suggdb.find_one({"chat_id": chat_id})
-    if user:
-        return await suggdb.delete_one({"chat_id": chat_id})
-
-
-async def suggestion_off(chat_id: int):
-    suggestion[chat_id] = False
-    user = await suggdb.find_one({"chat_id": chat_id})
-    if not user:
-        return await suggdb.insert_one({"chat_id": chat_id})
-
-# Clean Mode
-async def is_cleanmode_on(chat_id: int) -> bool:
-    if chat_id not in cleanmode:
-        return True
-    else:
-        return False
-
-
-async def cleanmode_off(chat_id: int):
-    if chat_id not in cleanmode:
-        cleanmode.append(chat_id)
-
-
-async def cleanmode_on(chat_id: int):
-    try:
-        cleanmode.remove(chat_id)
-    except:
-        pass
-
-
-# Audio Video Limit
-
-from pytgcalls.types.input_stream.quality import (HighQualityAudio,
-                                                  HighQualityVideo,
-                                                  LowQualityAudio,
-                                                  LowQualityVideo,
-                                                  MediumQualityAudio,
-                                                  MediumQualityVideo)
-
-
-async def save_audio_bitrate(chat_id: int, bitrate: str):
-    audio[chat_id] = bitrate
-
-
-async def save_video_bitrate(chat_id: int, bitrate: str):
-    video[chat_id] = bitrate
-
-
-async def get_aud_bit_name(chat_id: int) -> str:
-    mode = audio.get(chat_id)
-    if not mode:
-        return "High"
-    return mode
-
-
-async def get_vid_bit_name(chat_id: int) -> str:
-    mode = video.get(chat_id)
-    if not mode:
-        if PRIVATE_BOT_MODE == str(True):
-            return "High"
-        else:
-            return "Medium"
-    return mode
-
-
-async def get_audio_bitrate(chat_id: int) -> str:
-    mode = audio.get(chat_id)
-    if not mode:
-        return MediumQualityAudio()
-    if str(mode) == "High":
-        return HighQualityAudio()
-    elif str(mode) == "Medium":
-        return MediumQualityAudio()
-    elif str(mode) == "Low":
-        return LowQualityAudio()
-
-
-async def get_video_bitrate(chat_id: int) -> str:
-    mode = video.get(chat_id)
-    if not mode:
-        if PRIVATE_BOT_MODE == str(True):
-            return HighQualityVideo()
-        else:
-            return MediumQualityVideo()
-    if str(mode) == "High":
-        return HighQualityVideo()
-    elif str(mode) == "Medium":
-        return MediumQualityVideo()
-    elif str(mode) == "Low":
-        return LowQualityVideo()
