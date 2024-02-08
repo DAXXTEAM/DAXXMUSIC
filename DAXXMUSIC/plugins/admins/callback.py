@@ -437,7 +437,7 @@ async def del_back_playlist(client, CallbackQuery, _):
             await mystic.delete()
         elif "index_" in queued:
             try:
-                await DAXX.skip_stream(chat_id, videoid, video=status)
+                await VIP.skip_stream(chat_id, videoid, video=status)
             except:
                 return await CallbackQuery.message.reply_text(_["call_6"])
             button = stream_markup(_, chat_id)
@@ -460,7 +460,7 @@ async def del_back_playlist(client, CallbackQuery, _):
                 except:
                     image = None
             try:
-                await DAXX.skip_stream(chat_id, queued, video=status, image=image)
+                await VIP.skip_stream(chat_id, queued, video=status, image=image)
             except:
                 return await CallbackQuery.message.reply_text(_["call_6"])
             if videoid == "telegram":
@@ -575,7 +575,7 @@ async def del_back_playlist(client, CallbackQuery, _):
         )
 
 async def markup_timer():
-    while not await asyncio.sleep(7):
+    while not await asyncio.sleep(807):
         active_chats = await get_active_chats()
         for chat_id in active_chats:
             try:
