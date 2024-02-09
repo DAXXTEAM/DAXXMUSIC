@@ -78,37 +78,6 @@ STRING4 = getenv("STRING_SESSION4", None)
 STRING5 = getenv("STRING_SESSION5", None)
 STRING6 = getenv("STRING_SESSION6", None)
 STRING7 = getenv("STRING_SESSION7", None)
-AMBOT = [
-    "💞",
-    "🔎",
-    "🔍",
-    "🧪",
-    "💣",
-     "⚡️",
-     "🔥",
-     "🕺",
-     "🎩",
-     "🌈",
-     "🍷",
-     "🥂",
-     "🍾",
-    "🥃",
-    "🥤",
-    "🍽",
-    "🍭",
-    "🚗",
-    "🚕",
-    "🚓",
-    "🚑",
-    "🚀",
-    "💎",
-    "🔮",
-    "🪄",
-    "💌",
-    "⁉️",
-    "💤",
-    "🧨"
-]
 BANNED_USERS = filters.user()
 adminlist = {}
 lyrical = {}
