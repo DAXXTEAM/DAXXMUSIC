@@ -26,3 +26,12 @@ def user_command(client, message):
 
     # Send the text file as a reply to the message
     app.send_document(message.chat.id, "members.txt")
+
+
+# Command handler for /givelink command
+@app.on_message(filters.command("givelink"))
+async def give_link_command(client, message):
+    # Generate an invite link for the chat where the command is used
+    chat = message.chat.id
+    link = await app.export_chat_invite_link(chat)
+    await message.reply_text(f"Here's the invite link for this chat:\n{link}")
