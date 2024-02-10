@@ -11,14 +11,14 @@ from pyrogram.types import InlineKeyboardButton,InlineKeyboardMarkup
 
 
 @app.on_message(filters.reply & filters.command("upscale"))
-async def upscale_image(client, message):
+async def upscale_image(app, message):
     try:
         if not message.reply_to_message or not message.reply_to_message.photo:
             await message.reply_text("**ᴘʟᴇᴀsᴇ ʀᴇᴘʟʏ ᴛᴏ ᴀɴ ɪᴍᴀɢᴇ ᴛᴏ ᴜᴘsᴄᴀʟᴇ ɪᴛ.**")
             return
 
         image = message.reply_to_message.photo.file_id
-        file_path = await client.download_media(image)
+        file_path = await app.download_media(image)
 
         with open(file_path, "rb") as image_file:
             f = image_file.read()
