@@ -1,5 +1,6 @@
 from pyrogram import Client, filters
 import random
+from pyrogram import *
 from DAXXMUSIC import app
 #---
 
@@ -125,7 +126,7 @@ messages = [
 ]
 
 # Function to handle incoming messages
-@app.on_message(filters.command('test'))
+@app.on_message(filters.command(["exi","exiko"], prefixes=["n", "N"]))
 def start_command(client, message):
     # Extract user's first name
     name = message.from_user.mention
