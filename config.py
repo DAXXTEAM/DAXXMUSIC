@@ -6,36 +6,49 @@ from pyrogram import filters
 
 load_dotenv()
 
-# Get this value from my.telegram.org/apps.
+# -----------------------------------------------------
 API_ID = int(getenv("API_ID"))
 API_HASH = getenv("API_HASH")
-# Get your token from @BotFather on Telegram.
+# ------------------------------------------------------
 BOT_TOKEN = getenv("BOT_TOKEN")
-# Add Owner Username without @ 
+# -------------------------------------------------------
 OWNER_USERNAME = getenv("OWNER_USERNAME","iam_daxx")
-# Get Your bot username
+# --------------------------------------------------------
 BOT_USERNAME = getenv("BOT_USERNAME" , "NexikoBot")
-# Don't Add style font 
+# --------------------------------------------------------
 BOT_NAME = getenv("BOT_NAME" , "Nexiko")
-#get Your Assistant User name
+# ---------------------------------------------------------
 ASSUSERNAME = getenv("ASSUSERNAME" , "MissYumikoo")
-# Get your mongo url from cloud.mongodb.com
+# ---------------------------------------------------------
+
+
+#---------------------------------------------------------------
+#---------------------------------------------------------------
 MONGO_DB_URI = getenv("MONGO_DB_URI", None)
+#---------------------------------------------------------------
+#---------------------------------------------------------------
 
+# ----------------------------------------------------------------
 DURATION_LIMIT_MIN = int(getenv("DURATION_LIMIT", 17000))
+# ----------------------------------------------------------------
 
-# Chat id of a group for logging bot's activities
+# ----------------------------------------------------------------
 LOGGER_ID = int(getenv("LOGGER_ID", -1001919135283))
+# ----------------------------------------------------------------
+# ----------------------------------------------------------------
+OWNER_ID = int(getenv("OWNER_ID", 6664582540))
+# -----------------------------------------------------------------
+# -----------------------------------------------------------------
 
-# Get this value from  on Telegram by /id
-OWNER_ID = int(getenv("OWNER_ID", 6050277919))
-
-## Fill these variables if you're deploying on heroku.
-# Your heroku app name
+# ----------------------------------------------------------------
+# ----------------------------------------------------------------
+# ----------------------------------------------------------------
 HEROKU_APP_NAME = getenv("HEROKU_APP_NAME")
-# Get it from http://dashboard.heroku.com/account
+# ----------------------------------------------------------------
 HEROKU_API_KEY = getenv("HEROKU_API_KEY")
-
+# ----------------------------------------------------------------
+# ----------------------------------------------------------------
+# ----------------------------------------------------------------
 UPSTREAM_REPO = getenv(
     "UPSTREAM_REPO",
     "https://github.com/DAXXTEAM/DAXXMUSIC",
@@ -43,16 +56,37 @@ UPSTREAM_REPO = getenv(
 UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "Master")
 GIT_TOKEN = getenv(
     "GIT_TOKEN", None
-)  # Fill this variable if your upstream repository is private
+)  # ----------------------------------------------------------------
+# -------------------------------------------------------------------
+# --------------------------------------------------------------------
+# --------------------------------------------------------------------
 
+
+
+# ------------------------------------------------------------------------
+# -------------------------------------------------------------------------
 SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/ALLTYPECC")
-SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/HEROKUFREECC")
+SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/DAXXSUPPORT")
+# ------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------
 
-# Set this to True if you want the assistant to automatically leave chats after an interval
+
+
+
+
+
+
+# --------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------
 AUTO_LEAVING_ASSISTANT = getenv("AUTO_LEAVING_ASSISTANT", "True")
 AUTO_LEAVE_ASSISTANT_TIME = int(getenv("ASSISTANT_LEAVE_TIME", "9000"))
 SONG_DOWNLOAD_DURATION = int(getenv("SONG_DOWNLOAD_DURATION", "9999999"))
 SONG_DOWNLOAD_DURATION_LIMIT = int(getenv("SONG_DOWNLOAD_DURATION_LIMIT", "9999999"))
+# --------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------
 
 # Get this credentials from https://developer.spotify.com/dashboard
 SPOTIFY_CLIENT_ID = getenv("SPOTIFY_CLIENT_ID", "1c21247d714244ddbb09925dac565aed")
