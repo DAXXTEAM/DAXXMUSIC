@@ -8,6 +8,11 @@
    [![𝐌𝐑.𝐃𝐀𝐗𝐗](https://github-stats-alpha.vercel.app/api?username=DAXXTEAM "MRDAXX")](https://github-stats-alpha.vercel.app/api?username=DAXXTEAM "MRDAXX")
 
 
+
+
+
+GO TO [RELOAD.PY](https://github.com/DAXXTEAM/DAXXMUSIC/blob/Master/DAXXMUSIC/plugins/tools/reload.py) THEN CHANGE MY ID NUMBER 
+
 <p align="center">
   <img src="https://telegra.ph/file/4abd6e0f613946553de53.jpg">
 </p>
