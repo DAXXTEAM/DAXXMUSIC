@@ -25,10 +25,13 @@ def private_panel(_):
             )
         ],
         [
-            InlineKeyboardButton(text=_["S_B_5"], user_id=config.OWNER_ID),
-            InlineKeyboardButton(text="Update", url=f"https://t.me/ANGEL_K_WORLD",)
+            InlineKeyboardButton(text=_["S_B_5"], url=f"https://t.me/PAWAN_IS_BACK"),
+            InlineKeyboardButton(text="Update", url=f"https://t.me/ANGEL_K_WORLD"),
         ],
-        [   InlineKeyboardButton(text=_["S_B_10"], url=config.SUPPORT_CHANNEL),
+        [  
+            InlineKeyboardButton(text=_["S_B_10"], url=config.SUPPORT_CHANNEL),
+        ]
+        [
             InlineKeyboardButton(text="Repo", callback_data="gib_source"),
         ],
         [
