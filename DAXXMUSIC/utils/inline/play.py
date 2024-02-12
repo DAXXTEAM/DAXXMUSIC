@@ -52,7 +52,7 @@ def stream_markup_timer(_, chat_id, played, dur):
         bar = "————————⚘—"
     else:
         bar = "—————————⚘"
-     buttons = [
+    buttons = [
         [
             InlineKeyboardButton(
                 text=f"{played} {bar} {dur}",
@@ -68,33 +68,24 @@ def stream_markup_timer(_, chat_id, played, dur):
         ],
         [
             InlineKeyboardButton(
-
                 text="✪ʟɪꜰᴇ✪",
-
                 url=f"https://t.me/angel_world11",
-
             ),
             InlineKeyboardButton(
-
                 text="✪ᴊᴀɴɴ✪",
-
                 url=f"https://t.me/mr_editx",
-
             ),
         ],
-
-                 [
+        [
             InlineKeyboardButton(
-
                 text="✪ᴏᴡɴᴇʀ✪",
-
                 url=f"t.me/{OWNER_USERNAME}",
-
             ),
         ],
         [InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close")],
     ]
     return buttons
+        
 
 
 def stream_markup(_, chat_id):
