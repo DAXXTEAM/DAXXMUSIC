@@ -29,12 +29,8 @@ def private_panel(_):
             InlineKeyboardButton(text=_["S_B_10"], url=config.SUPPORT_CHANNEL),
         ],
         [
-            InlineKeyboardButton(text="sᴜᴘᴘᴏʀᴛ", url=f"https://t.me/mr_editx"),
-            InlineKeyboardButton(text="ʀᴇᴘᴏ", callback_data="gib_source"),
-        ],  # Added comma here
-        [
             InlineKeyboardButton(text=_["S_B_4"], callback_data="settings_back_helper"),
         ],
     ]
     return buttons
-
+    
