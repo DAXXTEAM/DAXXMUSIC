@@ -49,18 +49,7 @@ YUMI_PICS = [
 "https://telegra.ph/file/46f3c54fc68bb142e57b7.jpg",
 
 ]
-EMOJIOS = [
-    "💣",
-    "💥",
-    "🪄",
-    "🧨",
-    "⚡",
-    "🤡",
-    "👻",
-    "🎃",
-    "🎩",
-    "🕊",
-]
+
 
 
 @app.on_message(filters.command(["start"]) & filters.private & ~BANNED_USERS)
