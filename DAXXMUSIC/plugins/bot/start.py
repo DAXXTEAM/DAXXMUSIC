@@ -25,7 +25,10 @@ from DAXXMUSIC.utils.inline import help_pannel, private_panel, start_panel
 from config import BANNED_USERS
 from strings import get_string
 
-
+POLICE = [
+"https://telegra.ph/file/7611ad355da9de11423e8.jpg",
+"https://telegra.ph/file/1166532656cd26238c94b.jpg",
+]
 
 YUMI_PICS = [
 "https://telegra.ph/file/7611ad355da9de11423e8.jpg",
@@ -116,8 +119,8 @@ async def start_pm(client, message: Message, _):
         served_users = len(await get_served_users())
         UP, CPU, RAM, DISK = await bot_sys_stats()
         await message.reply_sticker("CAACAgQAAxkBAAIFwWWQBcEwB_IEuI-axl-xC0igE3_xAAJxCwACj1JJUUVWZlltDUM-HgQ")
-        return await message.reply_photo(
-            photo=random.choice(YUMI_PICS),
+        await message.reply_photo(
+            photo=random.choice(POLICE),
             caption=_["start_2"].format(message.from_user.mention, app.mention, UP, DISK, CPU, RAM,served_users,served_chats),
             reply_markup=InlineKeyboardMarkup(out),
         )
