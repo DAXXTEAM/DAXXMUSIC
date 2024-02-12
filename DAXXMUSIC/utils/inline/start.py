@@ -26,7 +26,7 @@ def private_panel(_):
         ],
         [
             InlineKeyboardButton(text="⚔️ᴏᴡɴᴇʀ⚔️",url=f"https://t.me/PAWAN_IS_BACK"),
-            InlineKeyboardButton(text="Update", url=f"https://t.me/mr_editx"),
+            InlineKeyboardButton(text="✨Update✨", url=f"https://t.me/mr_editx"),
         ],
         [  
             InlineKeyboardButton(text="💕sᴜᴘᴘᴏʀᴛ💕", url=config.SUPPORT_CHANNEL),
