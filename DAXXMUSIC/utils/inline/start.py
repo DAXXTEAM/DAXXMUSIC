@@ -30,7 +30,7 @@ def private_panel(_):
         ],
         [  
             InlineKeyboardButton(text=_["S_B_10"], url=config.SUPPORT_CHANNEL),
-        ]
+        ],
         [
             InlineKeyboardButton(text="Repo", callback_data="gib_source"),
         ],
