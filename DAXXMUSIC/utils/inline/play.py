@@ -52,7 +52,7 @@ def stream_markup_timer(_, chat_id, played, dur):
         bar = "————————⚘—"
     else:
         bar = "—————————⚘"
-    buttons = [
+     buttons = [
                 [
             InlineKeyboardButton(
                 text=f"{played} {bar} {dur}",
@@ -62,22 +62,33 @@ def stream_markup_timer(_, chat_id, played, dur):
         [
             InlineKeyboardButton(text="▷", callback_data=f"ADMIN Resume|{chat_id}"),
             InlineKeyboardButton(text="II", callback_data=f"ADMIN Pause|{chat_id}"),
+            InlineKeyboardButton(text="↻", callback_data=f"ADMIN Replay|{chat_id}"),
             InlineKeyboardButton(text="‣‣I", callback_data=f"ADMIN Skip|{chat_id}"),
             InlineKeyboardButton(text="▢", callback_data=f"ADMIN Stop|{chat_id}"),
         ],
                  [
             InlineKeyboardButton(
 
-                text="◉ ᴜᴘᴅᴀᴛᴇ ",
+                text="✪ʟɪꜰᴇ✪",
 
-                url=f"t.me/{OWNER_USERNAME}",
+                url=f"https://t.me/IND_PAWAN",
 
             ),
             InlineKeyboardButton(
 
-                text="◉ sᴜᴘᴘᴏʀᴛ ",
+                text="✪ᴊᴀɴɴ✪",
 
-                url=f"{SUPPORT_CHAT}",
+                url=f"https://t.me/ANGEL_K_WORLD",
+
+            ),
+        ],
+
+                 [
+            InlineKeyboardButton(
+
+                text="✪ᴏᴡɴᴇʀ✪",
+
+                url=f"t.me/{OWNER_USERNAME}",
 
             ),
         ],
@@ -91,28 +102,40 @@ def stream_markup(_, chat_id):
         [
             InlineKeyboardButton(text="▷", callback_data=f"ADMIN Resume|{chat_id}"),
             InlineKeyboardButton(text="II", callback_data=f"ADMIN Pause|{chat_id}"),
+            InlineKeyboardButton(text="↻", callback_data=f"ADMIN Replay|{chat_id}"),
             InlineKeyboardButton(text="‣‣I", callback_data=f"ADMIN Skip|{chat_id}"),
             InlineKeyboardButton(text="▢", callback_data=f"ADMIN Stop|{chat_id}"),
         ],
                  [
             InlineKeyboardButton(
 
-                text="◉ ᴜᴘᴅᴀᴛᴇ ",
+                text="✪ʟɪꜰᴇ✪",
 
-                url=f"t.me/{OWNER_USERNAME}",
+                url=f"https://t.me/IND_PAWAN",
 
             ),
             InlineKeyboardButton(
 
-                text="◉ sᴜᴘᴘᴏʀᴛ",
+                text="✪ᴊᴀɴɴ✪",
 
-                url=f"{SUPPORT_CHAT}",
+                url=f"https://t.me/ANGEL_K_WORLD",
+
+            ),
+        ],
+
+                 [
+            InlineKeyboardButton(
+
+                text="✪ᴏᴡɴᴇʀ✪",
+
+                url=f"t.me/{OWNER_USERNAME}",
 
             ),
         ],
         [InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close")],
     ]
     return buttons
+    
 
 
 def playlist_markup(_, videoid, user_id, ptype, channel, fplay):
