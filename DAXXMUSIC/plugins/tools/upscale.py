@@ -30,7 +30,7 @@ async def upscale_image(app, message):
                 "https://api.qewertyy.me/upscale", data={"image_data": b}, timeout=None
             )
 
-        with open("upscaled_image.png", "wb") as output_file:
+        with open("upscaled.png", "wb") as output_file:
             output_file.write(response.content)
 
         await client.send_document(
