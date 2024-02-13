@@ -87,10 +87,10 @@ def welcomepic(pic, user, chatname, id, uname, brightness_factor=1.3):
     pfp = circle(pfp, brightness_factor=brightness_factor) 
     pfp = pfp.resize((575, 575))
     draw = ImageDraw.Draw(background)
-    font = ImageFont.truetype('DAXXMUSIC/assets/font.ttf', size=110)
-    welcome_font = ImageFont.truetype('DAXXMUSIC/assets/font.ttf', size=60)
+    font = ImageFont.truetype('DAXXMUSIC/assets/font.ttf', size=90)
+    welcome_font = ImageFont.truetype('DAXXMUSIC/assets/font.ttf', size=47)
     draw.text((430, 470), f'ID: {id}', fill=(10, 10, 10), font=font)
-    pfp_position = (49, 88)
+    pfp_position = (48, 88)
     background.paste(pfp, pfp_position, pfp)
     background.save(f"downloads/welcome#{id}.png")
     return f"downloads/welcome#{id}.png"
