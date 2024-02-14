@@ -87,10 +87,10 @@ def welcomepic(pic, user, chatname, id, uname, brightness_factor=1.3):
     welcome_font = ImageFont.truetype('DAXXMUSIC/assets/font.ttf', size=31)
     #draw.text((630, 540), f'ID: {id}', fill=(255, 255, 255), font=font)
     #
-    draw.text((400, 500), f'NAME: {user}', fill=(255, 255, 255), font=font)
+    draw.text((390, 400), f'NAME: {user}', fill=(255, 255, 255), font=font)
     draw.text((630, 540), f'ID: {id}', fill=(255, 255, 255), font=font)
-    draw.text((900, 990), f"Welcome to {chatname}", fill=(225, 225, 225), font=welcome_font)
-    draw.text((500, 330), f"USERNAME : {uname}", fill=(255, 255, 255), font=font)
+    draw.text((300, 390), f"Welcome to {chatname}", fill=(225, 225, 225), font=welcome_font)
+    draw.text((300, 330), f"USERNAME : {uname}", fill=(255, 255, 255), font=font)
 
     #
     pfp_position = (48, 88)
