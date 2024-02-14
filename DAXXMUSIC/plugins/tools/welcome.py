@@ -1,5 +1,4 @@
 from DAXXMUSIC import app
-from pyrogram import filters
 from pyrogram.errors import RPCError
 from pyrogram.types import ChatMemberUpdated, InlineKeyboardMarkup, InlineKeyboardButton
 from os import environ
@@ -16,11 +15,8 @@ from PIL import Image, ImageDraw, ImageFont, ImageEnhance
 from asyncio import sleep
 from pyrogram import filters, Client, enums
 from pyrogram.enums import ParseMode
-from pyrogram import *
-from pyrogram.types import *
 from logging import getLogger
 from DAXXMUSIC.utils.daxx_ban import admin_filter
-import os
 from PIL import ImageDraw, Image, ImageFont, ImageChops
 from pyrogram import *
 from pyrogram.types import *
@@ -91,10 +87,10 @@ def welcomepic(pic, user, chatname, id, uname, brightness_factor=1.3):
     welcome_font = ImageFont.truetype('DAXXMUSIC/assets/font.ttf', size=31)
     #draw.text((630, 540), f'ID: {id}', fill=(255, 255, 255), font=font)
     #
-    draw.text((500, 300), f'NAME: {user}', fill=(255, 255, 255), font=font)
+    draw.text((400, 500), f'NAME: {user}', fill=(255, 255, 255), font=font)
     draw.text((630, 540), f'ID: {id}', fill=(255, 255, 255), font=font)
-    draw.text((400, 490), f"Welcome to {chatname}", fill=(225, 225, 225), font=welcome_font)
-    draw.text((600, 430), f"USERNAME : {uname}", fill=(255, 255, 255), font=font)
+    draw.text((900, 990), f"Welcome to {chatname}", fill=(225, 225, 225), font=welcome_font)
+    draw.text((500, 330), f"USERNAME : {uname}", fill=(255, 255, 255), font=font)
 
     #
     pfp_position = (48, 88)
