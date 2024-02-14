@@ -93,7 +93,7 @@ def welcomepic(pic, user, chatname, id, uname, brightness_factor=1.3):
     #
     draw.text((30, 300), f'NAME: {user}', fill=(255, 255, 255), font=font)
     draw.text((630, 540), f'ID: {id}', fill=(255, 255, 255), font=font)
-    draw.text((30, 40), f"Welcome to {chat}", fill=(225, 225, 225), font=welcome_font)
+    draw.text((30, 40), f"Welcome to {chatname}", fill=(225, 225, 225), font=welcome_font)
     draw.text((30, 430), f"USERNAME : {uname}", fill=(255, 255, 255), font=font)
 
     #
