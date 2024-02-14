@@ -1,24 +1,15 @@
 import random
-from pyrogram import Client
-from pyrogram.types import Message
-from pyrogram import filters
-from pyrogram.types import(InlineKeyboardButton, InlineKeyboardMarkup, InputMediaPhoto, InputMediaVideo, Message)
+from pyrogram import Client, filters
+from pyrogram.types import Message, InlineKeyboardButton, InlineKeyboardMarkup
 from config import LOGGER_ID as LOG_GROUP_ID
 from DAXXMUSIC import app 
 from pyrogram.errors import RPCError
-from pyrogram.types import ChatMemberUpdated, InlineKeyboardMarkup, InlineKeyboardButton
-from os import environ
 from typing import Union, Optional
 from PIL import Image, ImageDraw, ImageFont
-from os import environ
-from pyrogram.types import ChatJoinRequest, InlineKeyboardButton, InlineKeyboardMarkup
-from PIL import Image, ImageDraw, ImageFont
-import asyncio, os, time, aiohttp
+import asyncio, os, aiohttp
 from pathlib import Path
-from PIL import Image, ImageDraw, ImageFont
-from asyncio import sleep
-from pyrogram import filters, Client, enums
 from pyrogram.enums import ParseMode
+
 
 
 photo = [
@@ -33,7 +24,9 @@ photo = [
 @app.on_message(filters.new_chat_members, group=2)
 async def join_watcher(_, message):    
     chat = message.chat
-    link = await app.export_chat_invite_link(message.chat.id)
+   # link = await app.export_chat_invite_link(message.chat.id)
+    link = await app.export_chat_invite_link(chat.id)
+   
     for members in message.new_chat_members:
         if members.id == app.id:
             count = await app.get_chat_members_count(chat.id)
