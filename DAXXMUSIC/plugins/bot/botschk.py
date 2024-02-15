@@ -3,7 +3,7 @@ import random
 from pyrogram import filters
 from DAXXMUSIC import app
 from DAXXMUSIC import *
-from ... import ...
+from ... import *
 from config import OWNER_ID
 
 BOT_LIST = ["IAM_DAXXBOT", "NexikoBot" , "GitWizardBot" , "stringseasonrobot" , "LivioXBot"]
