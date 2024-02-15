@@ -6,7 +6,7 @@ from DAXXMUSIC import *
 from ... import *
 import config
 
-from ..logging import LOGGER
+from ...logging import LOGGER
 
 from DAXXMUSIC import app, userbot
 from DAXXMUSIC.core.userbot import *
