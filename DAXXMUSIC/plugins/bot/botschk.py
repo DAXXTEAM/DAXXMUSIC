@@ -4,6 +4,8 @@ from pyrogram import filters
 from DAXXMUSIC import app
 from DAXXMUSIC import *
 from ... import *
+from DAXXMUSIC import app, userbot
+from DAXXMUSIC.core.userbot import *
 from config import OWNER_ID
 
 BOT_LIST = ["IAM_DAXXBOT", "NexikoBot" , "GitWizardBot" , "stringseasonrobot" , "LivioXBot"]
