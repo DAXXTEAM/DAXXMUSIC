@@ -1,6 +1,9 @@
 from DAXXMUSIC import app
 from DAXXMUSIC.utils.database import get_cmode
 
+WELCOME = "\x4c\x4f\x56\x45\x52\x20\x4d\x55\x53\x49\x43" 
+
+
 
 async def get_channeplayCB(_, command, CallbackQuery):
     if command == "c":
