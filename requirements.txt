@@ -10,6 +10,7 @@ python-whois
 dnspython
 ffmpeg-python
 gitpython
+async_pymongo
 hachoir
 Faker
 pydub
