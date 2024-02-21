@@ -8,7 +8,8 @@ from DAXXMUSIC import LOGGER
 from DAXXMUSIC import app 
 from DAXXMUSIC.zdatabase import *
 import asyncio
-from config import LOG_GROUP_ID
+from config import LOGGER_ID as LOG_GROUP_ID
+
 
 COMMAND_HANDLER = ". /".split()
 
