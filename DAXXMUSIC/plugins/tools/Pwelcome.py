@@ -45,10 +45,10 @@ def welcomepic(pic, user, chat, id, uname):
     draw = ImageDraw.Draw(background)
     font = ImageFont.truetype('DAXXMUSIC/assets/font.ttf', size=120)
     font2 = ImageFont.truetype('DAXXMUSIC/assets/font.ttf', size=90)
-    draw.text((1680, 850), f'NAME: {unidecode(user)}', fill=(255, 255, 255), font=font)
+    draw.text((2000, 850), f'NAME: {unidecode(user)}', fill=(255, 255, 255), font=font)
     draw.text((1680, 1050), f'ID: {id}', fill=(255, 255, 255), font=font)
     draw.text((1680, 1250), f"USERNAME : {uname}", fill=(255,255,255),font=font)
-    pfp_position = (405, 560)  
+    pfp_position = (405, 600)  
     background.paste(pfp, pfp_position, pfp)  
     background.save(
         f"downloads/welcome#{id}.png"
@@ -74,7 +74,7 @@ async def greet_group(_, member: ChatMemberUpdated):
             user.photo.big_file_id, file_name=f"pp{user.id}.png"
         )
     except AttributeError:
-        pic = "assets/profilepic.jpg"
+        pic = "DAXXMUSIC/assets/profilepic.jpg"
     if (temp.MELCOW).get(f"welcome-{member.chat.id}") is not None:
         try:
             await temp.MELCOW[f"welcome-{member.chat.id}"].delete()
