@@ -58,9 +58,9 @@ def welcomepic(pic, user, chat, id, uname):
     )
     return f"downloads/welcome#{id}.png"
 
-@app.on_message(filters.command("zwel", COMMAND_HANDLER) & ~filters.private)
+@app.on_message(filters.command("wel", COMMAND_HANDLER) & ~filters.private)
 async def auto_state(_, message):
-    usage = "**Usage:**\n/zwel [ENABLE|DISABLE]"
+    usage = "**Usage:**\n/wel [ENABLE|DISABLE]"
     if len(message.command) == 1:
         return await message.reply_text(usage)
     chat_id = message.chat.id
@@ -154,7 +154,7 @@ async def greet_group(_, member: ChatMemberUpdated):
         
 **
 """,
-reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton (f"test", url=f"https://t.me/pokemon")]])
+reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton (f"KIDNAP ME", url=f"https://t.me/LOVER_X_MUSIC_BOT?startgroup=true")]])
         )
     except Exception as e:
         LOGGER.error(e)
