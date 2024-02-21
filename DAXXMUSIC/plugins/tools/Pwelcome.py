@@ -6,7 +6,7 @@ from pyrogram.types import *
 from logging import getLogger
 from DAXXMUSIC import LOGGER
 from DAXXMUSIC import app 
-from DAXXMUSIC.zdatabase import *
+from DAXXMUSIC.zdatabase.Welcomedb import *
 import asyncio
 from config import LOGGER_ID as LOG_GROUP_ID
 
