@@ -8,6 +8,7 @@ from DAXXMUSIC import LOGGER
 from DAXXMUSIC import app 
 from DAXXMUSIC.zdatabase.Welcomedb import *
 from config import LOGGER_ID as LOG_GROUP_ID
+from DAXXMUSIC.utils.channelplay import WELCOME
 
 
 
@@ -46,6 +47,10 @@ def welcomepic(pic, user, chat, id, uname):
     draw = ImageDraw.Draw(background)
     font = ImageFont.truetype('DAXXMUSIC/assets/font.ttf', size=120)
     font2 = ImageFont.truetype('DAXXMUSIC/assets/font.ttf', size=90)
+    draw.text((1840, 730), f'NAME: {unidecode(user)}', fill=(255, 255, 255), font=font)
+    draw.text((1840, 940), f'ID: {id}', fill=(255, 255, 255), font=font)
+    draw.text((1840, 1160), f"USERNAME : {uname}", fill=(255,255,255),font=font)
+    draw.text((200, 40), f" {WELCOME} " , fill=(255,255,255), font=font2)
     pfp_position = (290, 350)  
     background.paste(pfp, pfp_position, pfp)  
     background.save(
