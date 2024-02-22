@@ -95,7 +95,7 @@ async def today_(_, message):
 async def ranking(_, message):
     top_members = collection.find().sort("total_messages", -1).limit(10)
 
-    response = "**✦ 📈 ᴄᴜʀʀᴇɴᴛ ʟᴇᴀᴅᴇʀʙᴏᴀʀᴅ**\n\n"
+    response = "**✦ 📈 ᴏᴠᴇʀᴀʟʟ ʟᴇᴀᴅᴇʀʙᴏᴀʀᴅ**\n\n"
     for idx, member in enumerate(top_members, start=1):
         user_id = member["_id"]
         total_messages = member["total_messages"]
@@ -105,5 +105,7 @@ async def ranking(_, message):
             user_name = "Unknown"
 
         user_info = f"**{idx}**.   {user_name} ➠ {total_messages}\n"
+        response += user_info
 
-  
+    await message.reply_text(response)
+    
