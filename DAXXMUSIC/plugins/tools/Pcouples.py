@@ -11,6 +11,14 @@ from pyrogram.enums import *
 from DAXXMUSIC import app
 from DAXXMUSIC.mongo.couples_db import _get_image, get_couple
 
+button = [
+       [
+            InlineKeyboardButton(
+                text="kdnap me",     url=f"https://t.me/Lover_Music_Bot?startgroup=true",
+            )
+        ]
+]
+
 def dt():
     now = datetime.now()
     dt_string = now.strftime("%d/%m/%Y %H:%M")
@@ -104,12 +112,11 @@ async def ctest(_, message):
 {N1} + {N2} = ❣️
 ➖➖➖➖➖➖➖➖➖➖➖➖
 
-HAA MERI JAAN
+
 ɴᴇxᴛ ᴄᴏᴜᴘʟᴇs ᴡɪʟʟ ʙᴇ sᴇʟᴇᴄᴛᴇᴅ ᴏɴ {tomorrow} !!**
 """
     
-         await message.reply_photo(f"test_{cid}.png", caption=TXT)
-         await msg.delete()
+         await message.reply_photo(f"test_{cid}.png", caption=TXT, reply_markup=InlineKeyboardMarkup(button),)
          a = upload_file(f"test_{cid}.png")
          for x in a:
            img = "https://graph.org/" + x
