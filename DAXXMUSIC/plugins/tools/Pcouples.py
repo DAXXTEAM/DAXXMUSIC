@@ -31,7 +31,9 @@ def dt_tom():
 tomorrow = str(dt_tom())
 today = str(dt()[0])
 
-@app.on_message(filters.command("couples"))
+@app.on_message(
+   filters.command(["couples", "couple"] ,prefixes=["/", "!", "%", ",", "", ".", "@", "#"])
+)
 async def ctest(_, message):
     cid = message.chat.id
     if message.chat.type == ChatType.PRIVATE:
@@ -62,16 +64,16 @@ async def ctest(_, message):
          try:
             p1 = await app.download_media(photo1.big_file_id, file_name="pfp.png")
          except Exception:
-            p1 = "Love/upic.png"
+            p1 = "DAXXMUSIC/assets/upic.png"
          try:
             p2 = await app.download_media(photo2.big_file_id, file_name="pfp1.png")
          except Exception:
-            p2 = "Love/upic.png"
+            p2 = "DAXXMUSIC/assets/upic.png"
             
          img1 = Image.open(f"{p1}")
          img2 = Image.open(f"{p2}")
 
-         img = Image.open("Love/Couples.png")
+         img = Image.open("DAXXMUSIC/assets/Couples.png")
 
          img1 = img1.resize((1190,1190))
          img2 = img2.resize((1190,1190))
