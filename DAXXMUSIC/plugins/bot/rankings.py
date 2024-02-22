@@ -58,11 +58,12 @@ def today_watcher(_, message):
 
 @app.on_message(filters.group & filters.group, group=11)
 def _watcher(_, message):
-    user_id = message.from_user.id    
-    user_data.setdefault(user_id, {}).setdefault("total_messages", 0)
-    user_data[user_id]["total_messages"] += 1    
-    collection.update_one({"_id": user_id}, {"$inc": {"total_messages": 1}}, upsert=True)
-
+    if message.from_user:
+        user_id = message.from_user.id    
+        user_data.setdefault(user_id, {}).setdefault("total_messages", 0)
+        user_data[user_id]["total_messages"] += 1    
+        collection.update_one({"_id": user_id}, {"$inc": {"total_messages": 1}}, upsert=True)
+        
 # ------------------- ranks ------------------ #
 @app.on_message(filters.command("today"))
 async def today_(_, message):
