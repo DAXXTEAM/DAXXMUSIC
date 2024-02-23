@@ -29,9 +29,9 @@ MISHI = [
 ROY = [
     [
         InlineKeyboardButton(
-            text="𓊈ᴄᴄ ᴄʜᴀɴɴᴇʟ𓊉",
-            url=f"https://t.me/ALLTYPECC"),
-        InlineKeyboardButton(text="ᴜᴘᴅᴀᴛᴇ", url=f"https://t.me/koku_updates")
+            text="ᴀᴅᴅ ᴍᴇ",
+            url=f"https://t.me/NexikoBot?startgroup=true"),
+        InlineKeyboardButton(text="ᴜᴘᴅᴀᴛᴇ", url=f"https://t.me/DAXXSUPPORT")
     ],
 ]
 
