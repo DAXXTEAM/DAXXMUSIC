@@ -96,3 +96,18 @@ async def back_to_main_menu(client, callback_query: CallbackQuery):
     keyboard = [[InlineKeyboardButton("๏ ᴠɪᴇᴡ sᴜᴅᴏʟɪsᴛ ๏", callback_data="check_sudo_list")]]
     reply_markupes = InlineKeyboardMarkup(keyboard)
     await callback_query.message.edit_caption(caption="**» ᴄʜᴇᴄᴋ sᴜᴅᴏ ʟɪsᴛ ʙʏ ɢɪᴠᴇɴ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ.**\n\n**» ɴᴏᴛᴇ:**  ᴏɴʟʏ sᴜᴅᴏ ᴜsᴇʀs ᴄᴀɴ ᴠɪᴇᴡ. ", reply_markup=reply_markupes)
+
+
+
+
+@app.on_message(filters.command(["delallsudo"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]) & filters.user(OWNER_ID))
+@language
+async def del_all_sudo(client, message: Message, _):
+    count = len(SUDOERS) - 1  # Exclude the admin from the count
+    for user_id in SUDOERS.copy():
+        if user_id != OWNER_ID:
+            removed = await remove_sudo(user_id)
+            if removed:
+                SUDOERS.remove(user_id)
+                count -= 1
+    await message.reply_text(f"Removed {count} users from the sudo list.")
