@@ -46,7 +46,7 @@ InlineKeyboardButton("ᴏғғɪᴄɪᴀʟ🦋ɢʀᴏᴜᴘ", url=f"https://t.me/
     reply_markup = InlineKeyboardMarkup(buttons)
     
     await msg.reply_photo(
-        photo="https://telegra.ph/file/03105716906ef6cbcd98e.jpg",
+        photo="https://telegra.ph/file/8e60bd8729e290d51ae93.jpg",
         caption=start_txt,
         reply_markup=reply_markup
     )
