@@ -4,7 +4,7 @@ import random
 import requests
 from DAXXMUSIC import app 
 
-SUPPORT_CHAT = "IND_PAWAN"
+SUPPORT_CHAT = "angel_world11"
 
 @app.on_message(filters.command("wish"))
 async def wish(_, m):
