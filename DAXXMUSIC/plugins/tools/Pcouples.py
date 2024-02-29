@@ -14,7 +14,7 @@ from DAXXMUSIC.mongo.couples_db import _get_image, get_couple
 button = [
        [
             InlineKeyboardButton(
-                text="kdnap me",     url=f"https://t.me/Lover_Music_Bot?startgroup=true",
+                text="๏ ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ!",     url=f"https://t.me/Lover_Music_Bot?startgroup=true",
             )
         ]
 ]
