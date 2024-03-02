@@ -144,7 +144,7 @@ async def greet_group(_, member: ChatMemberUpdated):
 
 🌷 𝐈𝐟 𝐘𝐨𝐮 𝐇𝐚𝐯𝐞 : 𝐀𝐧𝐲 𝐏𝐫𝐨𝐛𝐥𝐞𝐦𝐬
 🌹 𝐓𝐡𝐞𝐧 𝐃𝐌 𝐓𝐨:𝐀𝐝𝐦𝐢𝐧
-𝐌𝐀𝐃𝐄-𝐁𝐘 [𝐌𝐑💌𝐄𝐃𝐈𝐓𝐗] (https://t.me/mr_editx),
+𝐌𝐀𝐃𝐄-𝐁𝐘 [ADITYA] (https://t.me/itz_aditya_the_king),
 ]
 ▰▰▰▰▰▰▰▰▰▰▰▰▰
 
@@ -156,7 +156,7 @@ reply_markup=InlineKeyboardMarkup(
 [
 [InlineKeyboardButton(f"๏ ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ!", url=f"https://t.me/LOVER_X_MUSIC_BOT?startgroup=true"),
 InlineKeyboardButton(f"๏ ᴏᴡɴᴇʀ !",
-url=f"https://t.me/PAWAN_IS_BACK"),
+url=f"https://t.me/ITZ_ADITYA_THE_KING"),
 ]
 ]
 )
