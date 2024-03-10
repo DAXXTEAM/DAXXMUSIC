@@ -106,7 +106,7 @@ def circle(pfp, size=(500, 500), brightness_factor=10):
     return pfp
 
 def welcomepic(pic, user, chatname, id, uname, brightness_factor=1.3):
-    background = Image.open("DAXXMUSIC/assets/wel2.png")
+    background = Image.open("DAXXMUSIC/assets/wel2.jpg")
     pfp = Image.open(pic).convert("RGBA")
     pfp = circle(pfp, brightness_factor=brightness_factor) 
     pfp = pfp.resize((575, 575))
@@ -123,8 +123,8 @@ def welcomepic(pic, user, chatname, id, uname, brightness_factor=1.3):
     #
     pfp_position = (48, 88)
     background.paste(pfp, pfp_position, pfp)
-    background.save(f"downloads/welcome#{id}.png")
-    return f"downloads/welcome#{id}.png"
+    background.save(f"downloads/welcome#{id}.jpg")
+    return f"downloads/welcome#{id}.jpg"
 
 
 @app.on_message(filters.command("welcome") & ~filters.private)
