@@ -33,7 +33,7 @@ lexica-api
 motor
 nekosbest
 numpy
-openai==0.28.0
+openai==1.72.0
 opencv-python
 pickledb
 pillow==10.3.0
