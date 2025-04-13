@@ -36,7 +36,7 @@ numpy
 openai==0.28.0
 opencv-python
 pickledb
-pillow==10.3.0
+pillow==11.2.1
 psutil
 ntgcalls
 py-tgcalls==0.9.7  # Only one version of py-tgcalls is specified
