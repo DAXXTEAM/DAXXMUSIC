@@ -1,51 +1,57 @@
-import random
+import asyncio
 from pyrogram import filters
-from DAXXMUSIC import app
-from DAXXMUSIC import *
-from ... import *
-import config
-
-from ...logging import LOGGER
-
-from DAXXMUSIC import app, userbot
-from DAXXMUSIC.core.userbot import *
-
-import asyncio
-
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+from DAXXMUSIC import app
+from DAXXMUSIC.core.userbot import assistants
 from config import OWNER_ID
-
-import asyncio
-from pyrogram import Client, filters
-from pyrogram.errors import FloodWait
-from dotenv import load_dotenv
-from DAXXMUSIC.core.userbot import Userbot
-from datetime import datetime
-
-# Assuming Userbot is defined elsewhere
-userbot = Userbot()
-
 
 BOT_LIST = ["VCLUBHELP_BOT", "ClawdR0Bot", "MUSICXBOT", "VclubTechxBot"]
 
+
+def _get_assistant():
+    for uid, client in assistants.items():
+        return client
+    return None
+
+
 @app.on_message(filters.command("botschk") & filters.user(OWNER_ID))
 async def bots_chk(_, message):
-    msg = await message.reply_photo(photo="https://telegra.ph/file/4d303296e4fac9a40ea07.jpg", caption="**ᴄʜᴇᴄᴋɪɴɢ ʙᴏᴛs sᴛᴀᴛs ᴀʟɪᴠᴇ ᴏʀ ᴅᴇᴀᴅ...**")
-    response = "**ᴄʜᴇᴄᴋɪɴɢ ʙᴏᴛs sᴛᴀᴛs ᴀʟɪᴠᴇ ᴏʀ ᴅᴇᴀᴅ**\n\n"
+    ubot = _get_assistant()
+    if not ubot:
+        return await message.reply_text("❌ **ɴᴏ ᴀssɪsᴛᴀɴᴛ ᴄᴏɴɴᴇᴄᴛᴇᴅ!**")
+
+    msg = await message.reply_photo(
+        photo="https://telegra.ph/file/4d303296e4fac9a40ea07.jpg",
+        caption="**ᴄʜᴇᴄᴋɪɴɢ ʙᴏᴛs sᴛᴀᴛs ᴀʟɪᴠᴇ ᴏʀ ᴅᴇᴀᴅ...**"
+    )
+    
+    response = "**⚡ ʙᴏᴛs sᴛᴀᴛᴜs ᴄʜᴇᴄᴋ ⚡**\n\n"
+    alive = 0
+    dead = 0
+
     for bot_username in BOT_LIST:
         try:
             bot = await app.get_users(bot_username)
-            bot_id = bot.id
-            await asyncio.sleep(0.5)
-            bot_info = await app.send_message(bot_id, "/start")
+            # Send /start from assistant (userbot)
+            await ubot.send_message(bot.id, "/start")
             await asyncio.sleep(3)
-            async for bot_message in app.get_chat_history(bot_id, limit=1):
-                if bot_message.from_user.id == bot_id:
-                    response += f"╭⎋ [{bot.first_name}](tg://user?id={bot.id})\n╰⊚ **sᴛᴀᴛᴜs: ᴏɴʟɪɴᴇ ✨**\n\n"
-                else:
-                    response += f"╭⎋ [{bot.first_name}](tg://user?id={bot.id})\n╰⊚ **sᴛᴀᴛᴜs: ᴏғғʟɪɴᴇ ❄**\n\n"
-        except Exception:
-            response += f"╭⎋ {bot_username}\n╰⊚ **sᴛᴀᴛᴜs: ᴇʀʀᴏʀ ❌**\n"
-    
-    await msg.edit_text(response)
-                
+            
+            # Check if bot replied
+            is_alive = False
+            async for bot_message in ubot.get_chat_history(bot.id, limit=1):
+                if bot_message.from_user and bot_message.from_user.id == bot.id:
+                    is_alive = True
+            
+            if is_alive:
+                response += f"╭⎋ [{bot.first_name}](tg://user?id={bot.id})\n╰⊚ **sᴛᴀᴛᴜs: ᴏɴʟɪɴᴇ ✅**\n\n"
+                alive += 1
+            else:
+                response += f"╭⎋ [{bot.first_name}](tg://user?id={bot.id})\n╰⊚ **sᴛᴀᴛᴜs: ᴏғғʟɪɴᴇ ❌**\n\n"
+                dead += 1
+        except Exception as e:
+            response += f"╭⎋ @{bot_username}\n╰⊚ **sᴛᴀᴛᴜs: ᴇʀʀᴏʀ ⚠️** __{str(e)[:30]}__\n\n"
+            dead += 1
+
+    response += f"━━━━━━━━━━━━━━━\n**✅ ᴏɴʟɪɴᴇ: {alive} | ❌ ᴏғғʟɪɴᴇ: {dead}**"
+
+    await msg.edit_caption(response)
