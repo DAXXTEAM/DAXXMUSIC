@@ -1,5 +1,13 @@
 from DAXXMUSIC.core.userbot import assistants
 from DAXXMUSIC import userbot as us, app
+
+def _get_ubot():
+    """Safely get assistant client"""
+    if 1 in assistants:
+        return us.one
+    elif 2 in assistants:
+        return us.two
+    return None
 from pyrogram import filters
 from pyrogram.types import Message
 from DAXXMUSIC.misc import SUDOERS
@@ -11,8 +19,9 @@ async def set_pfp(_, message: Message):
     if message.reply_to_message.photo:
         fuk = await message.reply_text("𝙉𝙤 𝘾𝙝𝙖𝙣𝙜𝙞𝙣𝙜 𝘼𝙨𝙨𝙞𝙨𝙩𝙖𝙣𝙩'𝙨 𝙋𝙧𝙤𝙛𝙞𝙡𝙚 𝙋𝙞𝙘...")
         img = await message.reply_to_message.download()
-        if 1 in assistants:
-           ubot = us.one
+        ubot = _get_ubot()
+        if not ubot:
+            return await message.reply_text("Assistant not connected!")
         try:
             await ubot.set_profile_photo(photo=img)
             return await fuk.edit_text(
@@ -29,8 +38,9 @@ async def set_pfp(_, message: Message):
 @app.on_message(filters.command(["delpfp", "delasspfp"]) & filters.user(OWNER_ID))
 async def set_pfp(_, message: Message):
     try:
-        if 1 in assistants:
-           ubot = us.one
+        ubot = _get_ubot()
+        if not ubot:
+            return await message.reply_text("Assistant not connected!")
         pfp = [p async for p in ubot.get_chat_photos("me")]
         await ubot.delete_profile_photos(pfp[0].file_id)
         return await message.reply_text( "𝙎𝙪𝙘𝙘𝙚𝙨𝙨𝙛𝙪𝙡𝙡𝙮 𝘿𝙚𝙡𝙚𝙩𝙚𝙙 𝘼𝙨𝙨𝙞𝙨𝙩𝙖𝙣𝙩'𝙨 𝙋𝙧𝙤𝙛𝙞𝙡𝙚 𝙋𝙞𝙘." )
@@ -45,16 +55,18 @@ async def set_bio(_, message: Message):
     if msg:
         if msg.text:
             newbio = msg.text
-            if 1 in assistants:
-               ubot = us.one
+            ubot = _get_ubot()
+        if not ubot:
+            return await message.reply_text("Assistant not connected!")
             await ubot.update_profile(bio=newbio)
             return await message.reply_text(
                 f"» {ubot.me.mention} 𝘽𝙞𝙤 𝘾𝙝𝙖𝙣𝙜𝙚𝙙 𝙎𝙪𝙘𝙘𝙚𝙨𝙨𝙛𝙪𝙡𝙡𝙮."
             )
     elif len(message.command) != 1:
         newbio = message.text.split(None, 1)[1]
-        if 1 in assistants:
-           ubot = us.one
+        ubot = _get_ubot()
+        if not ubot:
+            return await message.reply_text("Assistant not connected!")
         await ubot.update_profile(bio=newbio)
         return await message.reply_text(f"» {ubot.me.mention} 𝘽𝙞𝙤 𝘾𝙝𝙖𝙣𝙜𝙚𝙙 𝙎𝙪𝙘𝙘𝙚𝙨𝙨𝙛𝙪𝙡𝙡𝙮.")
     else:
@@ -69,16 +81,18 @@ async def set_name(_, message: Message):
     if msg:
         if msg.text:
             name = msg.text
-            if 1 in assistants:
-               ubot = us.one
+            ubot = _get_ubot()
+        if not ubot:
+            return await message.reply_text("Assistant not connected!")
             await ubot.update_profile(first_name=name)
             return await message.reply_text(
                 f"» {ubot.me.mention} 𝙉𝙖𝙢𝙚 𝘾𝙝𝙖𝙣𝙜𝙚𝙙 𝙎𝙪𝙘𝙘𝙚𝙨𝙨𝙛𝙪𝙡𝙡𝙮."
             )
     elif len(message.command) != 1:
         name = message.text.split(None, 1)[1]
-        if 1 in assistants:
-           ubot = us.one
+        ubot = _get_ubot()
+        if not ubot:
+            return await message.reply_text("Assistant not connected!")
         await ubot.update_profile(first_name=name, last_name="")
         return await message.reply_text(f"» {ubot.me.mention} 𝙉𝙖𝙢𝙚 𝘾𝙝𝙖𝙣𝙜𝙚𝙙 𝙎𝙪𝙘𝙘𝙚𝙨𝙨𝙛𝙪𝙡𝙡𝙮.")
     else:

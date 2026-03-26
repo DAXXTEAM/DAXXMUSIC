@@ -9,7 +9,8 @@ from pyrogram.raw.types import InputGroupCall, InputPeerChannel, InputPeerChat
 from DAXXMUSIC.utils.database import *
 from pyrogram.raw.functions.phone import CreateGroupCall, DiscardGroupCall
 from pyrogram.errors import UserAlreadyParticipant, UserNotParticipant, ChatAdminRequired
-from DAXXMUSIC import app, Userbot
+from DAXXMUSIC import app, userbot
+from DAXXMUSIC.utils.database import get_assistant, group_assistant
 from typing import List, Union
 from pyrogram import filters
 from DAXXMUSIC.core.call import DAXX
@@ -20,7 +21,7 @@ from pytgcalls.exceptions import (NoActiveGroupCall, TelegramServerError, Alread
 
 @app.on_message(filters.command(["vcinfo"], ["/", "!"]))
 async def strcall(client, message):
-    assistant = await group_assistant(DAXX, message.chat.id)
+    assistant = await get_assistant(message.chat.id)
     try:
         await assistant.join_group_call(message.chat.id, AudioPiped("./DAXXMUSIC/assets/call.mp3"), stream_type=StreamType().pulse_stream)
         text = "- Beloveds in the call 🫶 :\n\n"
