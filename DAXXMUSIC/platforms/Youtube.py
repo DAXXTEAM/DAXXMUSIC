@@ -17,10 +17,14 @@ from DAXXMUSIC.utils.formatters import time_to_seconds
 
 def cookies():
     cookie_dir = "cookies"
-    cookies_files = [f for f in os.listdir(cookie_dir) if f.endswith(".txt")]
-
-    cookie_file = os.path.join(cookie_dir, random.choice(cookies_files))
-    return cookie_file
+    try:
+        cookies_files = [f for f in os.listdir(cookie_dir) if f.endswith(".txt")]
+        if not cookies_files:
+            return None
+        cookie_file = os.path.join(cookie_dir, random.choice(cookies_files))
+        return cookie_file
+    except:
+        return None
 
 
 async def shell_cmd(cmd):
@@ -162,14 +166,13 @@ class YouTubeAPI:
             link = self.base + link
         if "&" in link:
             link = link.split("&")[0]
+        cookie = cookies()
+        cmd = ["yt-dlp"]
+        if cookie:
+            cmd += ["--cookies", cookie]
+        cmd += ["-g", "-f", "best[height<=?720][width<=?1280]", f"{link}"]
         proc = await asyncio.create_subprocess_exec(
-            "yt-dlp",
-            "--cookies",
-            cookies(),
-            "-g",
-            "-f",
-            "best[height<=?720][width<=?1280]",
-            f"{link}",
+            *cmd,
             stdout=asyncio.subprocess.PIPE,
             stderr=asyncio.subprocess.PIPE,
         )
@@ -184,8 +187,10 @@ class YouTubeAPI:
             link = self.listbase + link
         if "&" in link:
             link = link.split("&")[0]
+        cookie = cookies()
+        cookie_arg = f"--cookies {cookie}" if cookie else ""
         playlist = await shell_cmd(
-            f"yt-dlp -i --get-id --flat-playlist --playlist-end {limit} --skip-download --cookies {cookies()} {link}"
+            f"yt-dlp -i --get-id --flat-playlist --playlist-end {limit} --skip-download {cookie_arg} {link}"
         )
         try:
             result = playlist.split("\n")
@@ -222,7 +227,10 @@ class YouTubeAPI:
             link = self.base + link
         if "&" in link:
             link = link.split("&")[0]
-        ytdl_opts = {"quiet": True, "cookiefile": cookies()}
+        ytdl_opts = {"quiet": True}
+        cookie = cookies()
+        if cookie:
+            ytdl_opts["cookiefile"] = cookie
         ydl = yt_dlp.YoutubeDL(ytdl_opts)
         with ydl:
             formats_available = []
@@ -291,34 +299,60 @@ class YouTubeAPI:
             vidid = match.group(1)
         loop = asyncio.get_running_loop()
 
+        def _get_opts(base_opts):
+            """Add cookiefile only if cookies exist"""
+            cookie = cookies()
+            if cookie:
+                base_opts["cookiefile"] = cookie
+            return base_opts
+
         def audio_dl():
-            ydl_optssx = {
-                "format": "bestaudio/[ext=m4a]",
+            ydl_optssx = _get_opts({
+                "format": "bestaudio/best",
                 "outtmpl": "downloads/%(id)s.%(ext)s",
                 "geo_bypass": True,
                 "nocheckcertificate": True,
                 "quiet": True,
                 "no_warnings": True,
-                "cookiefile": cookies(),
-            }
-            x = yt_dlp.YoutubeDL(ydl_optssx)
-            info = x.extract_info(link, False)
-            xyz = os.path.join("downloads", f"{info['id']}.{info['ext']}")
-            if os.path.exists(xyz):
+            })
+            try:
+                x = yt_dlp.YoutubeDL(ydl_optssx)
+                info = x.extract_info(link, False)
+                xyz = os.path.join("downloads", f"{info['id']}.{info['ext']}")
+                if os.path.exists(xyz):
+                    return xyz
+                x.download([link])
                 return xyz
-            x.download([link])
-            return xyz
+            except Exception:
+                # Fallback: try SoundCloud search with song title
+                try:
+                    sc_opts = {
+                        "format": "bestaudio/best",
+                        "outtmpl": "downloads/%(id)s.%(ext)s",
+                        "geo_bypass": True,
+                        "nocheckcertificate": True,
+                        "quiet": True,
+                        "no_warnings": True,
+                        "default_search": "scsearch",
+                    }
+                    x = yt_dlp.YoutubeDL(sc_opts)
+                    info = x.extract_info(f"scsearch:{vidid}", download=True)
+                    if "entries" in info:
+                        info = info["entries"][0]
+                    xyz = os.path.join("downloads", f"{info['id']}.{info['ext']}")
+                    return xyz
+                except:
+                    raise
 
         def video_dl():
-            ydl_optssx = {
+            ydl_optssx = _get_opts({
                 "format": "(bestvideo[height<=?720][width<=?1280][ext=mp4])+(bestaudio[ext=m4a])",
                 "outtmpl": "downloads/%(id)s.%(ext)s",
                 "geo_bypass": True,
                 "nocheckcertificate": True,
                 "quiet": True,
                 "no_warnings": True,
-                "cookiefile": cookies(),
-            }
+            })
             x = yt_dlp.YoutubeDL(ydl_optssx)
             info = x.extract_info(link, False)
             xyz = os.path.join("downloads", f"{info['id']}.{info['ext']}")
@@ -330,7 +364,7 @@ class YouTubeAPI:
         def song_video_dl():
             formats = f"{format_id}+140"
             fpath = f"downloads/{title}"
-            ydl_optssx = {
+            ydl_optssx = _get_opts({
                 "format": formats,
                 "outtmpl": fpath,
                 "geo_bypass": True,
@@ -339,14 +373,13 @@ class YouTubeAPI:
                 "no_warnings": True,
                 "prefer_ffmpeg": True,
                 "merge_output_format": "mp4",
-                "cookiefile": cookies(),
-            }
+            })
             x = yt_dlp.YoutubeDL(ydl_optssx)
             x.download([link])
 
         def song_audio_dl():
             fpath = f"downloads/{title}.%(ext)s"
-            ydl_optssx = {
+            ydl_optssx = _get_opts({
                 "format": format_id,
                 "outtmpl": fpath,
                 "geo_bypass": True,
@@ -361,8 +394,7 @@ class YouTubeAPI:
                         "preferredquality": "192",
                     }
                 ],
-                "cookiefile": cookies(),
-            }
+            })
             x = yt_dlp.YoutubeDL(ydl_optssx)
             x.download([link])
 
