@@ -36,7 +36,7 @@ numpy
 openai==0.28.0
 opencv-python
 pickledb
-pillow==10.3.0
+pillow==12.2.0
 psutil
 ntgcalls
 py-tgcalls==0.9.7  # Only one version of py-tgcalls is specified
@@ -60,7 +60,7 @@ speedtest-cli
 SpeechRecognition
 spotipy
 stripe==10.7.0
-mysql-connector-python==9.0.0
+mysql-connector-python==9.1.0
 telebot==0.0.5
 youtube_dl==2021.12.17
 git+https://github.com/DAXXTEAM/daxxhub
